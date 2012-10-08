@@ -49,6 +49,7 @@
  <rule ref="Generic.PHP.ForbiddenFunctions"/>
 
  <rule ref="Squiz.Operators.IncrementDecrementUsage"/>
+ <rule ref="Squiz.WhiteSpace.ScopeClosingBrace"/>
 
  <rule ref="Squiz.Scope.StaticThisUsage"/>
 
