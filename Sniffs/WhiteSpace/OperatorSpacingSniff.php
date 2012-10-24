@@ -193,6 +193,7 @@ class Joomla_Sniffs_WhiteSpace_OperatorSpacingSniff implements PHP_CodeSniffer_S
                 T_DOUBLE_ARROW,
                 T_COLON,
                 T_INLINE_THEN, // the ternary "?"
+                T_CASE,
                 );
 
                 if(in_array($tokens[$prev]['code'], $invalidTokens) === true)
