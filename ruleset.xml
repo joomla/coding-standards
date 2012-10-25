@@ -6,11 +6,9 @@
  <exclude-pattern>*\.js</exclude-pattern>
 
  <!-- Exclude 3rd party libraries. -->
- <exclude-pattern>*/phputf8/*</exclude-pattern>
- <exclude-pattern>*/simplepie/*</exclude-pattern>
- <exclude-pattern>*/phpmailer/phpmailer.php</exclude-pattern>
- <exclude-pattern>*/phpmailer/smtp.php</exclude-pattern>
- <exclude-pattern>*/phpmailer/pop3.php</exclude-pattern>
+ <exclude-pattern>*phputf8/*</exclude-pattern>
+ <exclude-pattern>*simplepie/*</exclude-pattern>
+ <exclude-pattern>*phpmailer/*</exclude-pattern>
  <exclude-pattern>*/mootree*.css</exclude-pattern>
  <exclude-pattern>*/mooRainbow.css</exclude-pattern>
  <exclude-pattern>*/modal.css</exclude-pattern>
