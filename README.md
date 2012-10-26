@@ -1,7 +1,10 @@
 Joomla Coding Standards
 =======================
 
-This repository includes the [Joomla](http://developer.joomla.org) coding standard definition for [PHP Codesniffer](http://pear.php.net/PHP_CodeSniffer) along with a few other helpful resources.  The PHP_CodeSniffer standard will never be 100% accurate, but should be viewed as a strong set of guidelines while writing software for Joomla.
+This repository includes the [Joomla](http://developer.joomla.org) coding standard definition for 
+[PHP Codesniffer](http://pear.php.net/PHP_CodeSniffer) along with a few other helpful resources.
+The PHP_CodeSniffer standard will never be 100% accurate, but should be viewed as a strong set of
+guidelines while writing software for Joomla.
 
 ## Requirements
 
