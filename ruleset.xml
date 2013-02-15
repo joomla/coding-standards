@@ -12,6 +12,10 @@
  <exclude-pattern>*/mootree*.css</exclude-pattern>
  <exclude-pattern>*/mooRainbow.css</exclude-pattern>
  <exclude-pattern>*/modal.css</exclude-pattern>
+ 
+ <!-- Exclude folders not containing production or test PHP code. -->
+ <exclude-pattern>*build/*</exclude-pattern>
+ <exclude-pattern>*docs/*</exclude-pattern>
 
  <!-- Include all sniffs in an external standard directory -->
 
