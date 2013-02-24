@@ -54,7 +54,6 @@ class Joomla_Sniffs_NamingConventions_ValidVariableNameSniff extends PHP_CodeSni
         }
 
         $memberName     = ltrim($tokens[$stackPtr]['content'], '$');
-        $isPublic       = ($memberProps['scope'] === 'private') ? false : true;
         $scope          = $memberProps['scope'];
         $scopeSpecified = $memberProps['scope_specified'];
 
@@ -88,16 +87,8 @@ class Joomla_Sniffs_NamingConventions_ValidVariableNameSniff extends PHP_CodeSni
 			$isDeprecated = false;
 		}
 
-        // If it's a private member, it must have an underscore on the front.
-        if ($isPublic === false && $memberName{0} !== '_') {
-            $error = 'Private member variable "%s" must be prefixed with an underscore';
-            $data  = array($memberName);
-            $phpcsFile->addError($error, $stackPtr, 'PrivateNoUnderscore', $data);
-            return;
-        }
-
-        // If it's not a private member, it must not have an underscore on the front.
-        if ($isDeprecated === false && $isPublic === true && $scopeSpecified === true && $memberName{0} === '_') {
+	    // Member vars must not be prefixed by an underscore.
+        if ($isDeprecated === false && $scopeSpecified === true && $memberName{0} === '_') {
             $error = '%s member variable "%s" must not be prefixed with an underscore';
             $data  = array(
                       ucfirst($scope),
