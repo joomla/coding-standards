@@ -2,21 +2,6 @@
 <ruleset name="Joomla">
  <description>The Joomla coding standard.</description>
 
- <!-- Exclude all javascript files. There are bugs and we don't have any rules anyways. -->
- <exclude-pattern>*\.js</exclude-pattern>
-
- <!-- Exclude 3rd party libraries. -->
- <exclude-pattern>*phputf8/*</exclude-pattern>
- <exclude-pattern>*simplepie/*</exclude-pattern>
- <exclude-pattern>*phpmailer/*</exclude-pattern>
- <exclude-pattern>*/mootree*.css</exclude-pattern>
- <exclude-pattern>*/mooRainbow.css</exclude-pattern>
- <exclude-pattern>*/modal.css</exclude-pattern>
- 
- <!-- Exclude folders not containing production or test PHP code. -->
- <exclude-pattern>*build/*</exclude-pattern>
- <exclude-pattern>*docs/*</exclude-pattern>
-
  <!-- Include all sniffs in an external standard directory -->
 
  <!-- Include some additional sniffs from the Generic standard -->
