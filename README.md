@@ -5,6 +5,8 @@ This repository includes the [Joomla](http://developer.joomla.org) coding standa
 
 See Joomla coding standards documentation at [http://joomla.github.io/coding-standards/](http://joomla.github.io/coding-standards/)
 
+If you want to contribute and improve this documentation find the source files at [https://github.com/joomla/coding-standards/tree/gh-pages](https://github.com/joomla/coding-standards/tree/gh-pages)
+
 ## Requirements
 
 * PHP 5.3+
