@@ -153,15 +153,8 @@ class Joomla_Sniffs_NamingConventions_ValidFunctionNameSniff extends PHP_CodeSni
 			 return false;
 		}
 
-        // If it's a private method, it must have an underscore on the front.
-        if ($isPublic === false && $methodName{0} !== '_') {
-            $error = 'Private method name "%s" must be prefixed with an underscore';
-            $phpcsFile->addError($error, $stackPtr, 'PrivateNoUnderscore', $errorData);
-            return;
-        }
-
-        // If it's not a private method, it must not have an underscore on the front.
-        if ($isDeprecated === false && $isPublic === true && $scopeSpecified === true && $methodName{0} === '_') {
+        // Methods must not have an underscore on the front.
+        if ($isDeprecated === false && $scopeSpecified === true && $methodName{0} === '_') {
             $error = '%s method name "%s" must not be prefixed with an underscore';
             $data  = array(
                       ucfirst($scope),
@@ -251,7 +244,7 @@ class Joomla_Sniffs_NamingConventions_ValidFunctionNameSniff extends PHP_CodeSni
         // If it has a package part, make sure the first letter is a capital.
         if ($packagePart !== '') {
             if ($functionName{0} === '_') {
-                $error = 'Function name "%s" is invalid; only private methods should be prefixed with an underscore';
+                $error = 'Function name "%s" is invalid; methods should not be prefixed with an underscore';
                 $phpcsFile->addError($error, $stackPtr, 'FunctionUnderscore', $errorData);
                 return;
             }
