@@ -5,6 +5,8 @@
 	<!-- Include all sniffs in an external standard directory -->
 
 	<!-- Include some additional sniffs from the Generic standard -->
+	<rule ref="Generic.CodeAnalysis.UselessOverridingMethod" />
+	<rule ref="Generic.Files.EndFileNewline" />
 	<!-- Use Unix newlines -->
 	<rule ref="Generic.Files.LineEndings">
 		<properties>
@@ -44,6 +46,7 @@
 	<rule ref="Squiz.CSS.MissingColon" />
 	<rule ref="Squiz.CSS.SemicolonSpacing" />
 	<rule ref="Squiz.Classes.SelfMemberReference" />
+	<rule ref="Squiz.Commenting.DocCommentAlignment" />
 	<rule ref="Squiz.Operators.IncrementDecrementUsage">
 		<exclude name="Squiz.Operators.IncrementDecrementUsage.processAssignment" />
 	</rule>
