@@ -1,7 +1,7 @@
 ## IDE auto formatters
 
-* Eclipse PDT3
-@todo
+* Eclipse PDT
+Go to Preferences->PHP->Code style->Formatter and Import ```eclipse_pdt3_formatter.xml```
 * Zend studio
 @todo
 * PHPStorm
