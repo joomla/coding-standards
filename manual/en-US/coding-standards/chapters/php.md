@@ -8,6 +8,16 @@ For files that contain only PHP code, the closing tag (`?>`) should not be inclu
 
 Files should always end with a blank new line.
 
+### General
+
+Pursuant to PSR-2 [Keywords and True/False/Null][]
+
+> PHP [keywords][] MUST be in lower case.
+> The PHP constants `true`, `false`, and `null` MUST be in lower case.
+
+[Keywords and True/False/Null]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md#25-keywords-and-truefalsenull
+[keywords]: http://php.net/manual/en/reserved.keywords.php
+
 ### Including Code
 
 Anywhere you are unconditionally including a file, use `require_once`. Anywhere you are conditionally including a file (for example, factory methods), use `include_once`. Either of these will ensure that files are included only once. They share the same file list, so you don't need to worry about mixing them. A file included with `require_once` will not be included again by `include_once`.
