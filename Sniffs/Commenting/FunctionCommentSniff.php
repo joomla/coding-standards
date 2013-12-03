@@ -276,17 +276,17 @@ class Joomla_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniffer_S
     protected function processReturn($commentStart, $commentEnd)
     {
         // Skip constructor and destructor.
-        $className = '';
-        if ($this->_classToken !== null) {
-            $className = $this->currentFile->getDeclarationName($this->_classToken);
-            $className = strtolower(ltrim($className, '_'));
+        if ($this->_methodName === '__construct' || $this->_methodName === '__destruct') {
+	        if ($this->commentParser->getReturn() != null)
+	        {
+		        $error    = 'Constructor and destructor comments must not have a @return tag';
+		        $errorPos = ($this->commentParser->getReturn()->getLine() + $commentStart);
+		        $this->currentFile->addError($error, $errorPos, 'UselessReturn');
+	        }
         }
-
-        $methodName      = strtolower(ltrim($this->_methodName, '_'));
-        $isSpecialMethod = ($this->_methodName === '__construct' || $this->_methodName === '__destruct');
-
-        if ($isSpecialMethod === false && $methodName !== $className) {
-            // Report missing return tag.
+        else
+        {
+	        // Report missing return tag.
             if ($this->commentParser->getReturn() === null) {
                 $error = 'Missing @return tag in function comment';
                 $this->currentFile->addError($error, $commentEnd, 'MissingReturn');
@@ -301,15 +301,6 @@ class Joomla_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniffer_S
 	                $this->currentFile->addError($error, $errorPos, 'SpacingAfterReturn');
             	}
             }
-        }
-        else
-        {
-        	if ($this->commentParser->getReturn() != null)
-        	{
-        		$error    = 'Constructor and destructor comments must not have a @return tag';
-        		$errorPos = ($this->commentParser->getReturn()->getLine() + $commentStart);
-        		$this->currentFile->addError($error, $errorPos, 'UselessReturn');
-        	}
         }
     }//end processReturn()
 
