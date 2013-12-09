@@ -23,7 +23,7 @@ Installation is as easy as checking out the repository to the correct location w
 
 ### Install the Joomla standard.
 
-	git clone http://github.com/joomla/coding-standards.git `pear config-get php_dir`/PHP/CodeSniffer/Standards/Joomla
+	git clone https://github.com/joomla/coding-standards.git `pear config-get php_dir`/PHP/CodeSniffer/Standards/Joomla
 
 ## Running
 
