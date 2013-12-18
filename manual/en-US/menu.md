@@ -7,4 +7,4 @@
     - [PHP Code](coding-standards/chapters/php.md)
 
 - Appendices
-    - [Code Analysis](#/manual/en-US/appendices/analysis.md)
+    - [Code Analysis](appendices/analysis.md)
