@@ -1,10 +1,17 @@
 ## Basic Guidelines
 
-This chapter outlines the basic guidelines that cover and files.
+This chapter outlines the basic guidelines that cover the files contributed to Joomla.
 
 ## File Format
 
-All files contributed to Joomla must be stored as ASCII text, use UTF-8 character encoding and be Unix formatted. Lines must end only with a line feed (LF). Line feeds are represented as ordinal 10, octal 012 and hex 0A. Do not use carriage returns (CR) like Macintosh computers do or the carriage return/line feed combination (CRLF) like Windows computers do.
+All files contributed to Joomla must be: 
+
+* Stored as ASCII text
+* Use UTF-8 character encoding
+* Be Unix formatted. 
+**Lines must end only with a line feed (LF). 
+**Line feeds are represented as ordinal 10, octal 012 and hex 0A. 
+**Do not use carriage returns (CR) like Macintosh computers do or the carriage return/line feed combination (CRLF) like Windows computers do.
 
 ## Spelling
 
