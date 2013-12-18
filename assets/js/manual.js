@@ -63,7 +63,7 @@ window.addEvent('domready', function() {
 	}
 	else
 	{
-		var currentDoc = "chapters/introduction.md";
+		var currentDoc = "manual/en-US/coding-standards/introduction.md";
 	}
 
 	marked.setOptions({

@@ -1,4 +1,4 @@
-- [Home](coding-standards/introduction.md)
+- [Home](coding-standards/chapters/introduction.md)
 - Coding Standards
     - [Preface](coding-standards/chapters/preface.md)
     - [Source Code Management](coding-standards/chapters/source-code-management.md)
