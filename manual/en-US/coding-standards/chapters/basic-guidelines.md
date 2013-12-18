@@ -1,6 +1,6 @@
 ## Basic Guidelines
 
-This chapter outlines the basic guidelines that cover the files contributed to Joomla.
+This chapter outlines the basic guidelines covering files contributed to the Joomla project.
 
 ## File Format
 
@@ -8,14 +8,15 @@ All files contributed to Joomla must be:
 
 * Stored as ASCII text
 * Use UTF-8 character encoding
-* Be Unix formatted. 
-**Lines must end only with a line feed (LF). 
-**Line feeds are represented as ordinal 10, octal 012 and hex 0A. 
-**Do not use carriage returns (CR) like Macintosh computers do or the carriage return/line feed combination (CRLF) like Windows computers do.
+* Be Unix formatted following these rules. 
+	1. Lines must end only with a line feed (LF). 
+	2. Line feeds are represented as ordinal 10, octal 012 and hex 0A. 
+	3. Do not use carriage returns (CR) like Macintosh computers do or the carriage return/line feed combination (CRLF) like Windows computers do.
 
 ## Spelling
 
-The spelling of words and terms used in code comments and in the naming of class, functions, variables and constant should generally be in accordance with British English rules (en\_GB). However, some exceptions are permitted, for example where common programming names are used that align with the PHP API or other established conventions such as for “color” where is it common practice to maintain US English spelling.
+The spelling of words and terms used in code comments and in the naming of class, functions, variables and constant should generally be in accordance with British English rules (en\_GB). 
+Some exceptions are permitted, for example where common programming names are used that align with the PHP API or other established conventions such as for `color` where is it common practice to maintain US English spelling.
 
 ## Indenting
 
