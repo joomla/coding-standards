@@ -1,4 +1,4 @@
-
+![](/manual/en-US/coding-standards/joomla_coding_standards_manual.png)
 
 Good coding standards are important in any development project, but it is particularly important when multiple developers are contributing to a project. One of the things that sets good software apart from great software is not only the features or the actual function the software performs, but the quality of its source code. 
 
