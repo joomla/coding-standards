@@ -1,5 +1,5 @@
-- [Preface](coding-standards/preface.md)
 - Coding Standards
+- [Preface](coding-standards/preface.md)
 - [Source Code Management](coding-standards/chapters/source-code-management.md)
 - [Basic Guidelines](coding-standards/chapters/basic-guidelines.md)
 - [Comments](coding-standards/chapters/comments.md)
