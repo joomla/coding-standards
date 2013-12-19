@@ -1,4 +1,4 @@
-## Comments
+### Comments
 
 This chapter covers inline commenting in more detail. Inline comments are all comments not included in doc blocs. The goal of in line commenting is to explain code in context. Such explanation may take many different forms.
 
@@ -8,7 +8,7 @@ Comments should be as sentence like as possible, which is to say that they shoul
 
 Comments are not a replacement for detailed doc blocks. Comments serve to explain the logic and structure of code itself rather than the use of code.
 
-## Formatting of Comments
+### Formatting of Comments
 
 Comment blocks that introduce large sections of code and are more than 2 lines long should use `/* */` (C) style and should use `*` on each line with the same space/tab rules as doc blocks. If you need a large introduction consider whether this block should be separated into a method to reduce complexity and therefore providing a full docblock.
 
@@ -22,7 +22,7 @@ Comments should align with the code they refer to, using the same indenting as t
 
 Comments should be indented with tabs (like code, not like doc blocks).
 
-## Content of comments
+### Content of comments
 
 Comments should use en-GB (See below).
 
@@ -46,23 +46,23 @@ Comments may include forward looking statements of how something will be extende
 
 Remember that humor and sarcasm are difficult to translate.
 
-## Acronyms
+### Acronyms
 
 Capitalise all letters of acronyms such as HTML, XML, SQL, GMT, and UTC. This is an exception to the general use of en-GB rules.
 
-## Common spelling and grammar errors for which to check.
+### Common spelling and grammar errors for which to check.
 
 Joomla contributors include many non-native speakers of en-GB which makes it understandable that there are sometimes spelling and grammar errors. At the same time, some people reading comments also are non native speakers and may even use automated translation to understand comments. This makes it very important that comments should follow proper en-GB spelling and grammar rules. Unfortunately, these can be tricky.
 
 Wikipedia provides a good summary of common differences between en-US and en-GB. http://en.wikipedia.org/wiki/American\_and\_British\_English\_spelling\_differences Note that there are some instances where en-GB common usage (but not actual rules) varies slightly from en-AU and using en-AU is considered acceptable.
 
-### S vs Z
+#### S vs Z
 
 en-GB most commonly uses `ise` where en-US would use `ize`, such as `normalise` instead of `normalize`. (Note that there are some exceptions to this rule and some differences between en-GB and en-AU in common usage.)
 
 Use of apostrophes is one of the trickier parts of English.
 
-### Lets versus let’s
+#### Lets versus let’s
 
 Lets means permits or allows to:
 
@@ -76,7 +76,7 @@ Let’s is a contraction for let us and means we are going to do this now:
 // Let's validate the field
 ```
 
-### Its versus it’s
+#### Its versus it’s
 
 Its is the possessive form of it:
 
@@ -90,7 +90,7 @@ It’s is a contraction of it is
 // It's time to save
 ```
 
-### The correct Joomla spelling of some commonly used words.
+#### The correct Joomla spelling of some commonly used words.
 
 -   Dependant
 
