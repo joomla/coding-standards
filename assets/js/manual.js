@@ -64,10 +64,12 @@ window.addEvent('domready', function() {
 	else
 	{
 		var currentDoc = "coding-standards/introduction.md";
-		var elem = document.createElement("img");
-		elem.setAttribute("src", "https://github.com/Hutchy68/coding-standards/blob/gh-pages/manual/en-US/coding-standards/joomla_coding_standards_manual.png?raw=true");
-		elem.setAttribute("alt", "Manual Graphic");
-		document.getElementById("manual-image").appendChild("elem");
+		window.onload=function(){
+			var elem = document.createElement("img");
+			elem.setAttribute("src", "https://github.com/Hutchy68/coding-standards/blob/gh-pages/manual/en-US/coding-standards/joomla_coding_standards_manual.png?raw=true");
+			elem.setAttribute("alt", "Manual Graphic");
+			document.getElementById("manual-image").appendChild("elem");
+		}
 	}
 
 	marked.setOptions({
