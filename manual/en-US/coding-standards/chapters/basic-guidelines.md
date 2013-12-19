@@ -1,4 +1,4 @@
-### Basic Guidelines
+## Basic Guidelines
 
 This chapter outlines the basic guidelines covering files contributed to the Joomla project. The most important rule to remember when coding for the Joomla project, **if in doubt, please ask**. 
 
@@ -26,6 +26,6 @@ Tabs are used for indenting code (not spaces as required by the PEAR standard). 
 
 There is no maximum limit for line lengths in files, however, a notional value of about 150 characters is recommended to achieve a good level of readability without horizontal scrolling. Longer lines are permitted if the nature of the code for individual lines requires it and line breaks would have an adverse affect on the final output (such as for mixed PHP/HTML layout files).
 
-### Best Practices
+## Best Practices
 
 TODO Any words of wisdom about PHP best practice, maybe even references for design patterns? Can/should we link out to the JRD, Doc wiki and Developer site for additional resources?
