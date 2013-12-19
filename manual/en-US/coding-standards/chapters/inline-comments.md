@@ -1,6 +1,6 @@
-## Code Comments
+## Inline Code Comments
 
-This chapter covers inline commenting in more detail. Inline comments are all comments not included in doc blocs. The goal of in line commenting is to explain code in context. Such explanation may take many different forms.
+This chapter covers inline code commenting in more detail. Inline comments are all comments not included in doc blocs. The goal of in line commenting is to explain code in context. Such explanation may take many different forms.
 
 Comments that are written in a readable and narrative style, especially when explaining a complex process, are encouraged. In general they should be placed close to the code explained rather than before the entire block of code.
 
