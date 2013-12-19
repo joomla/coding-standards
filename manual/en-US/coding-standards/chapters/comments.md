@@ -1,4 +1,4 @@
-## Comments
+## Code Comments
 
 This chapter covers inline commenting in more detail. Inline comments are all comments not included in doc blocs. The goal of in line commenting is to explain code in context. Such explanation may take many different forms.
 

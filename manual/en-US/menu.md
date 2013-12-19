@@ -2,7 +2,7 @@
 - [Source Code Management](coding-standards/chapters/source-code-management.md)
 - **Coding Standards**
     - [Basic Guidelines](coding-standards/chapters/basic-guidelines.md)
-    - [Comments](coding-standards/chapters/comments.md)
+    - [Code Comments](coding-standards/chapters/comments.md)
     - [PHP Code](coding-standards/chapters/php.md)
 - **Appendices**
     - [Code Analysis](appendices/analysis.md)
