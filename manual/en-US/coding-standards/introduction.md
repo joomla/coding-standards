@@ -1,6 +1,6 @@
 ### Introduction
 
-Good coding standards are important in any development project, but it is particularly important when a large and diverse group of developers are contributing to a project. One of the things that sets good software apart from great software is not only the features or the actual function the software performs, but the quality of its source code. 
+Good coding standards are important in any software development project. These standards are even more important when a large, diverse and worldwide group of developers are contributing to a project. One of the things that sets good software apart from great software is not only the features or the actual function the software performs, but the quality of its source code. 
 
 In order to perform in the highly competitive Open Source and proprietary software industries, source code not only needs to be beautifully designed, it also needs to be beautiful and elegant to look at. The Joomla Coding Standards Manual is to help ensure our code is high quality, readable, and easily maintained. 
 
