@@ -1,10 +1,3 @@
-window.onload=function(){
-	var elem = document.createElement("img");
-	elem.setAttribute("src", "https://github.com/Hutchy68/coding-standards/blob/gh-pages/manual/en-US/coding-standards/joomla_coding_standards_manual.png?raw=true");
-	elem.setAttribute("alt", "Manual Graphic");
-	document.getElementById("manual-image").appendChild("elem");
-	}
-
 var populateWindow = function(link) {
 	var markdownRequest = new Request({
 		"url": here + 'manual/en-US/' + link,
