@@ -1,6 +1,6 @@
 ## Source Code Management
 
-Before we start talking about what code should look like, it is appropriate to look at how and where the source code is stored. All serious software projects, whether driven by an Open Source community or developed within a company for proprietary purposes will manage the source code is some sort of source or version management system.
+Before we start talking about what Joomla! code should look like, it is appropriate to look at how and where the source code is stored. All serious software projects, whether driven by an Open Source community or developed within a company for proprietary purposes will manage the source code is some sort of source or version management system. The Joomla project uses a Distributed Version Control System (DVCS) called Git hosted at [GitHub.com](http://github.com).
 
 ## The Joomla Framework
 
