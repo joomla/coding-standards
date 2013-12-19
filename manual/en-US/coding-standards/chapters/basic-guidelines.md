@@ -1,6 +1,6 @@
 ### Basic Guidelines
 
-This chapter outlines the basic guidelines covering files contributed to the Joomla project.
+This chapter outlines the basic guidelines covering files contributed to the Joomla project. The most important rule to remember when coding for the Joomla project, **if in doubt, please ask**. 
 
 ### File Format
 

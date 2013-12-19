@@ -4,8 +4,6 @@ Good coding standards are important in any software development project. These s
 
 In order to perform in the highly competitive Open Source and proprietary software industries, source code not only needs to be beautifully designed, it also needs to be beautiful and elegant to look at. The Joomla Coding Standards Manual is to help ensure our code is high quality, readable, and easily maintained. 
 
-The most important rule to remember when coding for the Joomla project, **if in doubt, please ask**. 
-
 ### Guiding Principles
 
 Because readable code is more maintainable, the compass that guides us in achieving that goal is a set of well thought out coding standards for the different software languages that are employed in the Joomla software project. Joomla has a solid heritage of striving to support a great looking product with great looking code. 
