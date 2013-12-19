@@ -1,4 +1,4 @@
-![](https://github.com/Hutchy68/coding-standards/blob/gh-pages/manual/en-US/coding-standards/joomla_coding_standards_manual.png?raw=true)
+### Introduction
 
 Good coding standards are important in any development project, but it is particularly important when a large and diverse group of developers are contributing to a project. One of the things that sets good software apart from great software is not only the features or the actual function the software performs, but the quality of its source code. 
 
