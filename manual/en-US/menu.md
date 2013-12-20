@@ -1,9 +1,10 @@
-- Coding Standards
-- [Preface](coding-standards/preface.md)
+- [Introduction](coding-standards/introduction.md)
 - [Source Code Management](coding-standards/chapters/source-code-management.md)
-- [Basic Guidelines](coding-standards/chapters/basic-guidelines.md)
-- [Comments](coding-standards/chapters/comments.md)
-- [PHP Code](coding-standards/chapters/php.md)
-
-- Appendices
-- [Code Analysis](appendices/analysis.md)
+- **Coding Standards**
+    - [Basic Guidelines](coding-standards/chapters/basic-guidelines.md)
+    - [Inline Code Comments](coding-standards/chapters/inline-comments.md)
+    - [DocBlocks](coding-standards/chapters/docblocks.md)
+    - [PHP Code](coding-standards/chapters/php.md)
+- **Appendices**
+    - [Code Analysis Tools](appendices/analysis.md)
+    - [Examples](appendices/examples.md)	
