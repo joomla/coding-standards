@@ -6,4 +6,5 @@
     - [DocBlocks](coding-standards/chapters/docblocks.md)
     - [PHP Code](coding-standards/chapters/php.md)
 - **Appendices**
-    - [Code Analysis](appendices/analysis.md)
+    - [Code Analysis Tools](appendices/analysis.md)
+    - [Examples](appendices/examples.md)	
