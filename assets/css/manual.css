@@ -51,3 +51,9 @@ h3 small {
 h4 small {
 	font-size:14px;
 }
+#version {
+	float:right;
+	font-size:.85em;
+	font-weight:bold;
+}
+}
