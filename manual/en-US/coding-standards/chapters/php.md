@@ -163,6 +163,8 @@ For example, do not include feature submissions like:
 //$code = broken($fixme);
 ```
 
+More details on inline code comments can be found in the chapter on [Inline Code Comments](coding-standards/chapters/inline-comments.md).
+
 ### Comment Docblocks
 
 Documentation headers for PHP and Javascript code in files, classes, class properties, methods and functions, called the docblocks, follow a convention similar to JavaDoc or phpDOC.

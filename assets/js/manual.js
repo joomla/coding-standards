@@ -52,6 +52,16 @@ var populateMenu = function() {
 	}).send();
 }
 
+var populateVersion = function() {
+	var versionRequest = new Request({
+		"url": here + 'manual/en-US/version.md',
+		"method": "get",
+		"onSuccess": function(response) {
+			$('version').set('html', marked(response));
+		}
+	}).send();
+}
+
 window.addEvent('domready', function() {
 	var urlParts = document.URL.split('?', 2);
 	state = {};
@@ -63,7 +73,7 @@ window.addEvent('domready', function() {
 	}
 	else
 	{
-		var currentDoc = "chapters/introduction.md";
+		var currentDoc = "coding-standards/introduction.md";
 	}
 
 	marked.setOptions({
@@ -78,6 +88,7 @@ window.addEvent('domready', function() {
 	})
 	populateMenu();
 	populateWindow(currentDoc);
+	populateVersion();
 
 	document.id('main').addEvent('click:relay(a)', function (event, target) {
 		if (target.get('href').substring(0, 4) != 'http' && target.get('href').substring(0, 1) != '#')
