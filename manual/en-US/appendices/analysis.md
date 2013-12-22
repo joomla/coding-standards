@@ -8,18 +8,21 @@ In order to improve the consistency and readability of the source code, the Joom
 
 ### Running CodeSniffer
 
-The Joomla Platform sniffer rules are written to be used with a tool
-called PHP\_CodeSniffer. Please see the [PHP\_CodeSniffer Pear
+The Joomla Coding Standards sniffer rules are written to be used with a tool called PHP CodeSniffer. Please see the [PHP CodeSniffer Pear
 Page](http://pear.php.net/package/PHP_CodeSniffer) for information on
-installing PHP\_CodeSniffer on your system.
+installing PHP CodeSniffer on your system.
 
-You can run the CodeSniffer by going to the platform root directory and
-executing `phpcs --report=checkstyle
-      --report-file=build/logs/checkstyle.xml --standard=/path/to/platform/build/phpcs/Joomla /path/to/platform`
+You can run the CodeSniffer by going to the CMS, Framework, or Issue Tracker's root directory and executing 
 
-Alternatively, if you have Ant installed on your system, you may run the
-CodeSniffer by going to the platform root directory and executing
-`ant phpcs`
+```
+phpcs --report=checkstyle --report-file=build/logs/checkstyle.xml --standard=/path/to/<your root>/build/phpcs/Joomla /path/to/<your root>
+```
+
+Alternatively, if you have Ant installed on your system, you may run the CodeSniffer by going to the `<root directory>` of the Joomla project's code you want to test and executing
+
+```
+ant phpcs
+```
 
 #### Known Issues
 
@@ -32,6 +35,3 @@ CodeSniffer by going to the platform root directory and executing
 Here are some other tools available to developers who are planning to submit source code to the project.
 
 ### PhpStorm Code Style Scheme
-
-
-
