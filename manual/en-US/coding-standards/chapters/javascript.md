@@ -332,15 +332,26 @@ $('.someElement')
 ```
 
 ### Hoisting
-
-// TODO
-
-
-// TODO
-
 ## Conditional Statements
 
-// TODO ternary/with braces
+Use ternary syntax if:
+
+- One condition
+- Result of either evaluation is one operation. 
+
+```
+joomlaRocks ? 'This is true' : 'else it is false';
+```
+
+Otherwise, use standard syntax:
+
+```
+if ( condition ) {
+	// statements
+} else {
+	// statements
+}
+```
 
 **Cache length in variable for performance:**
 
