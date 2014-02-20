@@ -322,14 +322,19 @@ myArr.push('foo');
 ## Functions
 
 ### Properties
+### Chaining Method Calls
 
-// TODO
+```
+$('.someElement')
+	.hide()
+	.delay(1000)
+	.fadeIn();
+```
 
 ### Hoisting
 
 // TODO
 
-### Chaining Method Calls
 
 // TODO
 
