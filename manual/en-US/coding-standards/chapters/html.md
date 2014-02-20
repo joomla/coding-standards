@@ -12,9 +12,9 @@ This prevents mixed content issues and results in minor file size savings.
 
 ```html
 <!-- Good -->
-<script src="//www.google.com/js/gweb/analytics/autotrack.js"></script>
+<link rel="stylesheet" href="//joomla.org/css/main.css">
 <!-- Bad -->
-<script src="http://www.google.com/js/gweb/analytics/autotrack.js"></script>
+<link rel="stylesheet" href="http://joomla.org/css/main.css">
 ```
 
 ### Type attributes
