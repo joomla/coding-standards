@@ -13,6 +13,7 @@ This prevents mixed content issues and results in minor file size savings.
 ```html
 <!-- Good -->
 <link rel="stylesheet" href="//joomla.org/css/main.css">
+
 <!-- Bad -->
 <link rel="stylesheet" href="http://joomla.org/css/main.css">
 ```
@@ -33,6 +34,7 @@ All html should be lowercase; element names, attributes, attribute values (unles
 ```html
 <!-- Good -->
 <img src="joomla.png" alt="Joomla">
+
 <!-- Bad -->
 <A HREF="/">Home</A>
 ```
