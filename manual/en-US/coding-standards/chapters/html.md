@@ -12,9 +12,10 @@ This prevents mixed content issues and results in minor file size savings.
 
 ```html
 <!-- Good -->
-<script src="//www.google.com/js/gweb/analytics/autotrack.js"></script>
+<link rel="stylesheet" href="//joomla.org/css/main.css">
+
 <!-- Bad -->
-<script src="http://www.google.com/js/gweb/analytics/autotrack.js"></script>
+<link rel="stylesheet" href="http://joomla.org/css/main.css">
 ```
 
 ### Type attributes
@@ -33,6 +34,7 @@ All html should be lowercase; element names, attributes, attribute values (unles
 ```html
 <!-- Good -->
 <img src="joomla.png" alt="Joomla">
+
 <!-- Bad -->
 <A HREF="/">Home</A>
 ```
