@@ -109,7 +109,7 @@ foo(function() {
 
 **Function with a callback, object, or array as the last argument:**
 
-**No space after the last argument:**
+No space after the last argument.
 
 ```
 foo( data, function() {
@@ -378,15 +378,14 @@ if ( condition &&
 
 Use strict equality operator === so that type is considered in comparison. Using == can produce false positives.
 
-// evaluates true
 
 ```
+// evaluates true
 1 == "1"
 ```
 
-// evaluates false
-
 ```
+// evaluates false
 1 === "1"
 ```
 
