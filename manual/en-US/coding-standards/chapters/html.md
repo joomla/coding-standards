@@ -24,8 +24,7 @@ Do not use type attributes for style sheets (unless not using CSS) and scripts (
 <link rel="stylesheet" href="//joomla.org/css/main.css">
 
 <!-- Bad -->
-<link rel="stylesheet" href="//joomla.org/css/main.css"
-  type="text/css">
+<link rel="stylesheet" href="//joomla.org/css/main.css" type="text/css">
 ```
 
 ### Capitalisation
