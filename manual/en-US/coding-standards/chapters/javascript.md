@@ -222,7 +222,9 @@ var foo = 'bar',
 
 ### String
 
-Concatenate long strings. Space separating each string should be at the end with the concatenation operator at the front of each subsequent string.
+- Concatenate long strings.
+- Place space before closing quote at the end of each string.
+- Concatenation operator at the end of each subsequent string.
 
 ```
 var longString = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' +
