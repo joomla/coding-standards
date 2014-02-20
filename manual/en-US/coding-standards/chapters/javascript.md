@@ -225,12 +225,12 @@ var foo = 'bar',
 Concatenate long strings. Space separating each string should be at the end with the concatenation operator at the front of each subsequent string.
 
 ```
-var longString = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
-    + 'Sed placerat, tellus eget egestas tincidunt, lectus dui '
-    + 'sagittis massa, id mollis est tortor a enim. In hac '
-    + 'habitasse platea dictumst. Duis erat justo, tincidunt ac '
-    + 'enim iaculis, malesuada condimentum mauris. Vestibulum vel '
-    + 'cursus mauris.';
+var longString = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' +
+    'Sed placerat, tellus eget egestas tincidunt, lectus dui ' +
+    'sagittis massa, id mollis est tortor a enim. In hac ' +
+    'habitasse platea dictumst. Duis erat justo, tincidunt ac ' +
+    'enim iaculis, malesuada condimentum mauris. Vestibulum vel ' +
+    'cursus mauris.';
 ```
 
 ```
@@ -351,9 +351,9 @@ for ( i = 0; i < j; i++ ) {
 **With more than one condition:**
 
 ```
-if ( condition
-	&& condition2
-	&& condition3 ) {
+if ( condition &&
+	condition2 &&
+	condition3 ) {
     // statements
 } else {
     // statements
