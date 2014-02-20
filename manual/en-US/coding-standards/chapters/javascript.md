@@ -397,7 +397,26 @@ if ( test ) {
 
 ## Comments
 
-// TODO
+**Single Line**
+
+- Place above the code it refers to.
+- A space between double forward slashes and comment text.
+
+`// I am a single line comment.`
+
+**Multiline**
+
+- Place above the code it refers to.
+- Opening token placed on the line above first comment line, closing placed below last comment line.
+- Each comment line begins with two astericks followed by a space.
+
+```
+/*
+** I am a multiline comment.
+** Line two
+** Line three
+*/
+```
 
 ---
 
@@ -408,7 +427,6 @@ if ( test ) {
 - Switch Statements
 - Equality Operators
 - Events
-- Comments
 - Add jQuery examples
 - Double check accuracy of all examples
 **With help from:**
