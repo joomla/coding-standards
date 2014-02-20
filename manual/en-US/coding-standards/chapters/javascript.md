@@ -90,7 +90,7 @@ for ( prop in object ) {
 
 #### Exceptions
 
-** First or only argument is an object, array or callback function.**
+**First or only argument is an object, array or callback function.**
 
 **No space before the first argument:**
 
@@ -108,8 +108,6 @@ foo(function() {
 ```
 
 **Function with a callback, object, or array as the last argument:**
-
-```
 
 **No space after the last argument:**
 
@@ -214,7 +212,7 @@ var baz = 'qux';
 
 ```
 var foo = 'bar',
-    bar = 'baz',
+	bar = 'baz',
     baz = 'qux';
 ```
 
@@ -420,7 +418,10 @@ if ( test ) {
 - Place above the code it refers to.
 - A space between double forward slashes and comment text.
 
-`// I am a single line comment.`
+```
+// I am a single line comment.
+```
+
 
 **Multiline**
 
