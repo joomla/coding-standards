@@ -378,12 +378,21 @@ if ( condition &&
 
 ### Equality
 
-// TODO
+Use strict equality operator === so that type is considered in comparison. Using == can produce false positives.
 
+// evaluates true
 
 ## Events
+```
+1 == "1"
+```
+
+// evaluates false
 
 // TODO
+```
+1 === "1"
+```
 
 
 ## Blocks & Multi-line Statements
