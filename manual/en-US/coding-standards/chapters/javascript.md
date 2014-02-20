@@ -8,7 +8,7 @@ Variables and Functions should be camel case, starting with a lowercase letter: 
 
 **Use names that describe what the string is:**
 
-`var element = document.getElementByID('elementId');`
+`var element = document.getElementById('elementId');`
 
 **Iterators are the exception**
 
