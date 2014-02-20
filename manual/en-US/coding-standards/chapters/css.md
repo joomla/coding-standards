@@ -71,7 +71,7 @@ Use dashes to create compound class names:
 ```
 
 ### Indentation
-Code should be indented one tab (equal to 4 spaces):
+Rules should be indented one tab (equal to 4 spaces):
 
 ```css
 /* Good */
@@ -84,7 +84,7 @@ Code should be indented one tab (equal to 4 spaces):
 .example {color: #000; visibility: hidden;}
 ```
 
-LESS/Scss should also be nested , with child rules indented again. Nested rules should also be spaced by one line:
+LESS/Scss should also be nested , with child selectors and rules indented again. Nested rules should also be spaced by one line:
 
 ```css
 /* Good */
