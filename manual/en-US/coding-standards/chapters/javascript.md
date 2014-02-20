@@ -1,122 +1,97 @@
 ## Naming Conventions
 
-Use descriptive words or terse phrases for names.
+Use descriptive words or abbreviated phrases for names, avoiding [reserved words](http://es5.github.io/#x7.6.1)
 
-Variables and Functions should be camel case, starting with a lowercase letter: `likeThis`
+Variable and function names should be camel case, starting with a lowercase letter. The only exception to this is
+for where a function is intended to be invoked with the `new` prefix. In that case, the function name must start
+with a capital letter.
 
-### Strings
+Examples:
 
-**Use names that describe what the string is:**
+```javascript
+var scalar = 'ABC123';
 
-`var element = document.getElementById('elementId');`
-
-**Iterators are the exception**
-
-Use i for index in a loop (and subsequent letters when necessary for nested iteration).
-
-### Functions
-
-**Use names that describe what the function does:**
-
-```
-function getSomeData() {
-	// statements
+var anObject = {
+    foo: 'bar'
 }
+
+var squared = function(a) {
+    return a * a;
+}
+
+console.log(squared(2));
+
+var Class = function(name) {
+    this.name = name;
+}
+
+var myClass = new Class('foo');
 ```
-
-### Reserved Words
-
-Do not use reserved words for anything other than their intended use. The list of: [Reserved Words](http://es5.github.io/#x7.6.1)
-
----
-
-## Syntax Style
-
-### Indentation
-- Don't mix tabs and spaces.
-- Tabs, 4 spaces
-
 
 ### Spacing
-- No whitespace at the end of line or on blank lines.
-- Unary special-character operators (e.g., !, ++) must not have space next to their operand.
-- Any , and ; must not have preceding space.
-- Any ; used as a statement terminator must be at the end of the line.
-- Any : after a property name in an object definition must not have preceding space.
-- The ? and : in a ternary conditional must have space on both sides.
+- Unary special-character operators (e.g., `!`, `++`) must not have space next to their operand.
+- Any `,` and `;` must not have preceding space.
+- Any `;` used as a statement terminator must be at the end of the line.
+- Any `:` after a property name in an object definition must not have preceding space.
+- The `?` and `:` in a ternary conditional must have space on both sides.
 - No filler spaces in empty constructs (e.g., {}, [], fn())
-- New line at the end of each file.
 
-**Array:**
+**Examples**
 
-```
-var array = [ 'foo', 'bar' ];
-```
+```javascript
+//
+// Arrays.
+//
 
-**Function call:**
+var array = ['foo', 'bar'];
 
-```
-foo( arg );
-```
+//
+// Function calls.
+//
 
-**Function call with multiple arguments:**
+foo(arg);
 
-```
-foo( 'string', object );
-```
+// Function call with multiple arguments.
+foo('string', object);
 
-**Conditional Statements**
+//
+// Conditional blocks.
+//
 
-```
-if ( condition ) {
-    // statements
-} else {
+if (condition) {
     // statements
 }
-```
-
-```
-while ( condition ) {
+else {
     // statements
 }
-```
 
-```
-for ( prop in object ) {
+while (condition) {
     // statements
 }
-```
 
+for (prop in object) {
+    // statements
+}
 
-#### Exceptions
+//
+// Objects and functions as arguments.
+//
 
-**First or only argument is an object, array or callback function.**
-
-**No space before the first argument:**
-
-```
+// First or only argument is an object, array or callback function.**
 foo({
     a: 'bar',
     b: 'baz'
 });
-```
 
-```
 foo(function() {
     // statements
 }, options ); // space after options argument
-```
 
-**Function with a callback, object, or array as the last argument:**
-
-No space after the last argument.
-
-```
+// Function with a callback, object, or array as the last argument:**
 foo( data, function() {
     // statements
 });
 ```
-
 
 ### Commas
 
@@ -129,18 +104,13 @@ foo( data, function() {
 
 Do not include a trailing comma, this will add 1 to your array's length.
 
-**No:**
+```javascript
+// This is the wrong way.
+array = ['foo', 'bar',];
 
+// This is the right way.
+array = ['foo', 'bar'];
 ```
-array = [ 'foo', 'bar', ];
-```
-
-**Yes:**
-
-```
-array = [ 'foo', 'bar' ];
-```
-
 
 ### Semicolons
 
@@ -166,51 +136,21 @@ function foo() {
 
 ### Quotes
 
-Use ' instead of "
-
-
----
-
+Use `'` instead of `"`.
 
 ## Variables
-
-### Avoid Global Variables
-
-**No:**
-
-```
-foo = 'bar';
-```
-
-**No: implied global**
-
-```
-function() {
-    foo = 'bar';
-}
-```
-
-**Yes:**
-
-```
-var foo = 'bar';
-```
 
 ### Multiple Variable Declarations
 
 Use one `var` declaration and separate each variable on a newline ending with a comma.
 
-**No:**
-
-```
+```javascript
+// Not desirable.
 var foo = 'bar';
 var bar = 'baz';
 var baz = 'qux';
-```
 
-**Yes:**
-
-```
+// Preferred.
 var foo = 'bar',
 	bar = 'baz',
     baz = 'qux';
@@ -253,39 +193,7 @@ var count = +document.getElementById('inputId').value;
 var count = parseInt(document.getElementById('inputId').value);
 ```
 
-### Type Checks
-
-- String: `typeof object === 'string'`
-- Number: `typeof object === 'number'`
-- Boolean: `typeof object === 'boolean'`
-- Object: `typeof object === 'object'`
-- Plain Object: `jQuery.isPlainObject( object )`
-- Function: `jQuery.isFunction( object )`
-- Array: `jQuery.isArray( object )`
-- Element: `object.nodeType`
-- null: `object === null`
-- null or undefined: `object == null`
-
-**Undefined:**
-
-- Global Variables: `typeof variable === 'undefined'`
-- Local Variables: `variable === undefined`
-- Properties: `object.prop === undefined`
-
 ### Objects
-
-Use the literal, not constructor, syntax.
-
-**No:**
-
-```
-var myObj = new Object();
-```
-**Yes:**
-
-```
-var myObj = {};
-```
 
 If an object contains more than one key/value pair or an array as a value, each key/value pair should be on its own line.
 
@@ -312,13 +220,6 @@ var myArr = new Array();
 var myArr = [];
 ```
 
-If you don't know array length use push method. This will replace the current array.
-
-```
-var myArr = [];
-myArr.push('foo');
-```
-
 ## Functions
 
 ### Chaining Method Calls
@@ -335,7 +236,7 @@ $('.someElement')
 Use ternary syntax if:
 
 - One condition
-- Result of either evaluation is one operation. 
+- Result of either evaluation is one operation.
 
 ```
 joomlaRocks ? 'This is true' : 'else it is false';
@@ -348,17 +249,6 @@ if ( condition ) {
 	// statements
 } else {
 	// statements
-}
-```
-
-**Cache length in variable for performance:**
-
-```
-var i,
-    j = myArr.length;
-
-for ( i = 0; i < j; i++ ) {
-    // statements
 }
 ```
 
@@ -392,59 +282,48 @@ Use strict equality operator === so that type is considered in comparison. Using
 
 ## Blocks & Multi-line Statements
 
-Use curly braces on blocks that have more than one statement.
+Use curly braces on all blocks.
 
 **Block with one statement:**
 
 ```
-if ( test ) return false;
+if (test) {
+    return false;
+}
 ```
 
 **Block with more than one statement:**
 
 ```
-if ( test ) {
+if (test) {
     var foo = 'some string';
     return foo;
 }
 ```
 
-
 ## Comments
 
-**Single Line**
-
-- Place above the code it refers to.
-- A space between double forward slashes and comment text.
+Use `//` for all general comments, including mulit-line comments.
 
 ```
-// I am a single line comment.
+// Single comment.
+var foo = bar;
+
+// I am a multiline comment.
+// Line two
+// Line three
+var bar = foo;
 ```
 
-
-**Multiline**
-
-- Place above the code it refers to.
-- Opening token placed on the line above first comment line, closing placed below last comment line.
-- Each comment line begins with two astericks followed by a space.
+Files should include a DocBlock header to descirbed the function of the file and include the copyright and license statements.
 
 ```
-/*
-** I am a multiline comment.
-** Line two
-** Line three
-*/
+/**
+ * A module to do cool stuff.
+ *
+ * @copyright   Copyright 2005 - 2014 Open Source Matters. All rights re-served.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
 ```
 
----
-
-#### TODO
-
-- Switch Statements vs other methods like Objects
-- Add jQuery examples
-- Double check accuracy of all examples
-
-**With help from:**
-
-- [jQuery JS Style Guide](https://contribute.jquery.org/style-guide/js)
-- [Idiomatic JS](https://github.com/rwaldron/idiomatic.js)
+Functions should also be provided with DocBlock to describe parameters and return values (refer to the PHP guidelines for guidance).

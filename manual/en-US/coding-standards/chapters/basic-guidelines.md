@@ -1,26 +1,33 @@
 ## Basic Guidelines
 
-This chapter outlines the basic guidelines covering files contributed to the Joomla project. The most important rule to remember when coding for the Joomla project, **if in doubt, please ask**. 
+This chapter outlines the basic guidelines covering files contributed to the Joomla project. The most important rule to remember when coding for the Joomla project, **if in doubt, please ask**.
 
 ### File Format
 
-All files contributed to Joomla must be: 
+All source (text) files contributed to Joomla must be:
 
-* Stored as ASCII text
+* Stored as ASCII text (except for strings literals used for translation).
 * Use UTF-8 character encoding
-* Be Unix formatted following these rules. 
-	1. Lines must end only with a line feed (LF). 
-	2. Line feeds are represented as ordinal 10, octal 012 and hex 0A. 
+* Be Unix formatted following these rules.
+	1. Lines must end only with a line feed (LF).
+	2. Line feeds are represented as ordinal 10, octal 012 and hex 0A.
 	3. Do not use carriage returns (CR) like Macintosh computers do or the carriage return/line feed combination (CRLF) like Windows computers do.
+
+In addition:
+
+* Lines must have no trailing white-space.
+* A single blank line must be provided at the end of each file.
 
 ### Spelling
 
-The spelling of words and terms used in code comments and in the naming of class, functions, variables and constant should generally be in accordance with British English rules (en\_GB). 
+The spelling of words and terms used in code comments and in the naming of class, functions, variables and constant should generally be in accordance with British English rules (en\_GB).
 Some exceptions are permitted, for example where common programming names are used that align with the PHP API or other established conventions such as for `color` where is it common practice to maintain US English spelling.
 
-### Indenting
+### Indenting & Alignment
 
-Tabs are used for indenting code (not spaces as required by the PEAR standard). Source code editors or Integrated Development Environments (IDE’s) such as Eclipse must have the tab-stops for indenting measuring four (4) spaces in length.
+Tabs are used for indenting PHP and Javascript code. Source code editors or Integrated Development Environments (IDE’s) must have the tab-stops for indenting measuring four (4) spaces in length.
+
+Where alignment of code is required, spaces must be used.
 
 ### Line Length
 
