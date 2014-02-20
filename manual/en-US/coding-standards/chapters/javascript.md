@@ -321,7 +321,6 @@ myArr.push('foo');
 
 ## Functions
 
-### Properties
 ### Chaining Method Calls
 
 ```
@@ -331,7 +330,6 @@ $('.someElement')
 	.fadeIn();
 ```
 
-### Hoisting
 ## Conditional Statements
 
 Use ternary syntax if:
@@ -382,14 +380,12 @@ Use strict equality operator === so that type is considered in comparison. Using
 
 // evaluates true
 
-## Events
 ```
 1 == "1"
 ```
 
 // evaluates false
 
-// TODO
 ```
 1 === "1"
 ```
@@ -442,10 +438,6 @@ if ( test ) {
 
 #### TODO
 
-- Finish Conditionals
-- Functions/subsections
-- Equality Operators
-- Events
 - Switch Statements vs other methods like Objects
 - Add jQuery examples
 - Double check accuracy of all examples
