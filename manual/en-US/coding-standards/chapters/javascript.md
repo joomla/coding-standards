@@ -411,3 +411,7 @@ if ( test ) {
 - Comments
 - Add jQuery examples
 - Double check accuracy of all examples
+**With help from:**
+
+- [jQuery JS Style Guide](https://contribute.jquery.org/style-guide/js)
+- [Idiomatic JS](https://github.com/rwaldron/idiomatic.js)
