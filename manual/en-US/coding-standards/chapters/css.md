@@ -1,9 +1,9 @@
 ## CSS
 These guidelines have been assembled following an examination of emerging practices, ideas and existing styleguides, namely:
 
-1.[OOCSS Code Standards](https://github.com/stubbornella/oocss-code-standards)
-2.[Oneweb Style Guide](https://github.com/nternetinspired/OneWeb/blob/master/STYLEGUIDE.md)
-3.[Idiomatic CSS](https://github.com/necolas/idiomatic-css)
+1. [OOCSS Code Standards](https://github.com/stubbornella/oocss-code-standards)
+2. [Oneweb Style Guide](https://github.com/nternetinspired/OneWeb/blob/master/STYLEGUIDE.md)
+3. [Idiomatic CSS](https://github.com/necolas/idiomatic-css)
 
 
 ## Commenting
