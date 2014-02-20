@@ -376,11 +376,6 @@ if ( condition &&
 }
 ```
 
-### Switch Statements
-
-// TODO
-
-
 ### Equality
 
 // TODO
@@ -440,11 +435,12 @@ if ( test ) {
 
 - Finish Conditionals
 - Functions/subsections
-- Switch Statements
 - Equality Operators
 - Events
+- Switch Statements vs other methods like Objects
 - Add jQuery examples
 - Double check accuracy of all examples
+
 **With help from:**
 
 - [jQuery JS Style Guide](https://contribute.jquery.org/style-guide/js)
