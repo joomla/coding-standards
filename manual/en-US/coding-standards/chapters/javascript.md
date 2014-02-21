@@ -235,10 +235,6 @@ var longString = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' +
     'cursus mauris.';
 ```
 
-```
-var foo = 'bar';
-```
-
 ### Number
 
 Use `parseInt()` or `parseFloat()` instead of unary plus, for readability.
