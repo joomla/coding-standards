@@ -1,12 +1,14 @@
+## JavaScript
+
 ## Naming Conventions
 
 Use descriptive words or terse phrases for names.
 
 Variables and Functions should be camel case, starting with a lowercase letter: `likeThis`
 
-### Strings
+### Variables
 
-**Use names that describe what the string is:**
+**Use names that describe what the variable is:**
 
 `var element = document.getElementById('elementId');`
 
