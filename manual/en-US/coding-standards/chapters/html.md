@@ -66,7 +66,7 @@ Using HTML according to its purpose is important for accessibility, reuse, and c
 <!-- Good -->
 <a href="subscriptions/">View subscriptions</a>
 
-<!-- Bad - ul is a block element -->
+<!-- Bad -->
 <div onclick="goToSubscriptions();">View subscriptions</div>
 ```
 
