@@ -1,12 +1,34 @@
+## JavaScript
+
+### Contents
+
+1. [Naming Conventions](#naming-conventions)
+    - [Variables](#naming-conventions-variables)
+    - [Functions](#naming-conventions-functions)
+    - [Reserved Words](#naming-conventions-reserved)
+2. [Syntax Style](#syntax-style)
+    - [Indentation](#syntax-indentation)
+    - [Spacing](#syntax-spacing)
+    - [Commas](#syntax-commas)
+    - [Semicolons](#syntax-semicolons)
+    - [Quotes](#syntax-quotes)
+3. [Types](#types)
+4. [Functions](#functions)
+5. [Conditional Statements](#conditional-statements)
+6. [Blocks & Multi-line Statements](#blocks)
+7. [Comments](#comments)
+
+<a name="naming-conventions"></a>
 ## Naming Conventions
 
 Use descriptive words or terse phrases for names.
 
 Variables and Functions should be camel case, starting with a lowercase letter: `likeThis`
 
-### Strings
+<a name="naming-conventions-variables"></a>
+### Variables
 
-**Use names that describe what the string is:**
+**Use names that describe what the variable is:**
 
 `var element = document.getElementById('elementId');`
 
@@ -14,6 +36,7 @@ Variables and Functions should be camel case, starting with a lowercase letter: 
 
 Use i for index in a loop (and subsequent letters when necessary for nested iteration).
 
+<a name="naming-conventions-functions"></a>
 ### Functions
 
 **Use names that describe what the function does:**
@@ -23,20 +46,22 @@ function getSomeData() {
 	// statements
 }
 ```
-
+<a name="naming-conventions-reserved"></a>
 ### Reserved Words
 
 Do not use reserved words for anything other than their intended use. The list of: [Reserved Words](http://es5.github.io/#x7.6.1)
 
 ---
 
+<a name="syntax-style"></a>
 ## Syntax Style
 
+<a name="syntax-indentation"></a>
 ### Indentation
 - Don't mix tabs and spaces.
 - Tabs, 4 spaces
 
-
+<a name="syntax-spacing"></a>
 ### Spacing
 - No whitespace at the end of line or on blank lines.
 - Unary special-character operators (e.g., !, ++) must not have space next to their operand.
@@ -117,7 +142,7 @@ foo( data, function() {
 });
 ```
 
-
+<a name="syntax-commas"></a>
 ### Commas
 
 **Place commas after:**
@@ -141,7 +166,7 @@ array = [ 'foo', 'bar', ];
 array = [ 'foo', 'bar' ];
 ```
 
-
+<a name="syntax-semicolons"></a>
 ### Semicolons
 
 Use them where expected.
@@ -164,6 +189,7 @@ function foo() {
 }
 ```
 
+<a name="syntax-quotes"></a>
 ### Quotes
 
 Use ' instead of "
@@ -171,7 +197,7 @@ Use ' instead of "
 
 ---
 
-
+<a name="variables"></a>
 ## Variables
 
 ### Avoid Global Variables
@@ -216,6 +242,7 @@ var foo = 'bar',
     baz = 'qux';
 ```
 
+<a name="types"></a>
 ## Types
 
 ### String
@@ -231,10 +258,6 @@ var longString = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' +
     'habitasse platea dictumst. Duis erat justo, tincidunt ac ' +
     'enim iaculis, malesuada condimentum mauris. Vestibulum vel ' +
     'cursus mauris.';
-```
-
-```
-var foo = 'bar';
 ```
 
 ### Number
@@ -319,6 +342,7 @@ var myArr = [];
 myArr.push('foo');
 ```
 
+<a name="functions"></a>
 ## Functions
 
 ### Chaining Method Calls
@@ -330,6 +354,7 @@ $('.someElement')
 	.fadeIn();
 ```
 
+<a name="conditional-statements"></a>
 ## Conditional Statements
 
 Use ternary syntax if:
@@ -389,7 +414,7 @@ Use strict equality operator === so that type is considered in comparison. Using
 1 === "1"
 ```
 
-
+<a name="blocks"></a>
 ## Blocks & Multi-line Statements
 
 Use curly braces on blocks that have more than one statement.
@@ -409,7 +434,7 @@ if ( test ) {
 }
 ```
 
-
+<a name="comments"></a>
 ## Comments
 
 **Single Line**
