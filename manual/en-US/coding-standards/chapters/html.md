@@ -51,7 +51,7 @@ Use a new line for every block, list, or table element, and indent every such ch
 	</ul>
 </div>
 
-<!-- Bad - ul is a block element -->
+<!-- Bad -->
 <div><ul>
   <li>Home</li>
   <li>Blog</li>
