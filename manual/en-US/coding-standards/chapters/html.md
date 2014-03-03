@@ -284,6 +284,8 @@ Inline CSS must be avoided. When altering states using JavaScript, use CSS to de
 <a href="//index.php" style="text-decoration: line-through;">Home</a>
 ```
 
+@todo more meaningful example.
+
 ### Style Attributes
 You should not use border, align, valign, or clear attributes. Avoid use of style attributes, except where using syndicated content or internal syndicating systems.
 
