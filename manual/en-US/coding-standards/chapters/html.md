@@ -8,9 +8,6 @@ These guidelines have been assembled following an examination of emerging practi
 4. [Harry Robert's "My HTML/CSS coding style"](http://csswizardry.com/2012/04/my-html-css-coding-style/)
 4. [The BBC's Media Standards and Guidelines](http://www.bbc.co.uk/guidelines/futuremedia/technical/semantic_markup.shtml)
 
-### General principles
-
-All code should look like a single person typed it, no matter how many people contributed. All comments and class names should be written using British English spelling.
 
 ### Doctype
 
