@@ -121,6 +121,7 @@ Use attribute/value pairs for boolean attributes
 ```
 
 HTML attributes should be listed in an order that reflects the fact that class names are the primary interface through which CSS and JavaScript select elements.
+
 1. class
 2. id
 3. data-*
