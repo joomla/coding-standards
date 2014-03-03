@@ -306,7 +306,11 @@ Using HTML according to its purpose is important for accessibility, reuse, and c
 
 ### Markup
 
-#### img
+#### Image Tags
+Image elements (<img>) must have an alt attribute. Height and width attributes are optional and may be omitted.
+
+
+@todo add examples from here http://www.bbc.co.uk/guidelines/futuremedia/technical/semantic_markup.shtml
 
 ### Comments
 @todo: comment styles in JS, CSS, HTML
