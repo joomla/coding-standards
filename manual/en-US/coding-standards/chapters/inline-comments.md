@@ -18,6 +18,19 @@ Don’t use a blank line between comments and the code they refer to (no space u
 
 Always have a single blank line before a comment or block of comments unless the comment (or block) is at the beginning of a code structure. ( You should not have a blank line after a '{' line )
 
+For example in the following case there is no new line before the first comment (because it follows a '{' line) but we do want a new line before the second comment:
+
+```php
+  while (!$done)
+  {
+    // We don't want an infinite loop here.
+    $done = true;
+  }
+  
+  //Now let's do something interesting.
+  $result = somethingInteresting();
+```
+
 Comments should align with the code they refer to, using the same indenting as the line that follows the comment.
 
 Comments should be indented with tabs (like code, not like doc blocks).
