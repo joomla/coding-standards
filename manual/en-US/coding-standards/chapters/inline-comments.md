@@ -16,7 +16,7 @@ Comments should precede the code they refer to. As a corollary, comments should 
 
 Don’t use a blank line between comments and the code they refer to (no space underneath a comment block).
 
-Always have a single blank line before a comment or block of comments.
+Always have a single blank line before a comment or block of comments unless the comment (or block) is at the beginning of a code structure. ( You should not have a blank line after a '{' line )
 
 Comments should align with the code they refer to, using the same indenting as the line that follows the comment.
 
