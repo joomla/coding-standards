@@ -5,6 +5,7 @@
     - [Inline Code Comments](coding-standards/chapters/inline-comments.md)
     - [DocBlocks](coding-standards/chapters/docblocks.md)
     - [PHP Code](coding-standards/chapters/php.md)
+    - [XML](coding-standards/chapters/xml.md)
 - **Clientside Syntax Styleguides**
     - [HTML](coding-standards/chapters/html.md)
     - [CSS](coding-standards/chapters/css.md)
