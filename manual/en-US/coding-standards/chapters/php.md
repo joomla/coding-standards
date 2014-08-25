@@ -149,7 +149,8 @@ $ref1 = &$this->sql;
 There should always be a space between two objects for example
 
 ```php
-$variable = 'Hello' . 'World';
+$id = 1;
+echo JRoute('index.php?option=com_foo&task=foo.edit&id=' . (int) $id);
 ```
 
 ## Arrays
