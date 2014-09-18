@@ -1,0 +1,15 @@
+- [Introduction](coding-standards/introduction.md)
+- [Source Code Management](coding-standards/chapters/source-code-management.md)
+- **Coding Standards**
+    - [Basic Guidelines](coding-standards/chapters/basic-guidelines.md)
+    - [Inline Code Comments](coding-standards/chapters/inline-comments.md)
+    - [DocBlocks](coding-standards/chapters/docblocks.md)
+    - [PHP Code](coding-standards/chapters/php.md)
+    - [XML](coding-standards/chapters/xml.md)
+- **Clientside Syntax Styleguides**
+    - [HTML](coding-standards/chapters/html.md)
+    - [CSS](coding-standards/chapters/css.md)
+    - [JavaScript](coding-standards/chapters/javascript.md)
+- **Appendices**
+    - [Code Analysis Tools](appendices/analysis.md)
+    - [Examples](appendices/examples.md)	
