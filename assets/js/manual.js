@@ -1,7 +1,7 @@
 ;(function($) {
     var populateWindow = function(link) {
         var markdownRequest = new Request({
-            "url": here + 'manual/en-US/' + link,
+            "url": here + 'manual/' + locale + '/' + link,
             "method": "get",
             "onSuccess": function(response) {
                 $('docwin').set('html', marked(response));
@@ -33,7 +33,7 @@
 
     var populateMenu = function() {
         var markdownRequest = new Request({
-            "url": here + 'manual/en-US/menu.md',
+            "url": here + 'manual/' + locale + '/menu.md',
             "method": "get",
             "onSuccess": function (response) {
                 $('doc-menu').set('html', marked(response));
@@ -55,7 +55,7 @@
 
     var populateVersion = function() {
         var versionRequest = new Request({
-            "url": here + 'manual/en-US/version.md',
+            "url": here + 'manual/' + locale + '/version.md',
             "method": "get",
             "onSuccess": function(response) {
                 $('version').set('html', marked(response));
@@ -67,6 +67,7 @@
         var urlParts = document.URL.split('?', 2);
         state = {};
         here = urlParts[0];
+        locale = 'en-US';
 
         if (urlParts.length > 1)
         {
@@ -90,6 +91,16 @@
         populateMenu();
         populateWindow(currentDoc);
         populateVersion();
+
+        document.id('language-item').addEvent('click:relay(a)', function (event, target) {
+            locale = target.get('href');
+            populateWindow(currentDoc);
+            event.preventDefault();
+
+            // Update display text on dropdown menu
+            var currentLang = target.get('html');
+            $('language-select').set('html', currentLang);
+        });
 
         document.id('main').addEvent('click:relay(a)', function (event, target) {
             if (target.get('href').substring(0, 4) != 'http' && target.get('href').substring(0, 1) != '#')
