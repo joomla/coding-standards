@@ -1,3 +1,7 @@
+body {
+	line-height: 1.6;
+	font-size: 16px;
+}
 table
 {
 	border: 1px solid gray;
@@ -18,14 +22,24 @@ th
 	margin: .5em 0 2em 0;
 	text-align: center;
 }
+h1,h2,h3,h4,h5,h6,p,blockquote,pre {
+	font-size: 16px;
+	margin-top: 1em;
+}
 h1,h2,h3 {
-	line-height:36px;
+	margin-bottom: 16px;
 }
 h1 {
 	font-size:34.5px;
+	line-height: 1.2;
+	border-bottom: 1px solid #eee;
+	padding-bottom: 0.3em;
 }
 h2 {
 	font-size:28.5px;
+	line-height: 1.2;
+	border-bottom: 1px solid #eee;
+	padding-bottom: 0.3em;
 }
 h3 {
 	font-size:22.5px;
@@ -51,9 +65,30 @@ h3 small {
 h4 small {
 	font-size:14px;
 }
+blockquote {
+	padding-top: 0;
+	padding-bottom: 0;
+	color: #777;
+}
+code {
+	font-size: 85%;
+}
+pre {
+	border: none;
+	padding: 16px;
+}
 #version {
 	float:right;
 	font-size:.85em;
 	font-weight:bold;
 }
+#doc-menu ul.nav.nav-list {
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 0px;
+}
+#doc-menu ul.nav.nav-list li strong {
+	margin-top: 15px;
+	padding-left: 14px;
+	display: inline-block;
 }
