@@ -2,6 +2,16 @@ body {
 	line-height: 1.6;
 	font-size: 16px;
 }
+.navbar.navbar-inverse
+{
+	background: #142849;
+	color: white;
+}
+.navbar-inverse .brand
+{
+	color: #eee;
+	margin-top: -7px;
+}
 table
 {
 	border: 1px solid gray;
@@ -21,6 +31,10 @@ th
 .manual-image {
 	margin: .5em 0 2em 0;
 	text-align: center;
+}
+.well {
+	border: none;
+	box-shadow: none;
 }
 h1,h2,h3,h4,h5,h6,p,blockquote,pre {
 	font-size: 16px;
@@ -91,4 +105,6 @@ pre {
 	margin-top: 15px;
 	padding-left: 14px;
 	display: inline-block;
+	color: #666;
+	font-weight: normal;
 }
