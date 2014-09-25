@@ -4,7 +4,7 @@ Before we start talking about what Joomla! code should look like, it is appropri
 
 ### The Joomla Framework
 
-The [Joomla Framework](https://github.com/joomla/joomla-framework) is a PHP framework that is designed to serve as a foundation for not only web applications (like a CMS) but other types of software such as command line applications. The files that form the Joomla Framework are stored in a Distributed Version Control System (DVCS) called Git hosted at github.com
+The [Joomla Framework](https://github.com/joomla-framework) is a PHP framework that is designed to serve as a foundation for not only web applications (like a CMS) but other types of software such as command line applications. The files that form the Joomla Framework are stored in a Distributed Version Control System (DVCS) called Git hosted at github.com
 
 You can learn about how to get the Joomla Framework source code from the Git repository, https://github.com/joomla/joomla-framework.
 
@@ -19,6 +19,6 @@ Because Git treats the concepts of file revision numbers differently than Subver
 
 ## Compliance Tool
 
-The standards in this manual have been adopted across the Joomla project, including the [Joomla Framework](https://github.com/joomla/joomla-framework), the [Joomla! CMS](https://github.com/joomla/joomla-cms) and any other applications maintained by the project. These standards apply to source code, tests and (where applicable) documentation.
+The standards in this manual have been adopted across the Joomla project, including the [Joomla Framework](https://github.com/joomla-framework), the [Joomla! CMS](https://github.com/joomla/joomla-cms) and any other applications maintained by the project. These standards apply to source code, tests and (where applicable) documentation.
 
 A custom Joomla sniff standard for PHP files is maintained by the Joomla project and available from the code repository. The Sniff is based on the standard outlined in this document. For more information about how code standards are enforced see the analysis appendix of the manual. For information on using the Sniff see the documentation stored in its repository.
