@@ -1,6 +1,6 @@
 ## html
 
-These guidelines have been assembled following an examination of emerging practices, ideas and existing styleguides, and include items from:
+這份準則是透過檢視一些新興的程式實作、想法、以及現有的編碼規範所集思廣益而成，並引用以下清單中所使用的概念：
 
 1. [Google's html styleguide](http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml)
 2. [JQuery's HTML Styleguide](http://contribute.jquery.org/style-guide/html/)
@@ -11,34 +11,36 @@ These guidelines have been assembled following an examination of emerging practi
 
 ### Doctype
 
-Always use the minimal, versionless doctype.
+永遠使用精簡且不帶版本號的 html 文件宣告。
 
 ```html
 <!doctype html>
 ```
 
-### Language
+### 語言
 
-Always define which language the page is written in.
+永遠定義該頁面所使用的語言
 
 ```html
 <html lang="en">
 ```
 
-### Encoding
-Always define the character encoding. The encoding should be defined as early as possible.
-Make sure your editor uses UTF-8 as character encoding, without a byte order mark (UTF-8, no BOM).
-Do not specify the encoding of style sheets as these assume UTF-8.
+### 編碼
+
+永遠需定義字源編碼。編碼在程式之中越早定義越好。
+確認你的編輯器是使用 UTF-8 的字源編碼，且不使用位元組順序記號(byte order mark)。
+不要在樣式表中設定編碼，因為樣式表的編碼已經預設為 UTF-8。
 
 ```html
 <meta charset="utf-8">
 ```
 
-[More on encodings and when and how to specify them can be found in Handling character encodings in HTML and CSS](http://www.w3.org/International/tutorials/tutorial-char-enc/)
-
+[更多有關如何以及何時設定這些編碼，請見此篇文章 Handling character encodings in HTML and CSS](http://www.w3.org/International/tutorials/tutorial-char-enc/)
 
 ### Capitalisation
-All html should be lowercase; element names, attributes, attribute values (unless text/CDATA), CSS selectors, properties, and property values (with the exception of strings). Additionally, there is no need to use CDATA to escape inline JavaScript, formerly a requirement to meet XML strictness in XHTML.
+### 大小寫規則
+
+所有 html 皆必須為小寫；元素名稱、屬性、屬性值(除非是 text/CDATA)、CSS 選擇器、變數、變數值(字串例外，可有大小寫)。此外，在使用內嵌的 JavaScript 時不需使用跳脫字串 CDTA，這在以前是為了讓 XHTML 符合 XML 標準時所要求的規定。
 
 ```html
 <!-- Good -->
@@ -60,11 +62,11 @@ a {
 }
 ```
 
-### Protocol
+### 通訊協定
 
-Omit the protocol portion (http:, https:) from URLs pointing to images and other media files, style sheets, and scripts unless they are not available over both protocols.
+在圖片、多媒體、樣式表或任何腳本程式的 URLs 連結上，省略通訊協定的部分 (http:, https:)，除非其來源不屬於這兩種通訊協定的範疇。
 
-This prevents mixed content issues and results in minor file size savings.
+這可以避免混合內容的安全性問題，並小量減少檔案大小。
 
 ```html
 <!-- Good -->
@@ -74,12 +76,13 @@ This prevents mixed content issues and results in minor file size savings.
 <link rel="stylesheet" href="http://joomla.org/css/main.css">
 ```
 
-### Elements and Attributes
+### 元素及屬性
 
-Always include html, head, and body tags.
+永遠加入 html，head 和 body 標籤。
 
-### Type attributes
-Do not use type or attributes for style sheets (unless not using CSS) and scripts (unless not using JavaScript).
+### Type 屬性
+引入樣式表時不要使用 type 屬性(除非不是使用CSS)。引入腳本程式時不要使用 type 屬性(除非不是使用JavaScript)。
+
 ```html
 <!-- Good -->
 <link rel="stylesheet" href="//joomla.org/css/main.css">
@@ -88,8 +91,9 @@ Do not use type or attributes for style sheets (unless not using CSS) and script
 <link rel="stylesheet" href="//joomla.org/css/main.css" type="text/css">
 ```
 
-### Language attributes
-Do not use language attributes on script tags.
+### Language 屬性
+使用 Script 標籤時不要使用 language 屬性。
+
 ```html
 <!-- Good -->
 <script href="//code.jquery.com/jquery-latest.js">
@@ -99,17 +103,16 @@ Do not use language attributes on script tags.
 ```
 
 
-### Attributes
+### 屬性
+屬性的值需在前後使用雙引號("")，並且忽略可選(Optional)之屬性。
 
-Attribute values should be quoted using double ("") quotes. Optional attributes should be omitted.
 ```html
 <!-- Good -->
 <script src="//code.jquery.com/jquery-latest.js"></script>
 <!-- Bad -->
 <script src='//code.jquery.com/jquery-latest.js'></script>
 ```
-
-Use attribute/value pairs for boolean attributes
+布林值形態的屬性需使用 屬性/值 對。
 ```html
 <!-- Good -->
 <input type="checkbox" value="on" checked="checked">
@@ -117,12 +120,12 @@ Use attribute/value pairs for boolean attributes
 <input type="checkbox" value="on" checked>
 ```
 
-HTML attributes should be listed in an order that reflects the fact that class names are the primary interface through which CSS and JavaScript select elements.
+HTML 元素中的屬性值應以 class 為首並建議依以下順序排列，這同時反映出 class 名稱在 css 與 javascript 中是最主要的選擇器 (selector)
 
 1. class
 2. id
 3. data-*
-4. Everything else
+4. 任何其他的屬性
 ```html
 <!-- Good -->
 <a class="[some-value]" id="[some-value]" data-name="[some-value]" href="[some-value]">Text</a>
@@ -130,7 +133,7 @@ HTML attributes should be listed in an order that reflects the fact that class n
 <a href="[some-value]" class="[some-value]" id="[some-value]" data-name="[some-value]">Text</a>
 ```
 
-Elements with multiple attributes can have attributes arranged across multiple lines in an effort to improve readability and produce more useful diffs:
+當元素標籤擁有多個屬性值的時候可以以多行顯示，來提升文件的可讀性並產生更好用的 diffs:
 
 ```html
 <a class="[some-value]"
@@ -141,8 +144,10 @@ Elements with multiple attributes can have attributes arranged across multiple l
 </a>
 ```
 
-### Elements
-Optional closing tags may not be omitted.
+### 元素
+
+當元素結尾標籤是可選的時候，永遠不要省略結尾標籤。
+
 ```html
 <!-- Good -->
 <p>The quick brown fox jumps over the lazy dog.</p>
@@ -150,7 +155,8 @@ Optional closing tags may not be omitted.
 <p>The quick brown fox jumps over the lazy dog.
 ```
 
-Self-closing (void) elements should not be closed. Trailing forward slashes and spaces should be omitted.
+可以自我閉合(Self-closing)的元素不應該有閉合標籤，結尾的斜線以及空白必須忽略。
+
 ```html
 <!-- Good -->
 <img src="//images/logo.png" alt="">
@@ -159,8 +165,8 @@ Self-closing (void) elements should not be closed. Trailing forward slashes and 
 ```
 
 
-### Formatting
-Use a new line for every block, list, or table element, and indent every such child element.
+### 格式
+每個區塊標籤(div, list 或 table)都應該使用單獨的一行，並在每一個子元素縮排。
 
 ```html
 <!-- Good -->
@@ -178,11 +184,11 @@ Use a new line for every block, list, or table element, and indent every such ch
 </ul></div>
 ```
 
-We prefer readability over file-size savings when it comes to maintaining existing files. Plenty of whitespace is encouraged. Use whitespace to visually separate groups of related markup and to improve the readability and maintainability of your HTML. Use two empty lines between larger blocks, and use a single empty line between child blocks of larger blocks. Be consistent. (If you are worried about your document's size, spaces (as well as repeated use of the same strings - for instance class names) are excellent candidates for compression. Also, you may use a markup minifier to decrease your document's file size.)
+當維護程式碼時，相較於節省檔案大小我們偏好以可讀性作為優先考量。我們鼓勵適當且足夠的空白。使用空白來使不同的群組在視覺上有所區分，並提高您的 HTML 的可維護性以及可讀性。主要的大區塊以兩行空白隔開，其大區塊之內的小區塊以一行空白隔開。注意維持其一致性。如果您擔心文件的大小，空白(包含一些重複被使用的字串、class 等等)是被很適合被壓縮的目標之一，您可以使用一些標記語言的壓縮器來縮減檔案大小。
 
-Keep line-length to a sensible maximum, e.g., 80 columns.
+單行的長度應維持在適當的合理範圍內，如: 80 columns
 
-Tip: configure your editor to "show invisibles". This will allow you to eliminate end of line whitespace, eliminate unintended blank line whitespace, and avoid polluting commits.
+小技巧：設定您的編輯器選項為 "show invisibles"。這個選項可以替您消除不必要的空白，不會讓您的 commit 被過多的空行所影響顯示。
 
 ```html
 <blockquote>
@@ -211,9 +217,9 @@ Tip: configure your editor to "show invisibles". This will allow you to eliminat
 </table>
 ```
 
-### Indentation
-Don't indent inside html, body, script, or style. Indent inside head and all other elements.
-Indent by four spaces at a time. Don’t use tabs or mix tabs and spaces for indentation.
+### 縮排
+html、body、script 或 style 等等的標籤底下不需要縮排。head 以及任何其他的標籤底下都需縮排。
+縮排一次是四個空白。不要使用 tab 縮排或是把 tab 和空白混著使用。
 
 
 ```html
@@ -246,8 +252,9 @@ Indent by four spaces at a time. Don’t use tabs or mix tabs and spaces for ind
 </html>
 ```
 
-### Trailing Whitespace
-Remove trailing white spaces. Trailing white spaces are unnecessary and can complicate diffs.
+### 後綴空白
+
+移除後綴的空白。後綴空白是不必要的而且會造成複雜的 diffs 顯示.
 
 ```html
 <!-- Good -->
@@ -259,9 +266,11 @@ Remove trailing white spaces. Trailing white spaces are unnecessary and can comp
 
 
 ### Entity References
-Do not use entity references. There is no need to use entity references like &mdash;, &rdquo;, or &#x263a;, assuming the same encoding (UTF-8) is used for files and editors as well as among teams.
 
-The only exceptions apply to characters with special meaning in HTML (like < and &) as well as control or “invisible” characters (like no-break spaces).
+不要使用字符實體引用(entity references)。若開發團隊中每位成員的編輯器編碼都相同的話(都為UTF-8)，便不需要使用例如 &mdash;、&rdquo; 或 &#x263a。
+
+唯有的例外是，當該字符在 HTML 之中具有特殊意義 (如 < 和 &)、控制碼或屬於 "看不見 (invisible) " 的字元時(像是 ```&nbsp;``` non-breaking spaces)
+
 ```html
 <!-- Good -->
 <p>The currency symbol for the Euro is “€”.</p>
@@ -270,9 +279,10 @@ The only exceptions apply to characters with special meaning in HTML (like < and
 <p>The currency symbol for the Euro is &ldquo;&eur;&rdquo;.</p>
 ```
 
-### Inline CSS
+### 行內樣式(Inline CSS)
 
-Inline CSS must be avoided. When altering states using JavaScript, use CSS to define your states, and only use onobtrusive JavaScript to alter class names whenever possible.
+不要使用行內樣式。當使用 JavaScript 去改變樣式或狀態時，如果可以，儘量使用 Unobtrusive JavaScript(一種將Javascript從HTML結構抽離的設計概念)的模式去改變或新增 class 名稱。
+
 ```html
 <!-- Good -->
 <a class="is-link-disabled" href="//index.php">Home</a>
@@ -283,14 +293,16 @@ Inline CSS must be avoided. When altering states using JavaScript, use CSS to de
 
 @todo more meaningful example.
 
-### Style Attributes
-You should not use border, align, valign, or clear attributes. Avoid use of style attributes, except where using syndicated content or internal syndicating systems.
+### Style 屬性
 
+你不應該使用 border、align、valign 或 clear 等等的屬性。不要使用 style 屬性。避免使用 style 屬性，除非使用 syndicated content 或 internal syndicating systems。
 
-### Semantics
-Use HTML according to its purpose. For example, use heading elements for headings, p elements for paragraphs, a elements for anchors, etc.
+### 語意化
 
-Using HTML according to its purpose is important for accessibility, reuse, and code efficiency reasons.
+根據其意義使用 HTML。舉例來說，使用標題元素(h1 ~ h6)來表示標題，段落元素 p 表示段落，連結元素 a 表示連結等等。
+
+依據不同的考量來使用 HTML 對於易使用性、重複使用性以及程式碼效率等等是相當重要的。
+
 ```html
 <!-- Good -->
 <a href="subscriptions/">View subscriptions</a>
@@ -299,19 +311,18 @@ Using HTML according to its purpose is important for accessibility, reuse, and c
 <div onclick="goToSubscriptions();">View subscriptions</div>
 ```
 
+### 標記(Markup)
 
-
-### Markup
-
-#### Image Tags
-Image elements (<img>) must have an alt attribute. Height and width attributes are optional and may be omitted.
+#### 圖片標籤
+圖片元素 (<img>) 必須包含 alt 屬性. Height 和 width 屬性是可選的，可以被忽略。
 
 
 @todo add examples from here http://www.bbc.co.uk/guidelines/futuremedia/technical/semantic_markup.shtml
 
-### Comments
+### 註解
 @todo: comment styles in JS, CSS, HTML
-For more complex blocks of HTML, it may be useful to add a comment to the closing tag:
+HTML 中複雜的區塊可以在結束標籤之後加上一段註解：
+
 ```html
 <div class="parent">
 
@@ -321,10 +332,8 @@ For more complex blocks of HTML, it may be useful to add a comment to the closin
 </div><!-- /parent -->
 ```
 
-
-
-### Mark todos
-Highlight todos by using the keyword TODO, eg:
+### 在檔案中標記 Todo
+在檔案中註解待完成清單時可以使用 TODO 關鍵字，例如：
 
 ```html
 <!-- TODO: add active item class -->
@@ -334,9 +343,7 @@ Highlight todos by using the keyword TODO, eg:
 </ul>
 ```
 
-
-
-### Markup validation tools
+### 標記驗證工具
 @todo: list various testing tools:
 * http://validator.w3.org/nu/
 * http://csslint.net/
