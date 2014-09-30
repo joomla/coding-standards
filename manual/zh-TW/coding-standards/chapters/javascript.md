@@ -58,8 +58,8 @@ function getSomeData() {
 
 <a name="syntax-indentation"></a>
 ### 縮排
-請勿混用 tab 與 spaces
-Tab 等同 4 個 spaces
+- 請勿混用 tab 與 spaces
+- Tab 等同 4 個 spaces
 
 <a name="syntax-spacing"></a>
 ### 空白
