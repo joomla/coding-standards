@@ -1,15 +1,15 @@
-- [Introduction](coding-standards/introduction.md)
-- [Source Code Management](coding-standards/chapters/source-code-management.md)
-- **Coding Standards**
-    - [Basic Guidelines](coding-standards/chapters/basic-guidelines.md)
-    - [Inline Code Comments](coding-standards/chapters/inline-comments.md)
-    - [DocBlocks](coding-standards/chapters/docblocks.md)
-    - [PHP Code](coding-standards/chapters/php.md)
+- [簡介](coding-standards/introduction.md)
+- [源碼管理](coding-standards/chapters/source-code-management.md)
+- **代碼標準**
+    - [基礎指引](coding-standards/chapters/basic-guidelines.md)
+    - [行內註解](coding-standards/chapters/inline-comments.md)
+    - [區塊註解(DocBlocks)](coding-standards/chapters/docblocks.md)
+    - [PHP編碼標準](coding-standards/chapters/php.md)
     - [XML](coding-standards/chapters/xml.md)
-- **Clientside Syntax Styleguides**
+- **使用者端語法風格指引**
     - [HTML](coding-standards/chapters/html.md)
     - [CSS](coding-standards/chapters/css.md)
     - [JavaScript](coding-standards/chapters/javascript.md)
-- **Appendices**
-    - [Code Analysis Tools](appendices/analysis.md)
-    - [Examples](appendices/examples.md)	
+- **附錄**
+    - [程式碼分析工具](appendices/analysis.md)
+    - [範例](appendices/examples.md)
