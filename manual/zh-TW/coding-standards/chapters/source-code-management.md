@@ -4,7 +4,7 @@
 
 ### The Joomla Framework
 
-The [Joomla Framework](https://github.com/joomla/joomla-framework) 是一個 PHP 框架，被設計成一個開發的的基礎，不只能開發 Web 應用程式 (像是 CMS)，也能開發其他類型的軟體 (像是指令集的應用程式)。Joomla Framework 的檔案是用一個分散式版本管理系統 Git 的方式儲存在 Github.com 上。
+The [Joomla Framework](https://github.com/joomla/joomla-framework) 是一個 PHP 框架，被設計成一個開發的的基礎，不只能開發 Web 應用程式 (像是 CMS)，也能開發其他類型的軟體 (像是命令列的應用程式)。Joomla Framework 的檔案是用一個分散式版本管理系統 Git 的方式儲存在 Github.com 上。
 
 你可以在 https://github.com/joomla/joomla-framework 這個 Git repository 取得 Joomla Framework 的原始碼。
 
