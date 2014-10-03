@@ -1,22 +1,22 @@
-## XML Files
+## XML 檔案
 
-### Attributes
+### 屬性
 
-* Each attribute is on its own line.
-* The four attributes `name`, `type`, `label` and `description` should be written in this order and at the top of the element definition.
+* 各個屬性寫在自己的那一行
+* 這四個屬性 `name`, `type`, `label` 和 `description` 必須要照這個順序並且寫在 XML 元素定義的最前面
 
 ### Closing Elements
 
-Elements should be closed with the closing tag on a new line.
+元素應該在下一行被 closing tag 包起來
 
-### Exception
+### 特例
 
-When the element only has few attributes, then the whole element can stay on the same line.
-A max line length of 100 characters is recommended for good reading.
+當元素的屬性較少時，可以讓整個元素寫在同一行上
+為了易讀性，建議單行最長文字數為 100 個字元
 
-#### Examples
+#### 範例
 
-Element is **empty**:
+元素為 **空元素**:
 ```xml
 <field
 	name="abc"
@@ -26,7 +26,7 @@ Element is **empty**:
 	/>
 ```
 
-Element is **not empty**:
+元素為 **非空元素**:
 ```xml
 <field
 	name="abc"
