@@ -1,37 +1,33 @@
-## Coding Standards Analysis
+## 編程標準分析
 
-For new contributions we are going to be enforcing coding standards to ensure that the coding style in the source code is consistent. Ensuring that your code meets these standards will make the process of code contribution smoother.
+對於接受所貢獻出新的程式碼時，我們將會執行編程標準，以確保源程式碼的風格是一致的。也能確保你的代碼能符合此標準以順暢的進行代碼的貢獻。
 
-## Configuring Code Analysis Tools
+## 配置編程分析工具
 
-In order to improve the consistency and readability of the source code, the Joomla project runs a coding style analysis tool, CodeSniffer, everytime changes are pushed to a Joomla project's repository. 
+為了提高源程式碼的一致性和可讀性，Joomla 會使用代碼分析工具，CodeSniffer，並為了保持最新狀態，會把重要的變更與變化都會更新上 Joomla 專案的程式庫。
 
-### Running CodeSniffer
+### 執行 CodeSniffer
 
-The Joomla Coding Standards sniffer rules are written to be used with a tool called PHP CodeSniffer. Please see the [PHP CodeSniffer Pear
-Page](http://pear.php.net/package/PHP_CodeSniffer) for information on
-installing PHP CodeSniffer on your system.
+Joomla 的編程標準規則都會交由名為 PHP CodeSniffer 的工具來寫入。若要安裝 PHP CodeSniffer 至您的系統，請到這個連結: [PHP CodeSniffer Pear Page](http://pear.php.net/package/PHP_CodeSniffer)查詢相關資訊。
 
-You can run the CodeSniffer by going to the CMS, Framework, or Issue Tracker's root directory and executing 
+你可以透過 CMS (內容管理系統)，Framework (框架)，或 Issue Tracker (問題追蹤) 這些型態的系統，並置於這些程式軟體的根目錄下執行這個工具。
 
 ```
 phpcs --report=checkstyle --report-file=build/logs/checkstyle.xml --standard=/path/to/<your root>/build/phpcs/Joomla /path/to/<your root>
 ```
 
-Alternatively, if you have Ant installed on your system, you may run the CodeSniffer by going to the `<root directory>` of the Joomla project's code you want to test and executing
+此外，如果在你的系統安裝了 Ant，你必須在它所配置的中的 `<root directory>` 裡的 Joomla 根目錄下執行 CodeSniffer 來測試與運行程式碼的分析。
 
 ```
 ant phpcs
 ```
 
-#### Known Issues
+#### 已知的問題
 
--   There is currently an issue with running the Code Sniffer on the
-    Simplepie library. Pointing the sniffs at the libraries/joomla
-    directory or below will avoid the issue.
+-   在 Simplepie 的函式庫上執行 Code Sniffer 會產生一些問題，可將目標指向 libraries/joomla 即可避免。
 
-## Other Tools
+## 其它工具
 
-Here are some other tools available to developers who are planning to submit source code to the project.
+這裡有些其它可用的工具讓開發者能計畫發送源程式碼至現在的專案。
 
-### PhpStorm Code Style Scheme
+### PhpStorm 代碼樣式表
