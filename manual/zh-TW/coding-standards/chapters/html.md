@@ -28,7 +28,7 @@
 ### 編碼
 
 永遠需定義字源編碼。編碼在程式之中越早定義越好。
-確認你的編輯器是使用 UTF-8 的字源編碼，且不使用位元組順序記號(byte order mark)。
+確認你的編輯器是使用 UTF-8 的字源編碼，且不使用 BOM (byte order mark 位元組順序記號)。
 不要在樣式表中設定編碼，因為樣式表的編碼已經預設為 UTF-8。
 
 ```html
@@ -43,20 +43,20 @@
 所有 html 皆必須為小寫；元素名稱、屬性、屬性值(除非是 text/CDATA)、CSS 選擇器、變數、變數值(字串例外，可有大小寫)。此外，在使用內嵌的 JavaScript 時不需使用跳脫字串 CDTA，這在以前是為了讓 XHTML 符合 XML 標準時所要求的規定。
 
 ```html
-<!-- Good -->
+<!-- 正確 -->
 <img src="joomla.png" alt="Joomla">
 
-<!-- Bad -->
+<!-- 錯誤 -->
 <A HREF="/">Home</A>
 ```
 
 ```html
-<!-- Good -->
+<!-- 正確 -->
 a {
     color: #a3a3a3;
 }
 
-<!-- Bad -->
+<!-- 錯誤 -->
 a {
     color: #A3A3A3;
 }
@@ -69,10 +69,10 @@ a {
 這可以避免混合內容的安全性問題，並小量減少檔案大小。
 
 ```html
-<!-- Good -->
+<!-- 正確 -->
 <link rel="stylesheet" href="//joomla.org/css/main.css">
 
-<!-- Bad -->
+<!-- 錯誤 -->
 <link rel="stylesheet" href="http://joomla.org/css/main.css">
 ```
 
@@ -84,10 +84,10 @@ a {
 引入樣式表時不要使用 type 屬性(除非不是使用CSS)。引入腳本程式時不要使用 type 屬性(除非不是使用JavaScript)。
 
 ```html
-<!-- Good -->
+<!-- 正確 -->
 <link rel="stylesheet" href="//joomla.org/css/main.css">
 
-<!-- Bad -->
+<!-- 錯誤 -->
 <link rel="stylesheet" href="//joomla.org/css/main.css" type="text/css">
 ```
 
@@ -95,10 +95,10 @@ a {
 使用 Script 標籤時不要使用 language 屬性。
 
 ```html
-<!-- Good -->
+<!-- 正確 -->
 <script href="//code.jquery.com/jquery-latest.js">
 
-<!-- Bad -->
+<!-- 錯誤 -->
 <script href="//code.jquery.com/jquery-latest.js" language="javascript">
 ```
 
@@ -107,16 +107,16 @@ a {
 屬性的值需在前後使用雙引號("")，並且忽略可選(Optional)之屬性。
 
 ```html
-<!-- Good -->
+<!-- 正確 -->
 <script src="//code.jquery.com/jquery-latest.js"></script>
-<!-- Bad -->
+<!-- 錯誤 -->
 <script src='//code.jquery.com/jquery-latest.js'></script>
 ```
 布林值形態的屬性需使用 屬性/值 對。
 ```html
-<!-- Good -->
+<!-- 正確 -->
 <input type="checkbox" value="on" checked="checked">
-<!-- Bad -->
+<!-- 錯誤 -->
 <input type="checkbox" value="on" checked>
 ```
 
@@ -127,9 +127,9 @@ HTML 元素中的屬性值應以 class 為首並建議依以下順序排列，�
 3. data-*
 4. 任何其他的屬性
 ```html
-<!-- Good -->
+<!-- 正確 -->
 <a class="[some-value]" id="[some-value]" data-name="[some-value]" href="[some-value]">Text</a>
-<!-- Bad -->
+<!-- 錯誤 -->
 <a href="[some-value]" class="[some-value]" id="[some-value]" data-name="[some-value]">Text</a>
 ```
 
@@ -149,18 +149,18 @@ HTML 元素中的屬性值應以 class 為首並建議依以下順序排列，�
 當元素結尾標籤是可選的時候，永遠不要省略結尾標籤。
 
 ```html
-<!-- Good -->
+<!-- 正確 -->
 <p>The quick brown fox jumps over the lazy dog.</p>
-<!-- Bad -->
+<!-- 錯誤 -->
 <p>The quick brown fox jumps over the lazy dog.
 ```
 
 可以自我閉合(Self-closing)的元素不應該有閉合標籤，結尾的斜線以及空白必須忽略。
 
 ```html
-<!-- Good -->
+<!-- 正確 -->
 <img src="//images/logo.png" alt="">
-<!-- Bad -->
+<!-- 錯誤 -->
 <img src="//images/logo.png" alt="" />
 ```
 
@@ -169,7 +169,7 @@ HTML 元素中的屬性值應以 class 為首並建議依以下順序排列，�
 每個區塊標籤(div, list 或 table)都應該使用單獨的一行，並在每一個子元素縮排。
 
 ```html
-<!-- Good -->
+<!-- 正確 -->
 <div>
 	<ul>
 	  <li>Home</li>
@@ -177,7 +177,7 @@ HTML 元素中的屬性值應以 class 為首並建議依以下順序排列，�
 	</ul>
 </div>
 
-<!-- Bad -->
+<!-- 錯誤 -->
 <div><ul>
   <li>Home</li>
   <li>Blog</li>
@@ -223,7 +223,7 @@ html、body、script 或 style 等等的標籤底下不需要縮排。head 以�
 
 
 ```html
-<!-- Good -->
+<!-- 正確 -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -257,10 +257,10 @@ html、body、script 或 style 等等的標籤底下不需要縮排。head 以�
 移除後綴的空白。後綴空白是不必要的而且會造成複雜的 diffs 顯示.
 
 ```html
-<!-- Good -->
+<!-- 正確 -->
 <p>Yes please.</p>
 
-<!-- Bad -->
+<!-- 錯誤 -->
 <p>No, thank you. </p>
 ```
 
@@ -272,10 +272,10 @@ html、body、script 或 style 等等的標籤底下不需要縮排。head 以�
 唯有的例外是，當該字符在 HTML 之中具有特殊意義 (如 < 和 &)、控制碼或屬於 "看不見 (invisible) " 的字元時(像是 ```&nbsp;``` non-breaking spaces)
 
 ```html
-<!-- Good -->
+<!-- 正確 -->
 <p>The currency symbol for the Euro is “€”.</p>
 
-<!-- Bad -->
+<!-- 錯誤 -->
 <p>The currency symbol for the Euro is &ldquo;&eur;&rdquo;.</p>
 ```
 
@@ -284,10 +284,10 @@ html、body、script 或 style 等等的標籤底下不需要縮排。head 以�
 不要使用行內樣式。當使用 JavaScript 去改變樣式或狀態時，如果可以，儘量使用 Unobtrusive JavaScript(一種將Javascript從HTML結構抽離的設計概念)的模式去改變或新增 class 名稱。
 
 ```html
-<!-- Good -->
+<!-- 正確 -->
 <a class="is-link-disabled" href="//index.php">Home</a>
 
-<!-- Bad -->
+<!-- 錯誤 -->
 <a href="//index.php" style="text-decoration: line-through;">Home</a>
 ```
 
@@ -304,10 +304,10 @@ html、body、script 或 style 等等的標籤底下不需要縮排。head 以�
 依據不同的考量來使用 HTML 對於易使用性、重複使用性以及程式碼效率等等是相當重要的。
 
 ```html
-<!-- Good -->
+<!-- 正確 -->
 <a href="subscriptions/">View subscriptions</a>
 
-<!-- Bad -->
+<!-- 錯誤 -->
 <div onclick="goToSubscriptions();">View subscriptions</div>
 ```
 

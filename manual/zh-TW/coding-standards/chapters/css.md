@@ -47,7 +47,7 @@
 /* Basic comment */
 ```
 
-### 為編譯的 LESS/Scss 註解
+### 未編譯的 LESS/Scss 註解
 ```css
 // 這段註解在編譯的時候會被移除
 ```
