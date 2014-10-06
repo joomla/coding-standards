@@ -1,19 +1,19 @@
-## Introduction
+## 前言
 
-Good coding standards are important in any software development project. These standards are even more important when a large, diverse and worldwide community of developers are contributing to a project. One of the things that sets good software apart from great software is not only the features or the actual function the software performs, but the quality of its source code. 
+好的編碼規範對於任何軟體開發專案來說都是非常重要的。當大型、多樣化且世界級的開發者社群在對專案提交貢獻時，這些標準尤其重要。令軟體變得更好的其中一項因素，不只在於它提供了多少優異的功能，也需關注它的原始碼品質有多優良。
 
-In order to perform in the highly competitive Open Source and proprietary software industries, source code not only needs to be beautifully designed, it also needs to be beautiful and elegant to look at. The Joomla Coding Standards Manual is to help ensure our code is the highest quality which will make it easy to read, debug, and maintain. 
+為了在競爭激烈的開源環境與專有軟體中佔有一席之地，原始碼不只需要優美的結構設計，更需要在閱讀上看起來同樣美麗而優雅。Joomla 編碼標準就是用來幫助我們確認程式碼擁有最高的品質，使其易於閱讀、除錯與維護的手冊。
 
-## Guiding Principles
+## 指導原則
 
-Since readable code is more maintainable, the compass that guides us in achieving that goal is a set of well thought out coding standards for the different software languages that are employed in the Joomla software project. Joomla has a solid heritage of striving to support a great looking product with great looking code. 
+可讀性高的代碼也是易於維護的，而靠著一套針對 Joomla! 所使用的各種程式語言所攥寫的完善編碼標準，能夠指引我們實現可讀性的這個目標。Joomla! 有著堅實的傳統與努力過程來實現一個偉大的產品與美觀的代碼。
 
-This manual compiles the collective wisdom of past and present contributors to the project to form the definitive standard for coding in Joomla, whether that is for the core Joomla Framework or an extension that forms part of the stack of the Joomla CMS. This manual also serves as a lighthouse to the Joomla developer community, to safely guide developers around the pitfalls of becoming lackadaisical with respect to writing clean, beautiful code.
+這份文件彙整過去和現在許多貢獻者的集體智慧，形成一個權威的標準，無論是核心Joomla!框架還是CMS的擴充套件。而這份文件也可以成為一座燈塔，以安全的指引社群開發者們編寫漂亮、乾淨的代碼。
 
-The Joomla Coding Standards borrows heavily from the PEAR coding standard for PHP files, augmenting and diverging where it is deemed sensible to do so.
+Joomla 編碼標準在 PHP 檔案的部份大量借鑑 PEAR 標準，並在這之上做了一定程度被認為是明智的增加與擴充。
 
-There are [tools available](appendices/analysis.md) to help your code conform to our standards.
+我們準備了一些 [好用的工具](appendices/analysis.md) 來幫助您確認您的代碼是否符合我們的標準。
 
-## Contributing to this manual
+## 貢獻與改善這份手冊
 
-If you want to contribute and improve this manual, you can find the source files at [https://github.com/joomla/coding-standards/tree/gh-pages](https://github.com/joomla/coding-standards/tree/gh-pages).
+如果您想要改善這份手冊並提交貢獻，可以在 [https://github.com/joomla/coding-standards/tree/gh-pages](https://github.com/joomla/coding-standards/tree/gh-pages) 之中找到其原始文件。
