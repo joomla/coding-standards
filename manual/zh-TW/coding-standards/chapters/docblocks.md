@@ -1,32 +1,32 @@
-## DocBlocks
+## 區塊註解
 
-Documentation headers for PHP code in: files, classes, class properties, methods and functions, called the docblocks, follow a convention similar to JavaDoc or phpDOC.
+被使用在 PHP 程式碼中(如：文件、類別、類別屬性、方法和函數) 的說明標頭被稱作區塊註解 (docblocks)，攥寫方式遵循類似 JavaDoc 或 phpDOC 所使用的慣例。
 
-These "DocBlocks" borrow from the PEAR standard but have some variations specific for Joomla and the Joomla projects.
+這些區塊註解是仿效 PEAR 的標準，但是針對 Joomla 和 Joomla projects 做了些許的變更。
 
-Whereas normal code indenting uses real tabs, all whitespace in a Docblock uses real spaces. This provides better readability in source code browsers. The minimum whitespace between any text elements, such as tags, variable types, variable names and tag descriptions, is two real spaces. Variable types and tag descriptions should be aligned according to the longest Docblock tag and type-plus-variable respectively.
+區塊註解裡的空白都是使用空白鍵而縮排都是使用tab，這樣的好處是使區塊註解能更有良好的閱讀性。任何的文字元素、標籤、變數、變數名稱、標籤說明至少都需要兩個空白鍵，並以最長的那個註解作為排版的對齊。
 
-Code contributed to the Joomla project that will become the copyright of the project is not allowed to include @author tags. You should update the contribution log in CREDITS.php. Joomla's philosophy is that the code is written "all together" and there is no notion of any one person "owning" any section of code. The @author tags are permitted in third-party libraries that are included in the core libraries.
+@author 將成為 Joomla project 版權一部分而貢獻出來的程式不允許使用 @auther 標籤。您必須更新您的(CREDITS.php 在 contribution log)。 Joomla程式原則是"互助"，所以並不會在Joomla程式碼提出或是感謝某人提供或擁有任何程式碼。@author標籤 在Joomla第三方核心程式編碼是被允許的。
 
-Files included from third party sources must leave DocBlocks intact. Layout files use the same DocBlocks as other PHP files.
+第三方程式資源編碼必須要留下完整的註解檔說明，說明註解寫法必須與其他PHP文件相同。
 
-### File DocBlock Headers
-The file header DocBlock consists of the following required and optional elements in the following order:
-Short description (optional unless the file contains more than two classes or functions), followed by a blank line). Long description (optional, followed by a blank line).
+### 區塊註解
+區塊註解必須按照以下必填或非必填規則。
+簡短的說明(非必填，除非該文件包含兩個以上的物件或函數，結尾處需要斷行)。
+詳細的說明(非必填，結尾處需要斷行)。
 
-* @category (optional and rarely used)
-* @package (generally optional but required when files contain only procedural code)
-* @subpackage (optional)
-* @author (optional but only permitted in non-Joomla source files, for example, included third-party libraries like Geshi)
-* @copyright (required)
-* @license (required and must be compatible with the Joomla license)
-* @deprecated (optional)
-* @link (optional)
-* @see (optional)
-* @since (generally optional but required when files contain only procedural code)
+* @category (非必填，極少使用)
+* @package (通常是非必填，但當程式碼是持續性就是必填)
+* @subpackage (非必填)
+* @author (非必填但只被允許在非Joomla程式資源裡, 像是第三方套件Geshi)
+* @copyright (必填)
+* @license (必填，證照必須要可以跟Joomla相容)
+* @deprecated (非必填)
+* @link (非必填)
+* @see (非必填)
+* @since (通常是非必填，但當程式碼是持續性就是必填)
 
-Example of a DocBlock Header:
-
+區塊註解範例：
 ```php
 /**
  * @package     Joomla.Installation
@@ -37,25 +37,25 @@ Example of a DocBlock Header:
  */
 ```
 
-### Class Definitions
-Class definitions start on a new line and the opening and closing braces are also placed on new lines. Class methods must follow the guidelines for Function Definitions. Properties and methods must follow OOP standards and be declared appropriately (using public, protected, private and static as applicable).
-Class definitions, properties and methods must each be provided with a DocBlock in accordance with the following sections.
+### 物件定義
+物件定義必須在新的行列而結束括號也放在新行列。物件方法必須遵循函數定義的準則。屬性和方法必須遵循面OOP的標準，並進行適當的宣告（使用公共，保護，私有和靜態如適用）。
+物件定義，屬性和方法必須在提供在區塊註解並遵循以下條件。
 
-#### Class DocBlock Headers
-The class Docblock consists of the following required and optional elements in the fol-lowing order.
-Short description (required, unless the file contains more than two classes or functions), followed by a blank line). Long description (optional, followed by a blank line).
-* @category (optional and rarely used)
-* @package (required)
-* @subpackage (optional)
-* @author (optional but only permitted in non-Joomla source files, for example, included third-party libraries like Geshi)
-* @copyright (optional unless different from the file Docblock)
-* @license (optional unless different from the file Docblock)
-* @deprecated (optional)
-* @link (optional)
-* @see (optional)
-* @since (required, being the version of the software the class was introduced)
+#### 物件區塊註解
+物件註解有包含在以下各種必填或非必填元素：
+簡單區塊註解 (必填, 除非該文件包含兩個以上的物件或函數，結尾處需要斷行)
+* @category (非必填，極少使用))
+* @package (必填)
+* @subpackage (非必填)
+* @author (非必填但只被允許在非Joomla程式資源裡, 像是第三方套件Geshi)
+* @copyright (非必填除非是不同的文件註解)
+* @license (非必填除非是不同的文件註解)
+* @deprecated (非必填)
+* @link (非必填)
+* @see (非必填)
+* @since (必填，該 class 剛被採用時軟體的版本)
 
-Example of a Class file DocBlock header:
+物件區塊註解範例：
 ```php
 /**
  * Controller class to initialise the database for the Joomla Installer.
@@ -66,16 +66,15 @@ Example of a Class file DocBlock header:
  */
 ```
 
-#### Class Property DocBlocks 
-The class property Docblock consists of the following required and optional elements in the following order.
-Short description (required, followed by a blank line)
+#### 物件屬性區塊註解：
+物件屬性區塊註解包含以下必填和非必填的條件規則。
+簡短說明（非必填，結尾處需要斷行）
 
-* @var (required, followed by the property type)
-* @deprecated (optional)
-* @since (required)
+* @var（必填，必須是屬性類型）
+* @deprecated（非必填）
+* @since（必填）
 
-Example of Class property DocBlock:
-
+物件屬性區塊註解的範例：
 ```php
 	/**
 	 * The generated user ID
@@ -86,20 +85,18 @@ Example of Class property DocBlock:
 	protected static $userId = 0;
 ```
 
+#### 物件方法區塊註解和函式區塊註解
+函數必須在一個新的行列和結束括號也放在新行列。空行應先行指定的返回值。
 
+函數定義必須按照以下區塊註解條件規則。
 
-#### Class Method DocBlocks and Functions DocBlocks
-Function definitions start on a new line and the opening and closing braces are also placed on new lines. An empty line should precede lines specifying the return value.
+* 簡短說明（必填，結尾處需要斷行）
+* 詳細的說明（非必填，結尾處需要斷行）
+* @param（必填，如果有方法或函數參數，最後@param標籤後面跟著一個斷行）
+* @return（必填，結尾處需要斷行）
+* 其他標籤須按字母排序，不管怎樣一定要有 @since。
 
-Function definitions must include a documentation comment in accordance with the Commenting section of this document.
-
-* Short description (required, followed by a blank line)
-* Long description (optional, followed by a blank line)
-* @param (required if there are method or function arguments, the last @param tag is followed by a blank line)
-* @return (required, followed by a blank line)
-* All other tags in alphabetical order, however @since is always required.
-
-Example of Method DocBlock:
+函數註解範例：
 ```php
 	/**
 	 * Set a controller class suffix for a given HTTP method.
@@ -118,7 +115,7 @@ Example of Method DocBlock:
 	public function setHttpMethodSuffix($method, $suffix)
 ```
 
-If a function definition goes over multiple lines, all lines must be indented with one tab and the closing brace must go on the same line as the last parameter.
+如果一個函數太多的行數，所有的行數都必須使用tab來做縮排而結束括號必須跟最後一個參數同一行。
 
 ```php
 function fooBar($param1, $param2, 
