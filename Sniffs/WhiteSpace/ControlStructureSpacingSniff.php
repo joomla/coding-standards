@@ -181,7 +181,8 @@ class Joomla_Sniffs_WhiteSpace_ControlStructureSpacingSniff implements PHP_CodeS
 				if ($tokens[$trailingContent]['code'] != T_ELSEIF
 					&& $tokens[$trailingContent]['code'] != T_ELSE
 					&& $tokens[$trailingContent]['code'] != T_CATCH
-					&& $tokens[$trailingContent]['code'] != T_COMMENT)
+					&& $tokens[$trailingContent]['code'] != T_COMMENT
+					&& $tokens[$trailingContent]['code'] != T_WHILE)
 				{
 					$error = 'No blank line found after control structure' . $tokens[$trailingContent]['line']
 						. ' - ' . $tokens[$trailingContent]['code'];
