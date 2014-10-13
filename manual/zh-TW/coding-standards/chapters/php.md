@@ -1,6 +1,6 @@
-## 語言結構
+# 語言結構
 
-### PHP 標籤
+## PHP 標籤
 
 永遠使用長標籤： `<?php ?>` 來包裹 PHP 程式碼，不使用短標籤 `<? ?>`。這可以確保您的程式碼可執行在大多數未經設定的主機環境。
 
@@ -8,7 +8,13 @@
 
 檔案結尾必須永遠由一個空行結束。
 
-### 引入程式
+## 一般
+
+依據 PSR-2 規範中的 [Keywords and True/False/Null](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md#25-keywords-and-truefalsenull) 所述：
+
+> PHP [關鍵字](http://php.net/manual/en/reserved.keywords.php) 「必須」是小寫. PHP 常數如 true, false, and null 也必須是小寫。
+
+## 引入程式
 
 當您想要無條件引入一個檔案時，應使用 `require_once`。當您要有條件的引入一個檔案（例如 factory 類別與其方法），則用 `include_once`。這兩者都可以確保檔案不被二次載入。兩種用法共享檔案清單，所以混用不會有任何問題。被 `require_once` 引入的檔案不會再被 `include_once` 引入一次。
 
@@ -21,7 +27,7 @@
 
 您不應該把檔案路徑用括號包起來。
 
-### 兼容 E_STRICT 的 PHP 程式
+## 兼容 E_STRICT 的 PHP 程式
 
 我們必須秉持並實踐 PHP 5.3 以上所支持的物件導向設計模式。Joomla! 一直致力於讓原始碼符合 E_STRICT 標準。
 
@@ -135,6 +141,25 @@ $ref1 = &$this->sql;
 >
 > 在 PHP 5 ，物件不再需要參照符號，所有物件皆是參照。
 
+## 字串連接的間距
+
+當使用字串連接時， `.` 符號的左右兩旁應該要有一格空白。例如：
+
+``` php
+$id = 1;
+echo JRoute('index.php?option=com_foo&task=foo.edit&id=' . (int) $id);
+```
+
+如果字串連接符在一行中的開頭或結尾時，兩者的間距都不是必要的。例如：
+
+``` php
+$id = 1
+echo JRoute::_(
+    'index.php?option=com_foo&task=foo.edit&id=' . (int) $id
+    . '&layout=special'
+);
+```
+
 ## 陣列
 
 陣列元素的指派可稍微排版，當多行時，可用 Tab 縮排。每行跟隨一個都逗號結尾，最後一行可包含逗號，這是 PHP 允許的寫法，對於程式碼 diff 比對時也有所幫助。
@@ -161,7 +186,9 @@ $options = array(
 //$code = broken($fixme);
 ```
 
-### 文件區塊註解
+更多行內註解的詳細內容請參見 [行內註解](coding-standards/chapters/inline-comments.md) 章節
+
+### 區塊註解
 
 在 PHP、Javascript、檔案中的所有類別、成員屬性、方法與函式，皆需要區塊註解，並遵循 JavaDoc 或 phpDoc 的約定。
 
@@ -395,7 +422,7 @@ class JFooHelper
 
 ### 邏輯例外 LogicException
 
-在 API 的使用方式上發生的明確問題會丟出 LogicException 的例外。例如：如果有個依賴參數失效時（你試圖操作一個未被載入的物件）。
+當 API 的使用並不正確時，丟出 LogicException 的例外。例如：當某個程式內的相依情況出現錯誤時（你試圖操作一個未被載入的物件）。
 
 下方的子類別也可被用於適當的情境下：
 
@@ -413,7 +440,7 @@ class JFooHelper
 
 #### DomainException
 
-該例外和 InvalidArgumentException 類似，但會在一數值未依附在一已定義的有效資料群集的情形下丟出該例外。例如：試圖載入一個"mongodb"的資料庫引擎，但該引擎尚未在 API 中實作。
+該例外和 `InvalidArgumentException` 類似，但會在一數值未依附在一已定義的有效資料群集的情形下丟出該例外。例如：試圖載入一個 mongodb 的資料庫引擎，但該引擎尚未在 API 中實作。
 
 #### LengthException
 
