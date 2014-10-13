@@ -1,110 +1,109 @@
-## Inline Code Comments
+## 行內註解
 
-This chapter covers inline code commenting in more detail. Inline comments are all comments not included in doc blocs. The goal of in line commenting is to explain code in context. Such explanation may take many different forms.
+此章節將告訴您在程式碼中寫入詳細的文字註解。而在程式碼中的註解文字並不能加以插入文件區塊。為該程式碼下註解的目的就是解釋該段的程式碼的運作跟用途。
 
-Comments that are written in a readable and narrative style, especially when explaining a complex process, are encouraged. In general they should be placed close to the code explained rather than before the entire block of code.
+註解能用可人為且易閱讀的方式去述敘該程式碼中複雜的運算，幫助瞭解程式碼之間的運作關係，下註解是值德鼓勵去實行的美德。
 
-Comments should be as sentence like as possible, which is to say that they should be complete and readable, not in short hand.
+註解盡可能的用一句話解釋完畢，應該是說，它們應該是有完整的思思並可以完全理解的，而不是只有太簡短而帶過。
 
-Comments are not a replacement for detailed doc blocks. Comments serve to explain the logic and structure of code itself rather than the use of code.
+註解是不能代替詳細的文檔區塊。它是用來說明代碼本身的羅輯結構，而不是去使用程式碼。
 
-### Formatting of Comments
+## 註解的格式
 
-Comment blocks that introduce large sections of code and are more than 2 lines long should use `/* */` (C) style and should use `*` on each line with the same space/tab rules as doc blocks. If you need a large introduction consider whether this block should be separated into a method to reduce complexity and therefore providing a full docblock.
+註解一個區塊的程式碼或是超過兩行者應該使用(c)風格的'/**/'，並應與同一空間/標籤規則文檔塊的每一行使用'*'。 如果你需要一個大的引進考慮這個塊是否應被分為一個方法來降低複雜性並因此提供了一個完整的區塊註解。
 
-Comments should precede the code they refer to. As a corollary, comments should not be on the same line as the code to which they refer (which puts them after the code they reference). They should be on their own lines.
+註解必需要處於一個優先的地位來解釋程式碼運作的方式。像是要做為一個參考或引用，註解的位置就應該不必跟程式碼置於同一行(與它們放在程式碼的後方做為一個引用)。它們必需跟自己同一行來放置。
 
-Don’t use a blank line between comments and the code they refer to (no space underneath a comment block).
+不要在每行的註解跟每行的程式碼之間插入空白行。(在註解的區塊中不要有空白行)
 
-Always have a single blank line before a comment or block of comments unless the comment (or block) is at the beginning of a code structure. ( You should not have a blank line after a '{' line )
+單行註解與多行註解之上永遠都要有一個空行，除非他們在一個程式區塊的開頭。(因為你不該在 `}` 之後出現空行)
 
-For example in the following case there is no new line before the first comment (because it follows a '{' line) but we do want a new line before the second comment:
+例如這段程式，第一段註解之前沒有空行（因為在 `{` 之後），但第二段註解前我們就會希望要空一行。
 
-```php
-  while (!$done)
-  {
-    // We don't want an infinite loop here.
-    $done = true;
-  }
-  
-  //Now let's do something interesting.
-  $result = somethingInteresting();
+``` php
+while (!$done)
+{
+	// We don't want an infinite loop here.
+	$done = true;
+}
+
+//Now let's do something interesting.
+$result = somethingInteresting();
 ```
 
-Comments should align with the code they refer to, using the same indenting as the line that follows the comment.
+註解應該跟其所參照的程式碼對齊，並使用相同的縮排方式。
 
-Comments should be indented with tabs (like code, not like doc blocks).
+註解應該要用(tab)來縮排。(跟程式碼一樣，而不是與區塊註解一樣)。
 
-### Content of comments
+## 註解的內容表達
 
-Comments should use en-GB (See below).
+註解的語系必需要是en-GB (請參考下方範例)。
 
-Always have a space between // and the start of comment text.
+必需要在 `//` 與開頭之間有空隔。
 
-New lines should always start with an upper case letter unless The line is a continuation of a complete sentence The term is code and is case sensitive.
+下一個新行的註解必需大寫以開頭，除非這個新行是延續上一個註解的句子。當那段註解是程式碼且是大小寫敏感的時候則例外。
 
-Code that is included specifically to assure compatibility with other software (for example specific browsers or a specific version of the CMS or for backward compatibility reasons) should be clearly marked as such. If there is the intention to remove specific code at a future point, state that but do not use a deprecation tag or specify a release (this can be hard to predict).
+程式碼中包含了特別的部份去確保與其他軟體的相容性時（例如為了相容瀏覽器或 CMS 的舊版時），應該要刻意且清楚的描述它。如果有打算在未來的某時間點刪除這段程式碼，請標註它但不要使用棄用 (deprecation) 標籤或標註特定版本。
 
-Check spelling and grammar on all comments (see below).
+在所有註解中檢查拼字跟語法。(請參考下方範例)。
 
-Only end a line with a period if it is a full sentence.
+只使用一行來完整整個句子。
 
-Rather than use docblock tags use See:, Link: and Note: for comments if appropriate.
+See:、 link: 和 note: 這些標籤盡量用在區塊註解中而非一般註解。
 
-Do not use HTML in comments unless specifically related to the comment content.
+除非有特別的需求，否則不要在註解中使用 HTML。
 
-Do not leave commented code unless there is a clearly explained reason for doing so. In such a case, a comment saying "Code intentionally commented" will prevent accidental removal.
+不要留下被註解的程式碼，除非有明確解釋這樣做的理由，在這樣的情況下，使用註解說明「這段程式碼是刻意註解的」可以避免意外的被他人移除掉。
 
-Comments may include forward looking statements of how something will be extended or modified in the future, but not todos indicating that code is not complete or ready to use.
+註釋可能包括一些程式碼可能在未來會有延展性來修改程式碼，表示了這個程式碼是不完整的或是要用來準備有前瞻性的陳述，也是不一個待辦事項。
 
-Remember that humor and sarcasm are difficult to translate.
+請記住幽默和諷剌是很難翻譯。
 
-### Acronyms
+## 縮寫字
 
-Capitalise all letters of acronyms such as HTML, XML, SQL, GMT, and UTC. This is an exception to the general use of en-GB rules.
+大寫首字母縮寫詞，如HTML，XML，SQL，GMT和UTC的所有字母。這些都是例外，一般使用EN-GB的規則。
 
-### Common spelling and grammar errors for which to check.
+## 常見的拼寫和語法錯誤檢查。
 
-Joomla contributors include many non-native speakers of en-GB which makes it understandable that there are sometimes spelling and grammar errors. At the same time, some people reading comments also are non native speakers and may even use automated translation to understand comments. This makes it very important that comments should follow proper en-GB spelling and grammar rules. Unfortunately, these can be tricky.
+Joomla的貢獻者包括許多並非以 en-GB 為母語的人，有時會有拼寫和語法錯誤，這是可以理解的。 同時，有些人也是以非母語的概念去解讀註解內容，甚至可能使用自動翻譯去理解這些註解。因此遵循正確的 en-GB 的拼寫和語法規則是非常重要的。不幸的是，這可能會有點困難。
 
-Wikipedia provides a good summary of [common differences between en-US and en-GB](http://en.wikipedia.org/wiki/American_and_British_English_spelling_differences). Note that there are some instances where en-GB common usage (but not actual rules) varies slightly from en-AU and using en-AU is considered acceptable.
+維基百科在 [en-US 與 en-GB 之間常見的不同點](http://www.wikiwand.com/en/American_and_British_English_spelling_differences) 這篇文章中提供了不錯的說明。請留意有某些情況下 en-GB 的常見用法（而不是實際的規則）與 en-AU 略有不同，此時使用 en-AU 是可以接受的。
 
-#### S vs Z
+### S 與 Z
 
-en-GB most commonly uses `ise` where en-US would use `ize`, such as `normalise` instead of `normalize`. (Note that there are some exceptions to this rule and some differences between en-GB and en-AU in common usage.)
+EN-GB最常使用 `ise` ，而 en-US 較常使用 `ize` ，比如應使用 `normalise` 而不是 `normalize`。 （請注意，有一些例外情況和，且 en-GB 和 en-AU 之間的常見用法又有一些差別。）
 
-Use of apostrophes is one of the trickier parts of English.
+使用單引號是英文的棘手的部分之一。
 
-#### Lets versus let’s
+### Lets 與 let’s
 
-Lets means permits or allows to:
+Lets 表示允許這樣做:
 
 ```php
 // This lets the user enter data
 ```
 
-Let’s is a contraction for let us and means we are going to do this now:
+Let’s 是 let us 的縮寫且代表我們正要開始進行這個動作:
 
 ```php
 // Let's validate the field
 ```
 
-#### Its versus it’s
+### Its 與 it’s
 
-Its is the possessive form of it:
+Its 是 it 的所有格:
 
 ```php
 // Get its ID
 ```
 
-It’s is a contraction of it is
+It’s 是 it is 的縮寫
 
 ```php
 // It's time to save
 ```
 
-#### The correct Joomla spelling of some commonly used words.
+### 在 Joomla 下所拼寫一些常用的單詞。
 
--   dependant
--	deprecated
-
+- dependant (依賴)
+- deprecated (被棄用的)
