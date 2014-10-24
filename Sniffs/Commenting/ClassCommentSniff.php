@@ -104,15 +104,20 @@ class Joomla_Sniffs_Commenting_ClassCommentSniff extends Joomla_Sniffs_Commentin
                                         'allow_multiple' => true,
                                         'order_text'     => 'must follow @link (if used)',
                                        ),
+                       'property-read' => array(
+                                        'required'       => false,
+                                        'allow_multiple' => true,
+                                        'order_text'     => 'must follow @see (if used) or @link (if used)',
+                                       ),
                        'since'      => array(
                                         'required'       => true,
                                         'allow_multiple' => false,
-                                        'order_text'     => 'must follow @see (if used) or @link (if used)',
+                                        'order_text'     => 'must follow @property-read (if used) or @see (if used) or @link (if used)',
                                        ),
                        'deprecated' => array(
                                         'required'       => false,
                                         'allow_multiple' => false,
-                                        'order_text'     => 'must follow @since (if used) or @see (if used) or @link (if used)',
+                                        'order_text'     => 'must follow @since (if used) or @property-read (if used) or @see (if used) or @link (if used)',
                                        ),
                 );
 
