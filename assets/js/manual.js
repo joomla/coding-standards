@@ -94,6 +94,7 @@
 
         document.id('language-item').addEvent('click:relay(a)', function (event, target) {
             locale = target.get('href');
+            populateMenu();
             populateWindow(currentDoc);
             event.preventDefault();
 
@@ -105,6 +106,7 @@
         document.id('main').addEvent('click:relay(a)', function (event, target) {
             if (target.get('href').substring(0, 4) != 'http' && target.get('href').substring(0, 1) != '#')
             {
+                populateMenu();
                 populateWindow(target.get('href'));
                 event.preventDefault();
                 history.pushState(state, target.get('href'), "?" + target.get('href'));
