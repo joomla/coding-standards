@@ -53,6 +53,22 @@
         }).send();
     }
 
+    var populateLanguage = function() {
+        var markdownRequest = new Request({
+            "url": here + 'manual/' + locale + '/language.md',
+            "method": "get",
+            "onSuccess": function (response) {
+                var parser = new DOMParser(),
+                    list = parser.parseFromString(marked(response), 'text/xml');
+
+                $$(list.getElementsByTagName('li')).each(
+                    function(item) {
+                        $('language-items').grab(item);
+                    });
+            }
+        }).send();
+    }
+
     var populateVersion = function() {
         var versionRequest = new Request({
             "url": here + 'manual/' + locale + '/version.md',
@@ -89,10 +105,11 @@
             }
         })
         populateMenu();
+        populateLanguage();
         populateWindow(currentDoc);
         populateVersion();
 
-        document.id('language-item').addEvent('click:relay(a)', function (event, target) {
+        document.id('language-items').addEvent('click:relay(a)', function (event, target) {
             locale = target.get('href');
             populateMenu();
             populateWindow(currentDoc);
