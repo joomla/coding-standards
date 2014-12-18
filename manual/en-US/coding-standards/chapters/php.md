@@ -499,7 +499,7 @@ $query = $db->getQuery(true);
 // Build the query programatically (using chaining if desired).
 $query->select('u.*')
 	// Use the qn alias for the quoteName method to quote table names.
-	->from($db->qn('#__users') . ' AS u'));
+	->from($db->qn('#__users', 'u'));
 
 // Tell the database connector what query to run.
 $db->setQuery($query);
