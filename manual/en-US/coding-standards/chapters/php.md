@@ -45,6 +45,41 @@ For all control structures there is a space between the keyword and an opening p
 
 For all all control structures, such as `if`, `else`, `do`, `for`, `foreach`, `try`, `catch`, `switch` and `while`, both the keyword starts a newline and the opening and closing braces are each put on a new line.
 
+** Note **: Is a requirement in comparisons to add the value as first element. The reason for this requirement is that sometimes we do a typing error doing an assignation:
+
+```
+if ($number = 1) // you are not checking if $number is equal to 1 but assigning the 1 value to the variable $number, the IF condition will always be true. 
+{
+	...
+```
+
+when in reality we wanted to do a comparison:
+
+```
+if ($number == 1)
+{
+	...
+```
+
+There is a code style solution to prevent the mentioned error: "add the value always in front":
+
+```
+if (1 == $number)
+// or
+if (true == $foo)
+
+```
+
+Why? because if you do a typing error adding an "=" instead of a "=="" you will get a warning from PHP because this operation is not possible:
+
+```
+if (1 = $number)
+// or
+if (true = $foo)
+// you would be assigning to the number 1 the value $number OR assigning the value of $foo to the keyword TRUE. This becomes a PHP error.
+```
+
+
 ### An _if-else_ Example
 
 ```php
