@@ -336,6 +336,16 @@ Highlight todos by using the keyword TODO, eg:
 
 
 
+### Adding line breaks
+
+Always use `<br />` instead of `<br>` and `<br/>` eg:
+
+```html
+This text contains<br />a line break.
+```
+
+
+
 ### Markup validation tools
 @todo: list various testing tools:
 * http://validator.w3.org/nu/
