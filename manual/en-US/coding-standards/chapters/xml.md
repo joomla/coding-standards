@@ -16,17 +16,17 @@ A max line length of 100 characters is recommended for good reading.
 
 #### Examples
 
-Element is **empty**:
+###### Element is **empty**:
 ```xml
 <field
 	name="abc"
 	type="text"
 	label="Empty Field"
 	description="Empty field without options"
-	/>
+/>
 ```
 
-Element is **not empty**:
+###### Element is **not empty**:
 ```xml
 <field
 	name="abc"
@@ -54,4 +54,8 @@ Element is **not empty**:
 		SOMETHING_VERY_LONG
 	</option>
 </field>
+```
+###### Element with only a few attributes
+```xml
+<fieldset name="params" label="Some label for the field set">
 ```
