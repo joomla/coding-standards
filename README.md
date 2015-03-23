@@ -26,6 +26,10 @@ Installation is as easy as checking out the repository to the correct location w
 ### Install the Joomla standard.
 
 	git clone https://github.com/joomla/coding-standards.git `pear config-get php_dir`/PHP/CodeSniffer/Standards/Joomla
+	
+There is further information on how to set up IDE auto formatters here: 
+
+	https://github.com/joomla/coding-standards/tree/master/IDE
 
 ## Running
 
@@ -37,6 +41,3 @@ Alternatively if it isn't installed you can still reference it by path like:
 
 	phpcs --standard=path/to/joomla/coding-standards path/to/code
 	
-There is further information on how to set up IDE auto formatters here: 
-
-	https://github.com/joomla/coding-standards/tree/master/IDE
