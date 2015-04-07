@@ -7,19 +7,7 @@
 	<!-- Include some additional sniffs from the Generic standard -->
 	<rule ref="Generic.CodeAnalysis.UselessOverridingMethod" />
 	<rule ref="Generic.Files.EndFileNewline" />
-	<!-- Use Unix newlines -->
-	<rule ref="Generic.Files.LineEndings">
-		<properties>
-			<property name="eolChar" value="\n" />
-		</properties>
-	</rule>
-	<!-- Lines can be 85 chars long, but never show errors -->
-	<rule ref="Generic.Files.LineLength">
-		<properties>
-			<property name="lineLimit" value="150" />
-			<property name="absoluteLineLimit" value="0" />
-		</properties>
-	</rule>
+
 	<rule ref="Generic.Formatting.DisallowMultipleStatements" />
 	<rule ref="Generic.Functions.FunctionCallArgumentSpacing" />
 	<!-- This message is not required as spaces are allowed for alignment -->
@@ -54,4 +42,20 @@
 
 	<!-- Include some additional sniffs from the Zend standard -->
 	<rule ref="Zend.Files.ClosingTag" />
+	
+	<!-- Use Unix newlines -->
+	<rule ref="Generic.Files.LineEndings">
+		<properties>
+			<property name="eolChar" value="\n" />
+		</properties>
+	</rule>
+	
+	<!-- Lines can be 150 chars long, but never show errors -->
+	<rule ref="Generic.Files.LineLength">
+		<properties>
+			<property name="lineLimit" value="150" />
+			<property name="absoluteLineLimit" value="0" />
+		</properties>
+	</rule>
+
 </ruleset>
