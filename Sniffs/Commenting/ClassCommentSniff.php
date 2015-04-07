@@ -161,22 +161,22 @@ class Joomla_Sniffs_Commenting_ClassCommentSniff extends Joomla_Sniffs_Commentin
             $phpcsFile->addError($error, $stackPtr, 'WrongStyle', $errorData);
             return;
         } else if ($commentEnd === false
-            || $tokens[$commentEnd]['code'] !== T_DOC_COMMENT
+            || $tokens[$commentEnd]['code'] !== T_DOC_COMMENT_OPEN_TAG
         ) {
             $phpcsFile->addError('Missing %s doc comment', $stackPtr, 'Missing', $errorData);
             return;
         }
 
-        $commentStart = ($phpcsFile->findPrevious(T_DOC_COMMENT, ($commentEnd - 1), null, true) + 1);
+        $commentStart = ($phpcsFile->findPrevious(T_DOC_COMMENT_OPEN_TAG, ($commentEnd - 1), null, true) + 1);
         $commentNext  = $phpcsFile->findPrevious(T_WHITESPACE, ($commentEnd + 1), $stackPtr, false, $phpcsFile->eolChar);
 
         // Distinguish file and class comment.
         $prevClassToken = $phpcsFile->findPrevious(T_CLASS, ($stackPtr - 1));
         if ($prevClassToken === false) {
             // This is the first class token in this file, need extra checks.
-            $prevNonComment = $phpcsFile->findPrevious(T_DOC_COMMENT, ($commentStart - 1), null, true);
+            $prevNonComment = $phpcsFile->findPrevious(T_DOC_COMMENT_OPEN_TAG, ($commentStart - 1), null, true);
             if ($prevNonComment !== false) {
-                $prevComment = $phpcsFile->findPrevious(T_DOC_COMMENT, ($prevNonComment - 1));
+                $prevComment = $phpcsFile->findPrevious(T_DOC_COMMENT_OPEN_TAG, ($prevNonComment - 1));
                 if ($prevComment === false) {
                     // There is only 1 doc comment between open tag and class token.
                     $newlineToken = $phpcsFile->findNext(T_WHITESPACE, ($commentEnd + 1), $stackPtr, false, $phpcsFile->eolChar);

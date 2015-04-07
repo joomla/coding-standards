@@ -126,15 +126,15 @@ class Joomla_Sniffs_NamingConventions_ValidFunctionNameSniff extends PHP_CodeSni
 		// Detect if it is marked deprecated
 		$find = array(
 				 T_COMMENT,
-				 T_DOC_COMMENT,
+				 T_DOC_COMMENT_OPEN_TAG,
 				 T_CLASS,
 				 T_FUNCTION,
 				 T_OPEN_TAG,
 				);
 		$tokens = $phpcsFile->getTokens();
 		$commentEnd = $phpcsFile->findPrevious($find, ($stackPtr - 1));
-		if ($commentEnd !== false && $tokens[$commentEnd]['code'] === T_DOC_COMMENT) {
-			$commentStart = $phpcsFile->findPrevious(T_DOC_COMMENT, ($commentEnd - 1), null, true) + 1;
+		if ($commentEnd !== false && $tokens[$commentEnd]['code'] === T_DOC_COMMENT_OPEN_TAG) {
+			$commentStart = $phpcsFile->findPrevious(T_DOC_COMMENT_OPEN_TAG, ($commentEnd - 1), null, true) + 1;
 			$comment = $phpcsFile->getTokensAsString($commentStart, ($commentEnd - $commentStart + 1));
 
 			try {

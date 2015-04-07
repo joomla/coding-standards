@@ -109,7 +109,7 @@ class Joomla_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniffer_S
     {
         $find = array(
                  T_COMMENT,
-                 T_DOC_COMMENT,
+                 T_DOC_COMMENT_OPEN_TAG,
                  T_CLASS,
                  T_FUNCTION,
                  T_OPEN_TAG,
@@ -132,7 +132,7 @@ class Joomla_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniffer_S
             $error = 'You must use "/**" style comments for a function comment';
             $phpcsFile->addError($error, $stackPtr, 'WrongStyle');
             return;
-        } else if ($code !== T_DOC_COMMENT) {
+        } else if ($code !== T_DOC_COMMENT_OPEN_TAG) {
             $phpcsFile->addError('Missing function doc comment', $stackPtr, 'Missing');
             return;
         }
@@ -162,7 +162,7 @@ class Joomla_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniffer_S
 
         // If the first T_OPEN_TAG is right before the comment, it is probably
         // a file comment.
-        $commentStart = ($phpcsFile->findPrevious(T_DOC_COMMENT, ($commentEnd - 1), null, true) + 1);
+        $commentStart = ($phpcsFile->findPrevious(T_DOC_COMMENT_OPEN_TAG, ($commentEnd - 1), null, true) + 1);
         $prevToken    = $phpcsFile->findPrevious(T_WHITESPACE, ($commentStart - 1), null, true);
         if ($tokens[$prevToken]['code'] === T_OPEN_TAG) {
             // Is this the first open tag?

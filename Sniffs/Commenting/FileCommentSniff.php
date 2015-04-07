@@ -194,7 +194,7 @@ class Joomla_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Sniff
             $phpcsFile->addError($error, $errorToken, 'WrongStyle');
             return;
         } else if ($commentStart === false
-            || $tokens[$commentStart]['code'] !== T_DOC_COMMENT
+            || $tokens[$commentStart]['code'] !== T_DOC_COMMENT_OPEN_TAG
         ) {
             $phpcsFile->addError('Missing file doc comment', $errorToken, 'Missing');
             return;
@@ -202,7 +202,7 @@ class Joomla_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Sniff
 
             // Extract the header comment docblock.
             $commentEnd = $phpcsFile->findNext(
-                T_DOC_COMMENT,
+                T_DOC_COMMENT_OPEN_TAG,
                 ($commentStart + 1),
                 null,
                 true
@@ -216,12 +216,12 @@ class Joomla_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Sniff
                             T_ABSTRACT,
                             T_CLASS,
                             T_FUNCTION,
-                            T_DOC_COMMENT,
+                            T_DOC_COMMENT_OPEN_TAG,
                            );
 
             $commentNext = $phpcsFile->findNext($nextToken, ($commentEnd + 1));
             if ($commentNext !== false
-                && $tokens[$commentNext]['code'] !== T_DOC_COMMENT
+                && $tokens[$commentNext]['code'] !== T_DOC_COMMENT_OPEN_TAG
             ) {
                 // Found a class token right after comment doc block.
                 $newlineToken = $phpcsFile->findNext(
