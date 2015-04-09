@@ -42,6 +42,7 @@
 	<rule ref="Squiz.WhiteSpace.ScopeClosingBrace" />
 	<rule ref="Squiz.WhiteSpace.CastSpacingSniff"/>
 	<rule ref="Squiz.WhiteSpace.MemberVarSpacingSniff"/>
+	<rule ref="Squiz.WhiteSpace.SemicolonSpacingSniff"/>
 
 	<!-- Include some additional sniffs from the Zend standard -->
 	<rule ref="Zend.Files.ClosingTag" />
