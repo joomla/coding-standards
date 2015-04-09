@@ -39,6 +39,7 @@
 	</rule>
 	<rule ref="Squiz.Scope.StaticThisUsage" />
 	<rule ref="Squiz.WhiteSpace.ScopeClosingBrace" />
+	<rule ref="Squiz.WhiteSpace.CastSpacingSniff"/>
 
 	<!-- Include some additional sniffs from the Zend standard -->
 	<rule ref="Zend.Files.ClosingTag" />
