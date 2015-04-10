@@ -17,8 +17,8 @@
 	<rule ref="Generic.NamingConventions.UpperCaseConstantName" />
 	<rule ref="Generic.PHP.DisallowShortOpenTag" />
 	<rule ref="Generic.PHP.DeprecatedFunctions" />
-	<rule ref="Generic.PHP.LowerCaseConstantSniff" />
-	<rule ref="Generic.WhiteSpace.DisallowSpaceIndentSniff"/>
+	<rule ref="Generic.PHP.LowerCaseConstant" />
+	<rule ref="Generic.WhiteSpace.DisallowSpaceIndent"/>
 
 	<!-- Include some additional sniffs from the PEAR standard -->
 	<rule ref="PEAR.Classes.ClassDeclaration" />
@@ -26,7 +26,7 @@
 	<rule ref="PEAR.Formatting.MultiLineAssignment" />
 	<rule ref="PEAR.Functions.ValidDefaultValue" />
 	<rule ref="PEAR.NamingConventions.ValidClassName" />
-	<rule ref="PEAR.WhiteSpace.ObjectOperatorIndentSniff"/>
+	<rule ref="PEAR.WhiteSpace.ObjectOperatorIndent"/>
 
 	<!-- Include some additional sniffs from the Squiz standard -->
 	<rule ref="Squiz.CSS.ColonSpacing" />
@@ -42,9 +42,9 @@
 	</rule>
 	<rule ref="Squiz.Scope.StaticThisUsage" />
 	<rule ref="Squiz.WhiteSpace.ScopeClosingBrace" />
-	<rule ref="Squiz.WhiteSpace.CastSpacingSniff"/>
-	<rule ref="Squiz.WhiteSpace.MemberVarSpacingSniff"/>
-	<rule ref="Squiz.WhiteSpace.SemicolonSpacingSniff"/>
+	<rule ref="Squiz.WhiteSpace.CastSpacing"/>
+	<rule ref="Squiz.WhiteSpace.MemberVarSpacing"/>
+	<rule ref="Squiz.WhiteSpace.SemicolonSpacing"/>
 
 	<!-- Include some additional sniffs from the PSR2 standard -->
 	<rule ref="PSR2.ControlStructures.ElseIfDeclaration"/>
