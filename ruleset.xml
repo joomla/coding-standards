@@ -46,6 +46,12 @@
 	<rule ref="Squiz.WhiteSpace.MemberVarSpacingSniff"/>
 	<rule ref="Squiz.WhiteSpace.SemicolonSpacingSniff"/>
 
+	<!-- Include some additional sniffs from the PSR2 standard -->
+	<rule ref="PSR2.ControlStructures.ElseIfDeclaration"/>
+	<rule ref="PSR2.ControlStructures.ElseIfDeclaration.NotAllowed">
+		<type>error</type>
+	</rule>
+
 	<!-- Include some additional sniffs from the Zend standard -->
 	<rule ref="Zend.Files.ClosingTag" />
 	
