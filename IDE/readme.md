@@ -1,11 +1,12 @@
 ## IDE auto formatters
 
-* Eclipse PDT
+### Eclipse PDT
 Go to Preferences->PHP->Code style->Formatter and Import ```eclipse_pdt3_formatter.xml```
 * Zend studio
 @todo
-* PHPStorm
-1.Copy the file ```joomla_phpstorm.xml``` to:
+
+### PHPStorm 
+1. Copy the file ```joomla_phpstorm.xml``` to:
  	- Mac ```~/Library/Preferences/WebIdeXX/config/codestyles/Joomla.xml```
  	- Windows ```<User home>\.WebIdeXX\config\codestyles\Joomla.xml```
  	- Linux ```~/.WebIdeXX/config/codestyles/Joomla.xml```
@@ -15,5 +16,5 @@ Go to Preferences->PHP->Code style->Formatter and Import ```eclipse_pdt3_formatt
   - Manage the scheme and select *Joomla* > *Copy to Project*
 4. Change the *Scheme* to *Joomla*
 
-### References
+#### References
 * PHPStorm http://www.jetbrains.com/phpstorm/webhelp/code-style-xml.html
