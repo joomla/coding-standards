@@ -35,7 +35,7 @@ ControlStructures/ElseIfDeclarationSniff.php
 - Changed from WARNING to ERROR
 ControlStructures/InlineControlStructureSniff.php
 - Changed from WARNING to ERROR
-- Added exception is the file is a layout (ie, under a /tmpl/ folder).
+- Added exception if the file is a layout (ie, under a /tmpl/ folder).
 ControlStructures/MultiLineConditionSniff.php
 ControlStructures/WhiteSpaceBeforeSniff.php
 
