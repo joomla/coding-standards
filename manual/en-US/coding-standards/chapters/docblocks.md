@@ -14,16 +14,17 @@ Files included from third party sources must leave DocBlocks intact. Layout file
 The file header DocBlock consists of the following required and optional elements in the following order:
 Short description (optional unless the file contains more than two classes or functions), followed by a blank line). Long description (optional, followed by a blank line).
 
+* @version (optional and must be first)
 * @category (optional and rarely used)
 * @package (generally optional but required when files contain only procedural code)
 * @subpackage (optional)
 * @author (optional but only permitted in non-Joomla source files, for example, included third-party libraries like Geshi)
 * @copyright (required)
 * @license (required and must be compatible with the Joomla license)
-* @deprecated (optional)
 * @link (optional)
 * @see (optional)
 * @since (generally optional but required when files contain only procedural code)
+* @deprecated (optional)
 
 Example of a DocBlock Header:
 
