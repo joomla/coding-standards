@@ -24,6 +24,12 @@
 	<rule ref="PEAR.Formatting.MultiLineAssignment" />
 	<rule ref="PEAR.Functions.ValidDefaultValue" />
 	<rule ref="PEAR.NamingConventions.ValidClassName" />
+	
+	<!-- Include some additional sniffs from the PSR2 standard -->
+	<rule ref="PSR2.ControlStructures.ElseIfDeclaration"/>
+	<rule ref="PSR2.ControlStructures.ElseIfDeclaration.NotAllowed">
+		<type>error</type>
+	</rule>
 
 	<!-- Include some additional sniffs from the Squiz standard -->
 	<rule ref="Squiz.CSS.ColonSpacing" />
