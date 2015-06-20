@@ -6,6 +6,7 @@
 
 	<!-- Include some additional sniffs from the Generic standard -->
 	<rule ref="Generic.CodeAnalysis.UselessOverridingMethod" />
+	<rule ref="Generic.ControlStructures.InlineControlStructure" />
 	<rule ref="Generic.Files.EndFileNewline" />
 
 	<rule ref="Generic.Formatting.DisallowMultipleStatements" />
