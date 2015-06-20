@@ -41,6 +41,7 @@
 	<!-- Include some additional sniffs from the PEAR standard -->
 	<rule ref="PEAR.Classes.ClassDeclaration" />
 	<rule ref="PEAR.Commenting.InlineComment" />
+	<rule ref="PEAR.ControlStructures.MultiLineCondition" />
 	<rule ref="PEAR.Formatting.MultiLineAssignment" />
 	<rule ref="PEAR.Functions.ValidDefaultValue" />
 	<rule ref="PEAR.NamingConventions.ValidClassName" />
