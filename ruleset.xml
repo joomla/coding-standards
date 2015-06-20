@@ -14,6 +14,7 @@
 	<rule ref="Generic.Functions.FunctionCallArgumentSpacing.TooMuchSpaceAfterComma">
 		<severity>0</severity>
 	</rule>
+	<rule ref="Generic.Formatting.SpaceAfterCast" />
 	<rule ref="Generic.NamingConventions.UpperCaseConstantName" />
 	<rule ref="Generic.PHP.DisallowShortOpenTag" />
 	<rule ref="Generic.PHP.DeprecatedFunctions" />
