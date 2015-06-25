@@ -134,7 +134,7 @@ switch ($value)
 ## Mixed language usage (e.g. at the layout files)
 
 For layout files and all files where we use a mix of PHP and HTML (all PHP files in the `view/tmpl` and `layout` folder) we additionally wrap every line into a `<?php ... ?>` block and use the alternative syntax for control structures.
-This should make the code easier to read and make it easier to move blocks around without creating fatal errors due to missing `<?php ... ?>` tags and the like.
+This should make the code easier to read and make it easier to move blocks around without creating fatal errors due to missing `<?php ... ?>` tags.
 
 ### Example Control Structures
 
