@@ -131,22 +131,22 @@ switch ($value)
 }
 ```
 
-## Layout files
+## Mixed language usage (e.g. at the layout files)
 
-For layout files (all PHP files in the `view` and `layout` folder) we wrapped additionally every line into a `<?php ... ?>` block.
+For layout files and all files where we use a mix of PHP and HTML (all PHP files in the `view/tmpl` and `layout` folder) we wrapped additionally every line into a `<?php ... ?>` block and use the alternative syntax for control structures.
 Reason is that this way is supposed to be easier to understand by frontend guys and regular users. You can also easier move blocks around without creating fatal errors due to missing `<?php ... ?>` tags and the like.
 
-### Example Control Structures (Layout files)
+### Example Control Structures
 
-#### An _if-else_ Example (Layout files)
+#### An _if-else_ Example
 
 ```php
 <?php if ($test) : ?>
-	<?php echo 'True'; ?>
+	<?php $var = 'True'; ?>
 <?php elseif ($test === false) : ?>
-	<?php echo 'Really false'; ?>
+	<?php $var = 'Really false'; ?>
 <?php else : ?>
-	<?php echo 'A white lie'; ?>
+	<?php $var = 'A white lie'; ?>
 <?php endif; ?>
 ```
 
