@@ -401,6 +401,7 @@ class JFooHelper
 
 	protected function sort()
 	{
+		// Code goes here
 	}
 }
 ```
@@ -491,7 +492,7 @@ All table names should use the `#__` prefix rather than `jos_` to access Joomla 
 
 ```php
 // Get the database connector.
-$db = JFactory::getDBO();
+$db = JFactory::getDbo();
 
 // Get the query from the database connector.
 $query = $db->getQuery(true);
