@@ -2,7 +2,7 @@
 
 ### PHP Code Tags
 
-Always use the full `<?php ?>` to delimit PHP code, not the `<? ?>` shorthand. This is the most portable way to include PHP code on differing operating systems and setups.
+Always use the full `<?php ... ?>` to delimit PHP code, not the `<? ... ?>` shorthand. This is the most portable way to include PHP code on differing operating systems and setups.
 
 For files that contain only PHP code, the closing tag (`?>`) should not be included. It is not required by PHP. Leaving this out prevents trailing white space from being accidentally injected into the output that can introduce errors in the Joomla session (see the PHP manual on [Instruction separation](http://php.net/basic-syntax.instruction-separation)).
 
@@ -27,7 +27,7 @@ Anywhere you are unconditionally including a file, use `require_once`. Anywhere 
 > `include_once` and `require_once` are PHP language statements, not functions. The correct formatting is:
 >
 >
-> `require_once JPATH_COMPONENT . ’/helpers/helper.php’;`
+> `require_once JPATH_COMPONENT . '/helpers/helper.php';`
 
 You should not enclose the filename in parentheses.
 
@@ -39,7 +39,7 @@ As of Joomla version 1.6 and for all versions of the Joomla Platform, adhering t
 
 Usage of global variables should be kept to a minimum. Use OOP and factory patterns instead.
 
-## Control Structures
+## Control Structures (General Code)
 
 For all control structures there is a space between the keyword and an opening parenthesis, then no space either after the opening parenthesis or before the closing bracket. This is done to distinguish control keywords from function names. All control structures must contain their logic within braces.
 
@@ -129,6 +129,25 @@ switch ($value)
 		echo 'I give up';
 		break;
 }
+```
+
+## Layout files
+
+For layout files (all PHP files in the `view` and `layout` folder) we wrapped additionally every line into a `<?php ... ?>` block.
+Reason is that this way is supposed to be easier to understand by frontend guys and regular users. You can also easier move blocks around without creating fatal errors due to missing `<?php ... ?>` tags and the like.
+
+### Example Control Structures (Layout files)
+
+#### An _if-else_ Example (Layout files)
+
+```php
+<?php if ($test) : ?>
+	<?php echo 'True'; ?>
+<?php elseif ($test === false) : ?>
+	<?php echo 'Really false'; ?>
+<?php else : ?>
+	<?php echo 'A white lie'; ?>
+<?php endif; ?>
 ```
 
 ## References
