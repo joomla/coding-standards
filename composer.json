@@ -1,6 +1,6 @@
 {
   "name": "greencape/joomla-cs",
-  "description": "Composer installable Joomla Coding Standards Definition.",
+  "description": "Composer installable Coding Standards Definition.",
   "homepage": "https://github.com/GreenCape/coding-standards",
   "license": "MIT",
   "authors": [
