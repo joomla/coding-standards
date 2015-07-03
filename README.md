@@ -27,5 +27,5 @@ The PHP CodeSniffer tool is installed automatically in a matching version.
 You can use the installed Joomla standard like:
 
 ```
-$ phpcs --standard=vendor/greencape/joomla-cs path/to/code
+$ phpcs --standard=vendor/greencape/joomla-cs/Joomla path/to/code
 ```
