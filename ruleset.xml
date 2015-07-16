@@ -70,7 +70,7 @@
 	</rule>
 	<rule ref="Squiz.Scope.StaticThisUsage" />
 	<rule ref="Squiz.Scope.MemberVarScope" />
-	<rule ref="Squiz.Scope.MethodScopeSniff">
+	<rule ref="Squiz.Scope.MethodScope">
 		<message>No scope modifier specified for function "%s</message>
 	</rule>
 
