@@ -66,26 +66,5 @@ class Joomla_Sniffs_ControlStructures_ControlSignatureSniff extends PHP_CodeSnif
 			'switch (...)EOL...{EOL',
 		);
 	}//end getPatterns()
-	
-	/**
-     * Returns an array of tokens this test wants to listen for.
-     *
-     * @return int[]
-     */
-    public function register()
-    {
-    	return array(
-                T_TRY,
-                T_CATCH,
-                T_DO,
-                T_WHILE,
-                T_FOR,
-                T_IF,
-                T_FOREACH,
-                T_ELSE,
-                T_ELSEIF,
-                T_SWITCH,
-               );
-    }//end register()
 }//end class
 ?>
