@@ -10,18 +10,18 @@ class Joomla_Sniffs_Commenting_SingleCommentSniff implements PHP_CodeSniffer_Sni
 	public function register()
 	{
 	return array(T_COMMENT);
-	
+
 	}//end register()
 
 	/**
-	* Processes this test, when one of its tokens is encountered.
-	*
-	* @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
-	* @param int                  $stackPtr  The position of the current token
-	*                                        in the stack passed in $tokens.
-	*
-	* @return void
-	*/
+	 * Processes this test, when one of its tokens is encountered.
+	 *
+	 * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
+	 * @param int                  $stackPtr  The position of the current token
+	 *                                        in the stack passed in $tokens.
+	 *
+	 * @return int
+	 */
 	public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
 	{
 		$tokens = $phpcsFile->getTokens();
@@ -49,7 +49,7 @@ class Joomla_Sniffs_Commenting_SingleCommentSniff implements PHP_CodeSniffer_Sni
 			) {
 			$phpcsFile->recordMetric($stackPtr, 'Inline comment style', '/* ... */');
 		}
-		
+
 		/*
 		 * Always have a space between // and the start of comment text.
 		* The exception to this is if the preceding line consists of a single open bracket.
@@ -67,7 +67,7 @@ class Joomla_Sniffs_Commenting_SingleCommentSniff implements PHP_CodeSniffer_Sni
 		*    The line is a continuation of a complete sentence
 		*    The term is code and is case sensitive.(@todo)
 		*/
-		if (isset($tokens[$stackPtr]['content']{3}) && $tokens[$stackPtr]['content']{3} != strtoupper($comment{3}))
+		if (isset($tokens[$stackPtr]['content']{3}) && isset($comment{3}) && $tokens[$stackPtr]['content']{3} != strtoupper($comment{3}))
 		{
 			// Comment does not start with an upper case letter
 			$previous = $phpcsFile->findPrevious(T_COMMENT, $stackPtr - 1);
