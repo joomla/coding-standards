@@ -45,8 +45,18 @@
 		<exclude name="PEAR.ControlStructures.MultiLineCondition.NewlineBeforeOpenBrace"/>
 	</rule>
 	<rule ref="PEAR.Formatting.MultiLineAssignment" />
+	<rule ref="PEAR.Functions.FunctionCallSignature">
+		<properties>
+			<property name="indent" value="1"/>
+		</properties>
+	</rule>
 	<rule ref="PEAR.Functions.ValidDefaultValue" />
 	<rule ref="PEAR.NamingConventions.ValidClassName" />
+	<rule ref="PEAR.WhiteSpace.ObjectOperatorIndent">
+		<properties>
+			<property name="indent" value="1"/>
+		</properties>
+	</rule>
 
 	<!-- Include some additional sniffs from the PSR2 standard -->
 	<rule ref="PSR2.ControlStructures.ElseIfDeclaration"/>
