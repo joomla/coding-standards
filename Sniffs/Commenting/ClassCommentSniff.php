@@ -59,57 +59,57 @@ class Joomla_Sniffs_Commenting_ClassCommentSniff extends Joomla_Sniffs_Commentin
      * @var array
      */
     protected $tags = array(
-                       'version'    => array(
+                       '@version'    => array(
                                         'required'       => false,
                                         'allow_multiple' => false,
                                         'order_text'     => 'is first',
                                        ),
-                       'category'    => array(
+                       '@category'    => array(
                                         'required'       => false,
                                         'allow_multiple' => false,
                                         'order_text'     => 'must follow @version (if used)',
                                        ),
-                       'package'    => array(
+                       '@package'    => array(
                                         'required'       => false,
                                         'allow_multiple' => false,
                                         'order_text'     => 'must follow @category (if used)',
                                        ),
-                       'subpackage' => array(
+                       '@subpackage' => array(
                                         'required'       => false,
                                         'allow_multiple' => false,
                                         'order_text'     => 'must follow @package',
                                        ),
-                       'author'    => array(
+                       '@author'    => array(
                                         'required'       => false,
                                         'allow_multiple' => true,
                                         'order_text'     => 'is first',
                                        ),
-                       'copyright'  => array(
+                       '@copyright'  => array(
                                         'required'       => false,
                                         'allow_multiple' => true,
                                         'order_text'     => 'must follow @author (if used) or @subpackage (if used) or @package',
                                        ),
-                       'license'    => array(
+                       '@license'    => array(
                                         'required'       => false,
                                         'allow_multiple' => false,
                                         'order_text'     => 'must follow @copyright (if used)',
                                        ),
-                       'link'       => array(
+                       '@link'       => array(
                                         'required'       => false,
                                         'allow_multiple' => true,
                                         'order_text'     => 'must follow @version (if used)',
                                        ),
-                       'see'        => array(
+                       '@see'        => array(
                                         'required'       => false,
                                         'allow_multiple' => true,
                                         'order_text'     => 'must follow @link (if used)',
                                        ),
-                       'since'      => array(
+                       '@since'      => array(
                                         'required'       => true,
                                         'allow_multiple' => false,
                                         'order_text'     => 'must follow @see (if used) or @link (if used)',
                                        ),
-                       'deprecated' => array(
+                       '@deprecated' => array(
                                         'required'       => false,
                                         'allow_multiple' => false,
                                         'order_text'     => 'must follow @since (if used) or @see (if used) or @link (if used)',
