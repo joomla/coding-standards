@@ -29,7 +29,7 @@
 			<property name="eolChar" value="\n" />
 		</properties>
 	</rule>
-	
+
 	<!-- Lines can be 150 chars long, but never show errors -->
 	<rule ref="Generic.Files.LineLength">
 		<properties>
@@ -37,7 +37,7 @@
 			<property name="absoluteLineLimit" value="0" />
 		</properties>
 	</rule>
-	
+
 	<!-- Include some additional sniffs from the PEAR standard -->
 	<rule ref="PEAR.Classes.ClassDeclaration" />
 	<rule ref="PEAR.Commenting.InlineComment" />
@@ -45,11 +45,9 @@
 		<exclude name="PEAR.ControlStructures.MultiLineCondition.NewlineBeforeOpenBrace"/>
 	</rule>
 	<rule ref="PEAR.Formatting.MultiLineAssignment" />
-	<rule ref="PEAR.Functions.FunctionCallSignature" />
 	<rule ref="PEAR.Functions.ValidDefaultValue" />
 	<rule ref="PEAR.NamingConventions.ValidClassName" />
-	<rule ref="PEAR.WhiteSpace.ObjectOperatorIndent" />
-	
+
 	<!-- Include some additional sniffs from the PSR2 standard -->
 	<rule ref="PSR2.ControlStructures.ElseIfDeclaration"/>
 	<rule ref="PSR2.ControlStructures.ElseIfDeclaration.NotAllowed">
@@ -70,7 +68,7 @@
 	</rule>
 	<rule ref="Squiz.Scope.StaticThisUsage" />
 	<rule ref="Squiz.Scope.MemberVarScope" />
-	<rule ref="Squiz.Scope.MethodScopeSniff">
+	<rule ref="Squiz.Scope.MethodScope">
 		<message>No scope modifier specified for function "%s</message>
 	</rule>
 
@@ -88,5 +86,5 @@
 
 	<!-- Include some additional sniffs from the Zend standard -->
 	<rule ref="Zend.Files.ClosingTag" />
-	
+
 </ruleset>
