@@ -1,6 +1,6 @@
 <?php
 /**
- * Joomla_Sniffs_NamingConventions_ValidFunctionNameSniff.
+ * PEAR_Sniffs_NamingConventions_ValidFunctionNameSniff.
  *
  * PHP version 5
  *
@@ -8,9 +8,8 @@
  * @package   PHP_CodeSniffer
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @author    Marc McIntyre <mmcintyre@squiz.net>
- * @copyright 2006 Squiz Pty Ltd (ABN 77 084 670 600)
- * @license   http://matrix.squiz.net/developer/tools/php_cs/licence BSD Licence
- * @version   CVS: $Id: ValidFunctionNameSniff.php 292390 2009-12-21 00:32:14Z squiz $
+ * @copyright 2006-2014 Squiz Pty Ltd (ABN 77 084 670 600)
+ * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
  * @link      http://pear.php.net/package/PHP_CodeSniffer
  */
 
@@ -19,7 +18,7 @@ if (class_exists('PHP_CodeSniffer_Standards_AbstractScopeSniff', true) === false
 }
 
 /**
- * Joomla_Sniffs_NamingConventions_ValidFunctionNameSniff.
+ * PEAR_Sniffs_NamingConventions_ValidFunctionNameSniff.
  *
  * Ensures method names are correct depending on whether they are public
  * or private, and that functions are named correctly.
@@ -28,14 +27,13 @@ if (class_exists('PHP_CodeSniffer_Standards_AbstractScopeSniff', true) === false
  * @package   PHP_CodeSniffer
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @author    Marc McIntyre <mmcintyre@squiz.net>
- * @copyright 2006 Squiz Pty Ltd (ABN 77 084 670 600)
- * @license   http://matrix.squiz.net/developer/tools/php_cs/licence BSD Licence
- * @version   Release: 1.3.0RC2
+ * @copyright 2006-2014 Squiz Pty Ltd (ABN 77 084 670 600)
+ * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+ * @version   Release: @package_version@
  * @link      http://pear.php.net/package/PHP_CodeSniffer
  */
 class Joomla_Sniffs_NamingConventions_ValidFunctionNameSniff extends PHP_CodeSniffer_Standards_AbstractScopeSniff
 {
-
     /**
      * A list of all PHP magic methods.
      *
@@ -63,19 +61,18 @@ class Joomla_Sniffs_NamingConventions_ValidFunctionNameSniff extends PHP_CodeSni
      *
      * @var array
      */
-    protected $magicFunctions = array('autoload');
-
+    protected $magicFunctions = array('autoload' => true);
 
     /**
      * Constructs a Joomla_Sniffs_NamingConventions_ValidFunctionNameSniff.
      */
     public function __construct()
     {
-        parent::__construct(array(T_CLASS, T_INTERFACE), array(T_FUNCTION), true);
+        parent::__construct(array(T_CLASS, T_INTERFACE, T_TRAIT), array(T_FUNCTION), true);
 
     }//end __construct()
 
-    /**
+ /**
      * Processes the tokens within the scope.
      *
      * @param PHP_CodeSniffer_File $phpcsFile The file being processed.
@@ -96,12 +93,11 @@ class Joomla_Sniffs_NamingConventions_ValidFunctionNameSniff extends PHP_CodeSni
         $className = $phpcsFile->getDeclarationName($currScope);
         $errorData = array($className.'::'.$methodName);
 
-        // Is this a magic method. IE. is prefixed with "__".
+        // Is this a magic method. i.e., is prefixed with "__" ?
         if (preg_match('|^__|', $methodName) !== 0) {
-            $magicPart = substr($methodName, 2);
-            if (in_array($magicPart, $this->magicMethods) === false) {
+            $magicPart = strtolower(substr($methodName, 2));
+            if (isset($this->magicMethods[$magicPart]) === false) {
                  $error = 'Method name "%s" is invalid; only PHP magic methods should be prefixed with a double underscore';
-
                  $phpcsFile->addError($error, $stackPtr, 'MethodDoubleUnderscore', $errorData);
             }
 
@@ -119,49 +115,35 @@ class Joomla_Sniffs_NamingConventions_ValidFunctionNameSniff extends PHP_CodeSni
         }
 
         $methodProps    = $phpcsFile->getMethodProperties($stackPtr);
-        $isPublic       = ($methodProps['scope'] === 'private') ? false : true;
         $scope          = $methodProps['scope'];
         $scopeSpecified = $methodProps['scope_specified'];
 
-		// Detect if it is marked deprecated
-		$find = array(
-				 T_COMMENT,
-				 T_DOC_COMMENT,
-				 T_CLASS,
-				 T_FUNCTION,
-				 T_OPEN_TAG,
-				);
-		$tokens = $phpcsFile->getTokens();
-		$commentEnd = $phpcsFile->findPrevious($find, ($stackPtr - 1));
-		if ($commentEnd !== false && $tokens[$commentEnd]['code'] === T_DOC_COMMENT) {
-			$commentStart = $phpcsFile->findPrevious(T_DOC_COMMENT, ($commentEnd - 1), null, true) + 1;
-			$comment = $phpcsFile->getTokensAsString($commentStart, ($commentEnd - $commentStart + 1));
+        if ($methodProps['scope'] === 'private') {
+            $isPublic = false;
+        } else {
+            $isPublic = true;
+        }
 
-			try {
-				$this->commentParser = new PHP_CodeSniffer_CommentParser_FunctionCommentParser($comment, $phpcsFile);
-				$this->commentParser->parse();
-			} catch (PHP_CodeSniffer_CommentParser_ParserException $e) {
-				$line = ($e->getLineWithinComment() + $commentStart);
-				$phpcsFile->addError($e->getMessage(), $line, 'FailedParse');
-				return;
-			}
+        // If it's a private method, it must have an underscore on the front.
+        if ($isPublic === false) {
+            if ($methodName{0} !== '_') {
+                $error = 'Private method name "%s" must be prefixed with an underscore';
+                $phpcsFile->addError($error, $stackPtr, 'PrivateNoUnderscore', $errorData);
+                $phpcsFile->recordMetric($stackPtr, 'Private method prefixed with underscore', 'no');
+                return;
+            } else {
+                $phpcsFile->recordMetric($stackPtr, 'Private method prefixed with underscore', 'yes');
+            }
+        }
 
-			$deprecated = $this->commentParser->getDeprecated();
-			return !is_null($deprecated);
-		}
-		else {
-			 return false;
-		}
-
-        // Methods must not have an underscore on the front.
-        if ($isDeprecated === false && $scopeSpecified === true && $methodName{0} === '_') {
+        // If it's not a private method, it must not have an underscore on the front.
+        if ($isPublic === true && $scopeSpecified === true && $methodName{0} === '_') {
             $error = '%s method name "%s" must not be prefixed with an underscore';
             $data  = array(
                       ucfirst($scope),
                       $errorData[0],
                      );
-            // AJE Changed from error to warning.
-            $phpcsFile->addWarning($error, $stackPtr, 'PublicUnderscore', $data);
+            $phpcsFile->addError($error, $stackPtr, 'PublicUnderscore', $data);
             return;
         }
 
@@ -175,26 +157,23 @@ class Joomla_Sniffs_NamingConventions_ValidFunctionNameSniff extends PHP_CodeSni
             $testMethodName = substr($methodName, 1);
         }
 
-        if ($isDeprecated === false && PHP_CodeSniffer::isCamelCaps($testMethodName, false, $isPublic, false) === false) {
+        if (PHP_CodeSniffer::isCamelCaps($testMethodName, false, $isPublic, false) === false) {
             if ($scopeSpecified === true) {
                 $error = '%s method name "%s" is not in camel caps format';
                 $data  = array(
                           ucfirst($scope),
                           $errorData[0],
                          );
-                // AJE Change to warning.
-                $phpcsFile->addWarning($error, $stackPtr, 'ScopeNotCamelCaps', $data);
+                $phpcsFile->addError($error, $stackPtr, 'ScopeNotCamelCaps', $data);
             } else {
                 $error = 'Method name "%s" is not in camel caps format';
-                // AJE Change to warning.
-                $phpcsFile->addWarning($error, $stackPtr, 'NotCamelCaps', $errorData);
+                $phpcsFile->addError($error, $stackPtr, 'NotCamelCaps', $errorData);
             }
 
             return;
         }
 
     }//end processTokenWithinScope()
-
 
     /**
      * Processes the tokens outside the scope.
@@ -213,12 +192,17 @@ class Joomla_Sniffs_NamingConventions_ValidFunctionNameSniff extends PHP_CodeSni
             return;
         }
 
+        if (ltrim($functionName, '_') === '') {
+            // Ignore special functions.
+            return;
+        }
+
         $errorData = array($functionName);
 
-        // Is this a magic function. IE. is prefixed with "__".
+        // Is this a magic function. i.e., it is prefixed with "__".
         if (preg_match('|^__|', $functionName) !== 0) {
-            $magicPart = substr($functionName, 2);
-            if (in_array($magicPart, $this->magicFunctions) === false) {
+            $magicPart = strtolower(substr($functionName, 2));
+            if (isset($this->magicFunctions[$magicPart]) === false) {
                  $error = 'Function name "%s" is invalid; only PHP magic methods should be prefixed with a double underscore';
                  $phpcsFile->addError($error, $stackPtr, 'FunctionDoubleUnderscore', $errorData);
             }
@@ -244,14 +228,14 @@ class Joomla_Sniffs_NamingConventions_ValidFunctionNameSniff extends PHP_CodeSni
         // If it has a package part, make sure the first letter is a capital.
         if ($packagePart !== '') {
             if ($functionName{0} === '_') {
-                $error = 'Function name "%s" is invalid; methods should not be prefixed with an underscore';
+                $error = 'Function name "%s" is invalid; only private methods should be prefixed with an underscore';
                 $phpcsFile->addError($error, $stackPtr, 'FunctionUnderscore', $errorData);
                 return;
             }
 
             if ($functionName{0} !== strtoupper($functionName{0})) {
                 $error = 'Function name "%s" is prefixed with a package name but does not begin with a capital letter';
-                $phpcsFile->addError($error, $stackPtr, 'FunctionNoCaptial', $errorData);
+                $phpcsFile->addError($error, $stackPtr, 'FunctionNoCapital', $errorData);
                 return;
             }
         }
@@ -307,5 +291,3 @@ class Joomla_Sniffs_NamingConventions_ValidFunctionNameSniff extends PHP_CodeSni
 
 
 }//end class
-
-?>
