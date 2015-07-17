@@ -84,6 +84,8 @@
 		<message>No scope modifier specified for function "%s</message>
 	</rule>
 
+	<rule ref="Squiz.Scope.StaticThisUsage" />
+
 	<rule ref="Squiz.Strings.ConcatenationSpacing">
 		<properties>
 			<property name="spacing" value="1"/>
