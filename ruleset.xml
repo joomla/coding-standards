@@ -9,20 +9,6 @@
 	<rule ref="Generic.ControlStructures.InlineControlStructure" />
 	<rule ref="Generic.Files.EndFileNewline" />
 
-	<rule ref="Generic.Formatting.DisallowMultipleStatements" />
-	<rule ref="Generic.Functions.FunctionCallArgumentSpacing" />
-	<!-- This message is not required as spaces are allowed for alignment -->
-	<rule ref="Generic.Functions.FunctionCallArgumentSpacing.TooMuchSpaceAfterComma">
-		<severity>0</severity>
-	</rule>
-	<rule ref="Generic.Formatting.SpaceAfterCast" />
-	<rule ref="Generic.NamingConventions.UpperCaseConstantName" />
-	<rule ref="Generic.PHP.DisallowShortOpenTag" />
-	<rule ref="Generic.PHP.DeprecatedFunctions" />
-	<rule ref="Generic.PHP.ForbiddenFunctions" />
-	<rule ref="Generic.PHP.LowerCaseConstant" />
-	<rule ref="Generic.WhiteSpace.DisallowSpaceIndent" />
-
 	<!-- Use Unix newlines -->
 	<rule ref="Generic.Files.LineEndings">
 		<properties>
@@ -38,6 +24,20 @@
 		</properties>
 	</rule>
 
+	<rule ref="Generic.Formatting.DisallowMultipleStatements" />
+	<rule ref="Generic.Formatting.SpaceAfterCast" />
+	<rule ref="Generic.Functions.FunctionCallArgumentSpacing" />
+	<!-- This message is not required as spaces are allowed for alignment -->
+	<rule ref="Generic.Functions.FunctionCallArgumentSpacing.TooMuchSpaceAfterComma">
+		<severity>0</severity>
+	</rule>
+	<rule ref="Generic.NamingConventions.UpperCaseConstantName" />
+	<rule ref="Generic.PHP.DisallowShortOpenTag" />
+	<rule ref="Generic.PHP.DeprecatedFunctions" />
+	<rule ref="Generic.PHP.ForbiddenFunctions" />
+	<rule ref="Generic.PHP.LowerCaseConstant" />
+	<rule ref="Generic.WhiteSpace.DisallowSpaceIndent" />
+
 	<!-- Include some additional sniffs from the PEAR standard -->
 	<rule ref="PEAR.Classes.ClassDeclaration" />
 	<rule ref="PEAR.Commenting.InlineComment" />
@@ -46,10 +46,12 @@
 	</rule>
 	<rule ref="PEAR.Formatting.MultiLineAssignment" />
 	<rule ref="PEAR.Functions.FunctionCallSignature">
+		<exclude name="PEAR.Functions.FunctionCallSignature.CloseBracketLine" />
 		<properties>
 			<property name="indent" value="1"/>
 		</properties>
 	</rule>
+	<rule ref="PEAR.Functions.FunctionDeclaration" />
 	<rule ref="PEAR.Functions.ValidDefaultValue" />
 	<rule ref="PEAR.NamingConventions.ValidClassName" />
 	<rule ref="PEAR.WhiteSpace.ObjectOperatorIndent">
