@@ -1,15 +1,9 @@
 <?php
 /**
- * Joomla_Sniffs_ControlStructures_WhiteSpaceBeforeSniff.
+ * Joomla! Coding Standard
  *
- * PHP version 5
- *
- * @package     PHP_CodeSniffer
- * @subpackage  PHP
- * @author      Nikolai Plath <der.el.kuku@gmail.com>
- * @copyright   2012 OSM
- * @license     http://matrix.squiz.net/developer/tools/php_cs/licence BSD Licence
- * @link        http://pear.php.net/package/PHP_CodeSniffer
+ * @copyright  Copyright (C) Open Source Matters, Inc. All rights reserved.
+ * @license    http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License Version 2 or Later
  */
 
 /**
@@ -36,36 +30,25 @@
  *
  * This rule applies for the structures:
  * <b>if, for, foreach, while, switch, try and return</b>
- *
- * @version    Release: 1.3.0RC1
- * @category   PHP
- * @package    PHP_CodeSniffer
- * @author     Greg Sherwood <gsherwood@squiz.net>
- * @author     Marc McIntyre <mmcintyre@squiz.net>
- * @copyright  2006 Squiz Pty Ltd (ABN 77 084 670 600)
- * @license    http://matrix.squiz.net/developer/tools/php_cs/licence BSD Licence
- * @link       http://pear.php.net/package/PHP_CodeSniffer
- *
- * @since      1.0
  */
 class Joomla_Sniffs_ControlStructures_WhiteSpaceBeforeSniff implements PHP_CodeSniffer_Sniff
 {
 	/**
 	 * Registers the tokens that this sniff wants to listen for.
 	 *
-	 * @return array
+	 * @return  array
 	 */
 	public function register()
 	{
 		return array(
-			T_IF
-		, T_FOR
-		, T_FOREACH
-		, T_SWITCH
-		, T_TRY
-		, T_WHILE
-		, T_DO
-		, T_RETURN
+			T_IF,
+			T_FOR,
+			T_FOREACH,
+			T_SWITCH,
+			T_TRY,
+			T_WHILE,
+			T_DO,
+			T_RETURN
 		);
 	}
 
@@ -75,14 +58,13 @@ class Joomla_Sniffs_ControlStructures_WhiteSpaceBeforeSniff implements PHP_CodeS
 	 * @param   PHP_CodeSniffer_File  $phpcsFile  The file being scanned.
 	 * @param   integer               $stackPtr   The position of the current token in the stack passed in $tokens.
 	 *
-	 * @return void
+	 * @return  void
 	 */
 	public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
 	{
 		$tokens = $phpcsFile->getTokens();
 
-		if (isset($tokens[$stackPtr]['scope_opener']) === false
-			&& $tokens[$stackPtr]['code'] != T_RETURN)
+		if (isset($tokens[$stackPtr]['scope_opener']) === false && $tokens[$stackPtr]['code'] != T_RETURN)
 		{
 			return;
 		}
@@ -91,11 +73,12 @@ class Joomla_Sniffs_ControlStructures_WhiteSpaceBeforeSniff implements PHP_CodeS
 
 		if ($tokens[$stackPtr]['line'] - 1 == $tokens[$previousSemicolon]['line'])
 		{
-			$error = sprintf('Please consider an empty line before the %s statement;',
+			$error = 'Please consider an empty line before the %s statement;';
+			$data = array(
 				$tokens[$stackPtr]['content']
 			);
 
-			$phpcsFile->addError($error, $stackPtr, 'SpaceBefore');
+			$phpcsFile->addError($error, $stackPtr, 'SpaceBefore', $data);
 
 			return;
 		}
