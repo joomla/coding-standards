@@ -93,6 +93,7 @@
 	</rule>
 	<rule ref="Squiz.WhiteSpace.ScopeClosingBrace" />
 	<rule ref="Squiz.WhiteSpace.CastSpacing" />
+	<rule ref="Squiz.WhiteSpace.ControlStructureSpacing" />
 	<rule ref="Squiz.WhiteSpace.MemberVarSpacing" />
 	<rule ref="Squiz.WhiteSpace.OperatorSpacing" />
 	<rule ref="Squiz.WhiteSpace.SuperfluousWhitespace" />
