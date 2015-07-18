@@ -28,6 +28,7 @@ class Joomla_Sniffs_Classes_InstantiateNewClassesSniff implements PHP_CodeSniffe
 	 * @param   integer               $stackPtr   The position in the stack where the token was found.
 	 *
 	 * @return  void
+	 * @TODO    Add fixer method to removing `()` from new class instantiations that lack parameters
 	 */
 	public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
 	{
