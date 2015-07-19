@@ -36,6 +36,11 @@
 	<rule ref="Generic.PHP.DeprecatedFunctions" />
 	<rule ref="Generic.PHP.ForbiddenFunctions" />
 	<rule ref="Generic.PHP.LowerCaseConstant" />
+	<rule ref="Generic.Strings.UnnecessaryStringConcat">
+		<properties>
+			<property name="allowMultiline" value="true"/>
+		</properties>
+	</rule>
 	<rule ref="Generic.WhiteSpace.DisallowSpaceIndent" />
 
 	<!-- Include some additional sniffs from the PEAR standard -->
@@ -78,6 +83,9 @@
 	<rule ref="Squiz.Commenting.DocCommentAlignment" />
 	<rule ref="Squiz.Operators.IncrementDecrementUsage">
 		<exclude name="Squiz.Operators.IncrementDecrementUsage.processAssignment" />
+	</rule>
+	<rule ref="Squiz.PHP.GlobalKeyword">
+		<message>Do not use global variables. Use static class properties or constants instead of globals.</message>
 	</rule>
 	<rule ref="Squiz.Scope.StaticThisUsage" />
 	<rule ref="Squiz.Scope.MemberVarScope" />
