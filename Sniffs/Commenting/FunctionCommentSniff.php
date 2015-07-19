@@ -81,7 +81,7 @@ class Joomla_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commenti
 			{
 				// Check return type (can have multiple return types separated by '|').
 				$typeNames      = explode('|', $content);
-				$suggestedNames = [];
+				$suggestedNames = array();
 
 				foreach ($typeNames as $i => $typeName)
 				{
@@ -115,12 +115,12 @@ class Joomla_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commenti
 				 * If return type is not void, there needs to be a return statement somewhere in the function that returns something.
 				 * Skip this check for mixed return types.
 				 */
-				if (!in_array($content, ['void', 'mixed']))
+				if (!in_array($content, array('void', 'mixed')))
 				{
 					if (isset($tokens[$stackPtr]['scope_closer']) === true)
 					{
 						$endToken    = $tokens[$stackPtr]['scope_closer'];
-						$returnToken = $phpcsFile->findNext([T_RETURN, T_YIELD], $stackPtr, $endToken);
+						$returnToken = $phpcsFile->findNext(array(T_RETURN, T_YIELD), $stackPtr, $endToken);
 
 						if ($returnToken === false)
 						{
@@ -185,7 +185,7 @@ class Joomla_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commenti
 
 			if ($tokens[($tag + 2)]['code'] === T_DOC_COMMENT_STRING)
 			{
-				$matches = [];
+				$matches = array();
 				preg_match('/([^$&]+)(?:((?:\$|&)[^\s]+)(?:(\s+)(.*))?)?/', $tokens[($tag + 2)]['content'], $matches);
 
 				$typeLen   = strlen($matches[1]);
@@ -261,7 +261,7 @@ class Joomla_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commenti
 		}
 
 		$realParams    = $phpcsFile->getMethodParameters($stackPtr);
-		$foundParams   = [];
+		$foundParams   = array();
 		$previousParam = null;
 
 		foreach ($params as $pos => $param)
