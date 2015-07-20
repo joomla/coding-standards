@@ -1,0 +1,16 @@
+{
+    "name": "joomla/coding-standard",
+    "description": "Joomla! Coding Standard",
+    "keywords": ["joomla", "coding standard", "phpcs"],
+    "homepage": "https://github.com/joomla/coding-standards",
+    "license": "GPL-2.0+",
+    "require": {
+        "php": ">=5.3.10",
+        "squizlabs/php_codesniffer": "1.*"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        }
+    }
+}
