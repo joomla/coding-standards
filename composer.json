@@ -6,7 +6,7 @@
     "license": "GPL-2.0+",
     "require": {
         "php": ">=5.3.10",
-        "squizlabs/php_codesniffer": "1.*"
+        "squizlabs/php_codesniffer": "~1.5"
     },
     "extra": {
         "branch-alias": {
