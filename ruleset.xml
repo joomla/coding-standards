@@ -84,6 +84,7 @@
 	<rule ref="Squiz.Operators.IncrementDecrementUsage">
 		<exclude name="Squiz.Operators.IncrementDecrementUsage.processAssignment" />
 	</rule>
+	<rule ref="Squiz.PHP.CommentedOutCode" />
 	<rule ref="Squiz.PHP.GlobalKeyword">
 		<message>Do not use global variables. Use static class properties or constants instead of globals.</message>
 	</rule>
