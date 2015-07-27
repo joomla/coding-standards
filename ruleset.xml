@@ -106,7 +106,11 @@
 	<rule ref="Squiz.WhiteSpace.CastSpacing" />
 	<rule ref="Squiz.WhiteSpace.ControlStructureSpacing" />
 	<rule ref="Squiz.WhiteSpace.MemberVarSpacing" />
-	<rule ref="Squiz.WhiteSpace.OperatorSpacing" />
+	<rule ref="Squiz.WhiteSpace.OperatorSpacing">
+		<properties>
+			<property name="ignoreNewlines" value="true" />
+		</properties>
+	</rule>
 	<rule ref="Squiz.WhiteSpace.SuperfluousWhitespace" />
 	<rule ref="Squiz.WhiteSpace.SemicolonSpacing" />
 
