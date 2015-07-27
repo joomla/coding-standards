@@ -79,7 +79,10 @@
 	<rule ref="Squiz.CSS.MissingColon" />
 	<rule ref="Squiz.CSS.SemicolonSpacing" />
 	<rule ref="Squiz.Classes.SelfMemberReference" />
-	<rule ref="Squiz.Commenting.BlockComment" />
+	<rule ref="Squiz.Commenting.BlockComment">
+		<exclude name="Squiz.Commenting.BlockComment.NoEmptyLineAfter"/>
+		<exclude name="Squiz.Commenting.BlockComment.HasEmptyLineBefore"/>
+	</rule>
 	<rule ref="Squiz.Commenting.DocCommentAlignment" />
 	<rule ref="Squiz.Operators.IncrementDecrementUsage">
 		<exclude name="Squiz.Operators.IncrementDecrementUsage.processAssignment" />
