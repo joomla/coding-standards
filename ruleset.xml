@@ -98,7 +98,8 @@
 
 	<rule ref="Squiz.Strings.ConcatenationSpacing">
 		<properties>
-			<property name="spacing" value="1"/>
+			<property name="spacing" value="1" />
+			<property name="ignoreNewlines" value="true" />
 		</properties>
 	</rule>
 	<rule ref="Squiz.WhiteSpace.ScopeClosingBrace" />
