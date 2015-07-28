@@ -84,6 +84,9 @@
 		<exclude name="Squiz.Commenting.BlockComment.HasEmptyLineBefore"/>
 	</rule>
 	<rule ref="Squiz.Commenting.DocCommentAlignment" />
+	<rule ref="Squiz.Commenting.VariableComment">
+		<exclude name="Squiz.Commenting.VariableComment.TagNotAllowed" />
+	</rule>	
 	<rule ref="Squiz.Operators.IncrementDecrementUsage">
 		<exclude name="Squiz.Operators.IncrementDecrementUsage.processAssignment" />
 	</rule>
