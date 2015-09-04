@@ -83,8 +83,12 @@
 	<rule ref="Squiz.CSS.SemicolonSpacing" />
 	<rule ref="Squiz.Classes.SelfMemberReference" />
 	<rule ref="Squiz.Commenting.BlockComment">
-		<exclude name="Squiz.Commenting.BlockComment.NoEmptyLineAfter"/>
+		<exclude name="Squiz.Commenting.BlockComment.FirstLineIndent"/>
+		<exclude name="Squiz.Commenting.BlockComment.LineIndent"/>
+		<exclude name="Squiz.Commenting.BlockComment.LastLineIndent"/>
 		<exclude name="Squiz.Commenting.BlockComment.HasEmptyLineBefore"/>
+		<exclude name="Squiz.Commenting.BlockComment.NoEmptyLineBefore"/>
+		<exclude name="Squiz.Commenting.BlockComment.NoEmptyLineAfter"/>
 	</rule>
 	<rule ref="Squiz.Commenting.DocCommentAlignment" />
 	<rule ref="Squiz.Commenting.VariableComment">

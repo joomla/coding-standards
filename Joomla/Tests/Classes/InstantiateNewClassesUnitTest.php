@@ -8,6 +8,8 @@
 
 /**
  * Ensures that new classes are instantiated without brackets if they do not have any parameters.
+ *
+ * @since  1.0
  */
 class Joomla_Tests_Classes_InstantiateNewClassesUnitTest extends AbstractSniffUnitTest
 {

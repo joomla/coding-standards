@@ -262,7 +262,7 @@ class Joomla_Sniffs_ControlStructures_ControlSignatureSniff implements PHP_CodeS
 			$error  = 'Definition of do,else,elseif,catch must be on their own line.';
 			$fix    = $phpcsFile->addFixableError($error, $closer, 'NewLineAfterCloseBrace');
 			$blanks = substr($tokens[($closer - 1)]['content'], strpos($tokens[($closer - 1)]['content'], $phpcsFile->eolChar));
-			$spaces = str_repeat(' ', strlen($blanks));
+			$spaces = str_repeat("\t", strlen($blanks));
 
 			if (true === $fix)
 			{

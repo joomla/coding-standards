@@ -2,7 +2,7 @@
 /**
  * Joomla! Coding Standard
  *
- * @copyright  Copyright (C) Open Source Matters, Inc. All rights reserved.
+ * @copyright  Copyright (C) 2015 Open Source Matters, Inc. All rights reserved.
  * @license    http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License Version 2 or Later
  */
 
@@ -13,6 +13,8 @@ if (class_exists('PEAR_Sniffs_NamingConventions_ValidFunctionNameSniff', true) =
 
 /**
  * Extended ruleset for ensuring method and function names are correct.
+ *
+ * @since  1.0
  */
 class Joomla_Sniffs_NamingConventions_ValidFunctionNameSniff extends PEAR_Sniffs_NamingConventions_ValidFunctionNameSniff
 {
@@ -95,9 +97,11 @@ class Joomla_Sniffs_NamingConventions_ValidFunctionNameSniff extends PEAR_Sniffs
 			return;
 		}
 
-		// If the scope was specified on the method, then the method must be camel caps and an underscore should be checked for. If it wasn't
-		// specified, treat it like a public method and remove the underscore prefix if there is one because we cant determine if it is private or
-		// public.
+		/*
+		 * If the scope was specified on the method, then the method must be camel caps
+		 * and an underscore should be checked for. If it wasn't specified, treat it like a public method
+		 * and remove the underscore prefix if there is one because we cant determine if it is private or public.
+		 */
 		$testMethodName = $methodName;
 
 		if ($scopeSpecified === false && $methodName{0} === '_')

@@ -8,6 +8,8 @@
 
 /**
  * InstantiateNewClassesUnitTest
+ *
+ * @since  1.0
  */
 class Joomla_Tests_WhiteSpace_MemberVarSpacingUnitTest extends AbstractSniffUnitTest
 {

@@ -26,7 +26,7 @@ $b = 2;
 
 	while ($a < $b)
 	{
- 		echo 'muh';
+		echo 'muh';
 	}
 
 	// @todo add keywords...
@@ -65,12 +65,12 @@ $b = 2;
 	}
 
 
-    // NewLineAfterCloseBrace
-    if ($a === 7)
-    {
-        echo 'muh';
-    }
-    elseif ($b === 7)
-    {
-        echo 'muh';
-    }
+	// NewLineAfterCloseBrace
+	if ($a === 7)
+	{
+		echo 'muh';
+	}
+	elseif ($b === 7)
+	{
+		echo 'muh';
+	}
