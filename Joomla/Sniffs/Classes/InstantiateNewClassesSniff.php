@@ -8,6 +8,8 @@
 
 /**
  * Ensures that new classes are instantiated without brackets if they do not have any parameters.
+ *
+ * @since  1.0
  */
 class Joomla_Sniffs_Classes_InstantiateNewClassesSniff implements PHP_CodeSniffer_Sniff
 {

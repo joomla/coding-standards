@@ -47,14 +47,17 @@
 	<rule ref="PEAR.Classes.ClassDeclaration" />
 	<rule ref="PEAR.Commenting.InlineComment" />
 	<rule ref="PEAR.ControlStructures.MultiLineCondition">
+		<properties>
+			<property name="indent" value="1"/>
+		</properties>
 		<exclude name="PEAR.ControlStructures.MultiLineCondition.NewlineBeforeOpenBrace"/>
 	</rule>
 	<rule ref="PEAR.Formatting.MultiLineAssignment" />
 	<rule ref="PEAR.Functions.FunctionCallSignature">
-		<exclude name="PEAR.Functions.FunctionCallSignature.CloseBracketLine" />
 		<properties>
 			<property name="indent" value="1"/>
 		</properties>
+		<exclude name="PEAR.Functions.FunctionCallSignature.CloseBracketLine" />
 	</rule>
 	<rule ref="PEAR.Functions.FunctionDeclaration" />
 	<rule ref="PEAR.Functions.ValidDefaultValue" />
