@@ -71,7 +71,6 @@ class Joomla_Sniffs_Classes_InstantiateNewClassesSniff implements PHP_CodeSniffe
 							$valid   = true;
 							$running = false;
 						}
-
 						break;
 
 					case T_CLOSE_PARENTHESIS :

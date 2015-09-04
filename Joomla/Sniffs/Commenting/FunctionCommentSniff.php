@@ -8,7 +8,7 @@
 
 if (class_exists('PEAR_Sniffs_Commenting_FunctionCommentSniff', true) === false)
 {
-    throw new PHP_CodeSniffer_Exception('Class PEAR_Sniffs_Commenting_FunctionCommentSniff not found');
+	throw new PHP_CodeSniffer_Exception('Class PEAR_Sniffs_Commenting_FunctionCommentSniff not found');
 }
 
 /**
@@ -112,8 +112,8 @@ class Joomla_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commenti
 				}
 
 				/*
-				 * If return type is not void, there needs to be a return statement somewhere in the function that returns something.
-				 * Skip this check for mixed return types.
+        * If return type is not void, there needs to be a return statement somewhere in the function that returns something.
+        * Skip this check for mixed return types.
 				 */
 				if (!in_array($content, array('void', 'mixed')))
 				{
@@ -285,7 +285,8 @@ class Joomla_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commenti
 			if (isset($realParams[$pos]) === true)
 			{
 				$realName = $realParams[$pos]['name'];
-				if ($realName !== $param['var'])
+
+if ($realName !== $param['var'])
 				{
 					$code = 'ParamNameNoMatch';
 					$data = array(
@@ -304,9 +305,9 @@ class Joomla_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commenti
 					$error .= 'actual variable name %s';
 
 					$phpcsFile->addError($error, $param['tag'], $code, $data);
-				}
+}
 			}
-			else if (substr($param['var'], -4) !== ',...')
+			elseif (substr($param['var'], -4) !== ',...')
 			{
 				// We must have an extra parameter comment.
 				$error = 'Superfluous parameter comment';
