@@ -2,14 +2,14 @@
 $a = 1;
 if ($a and $b)
 {
-    echo $a + $b;
+	echo $a + $b;
 }
 
 if ($a or $b)
 {
-    echo $c;
+	echo $c;
 }
 if ($a and $c or $b)
 {
-    echo 6;
+	echo 6;
 }

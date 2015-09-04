@@ -3,17 +3,17 @@ $a = true;
 
 // Warning
 if ($a)
-    echo true;
+	echo true;
 
 // Fixable errors
 if ($a) {
-    echo true;
+	echo true;
 }
 
 if ($a)
 
 {
-    echo true;
+	echo true;
 }
 
 if ($a)
@@ -22,13 +22,13 @@ if ($a)
 
 function muh()
 {
-    if ($a)
-     {
-        echo true;
-    }
+	if ($a)
+		{
+		echo true;
+	}
 
-    if ($a)
-   {
-        echo true;
-    }
+	if ($a)
+{
+		echo true;
+	}
 }
