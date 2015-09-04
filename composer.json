@@ -4,7 +4,7 @@
     "description": "Joomla Coding Standards",
     "keywords": ["joomla", "coding standards", "phpcs", "php codesniffer"],
     "homepage": "https://github.com/joomla/coding-standards",
-    "license": "LGPL-2.1+",
+    "license": "GPL-2+",
     "authors": [
         {
             "name": "Joomla Coding Standards Contributors",
