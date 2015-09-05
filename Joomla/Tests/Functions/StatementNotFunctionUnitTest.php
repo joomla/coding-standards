@@ -7,11 +7,11 @@
  */
 
 /**
- * ControlSignatureUnitTest
+ * StatementNotFunctionUnitTest
  *
  * @since   1.0
  */
-class Joomla_Tests_ControlStructures_ControlSignatureUnitTest extends AbstractSniffUnitTest
+class Joomla_Tests_Functions_StatementNotFunctionUnitTest extends AbstractSniffUnitTest
 {
 	/**
 	 * Returns the lines where errors should occur.
@@ -24,14 +24,15 @@ class Joomla_Tests_ControlStructures_ControlSignatureUnitTest extends AbstractSn
 	public function getErrorList()
 	{
 		return array(
-				13 => 1,
-				22 => 1,
-				27 => 1,
-				37 => 1,
-				43 => 1,
-				57 => 1,
-				64 => 1,
-				75 => 1,
+				5  => 1,
+				6  => 1,
+				7  => 1,
+				8  => 1,
+				9  => 1,
+				10 => 1,
+				12 => 1,
+				14 => 1,
+				16 => 1,
 			   );
 	}
 

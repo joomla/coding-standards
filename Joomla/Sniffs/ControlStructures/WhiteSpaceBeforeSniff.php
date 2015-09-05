@@ -63,7 +63,7 @@ class Joomla_Sniffs_ControlStructures_WhiteSpaceBeforeSniff implements PHP_CodeS
 	 */
 	public function register()
 	{
-		return [
+		return array(
 				T_IF,
 				T_FOR,
 				T_FOREACH,
@@ -72,7 +72,7 @@ class Joomla_Sniffs_ControlStructures_WhiteSpaceBeforeSniff implements PHP_CodeS
 				T_WHILE,
 				T_DO,
 				T_RETURN,
-			   ];
+			   );
 	}
 
 	/**
@@ -92,12 +92,12 @@ class Joomla_Sniffs_ControlStructures_WhiteSpaceBeforeSniff implements PHP_CodeS
 			return;
 		}
 
-		$prev = $phpcsFile->findPrevious([T_SEMICOLON, T_CLOSE_CURLY_BRACKET], ($stackPtr - 1), null, false);
+		$prev = $phpcsFile->findPrevious(array(T_SEMICOLON, T_CLOSE_CURLY_BRACKET), ($stackPtr - 1), null, false);
 
 		if ($tokens[$stackPtr]['line'] - 1 === $tokens[$prev]['line'])
 		{
 			$error = 'Please consider an empty line before the %s statement;';
-			$data  = [$tokens[$stackPtr]['content']];
+			$data  = array($tokens[$stackPtr]['content']);
 			$fix   = $phpcsFile->addFixableError($error, $stackPtr, 'SpaceBefore', $data);
 
 			if ($fix === true)

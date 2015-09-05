@@ -105,9 +105,9 @@ class Joomla_Sniffs_Commenting_SingleCommentSniff implements PHP_CodeSniffer_Sni
 			{
 				$data       = array($comment{2});
 				$padding    = (strlen($tokens[$stackPtr]['content']) - strlen($comment));
-				$padding    = str_repeat(' ', $padding - 1);
-				$newComment = ltrim($tokens[$stackPtr]['content'], '* ');
-				$newComment = $padding . '* ' . ucfirst($newComment);
+				$padding    = str_repeat("\t", $padding - 2);
+				$newComment = ltrim($comment, '* ');
+				$newComment = $padding . ' * ' . ucfirst($newComment) . $phpcsFile->eolChar;
 			}
 
 			// Check for a comment on the previous line.

@@ -23,14 +23,14 @@ class Joomla_Tests_WhiteSpace_MemberVarSpacingUnitTest extends AbstractSniffUnit
 	 */
 	public function getErrorList()
 	{
-		return [
+		return array(
 				5  => 1,
 				8  => 1,
 				23 => 1,
 				28 => 1,
 				42 => 1,
 				45 => 1,
-			   ];
+			   );
 	}
 
 	/**
@@ -43,6 +43,6 @@ class Joomla_Tests_WhiteSpace_MemberVarSpacingUnitTest extends AbstractSniffUnit
 	 */
 	public function getWarningList()
 	{
-		return [];
+		return array();
 	}
 }

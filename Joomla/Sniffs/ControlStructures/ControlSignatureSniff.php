@@ -32,10 +32,10 @@ class Joomla_Sniffs_ControlStructures_ControlSignatureSniff implements PHP_CodeS
 	 *
 	 * @var array
 	 */
-	public $supportedTokenizers = [
+	public $supportedTokenizers = array(
 								   'PHP',
 								   'JS',
-								  ];
+								  );
 
 	/**
 	 * Returns an array of tokens this test wants to listen for.
@@ -44,7 +44,7 @@ class Joomla_Sniffs_ControlStructures_ControlSignatureSniff implements PHP_CodeS
 	 */
 	public function register()
 	{
-		return [
+		return array(
 				T_TRY,
 				T_CATCH,
 				T_FINALLY,
@@ -56,7 +56,7 @@ class Joomla_Sniffs_ControlStructures_ControlSignatureSniff implements PHP_CodeS
 				T_ELSE,
 				T_ELSEIF,
 				T_SWITCH,
-			   ];
+			   );
 	}
 
 	/**
@@ -103,10 +103,10 @@ class Joomla_Sniffs_ControlStructures_ControlSignatureSniff implements PHP_CodeS
 		)
 		{
 			$error = 'Expected 1 space after %s keyword; %s found';
-			$data  = [
+			$data  = array(
 					  strtoupper($tokens[$stackPtr]['content']),
 					  $found,
-					 ];
+					 );
 			$fix   = $phpcsFile->addFixableError($error, $stackPtr, 'SpaceAfterKeyword', $data);
 
 			if ($fix === true)
@@ -155,7 +155,7 @@ class Joomla_Sniffs_ControlStructures_ControlSignatureSniff implements PHP_CodeS
 			if ($found !== 1)
 			{
 				$error = 'Expected 1 newline after opening brace; %s found';
-				$data  = [$found];
+				$data  = array($found);
 				$fix   = $phpcsFile->addFixableError($error, $opener, 'NewlineAfterOpenBrace', $data);
 
 				if ($fix === true)
@@ -198,7 +198,7 @@ class Joomla_Sniffs_ControlStructures_ControlSignatureSniff implements PHP_CodeS
 			if ($found !== 0)
 			{
 				$error = 'Expected 0 spaces before semicolon; %s found';
-				$data  = [$found];
+				$data  = array($found);
 				$fix   = $phpcsFile->addFixableError($error, $closer, 'SpaceBeforeSemicolon', $data);
 
 				if ($fix === true)
@@ -248,7 +248,7 @@ class Joomla_Sniffs_ControlStructures_ControlSignatureSniff implements PHP_CodeS
 		if (0 !== $found)
 		{
 			$error = 'Expected 0 space after closing brace; %s found';
-			$data  = [$found];
+			$data  = array($found);
 			$fix   = $phpcsFile->addFixableError($error, $closer, 'SpaceAfterCloseBrace', $data);
 
 			if (true === $fix)

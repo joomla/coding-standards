@@ -23,10 +23,10 @@ class Joomla_Tests_ControlStructures_WhiteSpaceBeforeUnitTest extends AbstractSn
 	 */
 	public function getErrorList()
 	{
-		return [
+		return array(
 				3  => 1,
 				12 => 1,
-			   ];
+			   );
 	}
 
 	/**
@@ -39,6 +39,6 @@ class Joomla_Tests_ControlStructures_WhiteSpaceBeforeUnitTest extends AbstractSn
 	 */
 	public function getWarningList()
 	{
-		return [];
+		return array();
 	}
 }

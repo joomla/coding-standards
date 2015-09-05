@@ -48,7 +48,7 @@ class Joomla_Sniffs_WhiteSpace_MemberVarSpacingSniff extends Squiz_Sniffs_WhiteS
 				if ($foundLines > 0)
 				{
 					$error = 'Expected 0 blank lines after member var comment; %s found';
-					$data  = [$foundLines];
+					$data  = array($foundLines);
 					$fix   = $phpcsFile->addFixableError($error, $prev, 'AfterComment', $data);
 
 					if ($fix === true)
@@ -102,7 +102,7 @@ class Joomla_Sniffs_WhiteSpace_MemberVarSpacingSniff extends Squiz_Sniffs_WhiteS
 		if ($foundLines > 0 && $tokens[$prev]['code'] === T_OPEN_CURLY_BRACKET)
 		{
 			$error = 'Expected 0 blank lines before first member var; %s found';
-			$data  = [$foundLines];
+			$data  = array($foundLines);
 			$fix   = $phpcsFile->addFixableError($error, $stackPtr, 'FirstMember', $data);
 
 			if ($fix === true)
@@ -136,7 +136,7 @@ class Joomla_Sniffs_WhiteSpace_MemberVarSpacingSniff extends Squiz_Sniffs_WhiteS
 		}
 
 		$error = 'Expected 1 blank line before member var; %s found';
-		$data  = [$foundLines];
+		$data  = array($foundLines);
 		$fix   = $phpcsFile->addFixableError($error, $stackPtr, 'Incorrect', $data);
 
 		if ($fix === true)

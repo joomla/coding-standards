@@ -279,9 +279,23 @@ class Joomla_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commenti
 			// Joomla change: There must be 3 spaces after the @param tag to make it line up with the @return tag
 			if ($param['align_space'] !== '   ')
 			{
-				$error = 'Expected 3 spaces before variable type, found %s';
-				$data  = array(strlen($param['align_space']));
-				$phpcsFile->addError($error, $param['tag'], 'BeforeParamType', $data);
+				$error  = 'Expected 3 spaces before variable type, found %s';
+				$spaces = strlen($param['align_space']);
+				$data   = array($spaces);
+				$fix    = $phpcsFile->addFixableError($error, $param['tag'], 'BeforeParamType', $data);
+
+				if ($fix === true)
+				{
+					$phpcsFile->fixer->beginChangeset();
+
+					for ($i = 0; $i < strlen($param['align_space']); $i++)
+					{
+						$phpcsFile->fixer->replaceToken(($param['tag'] + 1), '');
+					}
+
+					$phpcsFile->fixer->addContent($param['tag'], '   ');
+					$phpcsFile->fixer->endChangeset();
+				}
 			}
 
 			// Make sure the param name is correct.

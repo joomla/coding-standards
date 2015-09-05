@@ -7,11 +7,11 @@
  */
 
 /**
- * ControlSignatureUnitTest
+ * ValidVariableNameUnitTest
  *
  * @since   1.0
  */
-class Joomla_Tests_ControlStructures_ControlSignatureUnitTest extends AbstractSniffUnitTest
+class Joomla_Tests_NamingConventions_ValidVariableNameUnitTest extends AbstractSniffUnitTest
 {
 	/**
 	 * Returns the lines where errors should occur.
@@ -24,14 +24,8 @@ class Joomla_Tests_ControlStructures_ControlSignatureUnitTest extends AbstractSn
 	public function getErrorList()
 	{
 		return array(
-				13 => 1,
-				22 => 1,
-				27 => 1,
-				37 => 1,
-				43 => 1,
-				57 => 1,
-				64 => 1,
-				75 => 1,
+				4 => 1,
+				6 => 1,
 			   );
 	}
 

@@ -23,11 +23,11 @@ class Joomla_Tests_Classes_InstantiateNewClassesUnitTest extends AbstractSniffUn
 	 */
 	public function getErrorList()
 	{
-		return [
+		return array(
 				16 => 1,
 				22 => 1,
 				24 => 1,
-			   ];
+			   );
 	}
 
 	/**
@@ -40,6 +40,6 @@ class Joomla_Tests_Classes_InstantiateNewClassesUnitTest extends AbstractSniffUn
 	 */
 	public function getWarningList()
 	{
-		return [];
+		return array();
 	}
 }

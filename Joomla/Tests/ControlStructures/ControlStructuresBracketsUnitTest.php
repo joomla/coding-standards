@@ -23,13 +23,13 @@ class Joomla_Tests_ControlStructures_ControlStructuresBracketsUnitTest extends A
 	 */
 	public function getErrorList()
 	{
-		return [
+		return array(
 				9  => 1,
 				15 => 1,
 				20 => 1,
 				26 => 1,
 				31 => 1,
-			   ];
+			   );
 	}
 
 	/**
@@ -42,6 +42,6 @@ class Joomla_Tests_ControlStructures_ControlStructuresBracketsUnitTest extends A
 	 */
 	public function getWarningList()
 	{
-		return [5 => 1];
+		return array(5 => 1);
 	}
 }

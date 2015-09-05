@@ -31,7 +31,7 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 	 */
 	public function register()
 	{
-		return [
+		return array(
 				T_IF,
 				T_ELSEIF,
 				T_ELSE,
@@ -43,7 +43,7 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 				T_TRY,
 				T_CATCH,
 				T_FINALLY,
-			   ];
+			   );
 	}
 
 
@@ -58,7 +58,7 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 	public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
 	{
 		$tokens    = $phpcsFile->getTokens();
-		$errorData = [strtolower($tokens[$stackPtr]['content'])];
+		$errorData = array(strtolower($tokens[$stackPtr]['content']));
 
 		if (false === isset($tokens[$stackPtr]['scope_opener']))
 		{
@@ -105,11 +105,11 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 			if ($braceLine > ($classLine + 1))
 			{
 				$error = 'Opening brace of a %s must be on the line following the %s declaration.; Found %s line(s).';
-				$data  = [
+				$data  = array(
 						  $tokens[$stackPtr]['content'],
 						  $tokens[$stackPtr]['content'],
 						  ($braceLine - $classLine - 1),
-						 ];
+						 );
 				$fix   = $phpcsFile->addFixableError($error, $curlyBrace, 'OpenBraceWrongLine', $data);
 
 				if (true === $fix)
@@ -163,10 +163,10 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 			if ($spaces !== $expected)
 			{
 				$error = 'Expected %s spaces before opening brace; %s found';
-				$data  = [
+				$data  = array(
 						  $expected,
 						  $spaces,
-						 ];
+						 );
 				$fix   = $phpcsFile->addFixableError($error, $curlyBrace, 'SpaceBeforeBrace', $data);
 
 				if ($fix === true)
