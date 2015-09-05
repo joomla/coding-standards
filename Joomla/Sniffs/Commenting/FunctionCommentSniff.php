@@ -288,7 +288,7 @@ class Joomla_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commenti
 				{
 					$phpcsFile->fixer->beginChangeset();
 
-					for ($i = 0; $i < strlen($param['align_space']); $i++)
+					for ($i = 0; $i < $spaces; $i++)
 					{
 						$phpcsFile->fixer->replaceToken(($param['tag'] + 1), '');
 					}
