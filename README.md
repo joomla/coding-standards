@@ -10,7 +10,7 @@ If you want to contribute and improve this documentation find the source files a
 ## Requirements
 
 * PHP 5.3+
-* [PHP Codesniffer](http://pear.php.net/PHP_CodeSniffer) 2.3+
+* [PHP Codesniffer](https://github.com/squizlabs/PHP_CodeSniffer) 2.3+
 
 ## Installation
 
