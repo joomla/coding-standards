@@ -113,6 +113,11 @@ class Joomla_Sniffs_Classes_InstantiateNewClassesSniff implements PHP_CodeSniffe
 
 				$phpcsFile->fixer->beginChangeset();
 
+				if ($tokens[($stackPtr + 3)]['code'] === T_WHITESPACE)
+				{
+					$phpcsFile->fixer->replaceToken(($stackPtr + 3), '');
+				}
+
 				for ($i = $classNameEnd; $i < $cnt; $i++)
 				{
 					$phpcsFile->fixer->replaceToken($i, '');

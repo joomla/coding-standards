@@ -24,12 +24,26 @@ class Joomla_Tests_WhiteSpace_MemberVarSpacingUnitTest extends AbstractSniffUnit
 	public function getErrorList()
 	{
 		return array(
-				5  => 1,
-				8  => 1,
-				23 => 1,
-				28 => 1,
-				42 => 1,
-				45 => 1,
+				5   => 1,
+				8   => 1,
+				23  => 1,
+				28  => 1,
+				42  => 1,
+				45  => 1,
+				51  => 1,
+				54  => 1,
+				69  => 1,
+				74  => 1,
+				88  => 1,
+				91  => 1,
+				97  => 1,
+				100 => 1,
+				115 => 1,
+				120 => 1,
+				134 => 1,
+				137 => 1,
+				149 => 1,
+				152 => 1,
 			   );
 	}
 

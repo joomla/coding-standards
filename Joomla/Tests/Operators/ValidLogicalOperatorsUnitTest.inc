@@ -17,3 +17,10 @@ if ($a and $c or $b)
 {
 	echo 6;
 }
+
+if ($x = $a or $c === 3
+	and $b === 2
+)
+{
+	echo 'muh';
+}

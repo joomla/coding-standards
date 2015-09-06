@@ -25,8 +25,20 @@ class Joomla_Tests_Classes_InstantiateNewClassesUnitTest extends AbstractSniffUn
 	{
 		return array(
 				16 => 1,
-				22 => 1,
+				17 => 1,
+				18 => 1,
 				24 => 1,
+				25 => 1,
+				27 => 1,
+				28 => 1,
+				30 => 1,
+				31 => 1,
+				33 => 1,
+				34 => 1,
+				36 => 1,
+				37 => 1,
+				39 => 1,
+				40 => 1,
 			   );
 	}
 
