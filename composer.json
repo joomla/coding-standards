@@ -1,0 +1,30 @@
+{
+    "name": "joomla/coding-standards",
+    "type": "library",
+    "description": "Joomla Coding Standards",
+    "keywords": ["joomla", "coding standards", "phpcs", "php codesniffer"],
+    "homepage": "https://github.com/joomla/coding-standards",
+    "license": "GPL-2+",
+    "authors": [
+        {
+            "name": "Joomla Coding Standards Contributors",
+            "homepage": "https://github.com/joomla/coding-standards/graphs/contributors"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.10",
+        "squizlabs/php_codesniffer": "^2.3.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.7.7"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.x-dev"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": "\"vendor/bin/phpcs\" --config-set installed_paths ../../..",
+        "post-update-cmd" : "\"vendor/bin/phpcs\" --config-set installed_paths ../../.."
+    }
+}
