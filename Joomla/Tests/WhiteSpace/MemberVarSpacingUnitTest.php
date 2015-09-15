@@ -36,15 +36,9 @@ class Joomla_Tests_WhiteSpace_MemberVarSpacingUnitTest extends AbstractSniffUnit
 				74  => 1,
 				88  => 1,
 				91  => 1,
-				97  => 1,
-				100 => 1,
-				115 => 1,
-				120 => 1,
-				134 => 1,
-				137 => 1,
-				149 => 1,
-				152 => 1,
-			   );
+				103 => 1,
+				106 => 1,
+		);
 	}
 
 	/**
