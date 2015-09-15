@@ -23,27 +23,7 @@ class Joomla_Tests_WhiteSpace_MemberVarSpacingUnitTest extends AbstractSniffUnit
 	 */
 	public function getErrorList()
 	{
-		$errors = array(
-				5   => 1,
-				8   => 1,
-				23  => 1,
-				28  => 1,
-				42  => 1,
-				45  => 1,
-				97  => 1,
-				100 => 1,
-				115 => 1,
-				120 => 1,
-				134 => 1,
-				137 => 1,
-				149 => 1,
-				152 => 1,
-		);
-
-		// For 5.4 + we check some more lines.
-		if (version_compare(PHP_VERSION, '5.4.0', '>='))
-		{
-			$errors = array(
+		return array(
 				5   => 1,
 				8   => 1,
 				23  => 1,
@@ -56,18 +36,9 @@ class Joomla_Tests_WhiteSpace_MemberVarSpacingUnitTest extends AbstractSniffUnit
 				74  => 1,
 				88  => 1,
 				91  => 1,
-				97  => 1,
-				100 => 1,
-				115 => 1,
-				120 => 1,
-				134 => 1,
-				137 => 1,
-				149 => 1,
-				152 => 1,
-			);
-		}
-
-		return $errors;
+				103 => 1,
+				106 => 1,
+		);
 	}
 
 	/**
