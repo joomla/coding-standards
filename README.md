@@ -1,16 +1,16 @@
 Joomla Coding Standards
 =======================
 
-This repository includes the [Joomla](http://developer.joomla.org) coding standard definition for [PHP Codesniffer](http://pear.php.net/PHP_CodeSniffer) along with a few other helpful resources.
-It is a fork of the original [Joomla Coding Standard repository](https://github.com/joomla/coding-standards) modified for use with Composer.  
+This repository includes the [Joomla](http://developer.joomla.org) coding standard definition for
+[PHP Codesniffer](http://pear.php.net/PHP_CodeSniffer) modified for use with Composer.
+
+See Joomla coding standards documentation at
+[http://joomla.github.io/coding-standards/](http://joomla.github.io/coding-standards/)
   
 ## Requirements
 
 * PHP 5.3+
-* [PHP Codesniffer](http://pear.php.net/PHP_CodeSniffer) 1.5+
-
-**Important note**: currently the latest PHPCS is the 2.x series. But Joomla Sniffers is not yet compatible with this version. PEAR gives you the option to install it by default but  Joomla sniffers will not work, thus remind to always install PHPCS in a version below 2.0.
-
+* [PHP Codesniffer](http://pear.php.net/PHP_CodeSniffer) 2+
 
 ## Installation
 
@@ -27,5 +27,11 @@ The PHP CodeSniffer tool is installed automatically in a matching version.
 You can use the installed Joomla standard like:
 
 ```
-$ phpcs --standard=vendor/greencape/joomla-cs/Joomla path/to/code
+$ phpcs --standard=Joomla path/to/code
 ```
+
+## IDE autoformatters
+
+There is further information on how to set up IDE auto formatters here: 
+
+    https://github.com/joomla/coding-standards/tree/master/IDE

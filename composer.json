@@ -14,6 +14,6 @@
     "issues": "https://github.com/GreenCape/coding-standards/issues"
   },
   "require": {
-    "squizlabs/php_codesniffer": "~1.5"
+    "squizlabs/php_codesniffer": "~2"
   }
 }
