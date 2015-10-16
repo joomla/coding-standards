@@ -1,8 +1,10 @@
 Joomla Coding Standards
 =======================
 
-This repository includes the [Joomla](http://developer.joomla.org) coding standard definition for
+This repository includes the Joomla! Coding Standard definition for
 [PHP Codesniffer](http://pear.php.net/PHP_CodeSniffer) modified for use with Composer.
+
+While the original is based on PEAR, this version describes the same rules based on PSR1 and PSR-2.
 
 See Joomla coding standards documentation at
 [http://joomla.github.io/coding-standards/](http://joomla.github.io/coding-standards/)

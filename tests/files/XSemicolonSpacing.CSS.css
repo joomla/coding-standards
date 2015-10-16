@@ -1,0 +1,17 @@
+/**
+ * Test file for the Joomla! Coding Standard
+ */
+
+/* Valid */
+div {
+    color: blue;
+}
+
+/* Invalid */
+div {
+    color: blue
+}
+
+div {
+    color: blue ;
+}

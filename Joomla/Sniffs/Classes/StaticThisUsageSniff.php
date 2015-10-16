@@ -30,6 +30,7 @@ if(class_exists('PHP_CodeSniffer_Standards_AbstractScopeSniff', true) === false)
  * @license   http://matrix.squiz.net/developer/tools/php_cs/licence BSD Licence
  * @version   Release: 1.3.0RC1
  * @link      http://pear.php.net/package/PHP_CodeSniffer
+ * @deprecated Use Squiz.Scope.StaticThisUsage instead
  */
 class Joomla_Sniffs_Classes_StaticThisUsageSniff extends PHP_CodeSniffer_Standards_AbstractScopeSniff
 {

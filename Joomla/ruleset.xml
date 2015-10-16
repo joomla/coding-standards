@@ -1,61 +1,116 @@
 <?xml version="1.0"?>
 <ruleset name="Joomla">
-	<description>The Joomla coding standard.</description>
+    <description>The Joomla Coding Standard.</description>
 
-	<!-- Include all sniffs in an external standard directory -->
+    <!-- ## Basic Guidelines -->
 
-	<!-- Include some additional sniffs from the Generic standard -->
-	<rule ref="Generic.CodeAnalysis.UselessOverridingMethod" />
-	<rule ref="Generic.Files.EndFileNewline" />
+    <!-- ### File Format -->
 
-	<rule ref="Generic.Formatting.DisallowMultipleStatements" />
-	<rule ref="Generic.Functions.FunctionCallArgumentSpacing" />
-	<!-- This message is not required as spaces are allowed for alignment -->
-	<rule ref="Generic.Functions.FunctionCallArgumentSpacing.TooMuchSpaceAfterComma">
-		<severity>0</severity>
-	</rule>
-	<rule ref="Generic.NamingConventions.UpperCaseConstantName" />
-	<rule ref="Generic.PHP.DisallowShortOpenTag" />
-	<rule ref="Generic.PHP.DeprecatedFunctions" />
+    <!-- Stored as ASCII text -->
+    <!-- no rule found for ASCII -->
 
-	<!-- Include some additional sniffs from the PEAR standard -->
-	<rule ref="PEAR.Classes.ClassDeclaration" />
-	<rule ref="PEAR.Commenting.InlineComment" />
-	<rule ref="PEAR.Formatting.MultiLineAssignment" />
-	<rule ref="PEAR.Functions.ValidDefaultValue" />
-	<rule ref="PEAR.NamingConventions.ValidClassName" />
+    <!-- Use UTF-8 character encoding without BOM -->
+    <!-- no rule found for UTF-8 -->
+    <rule ref="Generic.Files.ByteOrderMark"/>
 
-	<!-- Include some additional sniffs from the Squiz standard -->
-	<rule ref="Squiz.CSS.ColonSpacing" />
-	<rule ref="Squiz.CSS.DuplicateClassDefinition" />
-	<rule ref="Squiz.CSS.EmptyClassDefinition" />
-	<rule ref="Squiz.CSS.EmptyStyleDefinition" />
-	<rule ref="Squiz.CSS.MissingColon" />
-	<rule ref="Squiz.CSS.SemicolonSpacing" />
-	<rule ref="Squiz.Classes.SelfMemberReference" />
-	<rule ref="Squiz.Commenting.DocCommentAlignment" />
-	<rule ref="Squiz.Operators.IncrementDecrementUsage">
-		<exclude name="Squiz.Operators.IncrementDecrementUsage.processAssignment" />
-	</rule>
-	<rule ref="Squiz.Scope.StaticThisUsage" />
-	<rule ref="Squiz.WhiteSpace.ScopeClosingBrace" />
+    <!-- Use Unix newlines -->
+    <rule ref="Generic.Files.LineEndings">
+        <properties>
+            <property name="eolChar" value="\n"/>
+        </properties>
+    </rule>
 
-	<!-- Include some additional sniffs from the Zend standard -->
-	<rule ref="Zend.Files.ClosingTag" />
-	
-	<!-- Use Unix newlines -->
-	<rule ref="Generic.Files.LineEndings">
-		<properties>
-			<property name="eolChar" value="\n" />
-		</properties>
-	</rule>
-	
-	<!-- Lines can be 150 chars long, but never show errors -->
-	<rule ref="Generic.Files.LineLength">
-		<properties>
-			<property name="lineLimit" value="150" />
-			<property name="absoluteLineLimit" value="0" />
-		</properties>
-	</rule>
+    <!-- ### Spelling -->
+    <!-- no rule found -->
+
+    <!-- ### Indenting -->
+
+    <!-- Tabs are used for indenting code (four spaces in length) -->
+    <rule ref="Generic.WhiteSpace.DisallowSpaceIndent">
+        <properties>
+            <property name="tabWidth" value="4"/>
+        </properties>
+    </rule>
+
+    <!-- ### Line Length -->
+
+    <!-- Lines can be 150 chars long, but never show errors -->
+    <rule ref="Generic.Files.LineLength">
+        <properties>
+            <property name="lineLimit" value="150"/>
+            <property name="absoluteLineLimit" value="0"/>
+        </properties>
+    </rule>
+
+    <!-- ## Inline Code Comments -->
+
+    <!-- ### Formatting of Comments -->
+
+    <!-- New lines should always start with an upper case letter -->
+    <!-- Multiline comments should use `/* */` (C) style -->
+    <rule ref="Joomla.Commenting.SingleComment"/>
+
+    <!-- Multiline comments should use aligned `*` on each line -->
+    <!-- no rule found -->
+
+    <!-- Comments should precede the code they refer to -->
+    <!-- no rule found -->
+
+    <!-- Comments should align with the code they refer to, using the same indenting as the line that follows the comment -->
+    <!-- no rule found -->
+
+    <!-- Comments should be indented with tabs (like code, not like doc blocks) -->
+    <!-- no rule found -->
+
+    <!-- ### Content of comments -->
+
+    <!-- Comments should use en-GB -->
+    <!-- no rule found -->
+
+    <!-- Always have a space between // and the start of comment text -->
+    <!-- no rule found -->
+
+    <rule ref="PSR1.Files.SideEffects"/>
+
+    <!-- Include all sniffs in an external standard directory -->
+
+    <!-- Include some additional sniffs from the Generic standard -->
+    <rule ref="Generic.CodeAnalysis.UselessOverridingMethod"/>
+    <rule ref="Generic.Files.EndFileNewline"/>
+
+    <rule ref="Generic.Formatting.DisallowMultipleStatements"/>
+    <rule ref="Generic.Functions.FunctionCallArgumentSpacing"/>
+    <!-- This message is not required as spaces are allowed for alignment -->
+    <rule ref="Generic.Functions.FunctionCallArgumentSpacing.TooMuchSpaceAfterComma">
+        <severity>0</severity>
+    </rule>
+    <rule ref="Generic.NamingConventions.UpperCaseConstantName"/>
+    <rule ref="Generic.PHP.DisallowShortOpenTag"/>
+    <rule ref="Generic.PHP.DeprecatedFunctions"/>
+
+    <!-- Include some additional sniffs from the PEAR standard -->
+    <rule ref="PEAR.Classes.ClassDeclaration"/>
+    <rule ref="PEAR.Commenting.InlineComment"/>
+    <rule ref="PEAR.Formatting.MultiLineAssignment"/>
+    <rule ref="PEAR.Functions.ValidDefaultValue"/>
+    <rule ref="PEAR.NamingConventions.ValidClassName"/>
+
+    <!-- Include some additional sniffs from the Squiz standard -->
+    <rule ref="Squiz.CSS.ColonSpacing"/>
+    <rule ref="Squiz.CSS.DuplicateClassDefinition"/>
+    <rule ref="Squiz.CSS.EmptyClassDefinition"/>
+    <rule ref="Squiz.CSS.EmptyStyleDefinition"/>
+    <rule ref="Squiz.CSS.MissingColon"/>
+    <rule ref="Squiz.CSS.SemicolonSpacing"/>
+    <rule ref="Squiz.Classes.SelfMemberReference"/>
+    <rule ref="Squiz.Commenting.DocCommentAlignment"/>
+    <rule ref="Squiz.Operators.IncrementDecrementUsage">
+        <exclude name="Squiz.Operators.IncrementDecrementUsage.processAssignment"/>
+    </rule>
+    <rule ref="Squiz.Scope.StaticThisUsage"/>
+    <rule ref="Squiz.WhiteSpace.ScopeClosingBrace"/>
+
+    <!-- Include some additional sniffs from the Zend standard -->
+    <rule ref="Zend.Files.ClosingTag"/>
 
 </ruleset>
