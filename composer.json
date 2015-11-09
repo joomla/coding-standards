@@ -19,7 +19,8 @@
     "squizlabs/php_codesniffer": "~2"
   },
   "require-dev": {
-    "phpunit/phpunit": "~4.0"
+    "phpunit/phpunit": "~4.0",
+    "codegyre/robo": "^0.6.0"
   },
   "minimum-stability": "RC",
   "replace": {
@@ -29,7 +30,7 @@
     "issues": "https://github.com/GreenCape/coding-standards/issues"
   },
   "scripts": {
-    "post-install-cmd": "\"vendor/bin/phpcs\" --config-set installed_paths vendor/greencape/coding-standards",
-    "post-update-cmd": "\"vendor/bin/phpcs\" --config-set installed_paths vendor/greencape/coding-standards"
+    "post-install-cmd": "\"vendor/bin/phpcs\" --config-set installed_paths vendor/greencape/coding-standards/src",
+    "post-update-cmd": "\"vendor/bin/phpcs\" --config-set installed_paths vendor/greencape/coding-standards/src"
   }
 }
