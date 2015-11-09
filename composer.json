@@ -1,6 +1,6 @@
 {
-  "name": "greencape/joomla-cs",
-  "description": "Composer installable Coding Standards Definition.",
+  "name": "greencape/coding-standards",
+  "description": "Composer installable Coding Standards Definitions.",
   "homepage": "https://github.com/GreenCape/coding-standards",
   "keywords": [
     "phpcs",
@@ -26,11 +26,14 @@
     "phpunit/phpunit": "~4.0"
   },
   "minimum-stability": "RC",
+  "replace": {
+    "greencape/joomla-cs": "*"
+  },
   "support": {
     "issues": "https://github.com/GreenCape/coding-standards/issues"
   },
   "scripts": {
-    "post-install-cmd": "vendor/bin/phpcs --config-set installed_paths vendor/greencape/joomla-cs",
-    "post-update-cmd": "vendor/bin/phpcs --config-set installed_paths vendor/greencape/joomla-cs"
+    "post-install-cmd": "vendor/bin/phpcs --config-set installed_paths vendor/greencape/coding-standards",
+    "post-update-cmd": "vendor/bin/phpcs --config-set installed_paths vendor/greencape/coding-standards"
   }
 }
