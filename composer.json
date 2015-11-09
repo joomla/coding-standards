@@ -13,10 +13,6 @@
       "name": "Niels Braczek",
       "email": "nbraczek@bsds.de",
       "role": "lead"
-    },
-    {
-      "name": "Contributors",
-      "homepage": "https://github.com/GreenCape/coding-standards/graphs/contributors"
     }
   ],
   "require": {
@@ -33,7 +29,7 @@
     "issues": "https://github.com/GreenCape/coding-standards/issues"
   },
   "scripts": {
-    "post-install-cmd": "vendor/bin/phpcs --config-set installed_paths vendor/greencape/coding-standards",
-    "post-update-cmd": "vendor/bin/phpcs --config-set installed_paths vendor/greencape/coding-standards"
+    "post-install-cmd": "\"vendor/bin/phpcs\" --config-set installed_paths vendor/greencape/coding-standards",
+    "post-update-cmd": "\"vendor/bin/phpcs\" --config-set installed_paths vendor/greencape/coding-standards"
   }
 }
