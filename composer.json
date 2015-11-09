@@ -30,7 +30,7 @@
     "issues": "https://github.com/GreenCape/coding-standards/issues"
   },
   "scripts": {
-    "post-install-cmd": "\"vendor/bin/phpcs\" --config-set installed_paths ../../..",
-    "post-update-cmd": "\"vendor/bin/phpcs\" --config-set installed_paths ../../.."
+    "post-install-cmd": "vendor/bin/phpcs --config-set installed_paths vendor/greencape/joomla-cs",
+    "post-update-cmd": "vendor/bin/phpcs --config-set installed_paths vendor/greencape/joomla-cs"
   }
 }
