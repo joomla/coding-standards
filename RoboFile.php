@@ -11,18 +11,25 @@ class RoboFile extends \Robo\Tasks
 
     use \Robo\Common\TaskIO;
 
+    public function test()
+    {
+        $this->taskPhpUnit()
+             ->files('tests/AllTests.php')
+             ->run();
+    }
+
+    public function update()
+    {
+        $this->updateWordpress();
+    }
+
     public function updateWordpress()
     {
-        $repo    = 'https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git';
+        $repo = 'https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git';
         $tmp  = $this->tmpDir . '/wordpress';
         $this->fetch($repo, $tmp);
-
         $this->safeCopyDir("$tmp/WordPress", "src/WordPress");
-        $this->safeCopyDir("src/WordPress/Tests", "tests/WordPress");
-        $this->_deleteDir("src/WordPress/Tests");
-
         $this->compileWordpressRules("src/WordPress/ruleset.xml", $tmp);
-
         $this->_deleteDir($tmp);
     }
 
