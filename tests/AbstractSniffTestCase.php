@@ -33,7 +33,7 @@ require_once 'TestSet.php';
  * @version   Release: @package_version@
  * @link      http://pear.php.net/package/PHP_CodeSniffer
  */
-abstract class AbstractSniffUnitTest extends \PHPUnit_Framework_TestCase
+abstract class AbstractSniffTestCase extends \PHPUnit_Framework_TestCase
 {
 
     /**

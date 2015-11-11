@@ -14,6 +14,6 @@ namespace GreenCape\CodingStandardsTests;
  *
  * @package greencape/coding-standards
  */
-class JoomlaTest extends AbstractSniffUnitTest
+class JoomlaTest extends AbstractSniffTestCase
 {
 }

@@ -14,7 +14,7 @@ namespace GreenCape\CodingStandardsTests;
  *
  * @package greencape/coding-standards
  */
-class WordPressTest extends AbstractSniffUnitTest
+class WordPressTest extends AbstractSniffTestCase
 {
     public function testArrayAssignmentRestrictions()
     {
