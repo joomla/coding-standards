@@ -11,11 +11,28 @@ class RoboFile extends \Robo\Tasks
 
     use \Robo\Common\TaskIO;
 
-    public function test()
-    {
-        $this->taskPhpUnit()
-             ->files('tests/AllTests.php')
-             ->run();
+    public function test(
+        $options = [
+            'testdox' => false
+        ]
+    ) {
+        $this->taskTest('tests/Standards', $options)->run();
+    }
+
+    public function testWordpress(
+        $options = [
+            'testdox' => false
+        ]
+    ) {
+        $this->taskTest('tests/Standards/WordPress*', $options)->run();
+    }
+
+    public function testJoomla(
+        $options = [
+            'testdox' => false
+        ]
+    ) {
+        $this->taskTest('tests/Standards/Joomla*', $options)->run();
     }
 
     public function update()
@@ -77,5 +94,23 @@ class RoboFile extends \Robo\Tasks
         }
 
         file_put_contents($ruleset, $rules);
+    }
+
+    /**
+     * @param $files
+     *
+     * @return \Robo\Task\Testing\PHPUnit
+     */
+    private function taskTest($files, $options = [])
+    {
+        $test = $this->taskPhpUnit()
+                     ->bootstrap('tests/bootstrap.php')
+                     ->files($files);
+
+        if ($options['testdox']) {
+            $test->option('--testdox');
+        }
+
+        return $test;
     }
 }
