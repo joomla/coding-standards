@@ -1,151 +1,165 @@
 <?php
 /**
- * Verifies that class members are spaced correctly.
+ * Joomla! Coding Standard
  *
- * PHP version 5
- *
- * @category  PHP
- * @package   PHP_CodeSniffer
- * @author    Greg Sherwood <gsherwood@squiz.net>
- * @author    Marc McIntyre <mmcintyre@squiz.net>
- * @copyright 2006 Squiz Pty Ltd (ABN 77 084 670 600)
- * @license   http://matrix.squiz.net/developer/tools/php_cs/licence BSD Licence
- * @version   CVS: $Id: MemberVarSpacingSniff.php 8 2010-11-06 00:40:23Z elkuku $
- * @link      http://pear.php.net/package/PHP_CodeSniffer
+ * @copyright  Copyright (C) 2015 Open Source Matters, Inc. All rights reserved.
+ * @license    http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License Version 2 or Later
  */
 
-if(class_exists('PHP_CodeSniffer_Standards_AbstractVariableSniff', true) === false)
+if (false === class_exists('Squiz_Sniffs_WhiteSpace_MemberVarSpacingSniff', true))
 {
-    throw new PHP_CodeSniffer_Exception('Class PHP_CodeSniffer_Standards_AbstractVariableSniff not found');
+	throw new PHP_CodeSniffer_Exception('Class Squiz_Sniffs_WhiteSpace_MemberVarSpacingSniff not found');
 }
 
 /**
  * Verifies that class members are spaced correctly.
  *
- * Example:
- * <b class="bad">Bad:</b>
- * class Foo
- * {
- *     <b class="bad">private $foo;</b>
- *     <b class="bad">private $bar;</b>
- * }
- *
- * <b class="good">Good:</b>
- * class Foo
- * {
- *     <b class="good">private $foo;</b>
- *     <b class="good">             </b>
- *     <b class="good">private $bar;</b>
- * }
- *
- * @category  PHP
- * @package   PHP_CodeSniffer
- * @author    Greg Sherwood <gsherwood@squiz.net>
- * @author    Marc McIntyre <mmcintyre@squiz.net>
- * @copyright 2006 Squiz Pty Ltd (ABN 77 084 670 600)
- * @license   http://matrix.squiz.net/developer/tools/php_cs/licence BSD Licence
- * @version   Release: 1.3.0RC1
- * @link      http://pear.php.net/package/PHP_CodeSniffer
+ * @since  1.0
  */
-class Joomla_Sniffs_WhiteSpace_MemberVarSpacingSniff extends PHP_CodeSniffer_Standards_AbstractVariableSniff
+class Joomla_Sniffs_WhiteSpace_MemberVarSpacingSniff extends Squiz_Sniffs_WhiteSpace_MemberVarSpacingSniff
 {
-    /**
-     * Processes the function tokens within the class.
-     *
-     * @param PHP_CodeSniffer_File $phpcsFile The file where this token was found.
-     * @param integer                  $stackPtr  The position where the token was found.
-     *
-     * @return void
-     */
-    protected function processMemberVar(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
-    {
-        $tokens = $phpcsFile->getTokens();
+	/**
+	 * Processes the function tokens within the class.
+	 *
+	 * @param   PHP_CodeSniffer_File  $phpcsFile  The file where this token was found.
+	 * @param   int                   $stackPtr   The position where the token was found.
+	 *
+	 * @return  void
+	 */
+	protected function processMemberVar(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
+	{
+		$tokens   = $phpcsFile->getTokens();
+		$ignore   = PHP_CodeSniffer_Tokens::$methodPrefixes;
+		$ignore[] = T_VAR;
+		$ignore[] = T_WHITESPACE;
+		$start    = $stackPtr;
+		$prev     = $phpcsFile->findPrevious($ignore, ($stackPtr - 1), null, true);
 
-        // There needs to be 1 blank line before the var, not counting comments.
-        $prevLineToken = null;
+		if (isset(PHP_CodeSniffer_Tokens::$commentTokens[$tokens[$prev]['code']]) === true)
+		{
+			// Assume the comment belongs to the member var if it is on a line by itself.
+			$prevContent = $phpcsFile->findPrevious(PHP_CodeSniffer_Tokens::$emptyTokens, ($prev - 1), null, true);
 
-        for($i = ($stackPtr); $i > 0; $i--)
-        {
-            if(in_array($tokens[$i]['code'], PHP_CodeSniffer_Tokens::$commentTokens) === true)
-            {
-                // Skip comments.
-                continue;
-            }
-            else if(strpos($tokens[$i]['content'], $phpcsFile->eolChar) === false)
-            {
-                // Not the end of the line.
-                continue;
-            }
-            else
-            {
-                // If this is a WHITESPACE token, and the token right before
-                // it is a DOC_COMMENT, then it is just the newline after the
-                // member var's comment, and can be skipped.
-                if($tokens[$i]['code'] === T_WHITESPACE
-                && in_array($tokens[($i - 1)]['code'], PHP_CodeSniffer_Tokens::$commentTokens) === true)
-                {
-                    continue;
-                }
+			if ($tokens[$prevContent]['line'] !== $tokens[$prev]['line'])
+			{
+				// Check the spacing, but then skip it.
+				$foundLines = ($tokens[$stackPtr]['line'] - $tokens[$prev]['line'] - 1);
 
-                $prevLineToken = $i;
-                break;
-            }
-        }//for
+				if ($foundLines > 0)
+				{
+					$error = 'Expected 0 blank lines after member var comment; %s found';
+					$data  = array($foundLines);
+					$fix   = $phpcsFile->addFixableError($error, $prev, 'AfterComment', $data);
 
-        if(is_null($prevLineToken) === true)
-        {
-            // Never found the previous line, which means
-            // there are 0 blank lines before the member var.
-            $foundLines = 0;
-        }
-        else
-        {
-            $prevContent = $phpcsFile->findPrevious(array(T_WHITESPACE, T_DOC_COMMENT), $prevLineToken, null, true);
+					if ($fix === true)
+					{
+						$phpcsFile->fixer->beginChangeset();
 
-            if($tokens[$prevContent]['code'] == T_OPEN_CURLY_BRACKET)
-            {
-                $foundLines = 1;
-            }
-            else
-            {
-                $foundLines  = ($tokens[$prevLineToken]['line'] - $tokens[$prevContent]['line']);
-            }
-        }//end if
+						for ($i = ($prev + 1); $i <= $stackPtr; $i++)
+						{
+							if ($tokens[$i]['line'] === $tokens[$stackPtr]['line'])
+							{
+								break;
+							}
 
-        if($foundLines !== 1)
-        {
-            $error = sprintf('Expected 1 blank line before member var; %s found'
-            , $foundLines);
+							$phpcsFile->fixer->replaceToken($i, '');
+						}
 
-            $phpcsFile->addError($error, $stackPtr, 'After');
-        }
-    }//function
+						$phpcsFile->fixer->addNewline($prev);
+						$phpcsFile->fixer->endChangeset();
+					}
+				}
 
-    /**
-     * Processes normal variables.
-     *
-     * @param PHP_CodeSniffer_File $phpcsFile The file where this token was found.
-     * @param integer                  $stackPtr  The position where the token was found.
-     *
-     * @return void
-     */
-    protected function processVariable(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
-    {
-        // We don't care about normal variables.
-        return;
-    }//function
+				$start = $prev;
+			}
+		}
 
-    /**
-     * Processes variables in double quoted strings.
-     *
-     * @param PHP_CodeSniffer_File $phpcsFile The file where this token was found.
-     * @param integer $stackPtr The position where the token was found.
-     *
-     * @return void
-     */
-    protected function processVariableInString(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
-    {
-        // We don't care about normal variables.
-        return;
-    }//function
-}//class
+		// There needs to be 1 blank line before the var, not counting comments.
+		if ($start === $stackPtr)
+		{
+			// No comment found.
+			$first = $phpcsFile->findFirstOnLine(PHP_CodeSniffer_Tokens::$emptyTokens, $start, true);
+
+			if ($first === false)
+			{
+				$first = $start;
+			}
+		}
+		elseif ($tokens[$start]['code'] === T_DOC_COMMENT_CLOSE_TAG)
+		{
+			$first = $tokens[$start]['comment_opener'];
+		}
+		else
+		{
+			$first = $phpcsFile->findPrevious(PHP_CodeSniffer_Tokens::$emptyTokens, ($start - 1), null, true);
+			$first = $phpcsFile->findNext(PHP_CodeSniffer_Tokens::$commentTokens, ($first + 1));
+		}
+
+		$prev       = $phpcsFile->findPrevious(PHP_CodeSniffer_Tokens::$emptyTokens, ($first - 1), null, true);
+		$foundLines = ($tokens[$first]['line'] - $tokens[$prev]['line'] - 1);
+
+		// No blank lines after class opener.
+		if ($foundLines > 0 && $tokens[$prev]['code'] === T_OPEN_CURLY_BRACKET)
+		{
+			$error = 'Expected 0 blank lines before first member var; %s found';
+			$data  = array($foundLines);
+			$fix   = $phpcsFile->addFixableError($error, $stackPtr, 'FirstMember', $data);
+
+			if ($fix === true)
+			{
+				$phpcsFile->fixer->beginChangeset();
+
+				for ($i = ($prev + 1); $i < $first; $i++)
+				{
+					if ($tokens[$i]['line'] === $tokens[$prev]['line'])
+					{
+						continue;
+					}
+
+					if ($tokens[$i]['line'] === $tokens[$first]['line'])
+					{
+						break;
+					}
+
+					$phpcsFile->fixer->replaceToken($i, '');
+				}
+
+				$phpcsFile->fixer->endChangeset();
+			}
+		}
+
+		if ($foundLines === 1
+			|| $tokens[$prev]['code'] === T_OPEN_CURLY_BRACKET
+		)
+		{
+			return;
+		}
+
+		$error = 'Expected 1 blank line before member var; %s found';
+		$data  = array($foundLines);
+		$fix   = $phpcsFile->addFixableError($error, $stackPtr, 'Incorrect', $data);
+
+		if ($fix === true)
+		{
+			$phpcsFile->fixer->beginChangeset();
+
+			for ($i = ($prev + 1); $i < $first; $i++)
+			{
+				if ($tokens[$i]['line'] === $tokens[$prev]['line'])
+				{
+					continue;
+				}
+
+				if ($tokens[$i]['line'] === $tokens[$first]['line'])
+				{
+					$phpcsFile->fixer->addNewlineBefore($i);
+					break;
+				}
+
+				$phpcsFile->fixer->replaceToken($i, '');
+			}
+
+			$phpcsFile->fixer->endChangeset();
+		}
+	}
+}

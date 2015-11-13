@@ -54,12 +54,14 @@ abstract class AbstractSniffTestCase extends \PHPUnit_Framework_TestCase
      */
     public final function execute(TestSet $testset)
     {
+        $standard = $testset->getStandard();
         $sniff    = $testset->getSniff();
         $testFile = $testset->getTestFile();
         $filename = basename($testFile);
 
-        $phpcsFile = $this->processFile($testFile, $sniff, $testset->getCliValues());
+        $phpcsFile = $this->processFile($standard, $testFile, $sniff, $testset->getCliValues());
         $messages = $this->processMessages($phpcsFile, $testset->getExpectedErrors(), $testset->getExpectedWarnings());
+        $fixedFile = $testset->getExpectedFile();
 
         if ($phpcsFile->getFixableCount() > 0) {
             $phpcsFile->fixer->fixFile();
@@ -68,13 +70,17 @@ abstract class AbstractSniffTestCase extends \PHPUnit_Framework_TestCase
                 $messages[] = "Failed to fix $fixable fixable violations in $filename";
             }
 
-            $fixedFile = $testset->getExpectedFile();
             if (!empty($fixedFile) && file_exists($fixedFile)) {
                 $diff = $phpcsFile->fixer->generateDiff($fixedFile);
                 if (trim($diff) !== '') {
-                    $fixedFilename     = basename($fixedFile);
+                    $fixedFilename = basename($fixedFile);
                     $messages[] = "Fixed version of $filename does not match expected version in $fixedFilename; the diff is\n$diff";
                 }
+            }
+        } else {
+            if (!empty($fixedFile) && file_exists($fixedFile)) {
+                $fixedFilename = basename($fixedFile);
+                $messages[] = "$sniff found nothing fixable, but fixed version of $filename ($fixedFilename) was provided";
             }
         }
 
@@ -173,9 +179,9 @@ abstract class AbstractSniffTestCase extends \PHPUnit_Framework_TestCase
      * @return \PHP_CodeSniffer_File
      * @throws \PHP_CodeSniffer_Exception
      */
-    private function processFile($testFile, $sniffCode, $commandLineValues)
+    private function processFile($standard, $testFile, $sniffCode, $commandLineValues)
     {
-        list($standard, $sniffGroup, $sniffName) = explode('.', $sniffCode);
+        list($std, $sniffGroup, $sniffName) = explode('.', $sniffCode);
         $phpcs = new \PHP_CodeSniffer();
         $phpcs->initStandard($standard, [$sniffCode]);
         $phpcs->cli->setCommandLineValues($commandLineValues);
@@ -184,7 +190,7 @@ abstract class AbstractSniffTestCase extends \PHPUnit_Framework_TestCase
         require_once str_replace(
             'ruleset.xml',
             "Sniffs/{$sniffGroup}/{$sniffName}Sniff.php",
-            $phpcs->getInstalledStandardPath($standard)
+            $phpcs->getInstalledStandardPath($std)
         );
 
         $phpcsFile = $phpcs->processFile($testFile);

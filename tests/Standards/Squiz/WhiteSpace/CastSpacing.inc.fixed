@@ -1,0 +1,7 @@
+<?php
+
+// Valid: No spaces.
+$foo = (int)'42';
+
+// Invalid: Whitespace used inside parentheses.
+$foo = (int)'42';

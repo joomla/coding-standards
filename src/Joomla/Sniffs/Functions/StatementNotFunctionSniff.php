@@ -1,9 +1,9 @@
 <?php
 /**
- * Joomla_Sniffs_Functions_StatementNotFunctionSniff.
+ * Joomla! Coding Standard
  *
- * @copyright  Copyright (C) 2005 - 2014 Open Source Matters, Inc. All rights reserved.
- * @license    GNU General Public License version 2 or later; see LICENSE.txt
+ * @copyright  Copyright (C) 2015 Open Source Matters, Inc. All rights reserved.
+ * @license    http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License Version 2 or Later
  */
 
 /**
@@ -11,7 +11,7 @@
  *
  * Checks that language statements do no use brackets.
  *
- * @since  1.1
+ * @since  1.0
  */
 class Joomla_Sniffs_Functions_StatementNotFunctionSniff implements PHP_CodeSniffer_Sniff
 {
@@ -36,22 +36,44 @@ class Joomla_Sniffs_Functions_StatementNotFunctionSniff implements PHP_CodeSniff
 	 * Processes this test, when one of its tokens is encountered.
 	 *
 	 * @param   PHP_CodeSniffer_File  $phpcsFile  The file being scanned.
-	 * @param   int                   $stackPtr   The position of the current token in the
-	 *                                            stack passed in $tokens.
+	 * @param   integer               $stackPtr   The position of the current token in the stack passed in $tokens.
 	 *
-	 * @return void
+	 * @return  void
 	 */
 	public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
 	{
-		$tokens = $phpcsFile->getTokens();
-
+		$tokens    = $phpcsFile->getTokens();
 		$nextToken = $phpcsFile->findNext(PHP_CodeSniffer_Tokens::$emptyTokens, ($stackPtr + 1), null, true);
 
 		if ($tokens[$nextToken]['code'] === T_OPEN_PARENTHESIS)
 		{
 			$error = '"%s" is a statement not a function; no parentheses are required';
 			$data  = array($tokens[$stackPtr]['content']);
-			$phpcsFile->addError($error, $stackPtr, 'BracketsNotRequired', $data);
+			$fix   = $phpcsFile->addFixableError($error, $stackPtr, 'BracketsNotRequired', $data);
+
+			if ($fix === true)
+			{
+				$end      = $phpcsFile->findEndOfStatement($nextToken);
+				$ignore   = PHP_CodeSniffer_Tokens::$emptyTokens;
+				$ignore[] = T_SEMICOLON;
+				$closer   = $phpcsFile->findPrevious($ignore, ($end - 1), null, true);
+
+				$phpcsFile->fixer->beginChangeset();
+				$phpcsFile->fixer->replaceToken($nextToken, '');
+
+				if ($tokens[($stackPtr + 1)]['code'] === T_WHITESPACE)
+				{
+					$phpcsFile->fixer->replaceToken(($stackPtr + 1), '');
+				}
+
+				if ($tokens[$closer]['code'] === T_CLOSE_PARENTHESIS)
+				{
+					$phpcsFile->fixer->replaceToken($closer, '');
+				}
+
+				$phpcsFile->fixer->addContent($stackPtr, ' ');
+				$phpcsFile->fixer->endChangeset();
+			}
 		}
 	}
 }

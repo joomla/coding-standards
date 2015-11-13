@@ -3,6 +3,9 @@ namespace GreenCape\CodingStandardsTests;
 
 class TestSet
 {
+    /** @var  string Name of the standard */
+    protected $standard;
+
     /** @var  string Dot notated name of the sniff to be used in this set */
     protected $sniff;
 
@@ -20,6 +23,19 @@ class TestSet
 
     /** @var  array<int $line><int $expectedNumber> Expected errors */
     protected $expectedErrors;
+
+    public function __construct($standard)
+    {
+        $this->standard = $standard;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStandard()
+    {
+        return $this->standard;
+    }
 
     /**
      * @return string

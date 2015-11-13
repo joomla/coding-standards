@@ -1,22 +1,10 @@
 <?php
 /**
- * Verifies that control statements conform to their coding standards.
+ * Joomla! Coding Standard
  *
- * PHP version 5
- *
- * @category  PHP
- * @package   PHP_CodeSniffer
- * @author    Greg Sherwood <gsherwood@squiz.net>
- * @author    Marc McIntyre <mmcintyre@squiz.net>
- * @copyright 2006 Squiz Pty Ltd (ABN 77 084 670 600)
- * @license   http://matrix.squiz.net/developer/tools/php_cs/licence BSD Licence
- * @version   CVS: $Id: ControlSignatureSniff.php 244676 2007-10-23 06:05:14Z squiz $
- * @link      http://pear.php.net/package/PHP_CodeSniffer
+ * @copyright  Copyright (C) 2015 Open Source Matters, Inc. All rights reserved.
+ * @license    http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License Version 2 or Later
  */
-
-if (class_exists('PHP_CodeSniffer_Standards_AbstractPatternSniff', true) === false) {
-	throw new PHP_CodeSniffer_Exception('Class PHP_CodeSniffer_Standards_AbstractPatternSniff not found');
-}
 
 /**
  * Verifies that control statements conform to their coding standards.
@@ -24,47 +12,265 @@ if (class_exists('PHP_CodeSniffer_Standards_AbstractPatternSniff', true) === fal
  * @category  PHP
  * @package   PHP_CodeSniffer
  * @author    Greg Sherwood <gsherwood@squiz.net>
- * @author    Marc McIntyre <mmcintyre@squiz.net>
- * @copyright 2006 Squiz Pty Ltd (ABN 77 084 670 600)
- * @license   http://matrix.squiz.net/developer/tools/php_cs/licence BSD Licence
- * @version   Release: 1.3.0RC2
+ * @copyright 2006-2014 Squiz Pty Ltd (ABN 77 084 670 600)
+ * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
  * @link      http://pear.php.net/package/PHP_CodeSniffer
+ *
+ * @since   1.0
  */
-class Joomla_Sniffs_ControlStructures_ControlSignatureSniff extends PHP_CodeSniffer_Standards_AbstractPatternSniff
+class Joomla_Sniffs_ControlStructures_ControlSignatureSniff implements PHP_CodeSniffer_Sniff
 {
-
 	/**
-	 * Constructs a Joomla_Sniffs_ControlStructures_ControlSignatureSniff.
-	 */
-	public function __construct()
-	{
-		parent::__construct(true);
-
-	}//end __construct()
-
-	/**
-	 * Returns the patterns that this test wishes to verify.
+	 * The number of spaces code should be indented.
 	 *
-	 * @return array(string)
+	 * @var integer
 	 */
-	protected function getPatterns()
+	public $indent = 1;
+
+	/**
+	 * A list of tokenizers this sniff supports.
+	 *
+	 * @var array
+	 */
+	public $supportedTokenizers = array(
+								   'PHP',
+								   'JS',
+								  );
+
+	/**
+	 * Returns an array of tokens this test wants to listen for.
+	 *
+	 * @return int[]
+	 */
+	public function register()
 	{
 		return array(
-			'if (...)EOL...{...}EOL...elseEOL',
-			'if (...)EOL...{...}EOL...elseif (...)EOL',
-			'if (...)EOL',
+				T_TRY,
+				T_CATCH,
+				T_FINALLY,
+				T_DO,
+				T_WHILE,
+				T_FOR,
+				T_FOREACH,
+				T_IF,
+				T_ELSE,
+				T_ELSEIF,
+				T_SWITCH,
+			   );
+	}
 
-			'tryEOL...{EOL...}EOL',
-			'catch (...)EOL...{EOL',
+	/**
+	 * Processes this test, when one of its tokens is encountered.
+	 *
+	 * @param   PHP_CodeSniffer_File  $phpcsFile  The file being scanned.
+	 * @param   int                   $stackPtr   The position of the current token in the stack passed in $tokens.
+	 *
+	 * @return  void
+	 */
+	public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
+	{
+		$tokens = $phpcsFile->getTokens();
 
-			'doEOL...{...}EOL',
-			'while (...)EOL...{EOL',
+		if (isset($tokens[($stackPtr + 1)]) === false)
+		{
+			return;
+		}
 
-			'for (...)EOL...{EOL',
-			'foreach (...)EOL...{EOL',
+		// Single space after the keyword.
+		$found = 1;
 
-			'switch (...)EOL...{EOL',
-		);
+		if ($tokens[($stackPtr + 1)]['code'] !== T_WHITESPACE)
+		{
+			$found = 0;
+		}
+		elseif ($tokens[($stackPtr + 1)]['content'] !== ' ')
+		{
+			if (strpos($tokens[($stackPtr + 1)]['content'], $phpcsFile->eolChar) !== false)
+			{
+				$found = 'newline';
+			}
+			else
+			{
+				$found = strlen($tokens[($stackPtr + 1)]['content']);
+			}
+		}
 
-	}//end getPatterns()
-}//end class
+		if ($found !== 1
+			&& $tokens[($stackPtr)]['code'] !== T_ELSE
+			&& $tokens[($stackPtr)]['code'] !== T_TRY
+			&& $tokens[($stackPtr)]['code'] !== T_DO
+			&& $tokens[($stackPtr)]['code'] !== T_FINALLY
+		)
+		{
+			$error = 'Expected 1 space after %s keyword; %s found';
+			$data  = array(
+					  strtoupper($tokens[$stackPtr]['content']),
+					  $found,
+					 );
+			$fix   = $phpcsFile->addFixableError($error, $stackPtr, 'SpaceAfterKeyword', $data);
+
+			if ($fix === true)
+			{
+				if ($found === 0)
+				{
+					$phpcsFile->fixer->addContent($stackPtr, ' ');
+				}
+				else
+				{
+					$phpcsFile->fixer->replaceToken(($stackPtr + 1), ' ');
+				}
+			}
+		}
+
+		// Single newline after opening brace.
+		if (isset($tokens[$stackPtr]['scope_opener']) === true)
+		{
+			$opener = $tokens[$stackPtr]['scope_opener'];
+
+			for ($next = ($opener + 1); $next < $phpcsFile->numTokens; $next++)
+			{
+				$code = $tokens[$next]['code'];
+
+				if ($code === T_WHITESPACE)
+				{
+					continue;
+				}
+
+				// Skip all empty tokens on the same line as the opener.
+				if ($tokens[$next]['line'] === $tokens[$opener]['line']
+					&& (isset(PHP_CodeSniffer_Tokens::$emptyTokens[$code]) === true
+					|| $code === T_CLOSE_TAG)
+				)
+				{
+					continue;
+				}
+
+				// We found the first bit of a code, or a comment on the
+				// following line.
+				break;
+			}
+
+			$found = ($tokens[$next]['line'] - $tokens[$opener]['line']);
+
+			if ($found !== 1)
+			{
+				$error = 'Expected 1 newline after opening brace; %s found';
+				$data  = array($found);
+				$fix   = $phpcsFile->addFixableError($error, $opener, 'NewlineAfterOpenBrace', $data);
+
+				if ($fix === true)
+				{
+					$phpcsFile->fixer->beginChangeset();
+
+					for ($i = ($opener + 1); $i < $next; $i++)
+					{
+						if ($found > 0 && $tokens[$i]['line'] === $tokens[$next]['line'])
+						{
+							break;
+						}
+
+						$phpcsFile->fixer->replaceToken($i, '');
+					}
+
+					$phpcsFile->fixer->addContent($opener, $phpcsFile->eolChar);
+					$phpcsFile->fixer->endChangeset();
+				}
+			}
+		}
+		elseif ($tokens[$stackPtr]['code'] === T_WHILE)
+		{
+			// Zero spaces after parenthesis closer.
+			$closer = $tokens[$stackPtr]['parenthesis_closer'];
+			$found  = 0;
+
+			if ($tokens[($closer + 1)]['code'] === T_WHITESPACE)
+			{
+				if (strpos($tokens[($closer + 1)]['content'], $phpcsFile->eolChar) !== false)
+				{
+					$found = 'newline';
+				}
+				else
+				{
+					$found = strlen($tokens[($closer + 1)]['content']);
+				}
+			}
+
+			if ($found !== 0)
+			{
+				$error = 'Expected 0 spaces before semicolon; %s found';
+				$data  = array($found);
+				$fix   = $phpcsFile->addFixableError($error, $closer, 'SpaceBeforeSemicolon', $data);
+
+				if ($fix === true)
+				{
+					$phpcsFile->fixer->replaceToken(($closer + 1), '');
+				}
+			}
+		}//end if
+
+		// Only want to check multi-keyword structures from here on.
+		if ($tokens[$stackPtr]['code'] === T_DO)
+		{
+			if (isset($tokens[$stackPtr]['scope_closer']) === false)
+			{
+				return;
+			}
+
+			$closer = $tokens[$stackPtr]['scope_closer'];
+		}
+		elseif ($tokens[$stackPtr]['code'] === T_ELSE
+			|| $tokens[$stackPtr]['code'] === T_ELSEIF
+			|| $tokens[$stackPtr]['code'] === T_CATCH
+		)
+		{
+			$closer = $phpcsFile->findPrevious(PHP_CodeSniffer_Tokens::$emptyTokens, ($stackPtr - 1), null, true);
+
+			if ($closer === false || $tokens[$closer]['code'] !== T_CLOSE_CURLY_BRACKET)
+			{
+				return;
+			}
+		}
+		else
+		{
+			return;
+		}
+
+		// Own line for do, else, elseif, catch and no white space after closing brace
+		$found = 0;
+
+		if ($tokens[($closer + 1)]['code'] === T_WHITESPACE
+			&& $tokens[($closer + 1)]['content'] !== $phpcsFile->eolChar
+		)
+		{
+			$found = strlen($tokens[($closer + 1)]['content']);
+		}
+
+		if (0 !== $found)
+		{
+			$error = 'Expected 0 space after closing brace; %s found';
+			$data  = array($found);
+			$fix   = $phpcsFile->addFixableError($error, $closer, 'SpaceAfterCloseBrace', $data);
+
+			if (true === $fix)
+			{
+				$phpcsFile->fixer->replaceToken(($closer + 1), '' . $phpcsFile->eolChar);
+			}
+		}
+
+		if ($tokens[($closer + 1)]['content'] !== $phpcsFile->eolChar && 0 === $found)
+		{
+			$error  = 'Definition of do,else,elseif,catch must be on their own line.';
+			$fix    = $phpcsFile->addFixableError($error, $closer, 'NewLineAfterCloseBrace');
+			$blanks = substr($tokens[($closer - 1)]['content'], strpos($tokens[($closer - 1)]['content'], $phpcsFile->eolChar));
+			$spaces = str_repeat("\t", strlen($blanks));
+
+			if (true === $fix)
+			{
+				$phpcsFile->fixer->beginChangeset();
+				$phpcsFile->fixer->addContent($closer, $phpcsFile->eolChar);
+				$phpcsFile->fixer->addContentBefore(($closer + 1), $spaces);
+				$phpcsFile->fixer->endChangeset();
+			}
+		}
+	}
+}

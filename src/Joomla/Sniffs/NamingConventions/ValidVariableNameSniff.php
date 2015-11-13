@@ -1,139 +1,66 @@
 <?php
 /**
- * Joomla_Sniffs_NamingConventions_ValidVariableNameSniff.
+ * Joomla! Coding Standard
  *
- * PHP version 5
- *
- * @category  PHP
- * @package   PHP_CodeSniffer
- * @author    Greg Sherwood <gsherwood@squiz.net>
- * @copyright 2006 Squiz Pty Ltd (ABN 77 084 670 600)
- * @license   http://matrix.squiz.net/developer/tools/php_cs/licence BSD Licence
- * @version   CVS: $Id: ValidVariableNameSniff.php 261129 2008-06-13 04:10:43Z squiz $
- * @link      http://pear.php.net/package/PHP_CodeSniffer
+ * @copyright  Copyright (C) 2015 Open Source Matters, Inc. All rights reserved.
+ * @license    http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License Version 2 or Later
  */
 
-if (class_exists('PHP_CodeSniffer_Standards_AbstractVariableSniff', true) === false) {
-    $error = 'Class PHP_CodeSniffer_Standards_AbstractVariableSniff not found';
-    throw new PHP_CodeSniffer_Exception($error);
+if (class_exists('Squiz_Sniffs_NamingConventions_ValidVariableNameSniff', true) === false)
+{
+	throw new PHP_CodeSniffer_Exception('Class Squiz_Sniffs_NamingConventions_ValidVariableNameSniff not found');
 }
 
 /**
- * Joomla_Sniffs_NamingConventions_ValidVariableNameSniff.
+ * Extended ruleset for checking the naming of variables and member variables.
  *
- * Checks the naming of member variables.
- *
- * @category  PHP
- * @package   PHP_CodeSniffer
- * @author    Greg Sherwood <gsherwood@squiz.net>
- * @copyright 2006 Squiz Pty Ltd (ABN 77 084 670 600)
- * @license   http://matrix.squiz.net/developer/tools/php_cs/licence BSD Licence
- * @version   Release: 1.3.0RC2
- * @link      http://pear.php.net/package/PHP_CodeSniffer
+ * @since  1.0
  */
-class Joomla_Sniffs_NamingConventions_ValidVariableNameSniff extends PHP_CodeSniffer_Standards_AbstractVariableSniff
+class Joomla_Sniffs_NamingConventions_ValidVariableNameSniff extends Squiz_Sniffs_NamingConventions_ValidVariableNameSniff
 {
-
-
-    /**
-     * Processes class member variables.
-     *
-     * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
-     * @param int                  $stackPtr  The position of the current token
-     *                                        in the stack passed in $tokens.
-     *
-     * @return void
-     */
-    protected function processMemberVar(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
-    {
-        $tokens = $phpcsFile->getTokens();
-
-        $memberProps = $phpcsFile->getMemberProperties($stackPtr);
-        if (empty($memberProps) === true) {
-            return;
-        }
-
-        $memberName     = ltrim($tokens[$stackPtr]['content'], '$');
-        $scope          = $memberProps['scope'];
-        $scopeSpecified = $memberProps['scope_specified'];
-
-		// Detect if it is marked deprecated
-		$find = array(
-				 T_COMMENT,
-				 T_DOC_COMMENT,
-				 T_CLASS,
-				 T_FUNCTION,
-				 T_OPEN_TAG,
-				);
+	/**
+	 * Processes class member variables.
+	 *
+	 * Extends Squiz.NamingConventions.ValidVariableName.processMemberVar to remove the requirement for leading underscores on
+	 * private member vars.
+	 *
+	 * @param   PHP_CodeSniffer_File  $phpcsFile  The file being scanned.
+	 * @param   integer               $stackPtr   The position of the current token in the stack passed in $tokens.
+	 *
+	 * @return  void
+	 */
+	protected function processMemberVar(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
+	{
 		$tokens = $phpcsFile->getTokens();
-		$commentEnd = $phpcsFile->findPrevious($find, ($stackPtr - 1));
-		if ($commentEnd !== false && $tokens[$commentEnd]['code'] === T_DOC_COMMENT) {
-			$commentStart = $phpcsFile->findPrevious(T_DOC_COMMENT, ($commentEnd - 1), null, true) + 1;
-			$comment = $phpcsFile->getTokensAsString($commentStart, ($commentEnd - $commentStart + 1));
 
-			try {
-				$this->commentParser = new PHP_CodeSniffer_CommentParser_FunctionCommentParser($comment, $phpcsFile);
-				$this->commentParser->parse();
-			} catch (PHP_CodeSniffer_CommentParser_ParserException $e) {
-				$line = ($e->getLineWithinComment() + $commentStart);
-				$phpcsFile->addError($e->getMessage(), $line, 'FailedParse');
-				return;
-			}
+		$varName     = ltrim($tokens[$stackPtr]['content'], '$');
+		$memberProps = $phpcsFile->getMemberProperties($stackPtr);
 
-			$deprecated = $this->commentParser->getDeprecated();
-			$isDeprecated = !is_null($deprecated);
-		}
-		else {
-			$isDeprecated = false;
+		if (empty($memberProps) === true)
+		{
+			// Couldn't get any info about this variable, which generally means it is invalid or possibly has a parse
+			// error. Any errors will be reported by the core, so we can ignore it.
+			return;
 		}
 
-	    // Member vars must not be prefixed by an underscore.
-        if ($isDeprecated === false && $scopeSpecified === true && $memberName{0} === '_') {
-            $error = '%s member variable "%s" must not be prefixed with an underscore';
-            $data  = array(
-                      ucfirst($scope),
-                      $memberName,
-                     );
-            // AJE Changed from error to warning.
-            $phpcsFile->addWarning($error, $stackPtr, 'PublicUnderscore', $data);
-            return;
-        }
+		$errorData = array($varName);
 
-    }//end processMemberVar()
+		if (substr($varName, 0, 1) === '_')
+		{
+			$error = '%s member variable "%s" must not contain a leading underscore';
+			$data  = array(
+				ucfirst($memberProps['scope']),
+				$errorData[0]
+			);
+			$phpcsFile->addError($error, $stackPtr, 'ClassVarHasUnderscore', $data);
 
+			return;
+		}
 
-    /**
-     * Processes normal variables.
-     *
-     * @param PHP_CodeSniffer_File $phpcsFile The file where this token was found.
-     * @param int                  $stackPtr  The position where the token was found.
-     *
-     * @return void
-     */
-    protected function processVariable(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
-    {
-        // We don't care about normal variables.
-        return;
-
-    }//end processVariable()
-
-
-    /**
-     * Processes variables in double quoted strings.
-     *
-     * @param PHP_CodeSniffer_File $phpcsFile The file where this token was found.
-     * @param int                  $stackPtr  The position where the token was found.
-     *
-     * @return void
-     */
-    protected function processVariableInString(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
-    {
-        // We don't care about normal variables.
-        return;
-
-    }//end processVariableInString()
-
-
-}//end class
-
-?>
+		if (PHP_CodeSniffer::isCamelCaps($varName, false, true, false) === false)
+		{
+			$error = 'Member variable "%s" is not in valid camel caps format';
+			$phpcsFile->addError($error, $stackPtr, 'MemberNotCamelCaps', $errorData);
+		}
+	}
+}

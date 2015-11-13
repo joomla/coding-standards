@@ -1,15 +1,9 @@
 <?php
 /**
- * Joomla_Sniffs_ControlStructures_WhiteSpaceBeforeSniff.
+ * Joomla! Coding Standard
  *
- * PHP version 5
- *
- * @package     PHP_CodeSniffer
- * @subpackage  PHP
- * @author      Nikolai Plath <der.el.kuku@gmail.com>
- * @copyright   2012 OSM
- * @license     http://matrix.squiz.net/developer/tools/php_cs/licence BSD Licence
- * @link        http://pear.php.net/package/PHP_CodeSniffer
+ * @copyright  Copyright (C) 2015 Open Source Matters, Inc. All rights reserved.
+ * @license    http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License Version 2 or Later
  */
 
 /**
@@ -19,34 +13,46 @@
  * This only applies if the line before the structure contains code.
  * Comments or curly braces are considered valid.
  *
- * <b class="bad">Bad:</b>
+ * Bad1:
  * $foo = $bar;
  * if(condition)
  * {
  *     // blah
  * }
  *
- * <b class="good">Good:</b>
+ * Bad2:
+ * if(condition)
+ * {
+ *     // blah
+ * }
+ * if(nextcondition)
+ * {
+ *     // blubb
+ * }
+ *
+ * Good1:
  * $foo = $bar;
  *
  * if(condition)
  * {
  *     // blah
+ * }
+ *
+ * Good2:
+ * if(condition)
+ * {
+ *     // blah
+ * }
+ *
+ * if(nextcondition)
+ * {
+ *     // blubb
  * }
  *
  * This rule applies for the structures:
- * <b>if, for, foreach, while, switch, try and return</b>
+ * if, for, foreach, while, switch, try, do and return
  *
- * @version    Release: 1.3.0RC1
- * @category   PHP
- * @package    PHP_CodeSniffer
- * @author     Greg Sherwood <gsherwood@squiz.net>
- * @author     Marc McIntyre <mmcintyre@squiz.net>
- * @copyright  2006 Squiz Pty Ltd (ABN 77 084 670 600)
- * @license    http://matrix.squiz.net/developer/tools/php_cs/licence BSD Licence
- * @link       http://pear.php.net/package/PHP_CodeSniffer
- *
- * @since      1.0
+ * @since   1.0
  */
 class Joomla_Sniffs_ControlStructures_WhiteSpaceBeforeSniff implements PHP_CodeSniffer_Sniff
 {
@@ -58,15 +64,15 @@ class Joomla_Sniffs_ControlStructures_WhiteSpaceBeforeSniff implements PHP_CodeS
 	public function register()
 	{
 		return array(
-			T_IF
-		, T_FOR
-		, T_FOREACH
-		, T_SWITCH
-		, T_TRY
-		, T_WHILE
-		, T_DO
-		, T_RETURN
-		);
+				T_IF,
+				T_FOR,
+				T_FOREACH,
+				T_SWITCH,
+				T_TRY,
+				T_WHILE,
+				T_DO,
+				T_RETURN,
+			   );
 	}
 
 	/**
@@ -75,29 +81,29 @@ class Joomla_Sniffs_ControlStructures_WhiteSpaceBeforeSniff implements PHP_CodeS
 	 * @param   PHP_CodeSniffer_File  $phpcsFile  The file being scanned.
 	 * @param   integer               $stackPtr   The position of the current token in the stack passed in $tokens.
 	 *
-	 * @return void
+	 * @return  void
 	 */
 	public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
 	{
 		$tokens = $phpcsFile->getTokens();
 
-		if (isset($tokens[$stackPtr]['scope_opener']) === false
-			&& $tokens[$stackPtr]['code'] != T_RETURN)
+		if (isset($tokens[$stackPtr]['scope_opener']) === false && $tokens[$stackPtr]['code'] !== T_RETURN)
 		{
 			return;
 		}
 
-		$previousSemicolon = $phpcsFile->findPrevious(array(T_SEMICOLON), ($stackPtr - 1), null, false);
+		$prev = $phpcsFile->findPrevious(array(T_SEMICOLON, T_CLOSE_CURLY_BRACKET), ($stackPtr - 1), null, false);
 
-		if ($tokens[$stackPtr]['line'] - 1 == $tokens[$previousSemicolon]['line'])
+		if ($tokens[$stackPtr]['line'] - 1 === $tokens[$prev]['line'])
 		{
-			$error = sprintf('Please consider an empty line before the %s statement;',
-				$tokens[$stackPtr]['content']
-			);
+			$error = 'Please consider an empty line before the %s statement;';
+			$data  = array($tokens[$stackPtr]['content']);
+			$fix   = $phpcsFile->addFixableError($error, $stackPtr, 'SpaceBefore', $data);
 
-			$phpcsFile->addError($error, $stackPtr, 'SpaceBefore');
-
-			return;
+			if ($fix === true)
+			{
+				$phpcsFile->fixer->addNewlineBefore($stackPtr);
+			}
 		}
 	}
 }

@@ -12,27 +12,17 @@ class RoboFile extends \Robo\Tasks
     use \Robo\Common\TaskIO;
 
     public function test(
+        $standard = null,
         $options = [
-            'testdox' => false
+            'testdox' => false,
+            'group' => null,
         ]
     ) {
-        $this->taskTest('tests/Standards', $options)->run();
-    }
-
-    public function testWordpress(
-        $options = [
-            'testdox' => false
-        ]
-    ) {
-        $this->taskTest('tests/Standards/WordPress*', $options)->run();
-    }
-
-    public function testJoomla(
-        $options = [
-            'testdox' => false
-        ]
-    ) {
-        $this->taskTest('tests/Standards/Joomla*', $options)->run();
+        $files = 'tests/Standards';
+        if (!empty($standard)) {
+            $files .= "/{$standard}*";
+        }
+        $this->taskTest($files, $options)->run();
     }
 
     public function update()
@@ -48,6 +38,25 @@ class RoboFile extends \Robo\Tasks
         $this->safeCopyDir("$tmp/WordPress", "src/WordPress");
         $this->compileWordpressRules("src/WordPress/ruleset.xml", $tmp);
         $this->_deleteDir($tmp);
+    }
+
+    /**
+     * Show a list of all deprecated internal PHP functions.
+     */
+    public function listDeprecatedFunctions()
+    {
+        $functions = get_defined_functions();
+
+        foreach ($functions['internal'] as $functionName) {
+            $function = new ReflectionFunction($functionName);
+            if (!method_exists($function, 'isDeprecated')) {
+                break;
+            }
+
+            if ($function->isDeprecated()) {
+                $this->say($functionName);
+            }
+        }
     }
 
     private function fetch($repo, $target)
@@ -106,6 +115,10 @@ class RoboFile extends \Robo\Tasks
         $test = $this->taskPhpUnit()
                      ->bootstrap('tests/bootstrap.php')
                      ->files($files);
+
+        if (!empty($options['group'])) {
+            $test->option('--group ' . $options['group']);
+        }
 
         if ($options['testdox']) {
             $test->option('--testdox');
