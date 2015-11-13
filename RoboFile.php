@@ -11,11 +11,19 @@ class RoboFile extends \Robo\Tasks
 
     use \Robo\Common\TaskIO;
 
+    /**
+     * Perform unit tests
+     *
+     * @param string $standard The standard to test, one of [Joomla, WordPress]. By default, all standards are tested.
+     * @param array  $options
+     * @option $group Test this sniff group only. By default, all groups are tested.
+     * @option $testdox Output the test result in testdox format.
+     */
     public function test(
         $standard = null,
         $options = [
             'testdox' => false,
-            'group' => null,
+            'group'   => null,
         ]
     ) {
         $files = 'tests/Standards';
@@ -25,11 +33,17 @@ class RoboFile extends \Robo\Tasks
         $this->taskTest($files, $options)->run();
     }
 
+    /**
+     * Fetch files from external coding standards.
+     */
     public function update()
     {
         $this->updateWordpress();
     }
 
+    /**
+     * Fetch files for the current WordPress Coding Standard.
+     */
     public function updateWordpress()
     {
         $repo = 'https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git';
