@@ -84,8 +84,8 @@ class Joomla_Sniffs_Commenting_SingleCommentSniff implements PHP_CodeSniffer_Sni
 
 		/*
 		 * New lines should always start with an upper case letter, unless
-		 * the line is a continuation of a complete sentence,
-		 * the term is code and is case sensitive.(@todo)
+		 *   the line is a continuation of a complete sentence,
+		 *   the term is code and is case sensitive.(@todo)
 		 */
 		if (($singleLine === true && isset($tokens[$stackPtr]['content']{3}) && $tokens[$stackPtr]['content']{2} === ' '
 			&& $tokens[$stackPtr]['content']{3} !== strtoupper($tokens[$stackPtr]['content']{3})) || (isset($comment{2}) && $comment{0} === '*'
