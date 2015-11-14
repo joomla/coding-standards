@@ -16,7 +16,7 @@
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
  * @link      http://pear.php.net/package/PHP_CodeSniffer
  *
- * @since   1.0
+ * @since     1.0
  */
 class Joomla_Sniffs_ControlStructures_ControlSignatureSniff implements PHP_CodeSniffer_Sniff
 {
@@ -33,9 +33,9 @@ class Joomla_Sniffs_ControlStructures_ControlSignatureSniff implements PHP_CodeS
 	 * @var array
 	 */
 	public $supportedTokenizers = array(
-								   'PHP',
-								   'JS',
-								  );
+		'PHP',
+		'JS',
+	);
 
 	/**
 	 * Returns an array of tokens this test wants to listen for.
@@ -45,25 +45,25 @@ class Joomla_Sniffs_ControlStructures_ControlSignatureSniff implements PHP_CodeS
 	public function register()
 	{
 		return array(
-				T_TRY,
-				T_CATCH,
-				T_FINALLY,
-				T_DO,
-				T_WHILE,
-				T_FOR,
-				T_FOREACH,
-				T_IF,
-				T_ELSE,
-				T_ELSEIF,
-				T_SWITCH,
-			   );
+			T_TRY,
+			T_CATCH,
+			T_FINALLY,
+			T_DO,
+			T_WHILE,
+			T_FOR,
+			T_FOREACH,
+			T_IF,
+			T_ELSE,
+			T_ELSEIF,
+			T_SWITCH,
+		);
 	}
 
 	/**
 	 * Processes this test, when one of its tokens is encountered.
 	 *
-	 * @param   PHP_CodeSniffer_File  $phpcsFile  The file being scanned.
-	 * @param   int                   $stackPtr   The position of the current token in the stack passed in $tokens.
+	 * @param   PHP_CodeSniffer_File $phpcsFile The file being scanned.
+	 * @param   int                  $stackPtr  The position of the current token in the stack passed in $tokens.
 	 *
 	 * @return  void
 	 */
@@ -104,9 +104,9 @@ class Joomla_Sniffs_ControlStructures_ControlSignatureSniff implements PHP_CodeS
 		{
 			$error = 'Expected 1 space after %s keyword; %s found';
 			$data  = array(
-					  strtoupper($tokens[$stackPtr]['content']),
-					  $found,
-					 );
+				strtoupper($tokens[$stackPtr]['content']),
+				$found,
+			);
 			$fix   = $phpcsFile->addFixableError($error, $stackPtr, 'SpaceAfterKeyword', $data);
 
 			if ($fix === true)
@@ -139,7 +139,7 @@ class Joomla_Sniffs_ControlStructures_ControlSignatureSniff implements PHP_CodeS
 				// Skip all empty tokens on the same line as the opener.
 				if ($tokens[$next]['line'] === $tokens[$opener]['line']
 					&& (isset(PHP_CodeSniffer_Tokens::$emptyTokens[$code]) === true
-					|| $code === T_CLOSE_TAG)
+						|| $code === T_CLOSE_TAG)
 				)
 				{
 					continue;
@@ -219,8 +219,8 @@ class Joomla_Sniffs_ControlStructures_ControlSignatureSniff implements PHP_CodeS
 			$closer = $tokens[$stackPtr]['scope_closer'];
 		}
 		elseif ($tokens[$stackPtr]['code'] === T_ELSE
-			|| $tokens[$stackPtr]['code'] === T_ELSEIF
-			|| $tokens[$stackPtr]['code'] === T_CATCH
+				|| $tokens[$stackPtr]['code'] === T_ELSEIF
+				|| $tokens[$stackPtr]['code'] === T_CATCH
 		)
 		{
 			$closer = $phpcsFile->findPrevious(PHP_CodeSniffer_Tokens::$emptyTokens, ($stackPtr - 1), null, true);

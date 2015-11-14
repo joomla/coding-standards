@@ -47,24 +47,34 @@ class Joomla_Sniffs_WhiteSpace_ControlStructureSpacingSniff implements PHP_CodeS
 	{
 		return array(
 			T_IF
-		, T_ELSE
-		, T_ELSEIF
-		, T_WHILE
-		, T_FOREACH
-		, T_FOR
-		, T_SWITCH
-		, T_DO
-		, T_TRY
-		, T_FUNCTION
-		, T_CLASS
+			,
+			T_ELSE
+			,
+			T_ELSEIF
+			,
+			T_WHILE
+			,
+			T_FOREACH
+			,
+			T_FOR
+			,
+			T_SWITCH
+			,
+			T_DO
+			,
+			T_TRY
+			,
+			T_FUNCTION
+			,
+			T_CLASS
 		);
 	}
 
 	/**
 	 * Processes this test, when one of its tokens is encountered.
 	 *
-	 * @param   PHP_CodeSniffer_File  $phpcsFile  The file being scanned.
-	 * @param   integer               $stackPtr   The position of the current token in the stack passed in $tokens.
+	 * @param   PHP_CodeSniffer_File $phpcsFile The file being scanned.
+	 * @param   integer              $stackPtr  The position of the current token in the stack passed in $tokens.
 	 *
 	 * @return void
 	 */
@@ -182,10 +192,11 @@ class Joomla_Sniffs_WhiteSpace_ControlStructureSpacingSniff implements PHP_CodeS
 					&& $tokens[$trailingContent]['code'] != T_ELSE
 					&& $tokens[$trailingContent]['code'] != T_CATCH
 					&& $tokens[$trailingContent]['code'] != T_COMMENT
-					&& $tokens[$trailingContent]['code'] != T_WHILE)
+					&& $tokens[$trailingContent]['code'] != T_WHILE
+				)
 				{
 					$error = 'No blank line found after control structure' . $tokens[$trailingContent]['line']
-						. ' - ' . $tokens[$trailingContent]['code'];
+							 . ' - ' . $tokens[$trailingContent]['code'];
 					$phpcsFile->addError($error, $scopeCloser);
 				}
 			}

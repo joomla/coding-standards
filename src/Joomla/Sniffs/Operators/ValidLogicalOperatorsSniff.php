@@ -24,16 +24,16 @@ class Joomla_Sniffs_Operators_ValidLogicalOperatorsSniff implements PHP_CodeSnif
 	public function register()
 	{
 		return array(
-				T_LOGICAL_AND,
-				T_LOGICAL_OR,
-			   );
+			T_LOGICAL_AND,
+			T_LOGICAL_OR,
+		);
 	}
 
 	/**
 	 * Processes this test, when one of its tokens is encountered.
 	 *
-	 * @param   PHP_CodeSniffer_File  $phpcsFile  The current file being scanned.
-	 * @param   int                   $stackPtr   The position of the current token in the stack passed in $tokens.
+	 * @param   PHP_CodeSniffer_File $phpcsFile The current file being scanned.
+	 * @param   int                  $stackPtr  The position of the current token in the stack passed in $tokens.
 	 *
 	 * @return  void
 	 */
@@ -41,9 +41,9 @@ class Joomla_Sniffs_Operators_ValidLogicalOperatorsSniff implements PHP_CodeSnif
 	{
 		$tokens    = $phpcsFile->getTokens();
 		$operators = array(
-					  'and' => '&&',
-					  'or'  => '||',
-					 );
+			'and' => '&&',
+			'or'  => '||',
+		);
 		$operator  = strtolower($tokens[$stackPtr]['content']);
 
 		if (false === isset($operators[$operator]))
@@ -53,9 +53,9 @@ class Joomla_Sniffs_Operators_ValidLogicalOperatorsSniff implements PHP_CodeSnif
 
 		$error = 'Logical operator "%s" not allowed; use "%s" instead';
 		$data  = array(
-				  $operator,
-				  $operators[$operator],
-				 );
+			$operator,
+			$operators[$operator],
+		);
 		$fix   = $phpcsFile->addFixableError($error, $stackPtr, 'NotAllowed', $data);
 
 		if (true === $fix)

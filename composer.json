@@ -1,20 +1,13 @@
 {
-  "name": "greencape/coding-standards",
-  "description": "Composer installable Coding Standards Definitions.",
-  "homepage": "https://github.com/GreenCape/coding-standards",
+  "name": "joomla/coding-standards",
+  "description": "Composer installable Joomla Coding Standards Definitions.",
+  "homepage": "http://joomla.github.io/coding-standards/",
   "keywords": [
     "phpcs",
     "standards",
     "Joomla"
   ],
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Niels Braczek",
-      "email": "nbraczek@bsds.de",
-      "role": "lead"
-    }
-  ],
+  "license": "GPL2+",
   "require": {
     "squizlabs/php_codesniffer": "~2"
   },
@@ -23,11 +16,8 @@
     "codegyre/robo": "^0.6.0"
   },
   "minimum-stability": "RC",
-  "replace": {
-    "greencape/joomla-cs": "*"
-  },
   "support": {
-    "issues": "https://github.com/GreenCape/coding-standards/issues"
+    "issues": "https://github.com/joomla/coding-standards/issues"
   },
   "scripts": {
     "post-install-cmd": "\"vendor/bin/phpcs\" --config-set installed_paths ../../../src",

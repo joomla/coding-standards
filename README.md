@@ -1,19 +1,12 @@
-GreenCape Coding Standards
-==========================
+Joomla Coding Standards
+=======================
 
-This repository includes Coding Standard definitions for
-[PHP CodeSniffer](http://pear.php.net/PHP_CodeSniffer) 2.x for use with Composer.
+This repository includes the [Joomla](http://developer.joomla.org) coding standard definition for [PHP Codesniffer](http://pear.php.net/PHP_CodeSniffer) along with a few other helpful resources.  The PHP_CodeSniffer standard will never be 100% accurate, but should be viewed as a strong set of guidelines while writing software for Joomla.
 
-Currently, these Coding Standards are included:
+See Joomla coding standards documentation at [http://joomla.github.io/coding-standards/](http://joomla.github.io/coding-standards/)
 
-  * [Joomla! Coding Standard](http://joomla.github.io/coding-standards/) 
-  * [WordPress Coding Standard](https://make.wordpress.org/core/handbook/best-practices/coding-standards/php/) 
-  * [PEAR](https://pear.php.net/manual/en/standards.php),
-    [PSR1](http://www.php-fig.org/psr/psr-1/),
-    [PSR2](http://www.php-fig.org/psr/psr-2/),
-    Squiz, and
-    [Zend](http://framework.zend.com/manual/current/en/ref/coding.standard.html) Coding Standards are provided by PHP CodeSniffer natively.  
-  
+If you want to contribute and improve this documentation find the source files at [https://github.com/joomla/coding-standards/tree/gh-pages](https://github.com/joomla/coding-standards/tree/gh-pages)
+
 ## Requirements
 
   * PHP 5.3+
@@ -24,7 +17,7 @@ Currently, these Coding Standards are included:
 Add this package to your requirements.
 
 ```bash
-$ composer require --dev greencape/coding-standards:~1
+$ composer require --dev joomla/coding-standards:~2
 ```
 
 The PHP CodeSniffer tool is installed automatically in a matching version.
@@ -33,7 +26,7 @@ You can verify a successful install with
 
 ```bash
 $ ./vendor/bin/phpcs -i
-The installed coding standards are MySource, PSR2, Squiz, Zend, PHPCS, PSR1, PEAR, WordPress and Joomla
+The installed coding standards are MySource, PSR2, Squiz, Zend, PHPCS, PSR1, PEAR and Joomla
 ```
 
 ## Running
@@ -45,19 +38,8 @@ $ ./vendor/bin/phpcs --standard=Joomla path/to/code
 $ ./vendor/bin/phpcbf --standard=Joomla path/to/code
 ```
 
-You can use the installed WordPress standard like:
+## IDE autoformatters
 
-```bash
-$ ./vendor/bin/phpcs --standard=WordPress path/to/code
-$ ./vendor/bin/phpcbf --standard=WordPress path/to/code
-```
+There is further information on how to set up IDE auto formatters here: 
 
-In both cases, the second (`phpcbf`) line will fix some issues automatically.
-However, this part is work in progress, and will improve over time.
-
-## Contributing
-
-If you want to contribute to this project, you can
-
-  * fork this repo, code, and send a Pull Request
-  * file an issue in the [Issue Tracker](https://github.com/GreenCape/coding-standards/issues)
+	https://github.com/joomla/coding-standards/tree/master/src/Joomla/IDE

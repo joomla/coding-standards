@@ -64,22 +64,22 @@ class Joomla_Sniffs_ControlStructures_WhiteSpaceBeforeSniff implements PHP_CodeS
 	public function register()
 	{
 		return array(
-				T_IF,
-				T_FOR,
-				T_FOREACH,
-				T_SWITCH,
-				T_TRY,
-				T_WHILE,
-				T_DO,
-				T_RETURN,
-			   );
+			T_IF,
+			T_FOR,
+			T_FOREACH,
+			T_SWITCH,
+			T_TRY,
+			T_WHILE,
+			T_DO,
+			T_RETURN,
+		);
 	}
 
 	/**
 	 * Processes this test, when one of its tokens is encountered.
 	 *
-	 * @param   PHP_CodeSniffer_File  $phpcsFile  The file being scanned.
-	 * @param   integer               $stackPtr   The position of the current token in the stack passed in $tokens.
+	 * @param   PHP_CodeSniffer_File $phpcsFile The file being scanned.
+	 * @param   integer              $stackPtr  The position of the current token in the stack passed in $tokens.
 	 *
 	 * @return  void
 	 */

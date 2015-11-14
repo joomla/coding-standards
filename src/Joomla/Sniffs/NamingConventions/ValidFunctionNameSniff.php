@@ -24,9 +24,9 @@ class Joomla_Sniffs_NamingConventions_ValidFunctionNameSniff extends PEAR_Sniffs
 	 * Extends PEAR.NamingConventions.ValidFunctionName.processTokenWithinScope to remove the requirement for leading underscores on
 	 * private method names.
 	 *
-	 * @param   PHP_CodeSniffer_File $phpcsFile  The file being processed.
-	 * @param   integer              $stackPtr   The position where this token was found.
-	 * @param   integer              $currScope  The position of the current scope.
+	 * @param   PHP_CodeSniffer_File $phpcsFile The file being processed.
+	 * @param   integer              $stackPtr  The position where this token was found.
+	 * @param   integer              $currScope The position of the current scope.
 	 *
 	 * @return  void
 	 */

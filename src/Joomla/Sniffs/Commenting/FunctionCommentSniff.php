@@ -24,9 +24,9 @@ class Joomla_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commenti
 	 * Extends PEAR.Commenting.FunctionComment.processReturn to exclude @return tag requirements for constructors and destructors and
 	 * to enforce alignment of the doc blocks.
 	 *
-	 * @param   PHP_CodeSniffer_File  $phpcsFile     The file being scanned.
-	 * @param   integer               $stackPtr      The position of the current token in the stack passed in $tokens.
-	 * @param   integer               $commentStart  The position in the stack where the comment started.
+	 * @param   PHP_CodeSniffer_File $phpcsFile    The file being scanned.
+	 * @param   integer              $stackPtr     The position of the current token in the stack passed in $tokens.
+	 * @param   integer              $commentStart The position in the stack where the comment started.
 	 *
 	 * @return  void
 	 *
@@ -156,9 +156,9 @@ class Joomla_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commenti
 	 *
 	 * Extends PEAR.Commenting.FunctionComment.processReturn to enforce correct alignment of the doc block.
 	 *
-	 * @param   PHP_CodeSniffer_File $phpcsFile     The file being scanned.
-	 * @param   integer              $stackPtr      The position of the current token in the stack passed in $tokens.
-	 * @param   integer              $commentStart  The position in the stack where the comment started.
+	 * @param   PHP_CodeSniffer_File $phpcsFile    The file being scanned.
+	 * @param   integer              $stackPtr     The position of the current token in the stack passed in $tokens.
+	 * @param   integer              $commentStart The position in the stack where the comment started.
 	 *
 	 * @return  void
 	 *
@@ -383,14 +383,13 @@ class Joomla_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commenti
 			$data  = array($neededParam);
 			$phpcsFile->addError($error, $commentStart, 'MissingParamTag', $data);
 		}
-
 	}
 
 	/**
 	 * Ensure the method's parameter comments align
 	 *
-	 * @param   array  $param          The current parameter being checked
-	 * @param   array  $previousParam  The previous parameter that was checked
+	 * @param   array $param         The current parameter being checked
+	 * @param   array $previousParam The previous parameter that was checked
 	 *
 	 * @return  boolean
 	 */
@@ -405,8 +404,8 @@ class Joomla_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commenti
 	/**
 	 * Ensure the method's parameter variable names align
 	 *
-	 * @param   array  $param          The current parameter being checked
-	 * @param   array  $previousParam  The previous parameter that was checked
+	 * @param   array $param         The current parameter being checked
+	 * @param   array $previousParam The previous parameter that was checked
 	 *
 	 * @return  boolean
 	 */

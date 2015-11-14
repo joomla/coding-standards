@@ -31,47 +31,43 @@
 class Joomla_Sniffs_WhiteSpace_CastSpacingSniff implements PHP_CodeSniffer_Sniff
 {
 
+	/**
+	 * Returns an array of tokens this test wants to listen for.
+	 *
+	 * @return array
+	 */
+	public function register()
+	{
+		return PHP_CodeSniffer_Tokens::$castTokens;
+	}//end register()
 
-    /**
-     * Returns an array of tokens this test wants to listen for.
-     *
-     * @return array
-     */
-    public function register()
-    {
-        return PHP_CodeSniffer_Tokens::$castTokens;
+	/**
+	 * Processes this test, when one of its tokens is encountered.
+	 *
+	 * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
+	 * @param int                  $stackPtr  The position of the current token in the
+	 *                                        stack passed in $tokens.
+	 *
+	 * @return void
+	 */
+	public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
+	{
+		$tokens = $phpcsFile->getTokens();
 
-    }//end register()
+		$content  = $tokens[$stackPtr]['content'];
+		$expected = str_replace(' ', '', $content);
+		$expected = str_replace("\t", '', $expected);
 
-
-    /**
-     * Processes this test, when one of its tokens is encountered.
-     *
-     * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
-     * @param int                  $stackPtr  The position of the current token in the
-     *                                        stack passed in $tokens.
-     *
-     * @return void
-     */
-    public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
-    {
-        $tokens = $phpcsFile->getTokens();
-
-        $content  = $tokens[$stackPtr]['content'];
-        $expected = str_replace(' ', '', $content);
-        $expected = str_replace("\t", '', $expected);
-
-        if ($content !== $expected) {
-            $error = 'Cast statements must not contain whitespace; expected "%s" but found "%s"';
-            $data  = array(
-                      $expected,
-                      $content,
-                     );
-            $phpcsFile->addError($error, $stackPtr, 'ContainsWhiteSpace', $data);
-        }
-
-    }//end process()
-
+		if ($content !== $expected)
+		{
+			$error = 'Cast statements must not contain whitespace; expected "%s" but found "%s"';
+			$data  = array(
+				$expected,
+				$content,
+			);
+			$phpcsFile->addError($error, $stackPtr, 'ContainsWhiteSpace', $data);
+		}
+	}//end process()
 
 }//end class
 

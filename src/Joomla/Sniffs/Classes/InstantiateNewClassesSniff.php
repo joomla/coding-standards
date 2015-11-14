@@ -26,8 +26,8 @@ class Joomla_Sniffs_Classes_InstantiateNewClassesSniff implements PHP_CodeSniffe
 	/**
 	 * Process the tokens that this sniff is listening for.
 	 *
-	 * @param   PHP_CodeSniffer_File  $phpcsFile  The file where the token was found.
-	 * @param   integer               $stackPtr   The position in the stack where the token was found.
+	 * @param   PHP_CodeSniffer_File $phpcsFile The file where the token was found.
+	 * @param   integer              $stackPtr  The position in the stack where the token was found.
 	 *
 	 * @return  void
 	 */
@@ -91,8 +91,7 @@ class Joomla_Sniffs_Classes_InstantiateNewClassesSniff implements PHP_CodeSniffe
 
 				$cnt++;
 			}
-		}
-		while ($running === true);
+		} while ($running === true);
 
 		if ($valid === false)
 		{

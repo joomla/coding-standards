@@ -17,7 +17,7 @@
  * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
  * @link      http://pear.php.net/package/PHP_CodeSniffer
  *
- * @since  1.0
+ * @since     1.0
  */
 class Joomla_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Sniff
 {
@@ -27,62 +27,62 @@ class Joomla_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Sniff
 	 * @var array
 	 */
 	protected $tags = array(
-						'@version'   => array(
-										'required'       => false,
-										'allow_multiple' => false,
-										'order_text'     => 'must be first',
-									   ),
-					   '@category'   => array(
-										'required'       => false,
-										'allow_multiple' => false,
-										'order_text'     => 'precedes @package',
-									   ),
-					   '@package'    => array(
-										'required'       => false,
-										'allow_multiple' => false,
-										'order_text'     => 'must follows @category (if used)',
-									   ),
-					   '@subpackage' => array(
-										'required'       => false,
-										'allow_multiple' => false,
-										'order_text'     => 'must follow @package',
-									   ),
-					   '@author'     => array(
-										'required'       => false,
-										'allow_multiple' => true,
-										'order_text'     => 'must follow @subpackage (if used) or @package',
-									   ),
-					   '@copyright'  => array(
-										'required'       => true,
-										'allow_multiple' => true,
-										'order_text'     => 'must follow @author (if used), @subpackage (if used) or @package',
-									   ),
-					   '@license'    => array(
-										'required'       => true,
-										'allow_multiple' => false,
-										'order_text'     => 'must follow @copyright',
-									   ),
-					   '@link'       => array(
-										'required'       => false,
-										'allow_multiple' => true,
-										'order_text'     => 'must follow @license',
-									   ),
-					   '@see'        => array(
-										'required'       => false,
-										'allow_multiple' => true,
-										'order_text'     => 'must follow @link (if used) or @license',
-									   ),
-					   '@since'      => array(
-										'required'       => false,
-										'allow_multiple' => false,
-										'order_text'     => 'must follows @see (if used), @link (if used) or @license',
-									   ),
-					   '@deprecated' => array(
-										'required'       => false,
-										'allow_multiple' => false,
-										'order_text'     => 'must follow @since (if used), @see (if used), @link (if used) or @license',
-									   ),
-					);
+		'@version'    => array(
+			'required'       => false,
+			'allow_multiple' => false,
+			'order_text'     => 'must be first',
+		),
+		'@category'   => array(
+			'required'       => false,
+			'allow_multiple' => false,
+			'order_text'     => 'precedes @package',
+		),
+		'@package'    => array(
+			'required'       => false,
+			'allow_multiple' => false,
+			'order_text'     => 'must follows @category (if used)',
+		),
+		'@subpackage' => array(
+			'required'       => false,
+			'allow_multiple' => false,
+			'order_text'     => 'must follow @package',
+		),
+		'@author'     => array(
+			'required'       => false,
+			'allow_multiple' => true,
+			'order_text'     => 'must follow @subpackage (if used) or @package',
+		),
+		'@copyright'  => array(
+			'required'       => true,
+			'allow_multiple' => true,
+			'order_text'     => 'must follow @author (if used), @subpackage (if used) or @package',
+		),
+		'@license'    => array(
+			'required'       => true,
+			'allow_multiple' => false,
+			'order_text'     => 'must follow @copyright',
+		),
+		'@link'       => array(
+			'required'       => false,
+			'allow_multiple' => true,
+			'order_text'     => 'must follow @license',
+		),
+		'@see'        => array(
+			'required'       => false,
+			'allow_multiple' => true,
+			'order_text'     => 'must follow @link (if used) or @license',
+		),
+		'@since'      => array(
+			'required'       => false,
+			'allow_multiple' => false,
+			'order_text'     => 'must follows @see (if used), @link (if used) or @license',
+		),
+		'@deprecated' => array(
+			'required'       => false,
+			'allow_multiple' => false,
+			'order_text'     => 'must follow @since (if used), @see (if used), @link (if used) or @license',
+		),
+	);
 
 	/**
 	 * A list of tokenizers this sniff supports.
@@ -90,9 +90,9 @@ class Joomla_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Sniff
 	 * @var array
 	 */
 	public $supportedTokenizers = array(
-								   'PHP',
-								   'JS',
-								  );
+		'PHP',
+		'JS',
+	);
 
 	/**
 	 * The header comment parser for the current file.
@@ -121,8 +121,8 @@ class Joomla_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Sniff
 	/**
 	 * Processes this test, when one of its tokens is encountered.
 	 *
-	 * @param   PHP_CodeSniffer_File  $phpcsFile  The file being scanned.
-	 * @param   int                   $stackPtr   The position of the current token in the stack passed in $tokens.
+	 * @param   PHP_CodeSniffer_File $phpcsFile The file being scanned.
+	 * @param   int                  $stackPtr  The position of the current token in the stack passed in $tokens.
 	 *
 	 * @return  integer
 	 */
@@ -175,7 +175,7 @@ class Joomla_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Sniff
 			return ($phpcsFile->numTokens + 1);
 		}
 		elseif ($commentStart === false
-			|| $tokens[$commentStart]['code'] !== T_DOC_COMMENT_OPEN_TAG
+				|| $tokens[$commentStart]['code'] !== T_DOC_COMMENT_OPEN_TAG
 		)
 		{
 			$phpcsFile->addError('Missing file doc comment', $errorToken, 'Missing');
@@ -200,7 +200,7 @@ class Joomla_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Sniff
 	 *
 	 * @param   PHP_CodeSniffer_File $phpcsFile    The file being scanned.
 	 * @param   int                  $stackPtr     The position of the current token
-	 *                                           in the stack passed in $tokens.
+	 *                                             in the stack passed in $tokens.
 	 * @param   int                  $commentStart Position in the stack where the comment started.
 	 *
 	 * @return  void
@@ -219,8 +219,8 @@ class Joomla_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Sniff
 		}
 
 		$commentEnd = $tokens[$commentStart]['comment_closer'];
-		$foundTags = array();
-		$tagTokens = array();
+		$foundTags  = array();
+		$tagTokens  = array();
 
 		foreach ($tokens[$commentStart]['comment_tags'] as $tag)
 		{
@@ -235,23 +235,23 @@ class Joomla_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Sniff
 			{
 				$error = 'Only one %s tag is allowed in a %s comment';
 				$data  = array(
-						  $name,
-						  $docBlock,
-						 );
+					$name,
+					$docBlock,
+				);
 				$phpcsFile->addError($error, $tag, 'Duplicate' . ucfirst(substr($name, 1)) . 'Tag', $data);
 			}
 
 			$foundTags[]        = $name;
 			$tagTokens[$name][] = $tag;
-			$string = $phpcsFile->findNext(T_DOC_COMMENT_STRING, $tag, $commentEnd);
+			$string             = $phpcsFile->findNext(T_DOC_COMMENT_STRING, $tag, $commentEnd);
 
 			if ($string === false || $tokens[$string]['line'] !== $tokens[$tag]['line'])
 			{
 				$error = 'Content missing for %s tag in %s comment';
 				$data  = array(
-						  $name,
-						  $docBlock,
-						 );
+					$name,
+					$docBlock,
+				);
 				$phpcsFile->addError($error, $tag, 'Empty' . ucfirst(substr($name, 1)) . 'Tag', $data);
 				continue;
 			}
@@ -268,9 +268,9 @@ class Joomla_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Sniff
 				{
 					$error = 'Missing %s tag in %s comment';
 					$data  = array(
-							  $tag,
-							  $docBlock,
-							 );
+						$tag,
+						$docBlock,
+					);
 					$phpcsFile->addError($error, $commentEnd, 'Missing' . ucfirst(substr($tag, 1)) . 'Tag', $data);
 				}
 
@@ -296,9 +296,9 @@ class Joomla_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Sniff
 			{
 				$error = 'The tag in position %s should be the %s tag';
 				$data  = array(
-						  ($pos + 1),
-						  $tag,
-						 );
+					($pos + 1),
+					$tag,
+				);
 				$phpcsFile->addError($error, $tokens[$commentStart]['comment_tags'][$pos], ucfirst(substr($tag, 1)) . 'TagOrder', $data);
 			}
 
@@ -315,8 +315,8 @@ class Joomla_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Sniff
 	/**
 	 * Process the category tag.
 	 *
-	 * @param   PHP_CodeSniffer_File  $phpcsFile  The file being scanned.
-	 * @param   array                 $tags       The tokens for these tags.
+	 * @param   PHP_CodeSniffer_File $phpcsFile The file being scanned.
+	 * @param   array                $tags      The tokens for these tags.
 	 *
 	 * @return  void
 	 */
@@ -352,9 +352,9 @@ class Joomla_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Sniff
 				$error     = 'Category name "%s" is not valid; consider "%s" instead';
 				$validName = trim($newName, '_');
 				$data      = array(
-							  $content,
-							  $validName,
-							 );
+					$content,
+					$validName,
+				);
 				$phpcsFile->addError($error, $tag, 'InvalidCategory', $data);
 			}
 		}//end foreach
@@ -363,8 +363,8 @@ class Joomla_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Sniff
 	/**
 	 * Process the package tag.
 	 *
-	 * @param   PHP_CodeSniffer_File  $phpcsFile  The file being scanned.
-	 * @param   array                 $tags       The tokens for these tags.
+	 * @param   PHP_CodeSniffer_File $phpcsFile The file being scanned.
+	 * @param   array                $tags      The tokens for these tags.
 	 *
 	 * @return  void
 	 */
@@ -405,9 +405,9 @@ class Joomla_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Sniff
 			$error     = 'Package name "%s" is not valid; consider "%s" instead';
 			$validName = trim($newName, '_');
 			$data      = array(
-						  $content,
-						  $validName,
-						 );
+				$content,
+				$validName,
+			);
 			$phpcsFile->addError($error, $tag, 'InvalidPackage', $data);
 		}//end foreach
 	}//end processPackage()
@@ -415,8 +415,8 @@ class Joomla_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Sniff
 	/**
 	 * Process the subpackage tag.
 	 *
-	 * @param   PHP_CodeSniffer_File  $phpcsFile  The file being scanned.
-	 * @param   array                 $tags       The tokens for these tags.
+	 * @param   PHP_CodeSniffer_File $phpcsFile The file being scanned.
+	 * @param   array                $tags      The tokens for these tags.
 	 *
 	 * @return  void
 	 */
@@ -437,7 +437,7 @@ class Joomla_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Sniff
 			// Is the subpackage included and empty.
 			if (empty($content) || $content == '')
 			{
-				$error     = 'if included, @subpackage tag must contain a name';
+				$error = 'if included, @subpackage tag must contain a name';
 				$phpcsFile->addError($error, $tag, 'EmptySubpackage');
 			}
 		}//end foreach
@@ -446,8 +446,8 @@ class Joomla_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Sniff
 	/**
 	 * Process the author tag(s) that this header comment has.
 	 *
-	 * @param   PHP_CodeSniffer_File  $phpcsFile  The file being scanned.
-	 * @param   array                 $tags       The tokens for these tags.
+	 * @param   PHP_CodeSniffer_File $phpcsFile The file being scanned.
+	 * @param   array                $tags      The tokens for these tags.
 	 *
 	 * @return  void
 	 */
@@ -470,9 +470,10 @@ class Joomla_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Sniff
 			$localMiddle = $local . '.\w';
 
 			if (preg_match(
-				'/^([^<]*)\s+<([' . $local . ']([' . $localMiddle . ']*[' . $local . '])*@[\da-zA-Z][-.\w]*[\da-zA-Z]\.[a-zA-Z]{2,7})>$/',
-				$content
-			) === 0)
+					'/^([^<]*)\s+<([' . $local . ']([' . $localMiddle . ']*[' . $local . '])*@[\da-zA-Z][-.\w]*[\da-zA-Z]\.[a-zA-Z]{2,7})>$/',
+					$content
+				) === 0
+			)
 			{
 				$error = 'Content of the @author tag must be in the form "Display Name <username@example.com>"';
 				$phpcsFile->addError($error, $tag, 'InvalidAuthors');
@@ -483,8 +484,8 @@ class Joomla_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Sniff
 	/**
 	 * Process the copyright tags.
 	 *
-	 * @param   PHP_CodeSniffer_File  $phpcsFile  The file being scanned.
-	 * @param   array                 $tags       The tokens for these tags.
+	 * @param   PHP_CodeSniffer_File $phpcsFile The file being scanned.
+	 * @param   array                $tags      The tokens for these tags.
 	 *
 	 * @return  void
 	 */
@@ -532,8 +533,8 @@ class Joomla_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Sniff
 	/**
 	 * Process the license tag.
 	 *
-	 * @param   PHP_CodeSniffer_File  $phpcsFile  The file being scanned.
-	 * @param   array                 $tags       The tokens for these tags.
+	 * @param   PHP_CodeSniffer_File $phpcsFile The file being scanned.
+	 * @param   array                $tags      The tokens for these tags.
 	 *
 	 * @return  void
 	 */
@@ -564,8 +565,8 @@ class Joomla_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Sniff
 	/**
 	 * Process the version tag.
 	 *
-	 * @param   PHP_CodeSniffer_File  $phpcsFile  The file being scanned.
-	 * @param   array                 $tags       The tokens for these tags.
+	 * @param   PHP_CodeSniffer_File $phpcsFile The file being scanned.
+	 * @param   array                $tags      The tokens for these tags.
 	 *
 	 * @return  void
 	 */

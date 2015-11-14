@@ -23,7 +23,6 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 	 */
 	public $indent = 1;
 
-
 	/**
 	 * Returns an array of tokens this test wants to listen for.
 	 *
@@ -32,26 +31,25 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 	public function register()
 	{
 		return array(
-				T_IF,
-				T_ELSEIF,
-				T_ELSE,
-				T_FOREACH,
-				T_FOR,
-				T_SWITCH,
-				T_DO,
-				T_WHILE,
-				T_TRY,
-				T_CATCH,
-				T_FINALLY,
-			   );
+			T_IF,
+			T_ELSEIF,
+			T_ELSE,
+			T_FOREACH,
+			T_FOR,
+			T_SWITCH,
+			T_DO,
+			T_WHILE,
+			T_TRY,
+			T_CATCH,
+			T_FINALLY,
+		);
 	}
-
 
 	/**
 	 * Processes this test, when one of its tokens is encountered.
 	 *
-	 * @param   PHP_CodeSniffer_File  $phpcsFile  The file being scanned.
-	 * @param   int                   $stackPtr   The position of the current token in the stack passed in $tokens.
+	 * @param   PHP_CodeSniffer_File $phpcsFile The file being scanned.
+	 * @param   int                  $stackPtr  The position of the current token in the stack passed in $tokens.
 	 *
 	 * @return  void
 	 */
@@ -106,10 +104,10 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 			{
 				$error = 'Opening brace of a %s must be on the line following the %s declaration.; Found %s line(s).';
 				$data  = array(
-						  $tokens[$stackPtr]['content'],
-						  $tokens[$stackPtr]['content'],
-						  ($braceLine - $classLine - 1),
-						 );
+					$tokens[$stackPtr]['content'],
+					$tokens[$stackPtr]['content'],
+					($braceLine - $classLine - 1),
+				);
 				$fix   = $phpcsFile->addFixableError($error, $curlyBrace, 'OpenBraceWrongLine', $data);
 
 				if (true === $fix)
@@ -164,9 +162,9 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 			{
 				$error = 'Expected %s spaces before opening brace; %s found';
 				$data  = array(
-						  $expected,
-						  $spaces,
-						 );
+					$expected,
+					$spaces,
+				);
 				$fix   = $phpcsFile->addFixableError($error, $curlyBrace, 'SpaceBeforeBrace', $data);
 
 				if ($fix === true)

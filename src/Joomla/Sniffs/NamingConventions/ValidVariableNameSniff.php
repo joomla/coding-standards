@@ -24,8 +24,8 @@ class Joomla_Sniffs_NamingConventions_ValidVariableNameSniff extends Squiz_Sniff
 	 * Extends Squiz.NamingConventions.ValidVariableName.processMemberVar to remove the requirement for leading underscores on
 	 * private member vars.
 	 *
-	 * @param   PHP_CodeSniffer_File  $phpcsFile  The file being scanned.
-	 * @param   integer               $stackPtr   The position of the current token in the stack passed in $tokens.
+	 * @param   PHP_CodeSniffer_File $phpcsFile The file being scanned.
+	 * @param   integer              $stackPtr  The position of the current token in the stack passed in $tokens.
 	 *
 	 * @return  void
 	 */

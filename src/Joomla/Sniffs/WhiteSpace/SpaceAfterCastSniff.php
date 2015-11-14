@@ -46,7 +46,7 @@ class Joomla_Sniffs_WhiteSpace_SpaceAfterCastSniff implements PHP_CodeSniffer_Sn
 	 * Processes this test, when one of its tokens is encountered.
 	 *
 	 * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
-	 * @param integer                  $stackPtr  The position of the current token in
+	 * @param integer              $stackPtr  The position of the current token in
 	 *                                        the stack passed in $tokens.
 	 *
 	 * @return void
@@ -55,12 +55,12 @@ class Joomla_Sniffs_WhiteSpace_SpaceAfterCastSniff implements PHP_CodeSniffer_Sn
 	{
 		$tokens = $phpcsFile->getTokens();
 
-		if($tokens[($stackPtr + 1)]['code'] === T_WHITESPACE)
+		if ($tokens[($stackPtr + 1)]['code'] === T_WHITESPACE)
 		{
 			$content       = $tokens[($stackPtr + 1)]['content'];
 			$contentLength = strlen($content);
 
-			if($contentLength !== 1)
+			if ($contentLength !== 1)
 			{
 				$error = 'Cast statements must be followed by a single space; expected 1 space but found %s';
 				$data  = array($contentLength);
@@ -71,8 +71,8 @@ class Joomla_Sniffs_WhiteSpace_SpaceAfterCastSniff implements PHP_CodeSniffer_Sn
 		{
 			$error = 'Cast statements must be followed by a single space; expected "%s" but found "%s"';
 			$data  = array(
-					$tokens[$stackPtr]['content'].' '.$tokens[($stackPtr + 1)]['content'],
-					$tokens[$stackPtr]['content'].$tokens[($stackPtr + 1)]['content'],
+				$tokens[$stackPtr]['content'] . ' ' . $tokens[($stackPtr + 1)]['content'],
+				$tokens[$stackPtr]['content'] . $tokens[($stackPtr + 1)]['content'],
 			);
 			$phpcsFile->addError($error, $stackPtr, 'Incorrect', $data);
 		}

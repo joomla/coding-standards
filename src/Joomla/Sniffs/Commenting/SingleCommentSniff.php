@@ -3,7 +3,7 @@
  * Joomla! Coding Standard
  *
  * @copyright Copyright (C) 2015 Open Source Matters, Inc. All rights reserved.
- * @license http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License Version 2 or Later
+ * @license   http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License Version 2 or Later
  */
 
 /**
@@ -26,8 +26,8 @@ class Joomla_Sniffs_Commenting_SingleCommentSniff implements PHP_CodeSniffer_Sni
 	/**
 	 * Processes this test, when one of its tokens is encountered.
 	 *
-	 * @param   PHP_CodeSniffer_File  $phpcsFile  The file being scanned.
-	 * @param   int                   $stackPtr   The position of the current token in the stack passed in $tokens.
+	 * @param   PHP_CodeSniffer_File $phpcsFile The file being scanned.
+	 * @param   int                  $stackPtr  The position of the current token in the stack passed in $tokens.
 	 *
 	 * @return  void
 	 */
@@ -42,9 +42,9 @@ class Joomla_Sniffs_Commenting_SingleCommentSniff implements PHP_CodeSniffer_Sni
 		{
 			$phpcsFile->recordMetric($stackPtr, 'Inline comment style', '# ...');
 
-			$error  = 'Perl-style Hash comments are prohibited. Use "// Comment."';
+			$error = 'Perl-style Hash comments are prohibited. Use "// Comment."';
 			$error .= ' or "/* comment */" instead.';
-			$fix    = $phpcsFile->addFixableError($error, $stackPtr, 'WrongStyle');
+			$fix = $phpcsFile->addFixableError($error, $stackPtr, 'WrongStyle');
 
 			if ($fix === true)
 			{
@@ -71,7 +71,7 @@ class Joomla_Sniffs_Commenting_SingleCommentSniff implements PHP_CodeSniffer_Sni
 		)
 		{
 			$error = 'Missing space between the // and the start of the comment text.';
-			$fix = $phpcsFile->addFixableError($error, $stackPtr, 'NoSpace');
+			$fix   = $phpcsFile->addFixableError($error, $stackPtr, 'NoSpace');
 
 			if ($fix === true)
 			{
@@ -88,11 +88,11 @@ class Joomla_Sniffs_Commenting_SingleCommentSniff implements PHP_CodeSniffer_Sni
 		 *   the term is code and is case sensitive.(@todo)
 		 */
 		if (($singleLine === true && isset($tokens[$stackPtr]['content']{3}) && $tokens[$stackPtr]['content']{2} === ' '
-			&& $tokens[$stackPtr]['content']{3} !== strtoupper($tokens[$stackPtr]['content']{3})) || (isset($comment{2}) && $comment{0} === '*'
-			&& $comment{1} === ' ' && $comment{2} !== strtoupper($comment{2}))
+			 && $tokens[$stackPtr]['content']{3} !== strtoupper($tokens[$stackPtr]['content']{3})) || (isset($comment{2}) && $comment{0} === '*'
+																									   && $comment{1} === ' ' && $comment{2} !== strtoupper($comment{2}))
 		)
 		{
-			$error = 'Comment must start with a capital letter; found "%s"';
+			$error    = 'Comment must start with a capital letter; found "%s"';
 			$previous = $phpcsFile->findPrevious(T_COMMENT, $stackPtr - 1);
 
 			if ($singleLine === true)
@@ -147,7 +147,7 @@ class Joomla_Sniffs_Commenting_SingleCommentSniff implements PHP_CodeSniffer_Sni
 		if (isset($tokens[$previous]['line']) && $tokens[$previous]['line'] === $tokens[$stackPtr]['line'])
 		{
 			$error = 'Please put your comment on a separate line *preceding* your code; found "%s"';
-			$data = array($comment);
+			$data  = array($comment);
 			$phpcsFile->addError($error, $stackPtr, 'SameLine', $data);
 		}
 
@@ -160,7 +160,7 @@ class Joomla_Sniffs_Commenting_SingleCommentSniff implements PHP_CodeSniffer_Sni
 		)
 		{
 			$error = 'Please consider a blank line preceding your comment.';
-			$fix = $phpcsFile->addFixableError($error, $stackPtr, 'BlankBefore');
+			$fix   = $phpcsFile->addFixableError($error, $stackPtr, 'BlankBefore');
 
 			if ($fix === true)
 			{
