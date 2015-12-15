@@ -10,7 +10,7 @@ If you want to contribute and improve this documentation find the source files a
 ## Requirements
 
 * PHP 5.3+
-* [PHP Codesniffer](http://pear.php.net/PHP_CodeSniffer) 1.5+
+* [PHP Codesniffer](https://github.com/squizlabs/PHP_CodeSniffer) 1.5+
 
 **Important note**: currently the latest PHPCS is the 2.x series. But Joomla Sniffers is not yet compatible with this version. PEAR gives you the option to install it by default but  Joomla sniffers will not work, thus remind to always install PHPCS in a version below 2.0.
 
