@@ -41,7 +41,9 @@ Comments should use en-GB (See below).
 
 Always have a space between // and the start of comment text.
 
-New lines should always start with an upper case letter unless The line is a continuation of a complete sentence The term is code and is case sensitive.
+New lines should always start with an upper case letter unless:
+* The line is a continuation of a complete sentence.
+* The term is code and is case sensitive.
 
 Code that is included specifically to assure compatibility with other software (for example specific browsers or a specific version of the CMS or for backward compatibility reasons) should be clearly marked as such. If there is the intention to remove specific code at a future point, state that but do not use a deprecation tag or specify a release (this can be hard to predict).
 
