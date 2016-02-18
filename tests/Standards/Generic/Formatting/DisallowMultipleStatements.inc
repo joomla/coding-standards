@@ -1,0 +1,9 @@
+<?php
+/**
+ * Test file for the Joomla! Coding Standard
+ */
+
+$foo = 1;
+$bar = 2;
+
+$foo = 1; $bar = 2;

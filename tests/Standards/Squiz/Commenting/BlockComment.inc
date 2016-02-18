@@ -1,0 +1,56 @@
+<?php
+
+/*
+ * Valid
+ * multi-line (block)
+ * comment
+ */
+
+/**
+ * DocBlock comment is not allowed here.
+ * Block comments must be started with slash-asterisk
+ */
+
+// Empty block comments are not allowed
+/*
+ */
+
+/*
+ * Single line block comment not allowed
+ */
+
+/* Single line block comment not allowed */
+
+/*
+ *
+ * Empty line not allowed at start of comment
+ */
+
+/*
+ *     First line of block comment
+ * should not be indented
+ */
+
+/*
+ * block comments
+ * must start with a
+ * capital letter
+ */
+
+/*
+ *Block comments
+ *need a space after
+ *the asterisk
+ */
+
+/* Block comments opener and
+ * closer must be on
+ * their own line */
+
+echo 'before';
+/*
+ * There must be one empty
+ * line before the block comment
+ * and no line after it.
+ */
+echo 'after';

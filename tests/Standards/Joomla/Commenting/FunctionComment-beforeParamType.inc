@@ -1,0 +1,18 @@
+<?php
+class MyClass
+{
+	public $value = 'default';
+
+	/**
+	 * BeforeParamType
+	 * FixableError: true
+	 *
+	 * @param  integer  $var  Some awesome var.
+	 *
+	 * @return  integer
+	 */
+	public function myFunction($var)
+	{
+		return 2;
+	}
+}

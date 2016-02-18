@@ -9,36 +9,37 @@ If you want to contribute and improve this documentation find the source files a
 
 ## Requirements
 
-* PHP 5.3+
-* [PHP Codesniffer](https://github.com/squizlabs/PHP_CodeSniffer) 1.5+
-
-**Important note**: currently the latest PHPCS is the 2.x series. But Joomla Sniffers is not yet compatible with this version. PEAR gives you the option to install it by default but  Joomla sniffers will not work, thus remind to always install PHPCS in a version below 2.0.
-
+  * PHP 5.3+
+  * [Composer](https://getcomposer.org/)
 
 ## Installation
 
-Installation is as easy as checking out the repository to the correct location within PHP_CodeSniffer's directory structure.
+Add this package to your requirements.
 
-### Install PHP_CodeSniffer.
+```bash
+$ composer require --dev joomla/coding-standards:~2
+```
 
-	pear install PHP_CodeSniffer-1.5.6
+The PHP CodeSniffer tool is installed automatically in a matching version.
 
-### Install the Joomla standard.
+You can verify a successful install with
 
-	git clone https://github.com/joomla/coding-standards.git `pear config-get php_dir`/PHP/CodeSniffer/Standards/Joomla
+```bash
+$ ./vendor/bin/phpcs -i
+The installed coding standards are MySource, PSR2, Squiz, Zend, PHPCS, PSR1, PEAR and Joomla
+```
 
 ## Running
 
 You can use the installed Joomla standard like:
 
-	phpcs --standard=Joomla path/to/code
+```bash
+$ ./vendor/bin/phpcs --standard=Joomla path/to/code
+$ ./vendor/bin/phpcbf --standard=Joomla path/to/code
+```
 
-Alternatively if it isn't installed you can still reference it by path like:
-
-	phpcs --standard=path/to/joomla/coding-standards path/to/code
-	
 ## IDE autoformatters
 
 There is further information on how to set up IDE auto formatters here: 
 
-	https://github.com/joomla/coding-standards/tree/master/IDE
+	https://github.com/joomla/coding-standards/tree/master/src/Joomla/IDE
