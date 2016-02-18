@@ -110,6 +110,17 @@ class JoomlaTest extends AbstractSniffTestCase
 		);
 	}
 
+	private function createTestFile($filename, $lineEnding)
+	{
+		$content = "<?php\n\nclass Foo\n{\n}\n";
+		file_put_contents($filename, str_replace("\n", $lineEnding, $content));
+	}
+
+	private function removeTestFile($filename)
+	{
+		unlink($filename);
+	}
+
 	/**
 	 * @testdox Generic.Files.LineEndings - Use Unix newlines
 	 * @group   Files
@@ -117,15 +128,18 @@ class JoomlaTest extends AbstractSniffTestCase
 	 */
 	public function testWindowsLineEndings()
 	{
+		$testFile = 'tests/Standards/Generic/Files/LineEndings-windows.inc';
+		$this->createTestFile($testFile, "\r\n");
 		$this->execute((new TestSet('Joomla'))
 			->setSniff('Generic.Files.LineEndings')
-			->setTestFile('tests/Standards/Generic/Files/LineEndings-windows.inc')
+			->setTestFile($testFile)
 			->setExpectedFile('tests/Standards/Generic/Files/LineEndings-unix.inc')
 			->setExpectedWarnings([])
 			->setExpectedErrors([
 				1 => 1,
 			])
 		);
+		$this->removeTestFile($testFile);
 	}
 
 	/**
@@ -135,15 +149,18 @@ class JoomlaTest extends AbstractSniffTestCase
 	 */
 	public function testMacLineEndings()
 	{
+		$testFile = 'tests/Standards/Generic/Files/LineEndings-mac.inc';
+		$this->createTestFile($testFile, "\r");
 		$this->execute((new TestSet('Joomla'))
 			->setSniff('Generic.Files.LineEndings')
-			->setTestFile('tests/Standards/Generic/Files/LineEndings-mac.inc')
+			->setTestFile($testFile)
 			->setExpectedFile('tests/Standards/Generic/Files/LineEndings-unix.inc')
 			->setExpectedWarnings([])
 			->setExpectedErrors([
 				1 => 1,
 			])
 		);
+		$this->removeTestFile($testFile);
 	}
 
 	/**
