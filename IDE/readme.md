@@ -17,4 +17,4 @@ Go to Preferences->PHP->Code style->Formatter and Import ```eclipse_pdt3_formatt
 4. Change the *Scheme* to *Joomla*
 
 #### References
-* PHPStorm http://www.jetbrains.com/phpstorm/webhelp/code-style-xml.html
+* PHPStorm https://www.jetbrains.com/phpstorm/help/code-style-xml.html
