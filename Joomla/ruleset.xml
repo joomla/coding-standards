@@ -59,7 +59,10 @@
 		</properties>
 		<exclude name="PEAR.Functions.FunctionCallSignature.CloseBracketLine" />
 	</rule>
-	<rule ref="PEAR.Functions.FunctionDeclaration" />
+	<rule ref="PEAR.Functions.FunctionDeclaration">
+		<exclude name="PEAR.Functions.FunctionDeclaration.CloseBracketLine" />
+		<exclude name="PEAR.Functions.FunctionDeclaration.NewlineBeforeOpenBrace" />
+	</rule>
 	<rule ref="PEAR.Functions.ValidDefaultValue" />
 	<rule ref="PEAR.NamingConventions.ValidClassName" />
 	<rule ref="PEAR.WhiteSpace.ObjectOperatorIndent">
