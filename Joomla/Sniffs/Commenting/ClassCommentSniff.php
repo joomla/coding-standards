@@ -6,9 +6,9 @@
  * @license    http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License Version 2 or Later
  */
 
-if (class_exists('PEAR_Sniffs_Commenting_ClassCommentSniff', true) === false)
+if (class_exists('Joomla_Sniffs_Commenting_FileCommentSniff', true) === false)
 {
-	throw new PHP_CodeSniffer_Exception('Class PEAR_Sniffs_Commenting_ClassCommentSniff not found');
+	throw new PHP_CodeSniffer_Exception('Class Joomla_Sniffs_Commenting_FileCommentSniff not found');
 }
 
 /**
@@ -16,7 +16,7 @@ if (class_exists('PEAR_Sniffs_Commenting_ClassCommentSniff', true) === false)
  *
  * @since  1.0
  */
-class Joomla_Sniffs_Commenting_ClassCommentSniff extends PEAR_Sniffs_Commenting_ClassCommentSniff
+class Joomla_Sniffs_Commenting_ClassCommentSniff extends Joomla_Sniffs_Commenting_FileCommentSniff
 {
 	/**
 	 * Tags in correct order and related info.
@@ -94,4 +94,75 @@ class Joomla_Sniffs_Commenting_ClassCommentSniff extends PEAR_Sniffs_Commenting_
 			T_TRAIT
 		);
 	}
+
+    /**
+     * Processes this test, when one of its tokens is encountered.
+     *
+     * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
+     * @param int                  $stackPtr  The position of the current token
+     *                                        in the stack passed in $tokens.
+     *
+     * @return void
+     */
+    public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
+    {
+        $this->currentFile = $phpcsFile;
+        $tokens    = $phpcsFile->getTokens();
+        $type      = strtolower($tokens[$stackPtr]['content']);
+        $errorData = array($type);
+        $find   = PHP_CodeSniffer_Tokens::$methodPrefixes;
+        $find[] = T_WHITESPACE;
+        $commentEnd = $phpcsFile->findPrevious($find, ($stackPtr - 1), null, true);
+
+        if ($tokens[$commentEnd]['code'] !== T_DOC_COMMENT_CLOSE_TAG
+            && $tokens[$commentEnd]['code'] !== T_COMMENT)
+        {
+            $phpcsFile->addError('Missing class doc comment', $stackPtr, 'Missing');
+            $phpcsFile->recordMetric($stackPtr, 'Class has doc comment', 'no');
+
+            return;
+        }
+ 
+        $phpcsFile->recordMetric($stackPtr, 'Class has doc comment', 'yes');
+ 
+        if ($tokens[$commentEnd]['code'] === T_COMMENT)
+        {
+            $phpcsFile->addError('You must use "/**" style comments for a class comment', $stackPtr, 'WrongStyle');
+ 
+            return;
+        }
+
+        // Check each tag.
+        $this->processTags($phpcsFile, $stackPtr, $tokens[$commentEnd]['comment_opener']);
+    }//end process()
+
+    /**
+     * Process the version tag.
+     *
+     * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
+     * @param array                $tags      The tokens for these tags.
+     *
+     * @return void
+     */
+    protected function processVersion(PHP_CodeSniffer_File $phpcsFile, array $tags)
+    {
+        $tokens = $phpcsFile->getTokens();
+        foreach ($tags as $tag) {
+
+            if ($tokens[($tag + 2)]['code'] !== T_DOC_COMMENT_STRING)
+            {
+                // No content.
+                continue;
+            }
+
+            $content = $tokens[($tag + 2)]['content'];
+
+            if ((strstr($content, 'Release:') === false))
+            {
+                $error = 'Invalid version "%s" in doc comment; consider "Release: <package_version>" instead';
+                $data  = array($content);
+                $phpcsFile->addWarning($error, $tag, 'InvalidVersion', $data);
+            }
+        }
+    }//end processVersion()
 }
