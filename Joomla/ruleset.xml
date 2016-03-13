@@ -5,7 +5,6 @@
 	<!-- Include all sniffs in an external standard directory -->
 
 	<!-- Include some additional sniffs from the Generic standard -->
-	<rule ref="Generic.CodeAnalysis.UselessOverridingMethod" />
 	<rule ref="Generic.ControlStructures.InlineControlStructure" />
 	<rule ref="Generic.Files.EndFileNewline" />
 
@@ -50,6 +49,7 @@
 		<properties>
 			<property name="indent" value="1"/>
 		</properties>
+		<exclude name="PEAR.ControlStructures.MultiLineCondition.CloseBracketNewLine"/>
 		<exclude name="PEAR.ControlStructures.MultiLineCondition.NewlineBeforeOpenBrace"/>
 	</rule>
 	<rule ref="PEAR.Formatting.MultiLineAssignment" />
@@ -89,6 +89,7 @@
 		<exclude name="Squiz.Commenting.BlockComment.HasEmptyLineBefore"/>
 		<exclude name="Squiz.Commenting.BlockComment.NoEmptyLineBefore"/>
 		<exclude name="Squiz.Commenting.BlockComment.NoEmptyLineAfter"/>
+		<exclude name="Squiz.Commenting.BlockComment.WrongStart"/>
 	</rule>
 	<rule ref="Squiz.Commenting.DocCommentAlignment" />
 	<rule ref="Squiz.Commenting.VariableComment">
