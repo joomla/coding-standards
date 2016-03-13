@@ -48,6 +48,13 @@ class Joomla_Sniffs_Operators_ValidLogicalOperatorsSniff implements PHP_CodeSnif
 
 		if (false === isset($operators[$operator]))
 		{
+			// We have correct logical operators in use so return
+			return;
+		}
+
+		if ($tokens[$stackPtr + 1]['code'] === T_EXIT)
+		{
+			// Put in an exception for things like `or die;` and `or exit;`
 			return;
 		}
 
