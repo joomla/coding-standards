@@ -52,7 +52,7 @@ class Joomla_Sniffs_Operators_ValidLogicalOperatorsSniff implements PHP_CodeSnif
 			return;
 		}
 
-		if ($tokens[$stackPtr + 1]['code'] === T_EXIT)
+		if ($tokens[$stackPtr + 1]['content'] === T_EXIT)
 		{
 			// Put in an exception for things like `or die;` and `or exit;`
 			return;
