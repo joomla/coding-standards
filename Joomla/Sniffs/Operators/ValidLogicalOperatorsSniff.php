@@ -52,11 +52,18 @@ class Joomla_Sniffs_Operators_ValidLogicalOperatorsSniff implements PHP_CodeSnif
 			return;
 		}
 
- 		$nextToken = $phpcsFile->findNext(T_WHITESPACE, ($stackPtr + 1), null, true);
+		$nextToken = $phpcsFile->findNext(T_WHITESPACE, ($stackPtr + 1), null, true);
 
 		if ($tokens[$nextToken]['code'] === T_EXIT)
 		{
 			// Put in an exception for things like `or die;` and `or exit;`
+			return;
+		}
+
+		// Special Joomla! case `jexit()`.
+		if ($tokens[$nextToken]['content'] == 'jexit')
+		{
+			// Put in an exception for things like `or jexit()`
 			return;
 		}
 
