@@ -52,7 +52,7 @@ class Joomla_Sniffs_Operators_ValidLogicalOperatorsSniff implements PHP_CodeSnif
 			return;
 		}
 
- 		$nextToken = $phpcsFile->findNext(T_LOGICAL_OR, ($stackPtr + 1));
+ 		$nextToken = $phpcsFile->findNext(T_WHITESPACE, ($stackPtr + 1));
 
 		if ($tokens[$nextToken]['code'] === T_EXIT)
 		{
