@@ -98,8 +98,8 @@ class Joomla_Sniffs_Commenting_ClassCommentSniff extends Joomla_Sniffs_Commentin
 	/**
 	 * Processes this test, when one of its tokens is encountered.
 	 *
-	 * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
-	 * @param int                  $stackPtr  The position of the current token
+	 * @param   PHP_CodeSniffer_File $phpcsFile The file being scanned.
+	 * @param   int                  $stackPtr  The position of the current token
 	 *                                        in the stack passed in $tokens.
 	 *
 	 * @return void
@@ -122,13 +122,13 @@ class Joomla_Sniffs_Commenting_ClassCommentSniff extends Joomla_Sniffs_Commentin
 
 			return;
 		}
- 
+
 		$phpcsFile->recordMetric($stackPtr, 'Class has doc comment', 'yes');
- 
+
 		if ($tokens[$commentEnd]['code'] === T_COMMENT)
 		{
 			$phpcsFile->addError('You must use "/**" style comments for a class comment', $stackPtr, 'WrongStyle');
- 
+
 			return;
 		}
 
@@ -139,16 +139,17 @@ class Joomla_Sniffs_Commenting_ClassCommentSniff extends Joomla_Sniffs_Commentin
 	/**
 	 * Process the version tag.
 	 *
-	 * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
-	 * @param array                $tags      The tokens for these tags.
+	 * @param   PHP_CodeSniffer_File $phpcsFile The file being scanned.
+	 * @param   array                $tags      The tokens for these tags.
 	 *
 	 * @return void
 	 */
 	protected function processVersion(PHP_CodeSniffer_File $phpcsFile, array $tags)
 	{
 		$tokens = $phpcsFile->getTokens();
-		foreach ($tags as $tag) {
 
+		foreach ($tags as $tag)
+		{
 			if ($tokens[($tag + 2)]['code'] !== T_DOC_COMMENT_STRING)
 			{
 				// No content.
