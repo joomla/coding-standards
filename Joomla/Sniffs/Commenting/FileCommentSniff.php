@@ -402,15 +402,15 @@ class Joomla_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Sniff
 				$nameBits = explode('_', $newContent);
 				$firstBit = array_shift($nameBits);
 				$newName  = strtoupper($firstBit{0}) . substr($firstBit, 1) . '_';
-				
+
 				foreach ($nameBits as $bit)
 				{
-				    if ($bit !== '')
-				    {
-				        $newName .= strtoupper($bit{0}) . substr($bit, 1).'_';
-				    }
+					if ($bit !== '')
+					{
+						$newName .= strtoupper($bit{0}) . substr($bit, 1) . '_';
+					}
 				}
-				
+
 				$error     = 'Package name "%s" is not valid; consider "%s" instead';
 				$validName = trim($newName, '_');
 				$data      = array(
