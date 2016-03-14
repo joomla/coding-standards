@@ -61,9 +61,16 @@ class Joomla_Sniffs_Operators_ValidLogicalOperatorsSniff implements PHP_CodeSnif
 		}
 
 		// Special Joomla! case `jexit()`.
-		if ($tokens[$nextToken]['content'] == 'jexit')
+		if ($tokens[$nextToken]['content'] === 'jexit')
 		{
 			// Put in an exception for things like `or jexit()`
+			return;
+		}
+
+		// Special Joomla! case `JSession::checkToken()`.
+		if ($tokens[$nextToken]['content'] === 'JSession::checkToken')
+		{
+			// Put in an exception for things like `or JSession::checkToken()`
 			return;
 		}
 
