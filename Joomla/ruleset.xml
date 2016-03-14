@@ -58,6 +58,7 @@
 			<property name="indent" value="1"/>
 		</properties>
 		<exclude name="PEAR.Functions.FunctionCallSignature.CloseBracketLine" />
+		<exclude name="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket" />
 	</rule>
 	<rule ref="PEAR.Functions.FunctionDeclaration">
 		<exclude name="PEAR.Functions.FunctionDeclaration.CloseBracketLine" />
