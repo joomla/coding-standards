@@ -54,16 +54,22 @@ class Joomla_Sniffs_Operators_ValidLogicalOperatorsSniff implements PHP_CodeSnif
 
 		$nextToken = $phpcsFile->findNext(T_WHITESPACE, ($stackPtr + 1), null, true);
 
-    // Special Joomla! cases.
-    if ($tokens[$nextToken]['content'] === 'jexit'
-            || $tokens[$nextToken]['content'] === 'JSession'
-            || $tokens[$nextToken]['content'] === 'define'
-            || $tokens[($nextToken + 2)]['content'] === 'sendResponse'
-            || $tokens[($nextToken + 2)]['content'] === 'sendJsonResponse')
-    {
-        // Exceptions for things like `or jexit()`, `or JSession`, `or define`, `or sendResponse`, `or sendJsonResponse`
-        return;
-    }
+		if ($tokens[$nextToken]['code'] === T_EXIT)
+		{
+			// This enforces an exception for things like `or die;` and `or exit;`
+			return;
+		}
+
+		// Special Joomla! cases.
+		if ($tokens[$nextToken]['content'] === 'jexit'
+				|| $tokens[$nextToken]['content'] === 'JSession'
+				|| $tokens[$nextToken]['content'] === 'define'
+				|| $tokens[($nextToken + 2)]['content'] === 'sendResponse'
+				|| $tokens[($nextToken + 2)]['content'] === 'sendJsonResponse')
+		{
+		    // Exceptions for things like `or jexit()`, `or JSession`, `or define`, `or sendResponse`, `or sendJsonResponse`
+		    return;
+		}
 
 		$error = 'Logical operator "%s" not allowed; use "%s" instead';
 		$data  = array(
