@@ -133,8 +133,4 @@
 	<!-- Include some additional sniffs from the Zend standard -->
 	<rule ref="Zend.Files.ClosingTag" />
 
-	<rule ref="Joomla">
-		<!-- Temp Message exclusion for int vs integer. No error on short names since PHP7 scalar type hints is only short names-->
-		<exclude name="Joomla.Commenting.FunctionComment.InvalidReturn" />
-	</rule>
 </ruleset>
