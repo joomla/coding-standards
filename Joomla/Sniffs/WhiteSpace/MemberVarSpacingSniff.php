@@ -14,7 +14,8 @@ if (false === class_exists('Squiz_Sniffs_WhiteSpace_MemberVarSpacingSniff', true
 /**
  * Verifies that class members are spaced correctly.
  *
- * @since  1.0
+ * @package   Joomla.CodingStandard
+ * @since     1.0
  */
 class Joomla_Sniffs_WhiteSpace_MemberVarSpacingSniff extends Squiz_Sniffs_WhiteSpace_MemberVarSpacingSniff
 {
