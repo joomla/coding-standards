@@ -35,7 +35,7 @@ class Joomla_Sniffs_Commenting_ClassCommentSniff extends Joomla_Sniffs_Commentin
 			'order_text'     => 'must follow @version (if used)',
 		),
 		'@package'    => array(
-			'required'       => false,
+			'required'       => true,
 			'allow_multiple' => false,
 			'order_text'     => 'must follow @category (if used)',
 		),
