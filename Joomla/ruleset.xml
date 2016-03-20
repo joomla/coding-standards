@@ -77,6 +77,9 @@
 			<property name="indent" value="1"/>
 		</properties>
 	</rule>
+	<rule ref="PEAR.WhiteSpace.ObjectOperatorIndent.Incorrect">
+		<message>Object operator not indented correctly; expected %s tabs but found %s</message>
+	</rule>
 
 	<!-- Include some additional sniffs from the PSR2 standard -->
 	<rule ref="PSR2.ControlStructures.ElseIfDeclaration"/>
