@@ -14,7 +14,8 @@ if (class_exists('Joomla_Sniffs_Commenting_FileCommentSniff', true) === false)
 /**
  * Parses and verifies the doc comments for classes.
  *
- * @since  1.0
+ * @package   Joomla.CodingStandard
+ * @since     1.0
  */
 class Joomla_Sniffs_Commenting_ClassCommentSniff extends Joomla_Sniffs_Commenting_FileCommentSniff
 {
