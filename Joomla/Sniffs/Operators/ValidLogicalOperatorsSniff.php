@@ -12,7 +12,8 @@
  * Check to ensure that the logical operators 'and' and 'or' are not used.
  * Use the && and || operators instead.
  *
- * @since   1.0
+ * @package   Joomla.CodingStandard
+ * @since     1.0
  */
 class Joomla_Sniffs_Operators_ValidLogicalOperatorsSniff implements PHP_CodeSniffer_Sniff
 {
