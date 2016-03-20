@@ -9,7 +9,8 @@
 /**
  * ValidLogicalOperatorsUnitTest
  *
- * @since   1.0
+ * @package   Joomla.CodingStandard
+ * @since     1.0
  */
 class Joomla_Tests_Operators_ValidLogicalOperatorsUnitTest extends AbstractSniffUnitTest
 {
