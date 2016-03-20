@@ -2,15 +2,19 @@ sudo: false
 
 language: php
 
-php:
-  - 5.3
-  - 5.4
-  - 5.5
-  - 5.6
-  - 7.0
-  - hhvm
+env:
+  global:
+    - RUN_PHPCS="no"
 
 matrix:
+  include:
+    - php: 5.3
+    - php: 5.4
+    - php: 5.5
+    - php: 5.6
+      env: RUN_PHPCS="yes"
+    - php: 7.0
+    - php: hhvm
   allow_failures:
     - php: hhvm
 
@@ -21,7 +25,7 @@ before_script:
 
 script:
   - ./vendor/bin/phpunit --filter Joomla vendor/squizlabs/php_codesniffer/tests/AllTests.php
-  - ./vendor/bin/phpcs -sp --extensions=php --ignore=*/vendor/* --standard=Joomla */
+  - if [[ $RUN_PHPCS == "yes" ]]; then ./vendor/bin/phpcs -sp --extensions=php --ignore=*/vendor/* --standard=Joomla */ .; fi
 
 notifications:
   email: false
