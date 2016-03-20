@@ -1,7 +1,7 @@
 Joomla Coding Standards [![Build Status](https://travis-ci.org/joomla/coding-standards.png?branch=phpcs-2)](https://travis-ci.org/joomla/coding-standards)
 =======================
 
-This repository includes the [Joomla](http://developer.joomla.org) coding standard definition for [PHP Codesniffer](http://pear.php.net/PHP_CodeSniffer) along with a few other helpful resources.  The PHP_CodeSniffer standard will never be 100% accurate, but should be viewed as a strong set of guidelines while writing software for Joomla.
+This repository includes the [Joomla](http://developer.joomla.org) coding standard definition for [PHP Codesniffer](https://github.com/squizlabs/PHP_CodeSniffer) along with a few other helpful resources.  The PHP_CodeSniffer standard will never be 100% accurate, but should be viewed as a strong set of guidelines while writing software for Joomla.
 
 See Joomla coding standards documentation at [http://joomla.github.io/coding-standards/](http://joomla.github.io/coding-standards/)
 
@@ -10,7 +10,7 @@ If you want to contribute and improve this documentation find the source files a
 ## Requirements
 
 * PHP 5.3+
-* [PHP Codesniffer](https://github.com/squizlabs/PHP_CodeSniffer) 2.3+
+* [PHP Codesniffer](https://github.com/squizlabs/PHP_CodeSniffer) 2.6+
 
 ## Installation
 
@@ -18,7 +18,7 @@ Installation is as easy as checking out the repository to the correct location w
 
 ### Install PHP_CodeSniffer.
 
-	pear install PHP_CodeSniffer-2.3.*
+	pear install PHP_CodeSniffer-2.6.*
 
 ### Install the Joomla standard.
 
