@@ -52,6 +52,9 @@
 		<exclude name="PEAR.ControlStructures.MultiLineCondition.CloseBracketNewLine"/>
 		<exclude name="PEAR.ControlStructures.MultiLineCondition.NewlineBeforeOpenBrace"/>
 	</rule>
+	<rule ref="PEAR.ControlStructures.MultiLineCondition.Alignment">
+		<message>Multi-line IF statement not indented correctly; expected %s tabs but found %s</message>
+	</rule>
 	<rule ref="PEAR.Formatting.MultiLineAssignment" />
 	<rule ref="PEAR.Functions.FunctionCallSignature">
 		<properties>
