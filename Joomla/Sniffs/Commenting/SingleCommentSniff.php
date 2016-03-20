@@ -9,7 +9,8 @@
 /**
  * Joomla_Sniffs_Commenting_SingleCommentSniff
  *
- * @since 1.0
+ * @package   Joomla.CodingStandard
+ * @since     1.0
  */
 class Joomla_Sniffs_Commenting_SingleCommentSniff implements PHP_CodeSniffer_Sniff
 {
