@@ -67,8 +67,14 @@
 		<message>Multi-line function call not indented correctly; expected %s tabs but found %s</message>
 	</rule>
 	<rule ref="PEAR.Functions.FunctionDeclaration">
+		<properties>
+			<property name="indent" value="1"/>
+		</properties>
 		<exclude name="PEAR.Functions.FunctionDeclaration.CloseBracketLine" />
 		<exclude name="PEAR.Functions.FunctionDeclaration.NewlineBeforeOpenBrace" />
+	</rule>
+	<rule ref="PEAR.Functions.FunctionDeclaration.Indent">
+		<message>Multi-line function declaration not indented correctly; expected %s tabs but found %s</message>
 	</rule>
 	<rule ref="PEAR.Functions.ValidDefaultValue" />
 	<rule ref="PEAR.NamingConventions.ValidClassName" />
