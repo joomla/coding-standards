@@ -45,6 +45,7 @@ Class definitions, properties and methods must each be provided with a DocBlock 
 #### Class DocBlock Headers
 The class Docblock consists of the following required and optional elements in the fol-lowing order.
 Short description (required, unless the file contains more than two classes or functions), followed by a blank line). Long description (optional, followed by a blank line).
+
 * @category (optional and rarely used)
 * @package (required)
 * @subpackage (optional)
