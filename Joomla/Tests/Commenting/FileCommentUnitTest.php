@@ -9,7 +9,8 @@
 /**
  * FileCommentUnitTest
  *
- * @since   1.0
+ * @package   Joomla.CodingStandard
+ * @since     1.0
  */
 class Joomla_Tests_Commenting_FileCommentUnitTest extends AbstractSniffUnitTest
 {
