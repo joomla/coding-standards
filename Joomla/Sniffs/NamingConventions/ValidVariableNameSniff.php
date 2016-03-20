@@ -14,7 +14,8 @@ if (class_exists('Squiz_Sniffs_NamingConventions_ValidVariableNameSniff', true) 
 /**
  * Extended ruleset for checking the naming of variables and member variables.
  *
- * @since  1.0
+ * @package   Joomla.CodingStandard
+ * @since     1.0
  */
 class Joomla_Sniffs_NamingConventions_ValidVariableNameSniff extends Squiz_Sniffs_NamingConventions_ValidVariableNameSniff
 {
