@@ -14,7 +14,8 @@ if (class_exists('PEAR_Sniffs_NamingConventions_ValidFunctionNameSniff', true) =
 /**
  * Extended ruleset for ensuring method and function names are correct.
  *
- * @since  1.0
+ * @package   Joomla.CodingStandard
+ * @since     1.0
  */
 class Joomla_Sniffs_NamingConventions_ValidFunctionNameSniff extends PEAR_Sniffs_NamingConventions_ValidFunctionNameSniff
 {
