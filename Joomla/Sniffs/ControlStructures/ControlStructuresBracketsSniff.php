@@ -12,7 +12,8 @@
  * Checks if the declaration of control structures is correct.
  * Curly brackets must be on a line by their own.
  *
- * @since   1.0
+ * @package   Joomla.CodingStandard
+ * @since     1.0
  */
 class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements PHP_CodeSniffer_Sniff
 {
