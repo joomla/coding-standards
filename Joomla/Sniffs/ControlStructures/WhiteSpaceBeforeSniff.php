@@ -52,7 +52,8 @@
  * This rule applies for the structures:
  * if, for, foreach, while, switch, try, do and return
  *
- * @since   1.0
+ * @package   Joomla.CodingStandard
+ * @since     1.0
  */
 class Joomla_Sniffs_ControlStructures_WhiteSpaceBeforeSniff implements PHP_CodeSniffer_Sniff
 {
