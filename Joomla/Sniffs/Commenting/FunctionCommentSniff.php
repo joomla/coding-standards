@@ -14,7 +14,8 @@ if (class_exists('PEAR_Sniffs_Commenting_FunctionCommentSniff', true) === false)
 /**
  * Extended ruleset for parsing and verifying the doc comments for functions.
  *
- * @since  1.0
+ * @package   Joomla.CodingStandard
+ * @since     1.0
  */
 class Joomla_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commenting_FunctionCommentSniff
 {
