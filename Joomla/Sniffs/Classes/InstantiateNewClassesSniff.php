@@ -56,12 +56,10 @@ class Joomla_Sniffs_Classes_InstantiateNewClassesSniff implements PHP_CodeSniffe
 					case T_COMMA :
 						$valid   = true;
 						$running = false;
-
 						break;
 
 					case T_OPEN_PARENTHESIS :
 						$started = true;
-
 						break;
 
 					case T_VARIABLE :
@@ -80,6 +78,7 @@ class Joomla_Sniffs_Classes_InstantiateNewClassesSniff implements PHP_CodeSniffe
 						}
 
 						break;
+
 					case T_CLOSE_PARENTHESIS :
 						if ($started === false)
 						{
@@ -87,8 +86,8 @@ class Joomla_Sniffs_Classes_InstantiateNewClassesSniff implements PHP_CodeSniffe
 						}
 
 						$running = false;
-
 						break;
+
 					case T_WHITESPACE :
 						break;
 				}
