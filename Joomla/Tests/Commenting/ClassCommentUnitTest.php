@@ -23,7 +23,7 @@ class Joomla_Tests_Commenting_ClassCommentUnitTest extends AbstractSniffUnitTest
 	 */
 	public function getErrorList()
 	{
-		return array(5 => 1);
+		return array(4 => 2);
 	}
 
 	/**
