@@ -5,6 +5,13 @@
 class MyClass
 {
 	/**
+	* Missing Class Property DocBlocks
+	*
+	* @deprecated   (optional)
+	*/
+	protected static $classVarId = 0;
+	
+	/**
 	 * Some function...
 	 *
 	 * @return  integer
