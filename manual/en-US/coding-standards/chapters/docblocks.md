@@ -47,15 +47,15 @@ The class Docblock consists of the following required and optional elements in t
 Short description (required, unless the file contains more than two classes or functions), followed by a blank line). Long description (optional, followed by a blank line).
 
 * @category (optional and rarely used)
-* @package (required)
+* @package (optional)
 * @subpackage (optional)
 * @author (optional but only permitted in non-Joomla source files, for example, included third-party libraries like Geshi)
 * @copyright (optional unless different from the file Docblock)
 * @license (optional unless different from the file Docblock)
-* @deprecated (optional)
 * @link (optional)
 * @see (optional)
 * @since (required, being the version of the software the class was introduced)
+* @deprecated (optional)
 
 Example of a Class file DocBlock header:
 ```php
@@ -73,8 +73,8 @@ The class property Docblock consists of the following required and optional elem
 Short description (required, followed by a blank line)
 
 * @var (required, followed by the property type)
-* @deprecated (optional)
 * @since (required)
+* @deprecated (optional)
 
 Example of Class property DocBlock:
 
