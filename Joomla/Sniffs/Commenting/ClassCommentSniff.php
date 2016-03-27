@@ -25,15 +25,10 @@ class Joomla_Sniffs_Commenting_ClassCommentSniff extends Joomla_Sniffs_Commentin
 	 * @var  array
 	 */
 	protected $tags = array(
-		'@version'    => array(
-			'required'       => false,
-			'allow_multiple' => false,
-			'order_text'     => 'is first',
-		),
 		'@category'   => array(
 			'required'       => false,
 			'allow_multiple' => false,
-			'order_text'     => 'must follow @version (if used)',
+			'order_text'     => 'is first',
 		),
 		'@package'    => array(
 			'required'       => false,
@@ -53,17 +48,17 @@ class Joomla_Sniffs_Commenting_ClassCommentSniff extends Joomla_Sniffs_Commentin
 		'@copyright'  => array(
 			'required'       => false,
 			'allow_multiple' => true,
-			'order_text'     => 'must follow @author (if used) or @subpackage (if used) or @package',
+			'order_text'     => 'must follow @author (if used) or @subpackage (if used) or @package (if used)',
 		),
 		'@license'    => array(
 			'required'       => false,
 			'allow_multiple' => false,
 			'order_text'     => 'must follow @copyright (if used)',
 		),
-		'@link'       => array(
+		'@link'      => array(
 			'required'       => false,
 			'allow_multiple' => true,
-			'order_text'     => 'must follow @version (if used)',
+			'order_text'     => 'must follow @license (if used)',
 		),
 		'@see'        => array(
 			'required'       => false,
@@ -136,29 +131,4 @@ class Joomla_Sniffs_Commenting_ClassCommentSniff extends Joomla_Sniffs_Commentin
 		// Check each tag.
 		$this->processTags($phpcsFile, $stackPtr, $tokens[$commentEnd]['comment_opener']);
 	}//end process()
-
-	/**
-	 * Process the version tag.
-	 *
-	 * @param   PHP_CodeSniffer_File $phpcsFile The file being scanned.
-	 * @param   array                $tags      The tokens for these tags.
-	 *
-	 * @return void
-	 */
-	protected function processVersion(PHP_CodeSniffer_File $phpcsFile, array $tags)
-	{
-		$tokens = $phpcsFile->getTokens();
-
-		foreach ($tags as $tag)
-		{
-			$content = $tokens[($tag)]['code'];
-
-			if ($content === '@version')
-			{
-				$error = '@version tag in class comment in not required; consider removing';
-				$data  = array($content);
-				$phpcsFile->addWarning($error, $tag, 'IncludedVersion', $data);
-			}
-		}
-	}//end processVersion()
 }
