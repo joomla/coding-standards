@@ -118,6 +118,15 @@ class Joomla_Sniffs_WhiteSpace_ControlStructureSpacingSniff implements PHP_CodeS
 			}
 		}
 
+		if ($tokens[$trailingContent]['code'] === T_WHILE)
+		{
+		    if ($tokens[$stackPtr]['code'] === T_DO)
+		    {
+		        // DO with WHILE.
+		        return;
+		    }
+		}
+
 		if ($tokens[$trailingContent]['code'] === T_COMMENT)
 		{
 			if ($tokens[$trailingContent]['line'] === $tokens[$scopeCloser]['line'])

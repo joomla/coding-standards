@@ -57,7 +57,8 @@ class Joomla_Sniffs_ControlStructures_ControlSignatureSniff extends PHP_CodeSnif
 			'tryEOL...{EOL...}EOL',
 			'catch (...)EOL...{EOL',
 
-			'doEOL...{...}EOL',
+			'doEOL...{...}EOL...while (...)EOL...{EOL',
+			'doEOL...{...}EOL...while (...);EOL',
 			'while (...)EOL...{EOL',
 
 			'for (...)EOL...{EOL',
