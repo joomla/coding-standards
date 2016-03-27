@@ -585,23 +585,13 @@ class Joomla_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Sniff
 
 		foreach ($tags as $tag)
 		{
-			if ($tokens[($tag + 2)]['code'] !== T_DOC_COMMENT_STRING)
-			{
-				// No content.
-				continue;
-			}
+			$content = $tokens[($tag)]['code'];
 
-			$content = $tokens[($tag + 2)]['content'];
-
-			if (strstr($content, 'CVS:') === false
-				&& strstr($content, 'SVN:') === false
-				&& strstr($content, 'GIT:') === false
-				&& strstr($content, 'HG:') === false
-			)
+			if ($content === '@version')
 			{
-				$error = 'Invalid version "%s" in file comment; consider "CVS: <cvs_id>" or "SVN: <svn_id>" or "GIT: <git_id>" or "HG: <hg_id>" instead';
+				$error = '@version tag in file comment in not required; consider removing or using @since';
 				$data  = array($content);
-				$phpcsFile->addWarning($error, $tag, 'InvalidVersion', $data);
+				$phpcsFile->addWarning($error, $tag, 'IncludedVersion', $data);
 			}
 		}
 	}//end processVersion()
