@@ -47,7 +47,7 @@ The class Docblock consists of the following required and optional elements in t
 Short description (required, unless the file contains more than two classes or functions), followed by a blank line). Long description (optional, followed by a blank line).
 
 * @category (optional and rarely used)
-* @package (required)
+* @package (optional)
 * @subpackage (optional)
 * @author (optional but only permitted in non-Joomla source files, for example, included third-party libraries like Geshi)
 * @copyright (optional unless different from the file Docblock)
