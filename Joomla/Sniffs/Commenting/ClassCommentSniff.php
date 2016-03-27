@@ -151,19 +151,13 @@ class Joomla_Sniffs_Commenting_ClassCommentSniff extends Joomla_Sniffs_Commentin
 
 		foreach ($tags as $tag)
 		{
-			if ($tokens[($tag + 2)]['code'] !== T_DOC_COMMENT_STRING)
-			{
-				// No content.
-				continue;
-			}
+			$content = $tokens[($tag)]['code'];
 
-			$content = $tokens[($tag + 2)]['content'];
-
-			if ((strstr($content, 'Release:') === false))
+			if ($content) === '@version'))
 			{
-				$error = 'Invalid version "%s" in doc comment; consider "Release: <package_version>" instead';
+				$error = '@version tag in class comment in not required; consider removing';
 				$data  = array($content);
-				$phpcsFile->addWarning($error, $tag, 'InvalidVersion', $data);
+				$phpcsFile->addWarning($error, $tag, 'IncludedVersion', $data);
 			}
 		}
 	}//end processVersion()
