@@ -153,7 +153,7 @@ class Joomla_Sniffs_Commenting_ClassCommentSniff extends Joomla_Sniffs_Commentin
 		{
 			$content = $tokens[($tag)]['code'];
 
-			if ($content) === '@version'))
+			if ($content === '@version')
 			{
 				$error = '@version tag in class comment in not required; consider removing';
 				$data  = array($content);
