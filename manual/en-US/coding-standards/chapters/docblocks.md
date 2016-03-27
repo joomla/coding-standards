@@ -73,8 +73,8 @@ The class property Docblock consists of the following required and optional elem
 Short description (required, followed by a blank line)
 
 * @var (required, followed by the property type)
-* @deprecated (optional)
 * @since (required)
+* @deprecated (optional)
 
 Example of Class property DocBlock:
 
