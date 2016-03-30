@@ -53,6 +53,15 @@ pre .tag, pre .tag-name {
     color: navy;
 }
 
+pre .close {
+    float: none;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 19px;
+    opacity: 1;
+    text-shadow: none;
+}
+
 pre .keyword, pre .css-property, pre .vendor-prefix, pre .sass, pre .class, pre .id, pre .css-value, pre .entity.function, pre .storage.function {
     font-weight: bold;
 }
