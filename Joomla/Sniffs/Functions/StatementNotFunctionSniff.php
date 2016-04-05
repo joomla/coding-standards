@@ -29,7 +29,6 @@ class Joomla_Sniffs_Functions_StatementNotFunctionSniff implements PHP_CodeSniff
 			T_REQUIRE,
 			T_INCLUDE,
 			T_CLONE,
-			T_ECHO
 		);
 	}
 
