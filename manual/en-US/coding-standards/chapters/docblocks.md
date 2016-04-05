@@ -98,6 +98,7 @@ Function definitions must include a documentation comment in accordance with the
 * Short description (required, followed by a blank line)
 * Long description (optional, followed by a blank line)
 * @param (required if there are method or function arguments, the last @param tag is followed by a blank line)
+* @throws (required if method or function arguments throw a specific type of exception, the last @throws tag is followed by a blank line)
 * @return (required, followed by a blank line)
 * All other tags in alphabetical order, however @since is always required.
 
@@ -106,16 +107,15 @@ Example of Method DocBlock:
 	/**
 	 * Set a controller class suffix for a given HTTP method.
 	 *
-	 * @package Joomla.Framework
-	 * @subpackage Router 
-	 *
-	 *
 	 * @param   string  $method  The HTTP method for which to set the class suffix.
 	 * @param   string  $suffix  The class suffix to use when fetching the controller name for a given request.
 	 *
-	 * @return  Router  Returns itself to support chaining.
+	 * @throws  InvalidArgumentException   Thrown if the provided arguments is not of type string.
+	 * @throws  \UnexpectedValueException  May be thrown if the container has not been set.
 	 *
-	 * @since   1.0
+	 * @return  JApplicationWebRouter  This object for method chaining.
+	 *
+	 * @since   12.2
 	 */
 	public function setHttpMethodSuffix($method, $suffix)
 ```
