@@ -196,7 +196,7 @@ echo JRoute::_(
 
 ## Arrays
 
-Assignments (the `=>` operator) in arrays may be aligned with tabs. When splitting array definitions onto several lines, the last value should also have a trailing comma. This is valid PHP syntax and helps to keep code diffs minimal.
+Assignments (the `=>` operator) in arrays may be aligned with spaces. When splitting array definitions onto several lines, the last value should also have a trailing comma. This is valid PHP syntax and helps to keep code diffs minimal.
 
 For example:
 
