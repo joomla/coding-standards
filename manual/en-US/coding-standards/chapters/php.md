@@ -37,7 +37,7 @@ As of Joomla version 1.6 and for all versions of the Joomla Platform, adhering t
 
 ## Global Variables
 
-Usage of global variables should be kept to a minimum. Use OOP and factory patterns instead.
+Global variables should not be used. Use static class properties or constants instead of globals, following OOP and factory patterns.
 
 ## Control Structures (General Code)
 
@@ -131,6 +131,18 @@ switch ($value)
 }
 ```
 
+### A _try catch_ example
+```php
+try
+{
+	$table->bind($data);
+}
+catch (RuntimeException $e)
+{
+	throw new Exception($e->getMessage(), 500, $e);
+}
+```
+
 ## Mixed language usage (e.g. at the layout files)
 
 For layout files and all files where we use a mix of PHP and HTML (all PHP files in the `view/tmpl` and `layout` folder) we additionally wrap every line into a `<?php ... ?>` block and use the alternative syntax for control structures.
@@ -184,7 +196,7 @@ echo JRoute::_(
 
 ## Arrays
 
-Assignments (the `=>` operator) in arrays may be aligned with tabs. When splitting array definitions onto several lines, the last value may also have a trailing comma. This is valid PHP syntax and helps to keep code diffs minimal.
+Assignments (the `=>` operator) in arrays may be aligned with spaces. When splitting array definitions onto several lines, the last value should also have a trailing comma. This is valid PHP syntax and helps to keep code diffs minimal.
 
 For example:
 
@@ -218,41 +230,7 @@ Documentation headers for PHP and Javascript code in files, classes, class prope
 
 These "DocBlocks" borrow from the PEAR standard but have some variations specific for Joomla and the Joomla Platform.
 
-Whereas normal code indenting uses real tabs, all whitespace in a Docblock uses real spaces. This provides better readability in source code browsers. The minimum whitespace between any text elements, such as tags, variable types, variable names and tag descriptions, is two real spaces. Variable types and tag descriptions should be aligned according to the longest Docblock tag and type-plus-variable respectively.
-
-If the `@package` tag is used, it will be "Joomla.Platform".
-
-If the `@subpackage` tag is used, it is the name of the top level folder under the /joomla/ folder. For example: Application, Database, Html, and so on.
-
-Code contributed to the Joomla project that will become the copyright of the project is not allowed to include @author tags. You should update the contribution log in CREDITS.php. Joomla's philosophy is that the code is written "all together" and there is no notion of any one person "owning" any section of code. The `@author` tags are permitted in third-party libraries that are included in the core libraries.
-
-Files included from third party sources must leave DocBlocks intact. Layout files use the same DocBlocks as other PHP files.
-
-### File DocBlock Headers
-
-The file header DocBlock consists of the following required and optiona elements in the following order:
-
--   Short description (optional unless the file contains more than two classes or functions), followed by a blank line).
--   Long description (optional, followed by a blank line).
--   `@category` (optional and rarely used)
--   `@package` (generally optional but required when files contain only procedural code)
--   `@subpackage` (optional)
--   `@author` (optional but only permitted in non-Joomla source files, for example, included third-party libraries like Geshi)
--   `@copyright` (required)
--   `@license` (required and must be compatible with the Joomla license)
--   `@deprecated` (optional)
--   `@link` (optional)
--   `@see` (optional)
--   `@since` (generally optional but required when files contain only procedural code)
-
-```
-/**
- * @package     Joomla.Platform
- * @subpackage  Database
- * @copyright   Copyright 2005 - 2010 Open Source Matters. All rights re-served.
- * @license     GNU General Public License version 2 or later; see LICENSE.txt
- */
-```
+More details on DocBlocks comments can be found in the chapter on [DocBlocks Comments](coding-standards/chapters/docblocks.md).
 
 ## Function Calls
 
@@ -273,13 +251,7 @@ $long   = bar('long');
 Function definitions start on a new line and the opening and closing braces are also placed on new lines. An empty line should precede lines specifying the return value.
 
 Function definitions must include a documentation comment in accordance with the Commenting section of this document.
-
--   Short description (required, followed by a blank line)
--   Long description (optional, followed by a blank line)
--   `@param` (required if there are method or function arguments, the last `@param` tag is followed by a blank line)
--   `@return` (required, followed by a blank line)
--   All other tags in alphabetical order, however @since is always required.
-
+More details on DocBlocks Function comments can be found in the chapter on [DocBlocks Comments](coding-standards/chapters/docblocks.md).
 
 ```php
 /**
@@ -302,7 +274,6 @@ function jimport($path)
 
 If a function definition goes over multiple lines, all lines must be indented with one tab and the closing brace must go on the same line as the last parameter.
 
-
 ```php
 function fooBar($param1, $param2,
 	$param3, $param4)
@@ -317,35 +288,17 @@ Class definitions start on a new line and the opening and closing braces are als
 
 Class definitions, properties and methods must each be provided with a DocBlock in accordance with the following sections.
 
-### Class DocBlock Headers
-
-The class Docblock consists of the following required and optional elements in the fol-lowing order.
-
--   Short description (required, unless the file contains more than two classes or functions), followed by a blank line).
--   Long description (optional, followed by a blank line).
--   `@category` (optional and rarely used)
--   `@package` (required)
--   `@subpackage` (optional)
--   `@author` (optional but only permitted in non-Joomla source files, for example, included third-party libraries like Geshi)
--   `@copyright` (optional unless different from the file Docblock)
--   `@license` (optional unless different from the file Docblock)
--   `@deprecated` (optional)
--   `@link` (optional)
--   `@see` (optional)
--   `@since` (required, being the version of the software the class was introduced)
+More details on DocBlocks CLass comments can be found in the chapter on [DocBlocks Comments](coding-standards/chapters/docblocks.md).
 
 ### Class Property DocBlocks
 
-The class property Docblock consists of the following required and optional elements in the following order.
-
--   Short description (required, followed by a blank line)
--   `@var` (required, followed by the property type)
--   `@deprecated` (optional)
--   `@since` (required)
+More details on Class Property DocBlocks can be found in the chapter on [DocBlocks Comments](coding-standards/chapters/docblocks.md).
 
 ### Class Method DocBlocks
 
-The DocBlock for class methods follows the same convention as for PHP functions (see above).
+The DocBlock for class methods follows the same convention as for PHP functions.
+
+More details on DocBlocks Class Method comments can be found in the chapter on [DocBlocks Comments](coding-standards/chapters/docblocks.md).
 
 ```php
 /**
@@ -429,10 +382,6 @@ class JFooHelper
 
 Constants should always be all-uppercase, with underscores to separate words. Prefix constant names with the uppercase name of the class/package they are used in. For example, the constants used by the `JError` class all begin with `JERROR_`.
 
-### Global Variables
-
-Do not use global variables. Use static class properties or constants instead of globals.
-
 ### Regular Variables and Class Properties
 
 Regular variables, follow the same conventions as function.
@@ -507,7 +456,14 @@ Each function or method must annotate the type of exception that it throws using
 
 SQL keywords are to be written in uppercase, while all other identifiers (with the exception of quoted text obviously) is to be in lowercase.
 
-All table names should use the `#__` prefix rather than `jos_` to access Joomla content and allow for the user defined database prefix to be applied. Queries should also use the JDatabaseQuery API.
+All table names should use the `#__` prefix to access Joomla content and allow for the user defined database prefix to be applied. Queries should also use the JDatabaseQuery API. Tables should never have a static prefix such as `jos_`.
+
+To query our data source we can call a number of JDatabaseQuery methods; these methods encapsulate the data source's query language (in most cases SQL), hiding query-specific syntax from the developer and increasing the portability of the developer's source code.
+
+Use Query chaining to connect a number of query methods, one after the other, with each method returning an object that can support the next method, This improves readability and simplifies the resulting code. Since the Joomla Framework was introduced "query chaining" is now the recommended method for building database queries.
+
+Table names and table column names should always be enclosed in the `quoteName()` method to escape the table name and table columns.
+Field values checked in a query should always be enclosed in the `quote()` method to escape the value before passing it to the database.
 
 ```php
 // Get the database connector.
@@ -516,9 +472,9 @@ $db = JFactory::getDbo();
 // Get the query from the database connector.
 $query = $db->getQuery(true);
 
-// Build the query programatically (using chaining if desired).
-$query->select('u.*')
-	// Use the qn alias for the quoteName method to quote table names.
+// Build the query programatically (example with chaining)
+// Note: You can use the qn alias for the quoteName method.
+$query->select($db->qn('u.*'))
 	->from($db->qn('#__users', 'u'));
 
 // Tell the database connector what query to run.
@@ -526,4 +482,13 @@ $db->setQuery($query);
 
 // Invoke the query or data retrieval helper.
 $users = $db->loadObjectList();
+```
+
+#### Longer Chaining Example
+```php
+// Using chaining when possible.
+$query->select($db->quoteName(array('user_id', 'profile_key', 'profile_value', 'ordering')))
+    ->from($db->quoteName('#__user_profiles'))
+    ->where($db->quoteName('profile_key') . ' LIKE '. $db->quote('\'custom.%\''))
+    ->order('ordering ASC');
 ```
