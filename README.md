@@ -33,7 +33,43 @@ You can use the installed Joomla standard like:
 Alternatively if it isn't installed you can still reference it by path like:
 
 	phpcs --standard=path/to/joomla/coding-standards path/to/code
-	
+
+### Selectively Applying Rules
+
+For consuming packages there are some items that will typically result in creating their own project ruleset.xml, rather than just directly using the Joomla ruleset.xml. A project ruleset.xml allows the coding standard to be selectivly applied for excluding 3rd party libraries, for consideration of backwards compatability in existing projects, or for adjustments necessary for projects that do not need php 5.3 compatability (which will be removed in a future version of the Joomla Coding Standard in connection of the end of php 5.3 support in all active Joomla Projects). 
+
+For information on [selectivly applying rules read details in the PHP CodeSniffer wiki](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Annotated-ruleset.xml#selectively-applying-rules)
+
+#### Common Rule Set Adjustments
+
+The most common adjustment is to exclude folders with 3rd party libraries, or where the code has yet to have coding standards applied.
+
+```xml
+<!-- Exclude folders not containing production code -->
+	<exclude-pattern type="relative">build/*</exclude-pattern>
+	<exclude-pattern type="relative">tests/*</exclude-pattern>
+
+	<!-- Exclude 3rd party libraries. -->
+	<exclude-pattern type="relative">libraries/*</exclude-pattern>
+	<exclude-pattern type="relative">vendor/*</exclude-pattern>
+```
+
+Another common adjustment is to exclude the [camelCase format requirement](http://joomla.github.io/coding-standards/?coding-standards/chapters/php.md) for "Classes, Functions, Methods, Regular Variables and Class Properties" the essentially allows for B/C with snake_case variables which were only allowed in the context of interacting with the database.
+
+```xml
+ <rule ref="Joomla">
+  <exclude name="Joomla.NamingConventions.ValidVariableName.NotCamelCaps"/>
+ </rule>
+```
+
+The last most common adjustment is removing PHP 5.3 specific rules which prevent short array syntax.
+
+```xml
+ <rule ref="Generic">
+  <exclude name="Generic.Arrays.DisallowShortArraySyntax"/>
+ </rule>
+```
+
 ## IDE autoformatters
 
 There is further information on how to set up IDE auto formatters here: 
