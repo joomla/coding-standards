@@ -35,9 +35,11 @@ You should not enclose the filename in parentheses.
 
 As of Joomla version 1.6 and for all versions of the Joomla Platform, adhering to object oriented programming practice as supported by PHP 5.3+ is required. Joomla is committed to progressively making the source code E_STRICT.
 
+
 ## Global Variables
 
 Global variables should not be used. Use static class properties or constants instead of globals, following OOP and factory patterns.
+
 
 ## Control Structures (General Code)
 
@@ -77,7 +79,6 @@ if ($test1
 ```
 
 ### A _do-while_ Example
-
 
 ```php
 do
@@ -143,6 +144,7 @@ catch (RuntimeException $e)
 }
 ```
 
+
 ## Mixed language usage (e.g. at the layout files)
 
 For layout files and all files where we use a mix of PHP and HTML (all PHP files in the `view/tmpl` and `layout` folder) we additionally wrap every line into a `<?php ... ?>` block and use the alternative syntax for control structures.
@@ -162,6 +164,7 @@ This should make the code easier to read and make it easier to move blocks aroun
 <?php endif; ?>
 ```
 
+
 ## References
 
 When using references, there should be a space before the reference operator and no space between it and the function or variable name.
@@ -175,6 +178,7 @@ $ref1 = &$this->sql;
 > **Note**
 >
 > In PHP 5, reference operators are not required for objects. All objects are handled by reference.
+
 
 ## Concatenation Spacing
 There should always be a space before and after the concatenation operator ('.'). For example:
@@ -194,6 +198,7 @@ echo JRoute::_(
 );
 ```
 
+
 ## Arrays
 
 Assignments (the `=>` operator) in arrays may be aligned with spaces. When splitting array definitions onto several lines, the last value should also have a trailing comma. This is valid PHP syntax and helps to keep code diffs minimal.
@@ -206,6 +211,7 @@ $options = array(
 	'spam'	=> 'spam',
 );
 ```
+
 
 ## Code Commenting
 
@@ -232,6 +238,7 @@ These "DocBlocks" borrow from the PEAR standard but have some variations specifi
 
 More details on DocBlocks comments can be found in the chapter on [DocBlocks Comments](coding-standards/chapters/docblocks.md).
 
+
 ## Function Calls
 
 Functions should be called with no spaces between the function name and the opening parenthesis, and no space between this and the first parameter; a space after the comma between each parameter (if they are present), and no space between the last parameter and the closing parenthesis. There should be space before and exactly one space after the equals sign. Tab alignment over multiple lines is permitted.
@@ -245,6 +252,7 @@ $short  = bar('short');
 $medium = bar('medium');
 $long   = bar('long');
 ```
+
 
 ## Function Definitions
 
@@ -282,13 +290,14 @@ function fooBar($param1, $param2,
 }
 ```
 
+
 ## Class Definitions
 
 Class definitions start on a new line and the opening and closing braces are also placed on new lines. Class methods must follow the guidelines for Function Definitions. Properties and methods must follow OOP standards and be declared appropriately (using public, protected, private and static as applicable).
 
 Class definitions, properties and methods must each be provided with a DocBlock in accordance with the following sections.
 
-More details on DocBlocks CLass comments can be found in the chapter on [DocBlocks Comments](coding-standards/chapters/docblocks.md).
+More details on DocBlocks Class comments can be found in the chapter on [DocBlocks Comments](coding-standards/chapters/docblocks.md).
 
 ### Class Property DocBlocks
 
@@ -300,6 +309,7 @@ The DocBlock for class methods follows the same convention as for PHP functions.
 
 More details on DocBlocks Class Method comments can be found in the chapter on [DocBlocks Comments](coding-standards/chapters/docblocks.md).
 
+### Class Definition Example
 ```php
 /**
  * A utility class.
@@ -335,6 +345,7 @@ class JClass extends JObject
 	}
 }
 ```
+
 
 ## Naming Conventions
 
@@ -387,6 +398,7 @@ Constants should always be all-uppercase, with underscores to separate words. Pr
 Regular variables, follow the same conventions as function.
 
 Class variables should be set to null or some other appropriate default value.
+
 
 ## Exception Handling
 
@@ -451,6 +463,7 @@ This exception has few practical applications but may thrown when you try to rem
 ### Documenting exceptions
 
 Each function or method must annotate the type of exception that it throws using an @throws tag and any downstream exceptions types that are thrown. Each type of exception need only be annotated once. No description is necessary.
+
 
 ## SQL Queries
 
