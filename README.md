@@ -63,6 +63,14 @@ Another common adjustment is to exclude the [camelCase format requirement](http:
  </rule>
 ```
 
+Old Protected method names were at one time prefixed with an underscore. These Protected method names with underscores are depreceated in Joomla projects but for B\C reasons are still in the projects. As such excluding the MethodUnderscore sniff is a common ruleset adjustment
+
+```xml
+ <rule ref="Joomla">
+  <exclude name="Joomla.NamingConventions.ValidFunctionName.MethodUnderscore"/>
+ </rule>
+```
+
 The last most common adjustment is removing PHP 5.3 specific rules which prevent short array syntax.
 
 ```xml
