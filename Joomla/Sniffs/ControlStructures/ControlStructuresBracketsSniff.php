@@ -18,11 +18,11 @@
 class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements PHP_CodeSniffer_Sniff
 {
 	/**
-	 * The number of spaces code should be indented.
+	 * The number of spaces code should be indented i.e. 4 spaces = 1 tab.
 	 *
 	 * @var integer
 	 */
-	public $indent = 1;
+	public $indent = 4;
 
 
 	/**
