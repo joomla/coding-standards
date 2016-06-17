@@ -51,45 +51,57 @@
 	<rule ref="PEAR.Commenting.InlineComment" />
 	<rule ref="PEAR.ControlStructures.MultiLineCondition">
 		<properties>
-			<property name="indent" value="1"/>
+			<property name="indent" value="4"/>
 		</properties>
 		<exclude name="PEAR.ControlStructures.MultiLineCondition.CloseBracketNewLine"/>
 		<exclude name="PEAR.ControlStructures.MultiLineCondition.NewlineBeforeOpenBrace"/>
 		<exclude name="PEAR.ControlStructures.MultiLineCondition.SpaceBeforeOpenBrace"/>
 	</rule>
 	<rule ref="PEAR.ControlStructures.MultiLineCondition.Alignment">
+		<properties>
+			<property name="indent" value="4"/>
+		</properties>
 		<message>Multi-line IF statement not indented correctly; expected %s tabs but found %s</message>
 	</rule>
 	<rule ref="PEAR.Formatting.MultiLineAssignment" />
 	<rule ref="PEAR.Functions.FunctionCallSignature">
 		<properties>
-			<property name="indent" value="1"/>
+			<property name="indent" value="4"/>
 		</properties>
 		<exclude name="PEAR.Functions.FunctionDeclaration.BraceOnNewLine" />
 		<exclude name="PEAR.Functions.FunctionCallSignature.CloseBracketLine" />
 		<exclude name="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket" />
 	</rule>
 	<rule ref="PEAR.Functions.FunctionCallSignature.Indent">
+		<properties>
+			<property name="indent" value="4"/>
+		</properties>
 		<message>Multi-line function call not indented correctly; expected %s tabs but found %s</message>
 	</rule>
 	<rule ref="PEAR.Functions.FunctionDeclaration">
 		<properties>
-			<property name="indent" value="1"/>
+			<property name="indent" value="4"/>
 		</properties>
 		<exclude name="PEAR.Functions.FunctionDeclaration.CloseBracketLine" />
 		<exclude name="PEAR.Functions.FunctionDeclaration.NewlineBeforeOpenBrace" />
 	</rule>
 	<rule ref="PEAR.Functions.FunctionDeclaration.Indent">
+		<properties>
+			<property name="indent" value="4"/>
+		</properties>
 		<message>Multi-line function declaration not indented correctly; expected %s tabs but found %s</message>
 	</rule>
 	<rule ref="PEAR.Functions.ValidDefaultValue" />
 	<rule ref="PEAR.NamingConventions.ValidClassName" />
 	<rule ref="PEAR.WhiteSpace.ObjectOperatorIndent">
 		<properties>
-			<property name="indent" value="1"/>
+			<property name="indent" value="4"/>
 		</properties>
 	</rule>
 	<rule ref="PEAR.WhiteSpace.ObjectOperatorIndent.Incorrect">
+		<properties>
+			<property name="indent" value="4"/>
+		</properties>
 		<message>Object operator not indented correctly; expected %s tabs but found %s</message>
 	</rule>
 
