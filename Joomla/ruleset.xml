@@ -2,6 +2,9 @@
 <ruleset name="Joomla">
 	<description>The Joomla coding standard.</description>
 
+	<!-- hard-code command line values into the standard to fix tabs vs spaces issue  -->
+	<arg name="tab-width" value="4"/>
+
 	<!-- Include all sniffs in an external standard directory -->
 
 	<!-- Include some additional sniffs from the Generic standard -->
