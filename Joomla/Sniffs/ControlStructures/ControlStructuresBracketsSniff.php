@@ -172,7 +172,7 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 
 				if ($fix === true)
 				{
-					$expected = $expected/4;
+					$expected = $expected / 4;
 					$indent = str_repeat("\t", $expected);
 
 					if ($spaces === 0)
