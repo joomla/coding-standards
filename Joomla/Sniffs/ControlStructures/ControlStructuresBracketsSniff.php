@@ -159,7 +159,7 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 				$spaces     = strlen($blankSpace);
 			}
 
-			$expected = ($tokens[$stackPtr]['level'] * ($this->indent/4));
+			$expected = ($tokens[$stackPtr]['level'] * ($this->indent));
 
 			if ($spaces !== $expected)
 			{
@@ -172,6 +172,7 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 
 				if ($fix === true)
 				{
+					$expected = $expected/4;
 					$indent = str_repeat("\t", $expected);
 
 					if ($spaces === 0)
