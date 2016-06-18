@@ -31,9 +31,9 @@ class Joomla_Tests_Functions_StatementNotFunctionUnitTest extends AbstractSniffU
 				8  => 1,
 				9  => 1,
 				10 => 1,
-				12 => 1,
-				14 => 1,
-				16 => 1,
+				13 => 1,
+				15 => 1,
+				17 => 1,
 			   );
 	}
 
