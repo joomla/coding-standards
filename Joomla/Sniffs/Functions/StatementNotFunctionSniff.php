@@ -79,13 +79,52 @@ class Joomla_Sniffs_Functions_StatementNotFunctionSniff implements PHP_CodeSniff
 
 		if ($tokens[($stackPtr)]['code'] === T_ECHO && $tokens[$nextToken]['code'] === T_OPEN_PARENTHESIS)
 		{
-			$error = 'There must be one space between the "%s" statement and the opening parenthesis';
-			$data  = array($tokens[$stackPtr]['content']);
-			$fix   = $phpcsFile->addFixableError($error, $stackPtr, 'SpacingAfterEcho', $data);
+//			$error = 'There must be one space between the "%s" statement and the opening parenthesis';
+//			$data  = array($tokens[$stackPtr]['content']);
+//			$fix   = $phpcsFile->addFixableError($error, $stackPtr, 'SpacingAfterEcho', $data);
+//
+//			if ($fix === true)
+//			{
+//				$this->requiredSpacesBeforeOpen = 1;
+//				$padding = str_repeat(' ', $this->requiredSpacesBeforeOpen);
+//				$phpcsFile->fixer->addContent($stackPtr, $padding);
+//			}
 
-			if ($fix === true)
+			$this->requiredSpacesBeforeOpen = 1;
+			$this->requiredSpacesBeforeOpen   = (int) $this->requiredSpacesBeforeOpen;
+			$parenOpener    = $tokens[$stackPtr]['parenthesis_opener'];
+			$parenCloser    = $tokens[$stackPtr]['parenthesis_closer'];
+			$spaceBeforeOpen = 0;
+
+			if ($tokens[($parenOpener - 1)]['code'] === T_WHITESPACE)
 			{
-				$phpcsFile->fixer->addContent($stackPtr, ' ');
+				$spaceBeforeOpen = strlen($tokens[($parenOpener - 1)]['content']);
+			}
+
+			$phpcsFile->recordMetric($stackPtr, 'Spaces before statement open parenthesis', $spaceBeforeOpen);
+	
+			if ($spaceBeforeOpen !== $this->requiredSpacesBeforeOpen)
+			{
+				$error = 'Expected %s spaces before statement opening parenthesis; %s found';
+				$data  = array(
+						  $this->requiredSpacesBeforeOpen,
+						  $spaceBeforeOpen,
+						 );
+				$fix   = $phpcsFile->addFixableError($error, ($parenOpener - 1), 'SpacingBeforeEchoBrace', $data);
+	
+				if ($fix === true)
+				{
+					$padding = str_repeat(' ', $this->requiredSpacesBeforeOpen);
+	
+					if ($spaceBeforeOpen === 0)
+					{
+						$phpcsFile->fixer->addContent(($parenOpener - 1), $padding);
+					}
+					else
+					{
+						$phpcsFile->fixer->replaceToken(($parenOpener - 1), $padding);
+					}
+				}
 			}
 		}
 	}
