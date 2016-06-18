@@ -46,7 +46,7 @@ class Joomla_Sniffs_Functions_StatementNotFunctionSniff implements PHP_CodeSniff
 		$tokens    = $phpcsFile->getTokens();
 		$nextToken = $phpcsFile->findNext(PHP_CodeSniffer_Tokens::$emptyTokens, ($stackPtr + 1), null, true);
 
-		if ($tokens[$nextToken]['code'] === T_OPEN_PARENTHESIS && $tokens[($stackPtr)]['code'] !== T_ECHO )
+		if ($tokens[$nextToken]['code'] === T_OPEN_PARENTHESIS && $tokens[($stackPtr)]['code'] !== T_ECHO)
 		{
 			$error = '"%s" is a statement not a function; no parentheses are required';
 			$data  = array($tokens[$stackPtr]['content']);
@@ -79,7 +79,7 @@ class Joomla_Sniffs_Functions_StatementNotFunctionSniff implements PHP_CodeSniff
 
 		if ($tokens[($stackPtr)]['code'] === T_ECHO
 			&& $tokens[$nextToken]['code'] === T_OPEN_PARENTHESIS
-			&& $tokens[($stackPtr+1)]['code'] !== T_WHITESPACE)
+			&& $tokens[($stackPtr + 1)]['code'] !== T_WHITESPACE)
 		{
 			$error = 'There must be one space between the "%s" statement and the opening parenthesis';
 			$data  = array($tokens[$stackPtr]['content']);
