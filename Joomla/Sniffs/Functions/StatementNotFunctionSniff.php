@@ -85,14 +85,7 @@ class Joomla_Sniffs_Functions_StatementNotFunctionSniff implements PHP_CodeSniff
 
 			if ($fix === true)
 			{
-				$end      = $phpcsFile->findEndOfStatement($nextToken);
-				$ignore   = PHP_CodeSniffer_Tokens::$emptyTokens;
-				$ignore[] = T_SEMICOLON;
-				$closer   = $phpcsFile->findPrevious($ignore, ($end - 1), null, true);
-
-				$phpcsFile->fixer->beginChangeset();
 				$phpcsFile->fixer->addContent($stackPtr, ' ');
-				$phpcsFile->fixer->endChangeset();
 			}
 		}
 	}
