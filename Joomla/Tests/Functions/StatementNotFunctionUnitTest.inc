@@ -8,6 +8,7 @@ include($a);
 include_once($a);
 clone($b);
 echo($a);
+echo $a;
 
 require(realpath(__DIR__) . '/' . $a);
 
