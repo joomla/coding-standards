@@ -29,6 +29,7 @@ class Joomla_Sniffs_Functions_StatementNotFunctionSniff implements PHP_CodeSniff
 			T_REQUIRE,
 			T_INCLUDE,
 			T_CLONE,
+			T_ECHO,
 		);
 	}
 
@@ -45,7 +46,7 @@ class Joomla_Sniffs_Functions_StatementNotFunctionSniff implements PHP_CodeSniff
 		$tokens    = $phpcsFile->getTokens();
 		$nextToken = $phpcsFile->findNext(PHP_CodeSniffer_Tokens::$emptyTokens, ($stackPtr + 1), null, true);
 
-		if ($tokens[$nextToken]['code'] === T_OPEN_PARENTHESIS)
+		if ($tokens[$nextToken]['code'] === T_OPEN_PARENTHESIS && $tokens[($stackPtr)]['code'] !== T_ECHO )
 		{
 			$error = '"%s" is a statement not a function; no parentheses are required';
 			$data  = array($tokens[$stackPtr]['content']);
@@ -71,6 +72,25 @@ class Joomla_Sniffs_Functions_StatementNotFunctionSniff implements PHP_CodeSniff
 					$phpcsFile->fixer->replaceToken($closer, '');
 				}
 
+				$phpcsFile->fixer->addContent($stackPtr, ' ');
+				$phpcsFile->fixer->endChangeset();
+			}
+		}
+
+		if ($tokens[($stackPtr)]['code'] === T_ECHO && $tokens[$nextToken]['code'] === T_OPEN_PARENTHESIS)
+		{
+			$error = 'There must be one space between the "%s" statement and the opening parenthesis';
+			$data  = array($tokens[$stackPtr]['content']);
+			$fix   = $phpcsFile->addFixableError($error, $stackPtr, 'SpacingAfterEcho', $data);
+
+			if ($fix === true)
+			{
+				$end      = $phpcsFile->findEndOfStatement($nextToken);
+				$ignore   = PHP_CodeSniffer_Tokens::$emptyTokens;
+				$ignore[] = T_SEMICOLON;
+				$closer   = $phpcsFile->findPrevious($ignore, ($end - 1), null, true);
+
+				$phpcsFile->fixer->beginChangeset();
 				$phpcsFile->fixer->addContent($stackPtr, ' ');
 				$phpcsFile->fixer->endChangeset();
 			}
