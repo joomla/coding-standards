@@ -163,6 +163,7 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 
 			if ($spaces !== $expected)
 			{
+				$expected = $expected / 4;
 				$error = 'Expected %s tabs before opening brace; %s found';
 				$data  = array(
 						  $expected,
@@ -172,7 +173,6 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 
 				if ($fix === true)
 				{
-					$expected = $expected / 4;
 					$indent = str_repeat("\t", $expected);
 
 					if ($spaces === 0)
