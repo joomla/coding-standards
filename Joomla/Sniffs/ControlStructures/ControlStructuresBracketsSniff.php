@@ -159,7 +159,7 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 				$spaces     = strlen($blankSpace);
 			}
 
-			$expected = ($tokens[$stackPtr]['level'] * $this->indent);
+			$expected = ($tokens[$stackPtr]['level'] * ($this->indent/4));
 
 			if ($spaces !== $expected)
 			{
