@@ -90,6 +90,12 @@ class Joomla_Sniffs_Functions_StatementNotFunctionSniff implements PHP_CodeSniff
 //				$phpcsFile->fixer->addContent($stackPtr, $padding);
 //			}
 
+			if (isset($tokens[$stackPtr]['parenthesis_opener']) === false
+				|| isset($tokens[$stackPtr]['parenthesis_closer']) === false)
+			{
+				return;
+			}
+
 			$this->requiredSpacesBeforeOpen = 1;
 			$this->requiredSpacesBeforeOpen   = (int) $this->requiredSpacesBeforeOpen;
 			$parenOpener    = $tokens[$stackPtr]['parenthesis_opener'];
