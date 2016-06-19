@@ -163,8 +163,9 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 
 			if ($spaces !== $expected)
 			{
-				// correct spaces for tab fix
+				// Correct spaces for tab fix
 				$expected /= 4;
+
 				if ($spaces !== 0)
 				{
 					$spaces   /= 4;
