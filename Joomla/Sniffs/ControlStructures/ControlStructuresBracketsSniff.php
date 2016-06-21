@@ -165,11 +165,7 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 			{
 				// Correct spaces for tab fix
 				$expected /= 4;
-
-				if ($spaces !== 0)
-				{
-					$spaces   /= 4;
-				}
+				$spaces   /= 4;
 
 				$error = 'Expected %s tabs before opening brace; %s found';
 				$data  = array(
