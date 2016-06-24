@@ -104,7 +104,12 @@
 		</properties>
 		<message>Object operator not indented correctly; expected %s tabs but found %s</message>
 	</rule>
-
+	<rule ref="PEAR.WhiteSpace.ScopeIndent">
+		<properties>
+			<property name="indent" value="4"/>
+			<property name="tabIndent" value="true"/>
+		</properties>
+	</rule>
 	<!-- Include some additional sniffs from the PSR2 standard -->
 	<rule ref="PSR2.ControlStructures.ElseIfDeclaration"/>
 	<rule ref="PSR2.ControlStructures.ElseIfDeclaration.NotAllowed">
