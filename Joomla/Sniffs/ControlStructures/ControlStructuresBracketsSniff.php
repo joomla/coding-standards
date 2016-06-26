@@ -18,11 +18,11 @@
 class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements PHP_CodeSniffer_Sniff
 {
 	/**
-	 * The number of spaces code should be indented i.e. 4 spaces = 1 tab.
+	 * The number of spaces code should be indented.
 	 *
 	 * @var integer
 	 */
-	public $indent = 4;
+	public $indent = 1;
 
 
 	/**
@@ -163,10 +163,6 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 
 			if ($spaces !== $expected)
 			{
-				// Correct spaces for tab fix
-				$expected /= 4;
-				$spaces   /= 4;
-
 				$error = 'Expected %s tabs before opening brace; %s found';
 				$data  = array(
 						  $expected,
