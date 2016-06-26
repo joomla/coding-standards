@@ -25,7 +25,7 @@ before_script:
 
 script:
   - ./vendor/bin/phpunit --filter Joomla vendor/squizlabs/php_codesniffer/tests/AllTests.php
-  - if [[ $RUN_PHPCS == "yes" ]]; then ./vendor/bin/phpcs -sp --ignore=*/vendor/* --standard=Joomla */ .; fi
+  - if [[ $RUN_PHPCS == "yes" ]]; then ./vendor/bin/phpcs -sp --extensions=php --ignore=*/vendor/* --standard=Joomla */ .; fi
 
 notifications:
   email: false
