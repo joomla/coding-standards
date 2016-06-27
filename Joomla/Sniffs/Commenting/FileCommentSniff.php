@@ -31,57 +31,57 @@ class Joomla_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Sniff
 										'required'       => false,
 										'allow_multiple' => false,
 										'order_text'     => 'must be first',
-									   ),
-					   '@category'   => array(
+										),
+						'@category'   => array(
 										'required'       => false,
 										'allow_multiple' => false,
 										'order_text'     => 'precedes @package',
-									   ),
-					   '@package'    => array(
+										),
+						'@package'    => array(
 										'required'       => false,
 										'allow_multiple' => false,
 										'order_text'     => 'must follows @category (if used)',
-									   ),
-					   '@subpackage' => array(
+										),
+						'@subpackage' => array(
 										'required'       => false,
 										'allow_multiple' => false,
 										'order_text'     => 'must follow @package',
-									   ),
-					   '@author'     => array(
+										),
+						'@author'     => array(
 										'required'       => false,
 										'allow_multiple' => true,
 										'order_text'     => 'must follow @subpackage (if used) or @package',
-									   ),
-					   '@copyright'  => array(
+										),
+						'@copyright'  => array(
 										'required'       => true,
 										'allow_multiple' => true,
 										'order_text'     => 'must follow @author (if used), @subpackage (if used) or @package',
-									   ),
-					   '@license'    => array(
+										),
+						'@license'    => array(
 										'required'       => true,
 										'allow_multiple' => false,
 										'order_text'     => 'must follow @copyright',
-									   ),
-					   '@link'       => array(
+										),
+						'@link'       => array(
 										'required'       => false,
 										'allow_multiple' => true,
 										'order_text'     => 'must follow @license',
-									   ),
-					   '@see'        => array(
+										),
+						'@see'        => array(
 										'required'       => false,
 										'allow_multiple' => true,
 										'order_text'     => 'must follow @link (if used) or @license',
-									   ),
-					   '@since'      => array(
+										),
+						'@since'      => array(
 										'required'       => false,
 										'allow_multiple' => false,
 										'order_text'     => 'must follows @see (if used), @link (if used) or @license',
-									   ),
-					   '@deprecated' => array(
+										),
+						'@deprecated' => array(
 										'required'       => false,
 										'allow_multiple' => false,
 										'order_text'     => 'must follow @since (if used), @see (if used), @link (if used) or @license',
-									   ),
+										),
 					);
 
 	/**
@@ -90,9 +90,9 @@ class Joomla_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Sniff
 	 * @var array
 	 */
 	public $supportedTokenizers = array(
-								   'PHP',
-								   'JS',
-								  );
+									'PHP',
+									'JS',
+									);
 
 	/**
 	 * The header comment parser for the current file.
