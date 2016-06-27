@@ -156,7 +156,8 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 			else
 			{
 				$blankSpace = substr($prevContent, strpos($prevContent, $phpcsFile->eolChar));
-				$spaces     = strlen($blankSpace);
+				// We have to convert the space value to a tab value here, due to the tab-width conversion done by phpcs
+				$spaces     = strlen($blankSpace)/4;
 			}
 
 			$expected = ($tokens[$stackPtr]['level'] * ($this->indent));
