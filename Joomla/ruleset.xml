@@ -5,7 +5,7 @@
 	<!-- hard-code command line values into the standard to fix tabs vs spaces issue, etc -->
 	<arg name="tab-width" value="4"/>
 	<arg name="encoding" value="utf-8"/>
-	<arg value="sp"/>
+	<arg value="p"/>
 
 	<!-- Include all sniffs in an external standard directory -->
 
