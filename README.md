@@ -60,6 +60,7 @@ Another common adjustment is to exclude the [camelCase format requirement](http:
  <rule ref="Joomla">
   <exclude name="Joomla.NamingConventions.ValidVariableName.NotCamelCaps"/>
   <exclude name="Joomla.NamingConventions.ValidVariableName.MemberNotCamelCaps"/>
+  <exclude name="Joomla.NamingConventions.ValidFunctionName.FunctionNoCapital"/>
  </rule>
 ```
 
@@ -68,6 +69,7 @@ Old Protected method names were at one time prefixed with an underscore. These P
 ```xml
  <rule ref="Joomla">
   <exclude name="Joomla.NamingConventions.ValidFunctionName.MethodUnderscore"/>
+  <exclude name="Joomla.NamingConventions.ValidVariableName.ClassVarHasUnderscore"/>
  </rule>
 ```
 
