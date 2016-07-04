@@ -14,6 +14,14 @@
  */
 class Joomla_Sniffs_Classes_InstantiateNewClassesSniff implements PHP_CodeSniffer_Sniff
 {
+    /**
+     * If true, short Array Syntax for php 5.4+ will be allow for Instantiating New Classes if they are found in the code.
+     * this should be removed when all Joomla projects no longer need to support php 5.3
+     *
+     * @var boolean
+     */
+	public shortArraySyntax = false;
+
 	/**
 	 * Registers the token types that this sniff wishes to listen to.
 	 *
@@ -89,6 +97,17 @@ class Joomla_Sniffs_Classes_InstantiateNewClassesSniff implements PHP_CodeSniffe
 						break;
 
 					case T_WHITESPACE :
+						break;
+
+					case T_OPEN_SHORT_ARRAY :
+						if (shortArraySyntax === true)
+						{
+							if ($started === true)
+							{
+								$valid   = true;
+								$running = false;
+							}
+						}
 						break;
 				}
 
