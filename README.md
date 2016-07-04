@@ -58,6 +58,7 @@ Another common adjustment is to exclude the [camelCase format requirement](http:
 
 ```xml
  <rule ref="Joomla">
+  <exclude name="Joomla.NamingConventions.ValidFunctionName.ScopeNotCamelCaps"/>
   <exclude name="Joomla.NamingConventions.ValidVariableName.NotCamelCaps"/>
   <exclude name="Joomla.NamingConventions.ValidVariableName.MemberNotCamelCaps"/>
   <exclude name="Joomla.NamingConventions.ValidFunctionName.FunctionNoCapital"/>
