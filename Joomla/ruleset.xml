@@ -61,7 +61,6 @@
 		<properties>
 			<property name="indent" value="4"/>
 		</properties>
-		<exclude name="PEAR.ControlStructures.MultiLineCondition.CloseBracketNewLine"/>
 		<exclude name="PEAR.ControlStructures.MultiLineCondition.NewlineBeforeOpenBrace"/>
 		<exclude name="PEAR.ControlStructures.MultiLineCondition.SpaceBeforeOpenBrace"/>
 	</rule>
