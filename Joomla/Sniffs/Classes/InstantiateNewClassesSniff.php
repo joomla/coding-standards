@@ -20,7 +20,7 @@ class Joomla_Sniffs_Classes_InstantiateNewClassesSniff implements PHP_CodeSniffe
      *
      * @var boolean
      */
-	public shortArraySyntax = false;
+	public $shortArraySyntax = false;
 
 	/**
 	 * Registers the token types that this sniff wishes to listen to.
@@ -100,7 +100,7 @@ class Joomla_Sniffs_Classes_InstantiateNewClassesSniff implements PHP_CodeSniffe
 						break;
 
 					case T_OPEN_SHORT_ARRAY :
-						if (shortArraySyntax === true)
+						if ($shortArraySyntax === true)
 						{
 							if ($started === true)
 							{
