@@ -476,7 +476,7 @@ To query our data source we can call a number of JDatabaseQuery methods; these m
 Use Query chaining to connect a number of query methods, one after the other, with each method returning an object that can support the next method, This improves readability and simplifies the resulting code. Since the Joomla Framework was introduced "query chaining" is now the recommended method for building database queries.
 
 Table names and table column names should always be enclosed in the `quoteName()` method to escape the table name and table columns.
-Field values checked in a query should always be enclosed in the `quote()` method to escape the value before passing it to the database.
+Field values checked in a query should always be enclosed in the `quote()` method to escape the value before passing it to the database. Integer field values checked in a query should also be type cast to `(int)`.
 
 ```php
 // Get the database connector.
@@ -504,4 +504,16 @@ $query->select($db->quoteName(array('user_id', 'profile_key', 'profile_value', '
     ->from($db->quoteName('#__user_profiles'))
     ->where($db->quoteName('profile_key') . ' LIKE '. $db->quote('\'custom.%\''))
     ->order('ordering ASC');
+```
+
+#### Chaining With Select Array And Type Casting Of Integer Field Value Example
+```php
+$query  = $db->getQuery(true)
+            ->select(array(
+                    $db->qn('profile_key'),
+                    $db->qn('profile_value'),
+                    ))
+            ->from($db->qn('#__user_profiles'))
+            ->where($db->qn('user_id') . ' = ' . $db->q((int) $userId))
+            ->order($db->qn('ordering'));
 ```
