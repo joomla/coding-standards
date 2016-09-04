@@ -10,7 +10,7 @@ If you want to contribute and improve this documentation find the source files a
 ## Requirements
 
 * PHP 5.3+
-* [PHP Codesniffer](https://github.com/squizlabs/PHP_CodeSniffer) 2.6+
+* [PHP Codesniffer](https://github.com/squizlabs/PHP_CodeSniffer) 2.7+
 
 ## Installation
 
@@ -18,7 +18,7 @@ Installation is as easy as checking out the repository to the correct location w
 
 ### Install PHP_CodeSniffer.
 
-	pear install PHP_CodeSniffer-2.6.*
+	pear install PHP_CodeSniffer-2.7.*
 
 ### Install the Joomla standard.
 
