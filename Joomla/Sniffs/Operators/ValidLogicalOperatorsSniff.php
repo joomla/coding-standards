@@ -67,7 +67,7 @@ class Joomla_Sniffs_Operators_ValidLogicalOperatorsSniff implements PHP_CodeSnif
 			|| $tokens[$nextToken]['content'] === 'define'
 			|| $tokens[($nextToken + 2)]['content'] === 'sendResponse'
 			|| $tokens[($nextToken + 2)]['content'] === 'sendJsonResponse'
-			)
+		)
 		{
 			// Exceptions for things like `or jexit()`, `or JSession`, `or define`, `or sendResponse`, `or sendJsonResponse`
 			return;

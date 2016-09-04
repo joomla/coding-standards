@@ -112,7 +112,7 @@ class Joomla_Sniffs_Commenting_ClassCommentSniff extends Joomla_Sniffs_Commentin
 
 		if ($tokens[$commentEnd]['code'] !== T_DOC_COMMENT_CLOSE_TAG
 			&& $tokens[$commentEnd]['code'] !== T_COMMENT
-			)
+		)
 		{
 			$phpcsFile->addError('Missing class doc comment', $stackPtr, 'Missing');
 			$phpcsFile->recordMetric($stackPtr, 'Class has doc comment', 'no');
