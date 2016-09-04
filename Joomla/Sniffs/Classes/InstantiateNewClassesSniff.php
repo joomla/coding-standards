@@ -125,6 +125,7 @@ class Joomla_Sniffs_Classes_InstantiateNewClassesSniff implements PHP_CodeSniffe
 			{
 				$classNameEnd = $phpcsFile->findNext(
 					array(
+						T_VARIABLE,
 						T_WHITESPACE,
 						T_NS_SEPARATOR,
 						T_STRING,

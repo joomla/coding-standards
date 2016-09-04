@@ -38,3 +38,33 @@ $v = (new MyClass(  ))->getValue();
 
 $a = new MyClass  ( );
 $v = (new MyClass  ( ))->getValue();
+
+$a = new MyClass(	);
+$v = (new MyClass(	))->getValue();
+
+$a = new MyClass	();
+$v = (new MyClass	())->getValue();
+
+$a = new $MyClass2();
+$v = (new $MyClass2())->getValue();
+
+$a = new $MyClass2( );
+$v = (new $MyClass2( ))->getValue();
+
+$a = new $MyClass2 ();
+$v = (new $MyClass2 ())->getValue();
+
+$a = new $MyClass2 ( );
+$v = (new $MyClass2 ( ))->getValue();
+
+$a = new $MyClass2(  );
+$v = (new $MyClass2(  ))->getValue();
+
+$a = new $MyClass2  ( );
+$v = (new $MyClass2  ( ))->getValue();
+
+$a = new $MyClass2(	);
+$v = (new $MyClass2(	))->getValue();
+
+$a = new $MyClass2	();
+$v = (new $MyClass2	())->getValue();
