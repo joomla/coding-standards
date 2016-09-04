@@ -3,7 +3,9 @@ $a = true;
 
 // Warning
 if ($a)
+{
 	echo true;
+}
 
 // Fixable errors
 if ($a)
@@ -18,7 +20,7 @@ if ($a)
 
 if ($a)
 {
-echo true;
+	echo true;
 }
 
 function muh()
