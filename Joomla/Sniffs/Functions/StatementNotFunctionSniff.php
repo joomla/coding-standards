@@ -79,7 +79,8 @@ class Joomla_Sniffs_Functions_StatementNotFunctionSniff implements PHP_CodeSniff
 
 		if ($tokens[($stackPtr)]['code'] === T_ECHO
 			&& $tokens[$nextToken]['code'] === T_OPEN_PARENTHESIS
-			&& $tokens[($stackPtr + 1)]['code'] !== T_WHITESPACE)
+			&& $tokens[($stackPtr + 1)]['code'] !== T_WHITESPACE
+			)
 		{
 			$error = 'There must be one space between the "%s" statement and the opening parenthesis';
 			$data  = array($tokens[$stackPtr]['content']);

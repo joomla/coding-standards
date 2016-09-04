@@ -66,10 +66,11 @@ class Joomla_Sniffs_Operators_ValidLogicalOperatorsSniff implements PHP_CodeSnif
 			|| $tokens[$nextToken]['content'] === 'JSession'
 			|| $tokens[$nextToken]['content'] === 'define'
 			|| $tokens[($nextToken + 2)]['content'] === 'sendResponse'
-			|| $tokens[($nextToken + 2)]['content'] === 'sendJsonResponse')
+			|| $tokens[($nextToken + 2)]['content'] === 'sendJsonResponse'
+			)
 		{
-		    // Exceptions for things like `or jexit()`, `or JSession`, `or define`, `or sendResponse`, `or sendJsonResponse`
-		    return;
+			// Exceptions for things like `or jexit()`, `or JSession`, `or define`, `or sendResponse`, `or sendJsonResponse`
+			return;
 		}
 
 		$error = 'Logical operator "%s" not allowed; use "%s" instead';
