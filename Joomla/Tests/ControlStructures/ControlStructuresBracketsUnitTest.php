@@ -43,6 +43,6 @@ class Joomla_Tests_ControlStructures_ControlStructuresBracketsUnitTest extends A
 	 */
 	public function getWarningList()
 	{
-		return array(5 => 1);
+		return array(5 => 1,);
 	}
 }
