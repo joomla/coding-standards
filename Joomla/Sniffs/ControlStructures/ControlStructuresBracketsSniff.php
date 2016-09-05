@@ -165,6 +165,7 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 			if ($spaces !== $expected)
 			{
 				$error = 'Expected %s tabs before opening brace; %s found';
+
 				// We have to convert the space values to tab values here, due to the tab-width conversion done by phpcs
 				$expected /= 4;
 				$spaces /= 4;
@@ -207,14 +208,13 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 				// Skip all empty tokens on the same line as the opener.
 				if ($tokens[$next]['line'] === $tokens[$opener]['line']
 					&& (isset(PHP_CodeSniffer_Tokens::$emptyTokens[$code]) === true
-						|| $code === T_CLOSE_TAG)
+					|| $code === T_CLOSE_TAG)
 				)
 				{
 					continue;
 				}
 
-				// We found the first bit of a code, or a comment on the
-				// following line.
+				// We found the first bit of a code, or a comment on the following line.
 				break;
 			}
 
