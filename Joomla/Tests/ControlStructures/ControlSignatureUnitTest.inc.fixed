@@ -31,21 +31,6 @@ $b = 2;
 
 	// @todo add keywords...
 
-
-	// NewlineAfterOpenBrace
-	if ($a)
-	{
-		echo true;
-	}
-
-	while ($a < $b)
-	{
-		echo 'muh';
-	}
-
-	// @todo add keywords...
-
-
 	// SpaceBeforeSemicolon
 	do
 	{

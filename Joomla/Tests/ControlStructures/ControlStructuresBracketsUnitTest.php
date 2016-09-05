@@ -27,9 +27,11 @@ class Joomla_Tests_ControlStructures_ControlStructuresBracketsUnitTest extends A
 		return array(
 				9  => 1,
 				15 => 1,
-				20 => 1,
+				20 => 2,
 				26 => 1,
 				31 => 1,
+				38 => 1,
+				44 => 1,
 			   );
 	}
 

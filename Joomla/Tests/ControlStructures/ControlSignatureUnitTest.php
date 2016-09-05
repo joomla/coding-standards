@@ -28,11 +28,9 @@ class Joomla_Tests_ControlStructures_ControlSignatureUnitTest extends AbstractSn
 				13 => 1,
 				22 => 1,
 				27 => 1,
-				37 => 1,
-				43 => 1,
+				39 => 1,
+				46 => 1,
 				57 => 1,
-				64 => 1,
-				75 => 1,
 			   );
 	}
 

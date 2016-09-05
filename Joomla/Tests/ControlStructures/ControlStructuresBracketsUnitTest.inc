@@ -32,3 +32,19 @@ function muh()
 		echo true;
 	}
 }
+
+// NewlineAfterOpenBrace
+if ($a)
+{
+
+	echo true;
+}
+
+while ($a < $b)
+{
+
+
+	echo 'muh';
+}
+
+// @todo add NewlineAfterOpenBrace with keywords...

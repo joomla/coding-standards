@@ -122,62 +122,7 @@ class Joomla_Sniffs_ControlStructures_ControlSignatureSniff implements PHP_CodeS
 			}
 		}
 
-		// Single newline after opening brace.
-		if (isset($tokens[$stackPtr]['scope_opener']) === true)
-		{
-			$opener = $tokens[$stackPtr]['scope_opener'];
-
-			for ($next = ($opener + 1); $next < $phpcsFile->numTokens; $next++)
-			{
-				$code = $tokens[$next]['code'];
-
-				if ($code === T_WHITESPACE)
-				{
-					continue;
-				}
-
-				// Skip all empty tokens on the same line as the opener.
-				if ($tokens[$next]['line'] === $tokens[$opener]['line']
-					&& (isset(PHP_CodeSniffer_Tokens::$emptyTokens[$code]) === true
-					|| $code === T_CLOSE_TAG)
-				)
-				{
-					continue;
-				}
-
-				// We found the first bit of a code, or a comment on the
-				// following line.
-				break;
-			}
-
-			$found = ($tokens[$next]['line'] - $tokens[$opener]['line']);
-
-			if ($found !== 1)
-			{
-				$error = 'Expected 1 newline after opening brace; %s found';
-				$data  = array($found);
-				$fix   = $phpcsFile->addFixableError($error, $opener, 'NewlineAfterOpenBrace', $data);
-
-				if ($fix === true)
-				{
-					$phpcsFile->fixer->beginChangeset();
-
-					for ($i = ($opener + 1); $i < $next; $i++)
-					{
-						if ($found > 0 && $tokens[$i]['line'] === $tokens[$next]['line'])
-						{
-							break;
-						}
-
-						$phpcsFile->fixer->replaceToken($i, '');
-					}
-
-					$phpcsFile->fixer->addContent($opener, $phpcsFile->eolChar);
-					$phpcsFile->fixer->endChangeset();
-				}
-			}
-		}
-		elseif ($tokens[$stackPtr]['code'] === T_WHILE)
+		if ($tokens[$stackPtr]['code'] === T_WHILE && !isset($tokens[$stackPtr]['scope_opener']) === true)
 		{
 			// Zero spaces after parenthesis closer.
 			$closer = $tokens[$stackPtr]['parenthesis_closer'];
