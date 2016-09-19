@@ -38,7 +38,7 @@ class Joomla_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Sniff
 										'order_text'     => 'precedes @package',
 										),
 						'@package'    => array(
-										'required'       => false,
+										'required'       => true,
 										'allow_multiple' => false,
 										'order_text'     => 'must follows @category (if used)',
 										),
@@ -266,6 +266,17 @@ class Joomla_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Sniff
 			{
 				if ($tagData['required'] === true)
 				{
+					if ($tag == '@package')
+					{
+						$namespaced = $phpcsFile->findNext(T_NAMESPACE, 0);
+
+						if ($namespaced !== 0)
+						{
+							// We don't use package tags in namespaced code
+							continue;
+						}
+					}
+
 					$error = 'Missing %s tag in %s comment';
 					$data  = array(
 							  $tag,
