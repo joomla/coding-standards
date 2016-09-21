@@ -53,7 +53,12 @@ Subsections should be normally cased and within an open comment block.
 // These are stripped on compile.
 ```
 
-## Class naming
+## CSS selectors
+Only use classes for CSS selectors, *never IDs* as they introduce unwanted specificity to the cascade. Using an ID as a css selector is like firing the first nuke; you begin a specifity war that can only escalate, with terrible consequence.
+
+To put it another way; Don't use a Sith Lord when just two Storm Troopers will suffice: [CSS Specificity Wars](http://www.stuffandnonsense.co.uk/archives/css_specificity_wars.html)
+
+### Class naming convention
 Use dashes to create compound class names:
 
 ```css
