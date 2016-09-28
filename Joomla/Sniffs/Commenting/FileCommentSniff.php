@@ -266,13 +266,15 @@ class Joomla_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Sniff
 			{
 				if ($tagData['required'] === true)
 				{
+					// We don't use package tags in namespaced code
 					if ($tag == '@package')
 					{
-						$namespaced = $phpcsFile->findNext(T_NAMESPACE, 0);
+						// Check for a namespace token, if certain other tokens are found we can move on. This keeps us from searching the whole file.
+						$namespaced = $phpcsFile->findNext(array(T_NAMESPACE, T_CLASS, T_INTERFACE, T_TRAIT), 0);
 
-						if ($namespaced !== 0)
+						// If we found a namespace token we skip the error, otherwise we let the error happen
+						if ($namespaced === T_NAMESPACE)
 						{
-							// We don't use package tags in namespaced code
 							continue;
 						}
 					}
