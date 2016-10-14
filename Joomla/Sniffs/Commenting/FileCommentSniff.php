@@ -273,7 +273,7 @@ class Joomla_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Sniff
 						$namespaced = $phpcsFile->findNext(array(T_NAMESPACE, T_CLASS, T_INTERFACE, T_TRAIT), 0);
 
 						// If we found a namespace token we skip the error, otherwise we let the error happen
-						if ($namespaced === T_NAMESPACE)
+						if ($tokens[$namespaced]['code'] === T_NAMESPACE)
 						{
 							continue;
 						}
