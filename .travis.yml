@@ -1,0 +1,35 @@
+sudo: false
+
+language: php
+
+env:
+  global:
+    - RUN_PHPCS="no"
+    - RUN_PHPUNIT="yes"
+
+matrix:
+  include:
+    - php: 5.6
+      env: RUN_PHPCS="yes" RUN_PHPUNIT="no"
+    - php: 5.3
+    - php: 5.4
+    - php: 5.5
+    - php: 5.6
+    - php: 7.0
+    - php: 7.1
+    - php: hhvm
+  allow_failures:
+    - php: 7.1
+    - php: hhvm
+
+before_script:
+  - composer self-update
+  - composer install --prefer-source --no-progress --no-interaction
+  - ./vendor/bin/phpcs --config-set installed_paths $(pwd)
+
+script:
+  - if [[ $RUN_PHPUNIT == "yes" ]]; then ./vendor/bin/phpunit --filter Joomla vendor/squizlabs/php_codesniffer/tests/AllTests.php; fi
+  - if [[ $RUN_PHPCS == "yes" ]]; then ./vendor/bin/phpcs -sp --extensions=php --ignore=*/vendor/* --standard=Joomla */ .; fi
+
+notifications:
+  email: false
