@@ -36,7 +36,7 @@ Alternatively if it isn't installed you can still reference it by path like:
 
 ### Selectively Applying Rules
 
-For consuming packages there are some items that will typically result in creating their own project ruleset.xml, rather than just directly using the Joomla ruleset.xml. A project ruleset.xml allows the coding standard to be selectively applied for excluding 3rd party libraries, for consideration of backwards compatibility in existing projects, or for adjustments necessary for projects that do not need php 5.3 compatibility (which will be removed in a future version of the Joomla Coding Standard in connection of the end of php 5.3 support in all active Joomla Projects).
+For consuming packages there are some items that will typically result in creating their own project ruleset.xml, rather than just directly using the Joomla ruleset.xml. A project ruleset.xml allows the coding standard to be selectively applied for excluding 3rd party libraries, for consideration of backwards compatibility in existing projects, or for adjustments necessary for projects that do not need PHP 5.3 compatibility (which will be removed in a future version of the Joomla Coding Standard in connection of the end of PHP 5.3 support in all active Joomla Projects).
 
 For information on [selectivly applying rules read details in the PHP CodeSniffer wiki](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Annotated-ruleset.xml#selectively-applying-rules)
 
