@@ -22,7 +22,7 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 	 *
 	 * @var integer
 	 */
-	public $indent = 4;
+	public $indent = 1;
 
 
 	/**
@@ -165,10 +165,6 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 			if ($spaces !== $expected)
 			{
 				$error = 'Expected %s tabs before opening brace; %s found';
-
-				// We have to convert the space values to tab values here, due to the tab-width conversion done by phpcs
-				$expected /= 4;
-				$spaces /= 4;
 				$data  = array(
 						  $expected,
 						  $spaces,
