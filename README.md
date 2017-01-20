@@ -65,7 +65,7 @@ Another common adjustment is to exclude the [camelCase format requirement](http:
  </rule>
 ```
 
-Old Protected method names were at one time prefixed with an underscore. These Protected method names with underscores are depreciated in Joomla projects but for B\C reasons are still in the projects. As such, excluding the MethodUnderscore sniff is a common ruleset adjustment
+Old Protected method names were at one time prefixed with an underscore. These Protected method names with underscores are deprecated in Joomla projects but for B\C reasons are still in the projects. As such, excluding the MethodUnderscore sniff is a common ruleset adjustment
 
 ```xml
  <rule ref="Joomla">
