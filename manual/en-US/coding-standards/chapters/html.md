@@ -123,6 +123,7 @@ HTML attributes should be listed in an order that reflects the fact that class n
 2. id
 3. data-*
 4. Everything else
+
 ```html
 <!-- Good -->
 <a class="[some-value]" id="[some-value]" data-name="[some-value]" href="[some-value]">Text</a>
