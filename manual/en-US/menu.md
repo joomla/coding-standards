@@ -9,6 +9,7 @@
 - **Clientside Syntax Styleguides**
     - [HTML](coding-standards/chapters/html.md)
     - [CSS](coding-standards/chapters/css.md)
+    - [SCSS](coding-standards/chapters/scss.md)
     - [JavaScript](coding-standards/chapters/javascript.md)
 - **Appendices**
     - [Code Analysis Tools](appendices/analysis.md)
