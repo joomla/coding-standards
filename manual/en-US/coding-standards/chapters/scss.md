@@ -37,11 +37,11 @@ Use dashes to create compound class names:
 // Good - use dashes
 .compound-class-name {…}
 
+// Good - uses camelCase
+.compoundClassName {…}
+
 // Bad - uses underscores
 .compound_class_name {…}
-
-// Bad - uses camelCase
-.compoundClassName {…}
 
 // Bad - does not use seperators
 .compoundclassname {…}
@@ -150,7 +150,7 @@ Related property declarations should be grouped together following the order:
   color: #333;
   text-align: center;
 
-  /* Visual
+  // Visual
   background-color: #f5f5f5;
   border: 1px solid #e5e5e5;
   border-radius: 3px;
@@ -158,6 +158,7 @@ Related property declarations should be grouped together following the order:
   // Misc
   opacity: 1;
 }
+```
 
 Within each group, you'll also need to order the properties. If any mistakes are made, the compiler will notify you and provide the correct order
 
