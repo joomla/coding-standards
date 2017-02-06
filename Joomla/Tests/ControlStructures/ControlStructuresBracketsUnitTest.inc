@@ -1,4 +1,5 @@
 <?php
+
 $a = true;
 
 // Warning
@@ -46,5 +47,3 @@ while ($a < $b)
 
 	echo 'muh';
 }
-
-// @todo add NewlineAfterOpenBrace with keywords...
