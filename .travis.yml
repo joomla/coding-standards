@@ -30,7 +30,7 @@ before_script:
 script:
   - if [[ $RUN_PHPUNIT == "yes" ]]; then ./vendor/bin/phpunit --filter Joomla vendor/squizlabs/php_codesniffer/tests/AllTests.php; fi
   - if [[ $RUN_PHPCS == "yes" ]]; then ./vendor/bin/phpcs -sp --extensions=php --ignore=*/vendor/* --standard=Joomla */ .; fi
-  - if [[ $RUN_PHPCS == "yes" ]]; then ./vendor/bin/phpcs -sp -vvv --extensions=php --ignore=*/vendor/* --standard=Joomla /Joomla/Tests/Classes/InstantiateNewClassesUnitTest.inc .; fi
+  - if [[ $RUN_PHPCS == "yes" ]]; then ./vendor/bin/phpcs -sp -vvv --extensions=php --ignore=*/vendor/* --standard=Joomla /Tests/Classes/InstantiateNewClassesUnitTest.inc .; fi
 
 notifications:
   email: false
