@@ -29,8 +29,8 @@ before_script:
 
 script:
   - if [[ $RUN_PHPUNIT == "yes" ]]; then ./vendor/bin/phpunit --filter Joomla vendor/squizlabs/php_codesniffer/tests/AllTests.php; fi
-  - if [[ $RUN_PHPCS == "yes" ]]; then ./vendor/bin/phpcs -sp --extensions=php --ignore=*/vendor/* --standard=Joomla --sniffs=Joomla.Classes.InstantiateNewClasses ./Joomla//Tests/Classes/InstantiateNewClassesUnitTest.inc .; fi
-  - if [[ $RUN_PHPCS == "yes" ]]; then ./vendor/bin/phpcs -sp -v --extensions=php --ignore=*/vendor/* --standard=Joomla --sniffs=Joomla.Classes.InstantiateNewClasses ./Joomla//Tests/Classes/InstantiateNewClassesUnitTest.inc .; fi
+  - if [[ $RUN_PHPCS == "yes" ]]; then ./vendor/bin/phpcs -sp --extensions=php --ignore=*/vendor/* --standard=Joomla --sniffs=Joomla.ControlStructures.ControlStructuresBrackets ./Joomla/Tests/ControlStructures/ControlStructuresBracketsUnitTest.inc .; fi
+  - if [[ $RUN_PHPCS == "yes" ]]; then ./vendor/bin/phpcs -sp -v --extensions=php --ignore=*/vendor/* --standard=Joomla --sniffs=Joomla.ControlStructures.ControlStructuresBrackets ./Joomla/Tests/ControlStructures/ControlStructuresBracketsUnitTest.inc .; fi
 
 notifications:
   email: false
