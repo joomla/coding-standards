@@ -19,7 +19,7 @@ if ($a)
 
 if ($a)
 {
-echo true;
+	echo true;
 }
 
 function muh()
