@@ -26,12 +26,12 @@ function muh()
 	if ($a)
 		{
 		echo true;
-	}
+		}
 
 	if ($a)
 {
 		echo true;
-	}
+}
 }
 
 // NewlineAfterOpenBrace
