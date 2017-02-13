@@ -183,7 +183,7 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 			}
 		}
 
-		// Single newline after opening brace.
+		/*// Single newline after opening brace.
 		if (isset($tokens[$stackPtr]['scope_opener']) === true)
 		{
 			$opener = $tokens[$stackPtr]['scope_opener'];
@@ -236,6 +236,6 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 					$phpcsFile->fixer->endChangeset();
 				}
 			}
-		}
+		}*/
 	}
 }
