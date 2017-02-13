@@ -140,7 +140,7 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 			}
 		}
 
-		if ($tokens[($curlyBrace - 1)]['code'] ==== T_WHITESPACE)
+		if ($tokens[($curlyBrace - 1)]['code'] === T_WHITESPACE)
 		{
 			$prevContent = $tokens[($curlyBrace - 1)]['content'];
 
