@@ -60,7 +60,7 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 		$tokens    = $phpcsFile->getTokens();
 		$errorData = array(strtolower($tokens[$stackPtr]['content']));
 
-		if (isset($tokens[$stackPtr]['scope_opener']) === false)
+		if (isset($tokens[$stackPtr]['scope_opener']) === false && $tokens[$stackPtr]['code'] !== T_WHILE)
 		{
 			$error = 'Possible parse error: %s missing opening or closing brace';
 			$phpcsFile->addWarning($error, $stackPtr, 'MissingBrace', $errorData);
@@ -75,7 +75,7 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 
 		if ($braceLine === $classLine)
 		{
-			$phpcsFile->recordMetric($stackPtr, 'Class opening brace placement', 'same line');
+			$phpcsFile->recordMetric($stackPtr, 'Control Structure opening brace placement', 'same line');
 			$error = 'Opening brace of a %s must be on the line after the definition';
 			$fix   = $phpcsFile->addFixableError($error, $curlyBrace, 'OpenBraceNewLine', $errorData);
 
@@ -96,7 +96,7 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 		}
 		else
 		{
-			$phpcsFile->recordMetric($stackPtr, 'Class opening brace placement', 'new line');
+			$phpcsFile->recordMetric($stackPtr, 'Control Structure opening brace placement', 'new line');
 
 			if ($braceLine > ($classLine + 1))
 			{
@@ -183,7 +183,7 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 			}
 		}
 
-		/*// Single newline after opening brace.
+		// A single newline after opening brace (i.e. brace in on a line by itself), remove extra newlines.
 		if (isset($tokens[$stackPtr]['scope_opener']) === true)
 		{
 			$opener = $tokens[$stackPtr]['scope_opener'];
@@ -216,7 +216,7 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 			{
 				$error = 'Expected 1 newline after opening brace; %s found';
 				$data  = array($found);
-				$fix   = $phpcsFile->addFixableError($error, $opener, 'NewlineAfterOpenBrace', $data);
+				$fix   = $phpcsFile->addFixableError($error, $opener, 'ExtraNewlineAfterOpenBrace', $data);
 
 				if ($fix === true)
 				{
@@ -236,6 +236,6 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 					$phpcsFile->fixer->endChangeset();
 				}
 			}
-		}*/
+		}
 	}
 }
