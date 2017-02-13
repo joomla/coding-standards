@@ -218,7 +218,7 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 
 			$found = ($tokens[$next]['line'] - $tokens[$opener]['line']);
 
-			if ($found !== 1)
+			if ($found > 1)
 			{
 				$error = 'Expected 1 newline after opening brace; %s found';
 				$data  = array($found);
