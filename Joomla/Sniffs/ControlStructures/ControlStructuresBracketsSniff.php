@@ -156,12 +156,14 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 
 			// We need to divide by 4 here since there is a space vs tab intent in the check vs token
 			// $spaces = $spaces / 4;
-			$expected = ($tokens[$stackPtr]['level'] * ($this->indent));
+			//$expected = ($tokens[$stackPtr]['level'] * ($this->indent));
+			$expected   = floor($expected / $this->indent);
+			$spaces     = floor($spaces / $this->indent);
 
 			if ($spaces !== $expected)
 			{
-				// $error = 'Expected %s tabs before opening brace; %s found';
-				$error = 'Expected %s spaces before opening brace; %s found';
+				$error = 'Expected %s tabs before opening brace; %s found';
+				// $error = 'Expected %s spaces before opening brace; %s found';
 				$data  = array(
 						  $expected,
 						  $spaces,
@@ -170,8 +172,8 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 
 				if ($fix === true)
 				{
-					// $indent = str_repeat("\t", $expected);
-					$indent = str_repeat(' ', $expected);
+					$indent = str_repeat("\t", $expected);
+					// $indent = str_repeat(' ', $expected);
 
 					if ($spaces === 0)
 					{
