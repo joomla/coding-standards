@@ -153,7 +153,23 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 			else
 			{
 				$blankSpace = substr($prevContent, strpos($prevContent, $phpcsFile->eolChar));
-				$spaces     = strlen($blankSpace);
+				$spaces = 0;
+
+				/**
+				 * A tab is only counted with strlen as 1 character but we want to count
+				 * the number of spaces so add 4 characters for a tab otherwise the strlen
+				 */
+				for ($i = 0; $length = strlen($blankSpace), $i < $length; $i++ )
+				{
+					if ($blankSpace[$i] === "\t")
+					{
+						$spaces += 4;
+					}
+					else
+					{
+						$spaces += strlen($blankSpace[$i]);
+					}
+				}
 			}
 
 			$expected = ($tokens[$stackPtr]['level'] * ($this->indent));
