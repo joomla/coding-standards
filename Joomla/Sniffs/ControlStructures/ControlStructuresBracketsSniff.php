@@ -67,6 +67,7 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 				$error = 'Possible parse error: %s missing opening or closing brace';
 				$phpcsFile->addWarning($error, $stackPtr, 'MissingBrace', $errorData);
 			}
+
 			return;
 		}
 
@@ -159,7 +160,7 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 				 * A tab is only counted with strlen as 1 character but we want to count
 				 * the number of spaces so add 4 characters for a tab otherwise the strlen
 				 */
-				for ($i = 0; $length = strlen($blankSpace), $i < $length; $i++ )
+				for ($i = 0; $length = strlen($blankSpace), $i < $length; $i++)
 				{
 					if ($blankSpace[$i] === "\t")
 					{
@@ -173,6 +174,7 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 			}
 
 			$expected = ($tokens[$stackPtr]['level'] * ($this->indent));
+
 			// We need to divide by 4 here since there is a space vs tab intent in the check vs token
 			$expected /= $this->indent;
 			$spaces   /= $this->indent;
@@ -189,7 +191,6 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 				if ($fix === true)
 				{
 					$indent = str_repeat("\t", $expected);
-					// $indent = str_repeat(' ', $expected);
 
 					if ($spaces === 0)
 					{
