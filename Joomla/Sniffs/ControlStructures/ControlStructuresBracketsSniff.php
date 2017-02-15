@@ -175,8 +175,8 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 			$expected = ($tokens[$stackPtr]['level'] * ($this->indent));
 			// We need to divide by 4 here since there is a space vs tab intent in the check vs token
 			// $spaces = $spaces / 4;
-			$expected   = floor($expected / $this->indent);
-			$spaces     = floor($spaces / $this->indent);
+			$expected   = $expected / $this->indent;
+			$spaces     = $spaces / $this->indent;
 
 			if ($spaces !== $expected)
 			{
