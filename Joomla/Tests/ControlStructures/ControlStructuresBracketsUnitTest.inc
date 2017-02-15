@@ -21,6 +21,11 @@ if ($a)
 {echo true;
 }
 
+if ($a)
+     {
+	echo true;
+ }
+
 function muh()
 {
 	if ($a)
@@ -32,6 +37,12 @@ function muh()
 {
 		echo true;
 	}
+
+	// If statement with spaces which aren't equal to a tab space (4 spaces)
+	if ($a)
+	  {
+		echo true;
+  }
 }
 
 // NewlineAfterOpenBrace
