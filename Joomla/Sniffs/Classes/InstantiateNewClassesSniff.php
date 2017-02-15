@@ -129,6 +129,7 @@ class Joomla_Sniffs_Classes_InstantiateNewClassesSniff implements PHP_CodeSniffe
 						T_WHITESPACE,
 						T_NS_SEPARATOR,
 						T_STRING,
+						T_SELF,
 					),
 					($stackPtr + 1),
 					null,
