@@ -25,7 +25,7 @@ if ($a)
 if ($a)
      {
 	echo true;
- }
+}
 
 function muh()
 {
@@ -43,7 +43,7 @@ function muh()
 	if ($a)
 	  {
 		echo true;
-  }
+	}
 }
 
 // NewlineAfterOpenBrace
