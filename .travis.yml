@@ -30,9 +30,6 @@ before_script:
 script:
   - if [[ $RUN_PHPUNIT == "yes" ]]; then ./vendor/bin/phpunit --filter Joomla vendor/squizlabs/php_codesniffer/tests/AllTests.php; fi
   - if [[ $RUN_PHPCS == "yes" ]]; then ./vendor/bin/phpcs -sp --extensions=php --ignore=*/vendor/* --standard=Joomla --sniffs=Joomla.ControlStructures.ControlStructuresBrackets ./Joomla/Tests/ControlStructures/ControlStructuresBracketsUnitTest.inc .; fi
-  #- if [[ $RUN_PHPCS == "yes" ]]; then ./vendor/bin/phpcs -sp -vv --ignore=*/vendor/* --sniffs=Joomla.ControlStructures.ControlStructuresBrackets ./Joomla/Tests/ControlStructures/ControlStructuresBracketsUnitTest.inc .; fi
-  - if [[ $RUN_PHPCS == "yes" ]]; then ./vendor/bin/phpcbf -sp --no-patch --ignore=*/vendor/* --sniffs=Joomla.ControlStructures.ControlStructuresBrackets ./Joomla/Tests/ControlStructures/ControlStructuresBracketsUnitTest.inc .; fi
-  - if [[ $RUN_PHPCS == "yes" ]]; then ./vendor/bin/phpcs -sp --ignore=*/vendor/* --standard=Joomla --sniffs=Joomla.ControlStructures.ControlStructuresBrackets ./Joomla/Tests/ControlStructures/ControlStructuresBracketsUnitTest.inc .; fi
 
 notifications:
   email: false
