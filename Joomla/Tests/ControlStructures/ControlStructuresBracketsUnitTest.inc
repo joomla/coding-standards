@@ -17,6 +17,7 @@ if ($a)
 	echo true;
 }
 
+// Note the echo here will not be indented by this sniff but by PEAR's MultiLineConditionSniff
 if ($a)
 {echo true;
 }
