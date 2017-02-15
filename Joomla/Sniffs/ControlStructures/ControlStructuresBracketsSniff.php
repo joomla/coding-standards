@@ -47,7 +47,6 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 			   );
 	}
 
-
 	/**
 	 * Processes this test, when one of its tokens is encountered.
 	 *
@@ -61,39 +60,37 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 		$tokens    = $phpcsFile->getTokens();
 		$errorData = array(strtolower($tokens[$stackPtr]['content']));
 
-		if (false === isset($tokens[$stackPtr]['scope_opener']))
+		if (isset($tokens[$stackPtr]['scope_opener']) === false)
 		{
-			// @todo sort while thing...
 			if ($tokens[$stackPtr]['code'] !== T_WHILE)
 			{
 				$error = 'Possible parse error: %s missing opening or closing brace';
 				$phpcsFile->addWarning($error, $stackPtr, 'MissingBrace', $errorData);
 			}
-
 			return;
 		}
 
-		$curlyBrace  = $tokens[$stackPtr]['scope_opener'];
-		$lastContent = $phpcsFile->findPrevious(T_WHITESPACE, ($curlyBrace - 1), $stackPtr, true);
-		$classLine   = $tokens[$lastContent]['line'];
-		$braceLine   = $tokens[$curlyBrace]['line'];
+		$openBrace            = $tokens[$stackPtr]['scope_opener'];
+		$lastContent          = $phpcsFile->findPrevious(T_WHITESPACE, ($openBrace - 1), $stackPtr, true);
+		$controlStructureLine = $tokens[$lastContent]['line'];
+		$braceLine            = $tokens[$openBrace]['line'];
 
-		if ($braceLine === $classLine)
+		if ($braceLine === $controlStructureLine)
 		{
-			$phpcsFile->recordMetric($stackPtr, 'Class opening brace placement', 'same line');
+			$phpcsFile->recordMetric($stackPtr, 'Control Structure opening brace placement', 'same line');
 			$error = 'Opening brace of a %s must be on the line after the definition';
-			$fix   = $phpcsFile->addFixableError($error, $curlyBrace, 'OpenBraceNewLine', $errorData);
+			$fix   = $phpcsFile->addFixableError($error, $openBrace, 'OpenBraceNewLine', $errorData);
 
-			if (true === $fix)
+			if ($fix === true)
 			{
 				$phpcsFile->fixer->beginChangeset();
 
-				if (T_WHITESPACE === $tokens[($curlyBrace - 1)]['code'])
+				if ($tokens[($openBrace - 1)]['code'] === T_WHITESPACE)
 				{
-					$phpcsFile->fixer->replaceToken(($curlyBrace - 1), '');
+					$phpcsFile->fixer->replaceToken(($openBrace - 1), '');
 				}
 
-				$phpcsFile->fixer->addNewlineBefore($curlyBrace);
+				$phpcsFile->fixer->addNewlineBefore($openBrace);
 				$phpcsFile->fixer->endChangeset();
 			}
 
@@ -101,25 +98,25 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 		}
 		else
 		{
-			$phpcsFile->recordMetric($stackPtr, 'Class opening brace placement', 'new line');
+			$phpcsFile->recordMetric($stackPtr, 'Control Structure opening brace placement', 'new line');
 
-			if ($braceLine > ($classLine + 1))
+			if ($braceLine > ($controlStructureLine + 1))
 			{
 				$error = 'Opening brace of a %s must be on the line following the %s declaration.; Found %s line(s).';
 				$data  = array(
 						  $tokens[$stackPtr]['content'],
 						  $tokens[$stackPtr]['content'],
-						  ($braceLine - $classLine - 1),
+						  ($braceLine - $controlStructureLine - 1),
 						 );
-				$fix   = $phpcsFile->addFixableError($error, $curlyBrace, 'OpenBraceWrongLine', $data);
+				$fix   = $phpcsFile->addFixableError($error, $openBrace, 'OpenBraceWrongLine', $data);
 
-				if (true === $fix)
+				if ($fix === true)
 				{
 					$phpcsFile->fixer->beginChangeset();
 
-					for ($i = ($curlyBrace - 1); $i > $lastContent; $i--)
+					for ($i = ($openBrace - 1); $i > $lastContent; $i--)
 					{
-						if ($tokens[$i]['line'] === ($tokens[$curlyBrace]['line'] + 1))
+						if ($tokens[$i]['line'] === ($tokens[$openBrace]['line'] + 1))
 						{
 							break;
 						}
@@ -134,20 +131,20 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 			}
 		}
 
-		if ($tokens[($curlyBrace + 1)]['content'] !== $phpcsFile->eolChar)
+		if ($tokens[($openBrace + 1)]['content'] !== $phpcsFile->eolChar)
 		{
 			$error = 'Opening %s brace must be on a line by itself.';
-			$fix   = $phpcsFile->addFixableError($error, $curlyBrace, 'OpenBraceNotAlone', $errorData);
+			$fix   = $phpcsFile->addFixableError($error, $openBrace, 'OpenBraceNotAlone', $errorData);
 
-			if (true === $fix)
+			if ($fix === true)
 			{
-				$phpcsFile->fixer->addContent($curlyBrace, $phpcsFile->eolChar);
+				$phpcsFile->fixer->addNewline($openBrace);
 			}
 		}
 
-		if (T_WHITESPACE === $tokens[($curlyBrace - 1)]['code'])
+		if ($tokens[($openBrace - 1)]['code'] === T_WHITESPACE)
 		{
-			$prevContent = $tokens[($curlyBrace - 1)]['content'];
+			$prevContent = $tokens[($openBrace - 1)]['content'];
 
 			if ($prevContent === $phpcsFile->eolChar)
 			{
@@ -156,42 +153,57 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 			else
 			{
 				$blankSpace = substr($prevContent, strpos($prevContent, $phpcsFile->eolChar));
+				$spaces = 0;
 
-				$spaces     = strlen($blankSpace);
+				/**
+				 * A tab is only counted with strlen as 1 character but we want to count
+				 * the number of spaces so add 4 characters for a tab otherwise the strlen
+				 */
+				for ($i = 0; $length = strlen($blankSpace), $i < $length; $i++ )
+				{
+					if ($blankSpace[$i] === "\t")
+					{
+						$spaces += $this->indent;
+					}
+					else
+					{
+						$spaces += strlen($blankSpace[$i]);
+					}
+				}
 			}
 
 			$expected = ($tokens[$stackPtr]['level'] * ($this->indent));
+			// We need to divide by 4 here since there is a space vs tab intent in the check vs token
+			$expected /= $this->indent;
+			$spaces   /= $this->indent;
 
 			if ($spaces !== $expected)
 			{
 				$error = 'Expected %s tabs before opening brace; %s found';
-
-				// We have to convert the space values to tab values here, due to the tab-width conversion done by phpcs
-				$expected /= 4;
-				$spaces /= 4;
 				$data  = array(
 						  $expected,
 						  $spaces,
 						 );
-				$fix   = $phpcsFile->addFixableError($error, $curlyBrace, 'SpaceBeforeBrace', $data);
+				$fix   = $phpcsFile->addFixableError($error, $openBrace, 'SpaceBeforeBrace', $data);
 
 				if ($fix === true)
 				{
 					$indent = str_repeat("\t", $expected);
+					// $indent = str_repeat(' ', $expected);
 
 					if ($spaces === 0)
 					{
-						$phpcsFile->fixer->addContentBefore($curlyBrace, $indent);
+						$phpcsFile->fixer->addContentBefore($openBrace, $indent);
 					}
 					else
 					{
-						$phpcsFile->fixer->replaceToken(($curlyBrace - 1), $indent);
+						$phpcsFile->fixer->replaceToken(($openBrace - 1), $indent);
 					}
 				}
 			}
 		}
 
-		// Single newline after opening brace.
+		// A single newline after opening brace (i.e. brace in on a line by itself), remove extra newlines.
 		if (isset($tokens[$stackPtr]['scope_opener']) === true)
 		{
 			$opener = $tokens[$stackPtr]['scope_opener'];
@@ -220,11 +232,11 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 
 			$found = ($tokens[$next]['line'] - $tokens[$opener]['line']);
 
-			if ($found !== 1)
+			if ($found > 1)
 			{
 				$error = 'Expected 1 newline after opening brace; %s found';
 				$data  = array($found);
-				$fix   = $phpcsFile->addFixableError($error, $opener, 'NewlineAfterOpenBrace', $data);
+				$fix   = $phpcsFile->addFixableError($error, $opener, 'ExtraNewlineAfterOpenBrace', $data);
 
 				if ($fix === true)
 				{
