@@ -13,9 +13,9 @@ class MyClass
 
 	public function getValue()
 	{
-		$k = new stdClass();
-		$k = new stdClass( );
-		$k = new stdClass ();
+		$k = new self();
+		$k = new self( );
+		$k = new self ();
 
 		return $this->value;
 	}
