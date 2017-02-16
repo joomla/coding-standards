@@ -12,17 +12,27 @@ If you want to contribute and improve this documentation find the source files a
 * PHP 5.3+
 * [PHP Codesniffer](https://github.com/squizlabs/PHP_CodeSniffer) 2.8+
 
-## Installation
+**Important note**: currently the latest PHPCS is the 3.x series. But the Joomla custom sniffs are not yet compatible with this version. PEAR and composer give you the option to install it by default but the Joomla custom sniffs will not work, thus we you remind to always install the PHPCS 2.x series if you are using the Joomla custom sniffs. Also note that the Joomla Code Standard ruleset.xml is compatable with PHPCS 3.x if you exclude the Joomla custom sniffs.
 
-Installation is as easy as checking out the repository to the correct location within PHP_CodeSniffer's directory structure.
+## Installation via Composer
 
-### Install PHP_CodeSniffer.
+Add `"joomla/coding-standards": "~2.0"` to the require-dev block in your composer.json and then run `composer install`.
 
-	pear install PHP_CodeSniffer-2.8.*
+```json
+{
+    "require-dev": {
+        "squizlabs/php_codesniffer": "~2.8",
+		"joomla/coding-standards": "~2.0"
+	}
+}
+```
 
-### Install the Joomla standard.
+Alternatively, you can simply run the following from the command line:
 
-	git clone https://github.com/joomla/coding-standards.git `pear config-get php_dir`/PHP/CodeSniffer/Standards/Joomla
+```sh
+composer global require squizlabs/php_codesniffer "~2.8"
+composer require joomla/coding-standards "~2.0"
+```
 
 ## Running
 
