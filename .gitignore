@@ -1,1 +1,5 @@
 .*
+
+# Composer Dependencies
+/vendor
+/composer.lock
