@@ -16,4 +16,4 @@ There are [tools available](appendices/analysis.md) to help your code conform to
 
 ## Contributing to this manual
 
-If you want to contribute and improve this manual, you can find the source files at [https://github.com/joomla/coding-standards/tree/gh-pages](https://github.com/joomla/coding-standards/tree/gh-pages).
+If you want to contribute and improve this manual, you can find the source files at [https://github.com/joomla/coding-standards/tree/master/manual](https://github.com/joomla/coding-standards/tree/master/manual).
