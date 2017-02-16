@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<ruleset name="Joomla-CMS">
+
+    <arg name="report" value="full"/>
+    <arg name="tab-width" value="4"/>
+    <arg name="encoding" value="utf-8"/>
+    <arg value="sp"/>
+    <arg name="colors" />
+
+    <!-- Exclude folders not containing production code -->
+    <exclude-pattern>*/build/*</exclude-pattern>
+    <exclude-pattern>*/tests/*</exclude-pattern>
+    <exclude-pattern>*/lib/*</exclude-pattern>
+    <exclude-pattern>*/tmpl/*</exclude-pattern>
+    <exclude-pattern>*/layouts/*</exclude-pattern>
+
+    <!-- Exclude 3rd party libraries. -->
+    <exclude-pattern>*/libraries/*</exclude-pattern>
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/editors/*</exclude-pattern>
+
+    <rule ref="Joomla">
+        <exclude name="Joomla.NamingConventions.ValidVariableName.ClassVarHasUnderscore"/>
+        <exclude name="Joomla.NamingConventions.ValidFunctionName.FunctionNoCapital"/>
+        <exclude name="Joomla.NamingConventions.ValidVariableName.MemberNotCamelCaps"/>
+        <exclude name="Joomla.NamingConventions.ValidFunctionName.MethodUnderscore"/>
+        <exclude name="Joomla.NamingConventions.ValidVariableName.NotCamelCaps"/>
+        <exclude name="Joomla.NamingConventions.ValidFunctionName.ScopeNotCamelCaps"/>
+        <exclude name="Generic.Files.LineEndings.InvalidEOLChar"/>
+    </rule>
+</ruleset>
