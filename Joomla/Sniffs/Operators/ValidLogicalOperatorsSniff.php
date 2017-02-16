@@ -2,6 +2,7 @@
 /**
  * Joomla! Coding Standard
  *
+ * @package    Joomla.CodingStandard
  * @copyright  Copyright (C) 2015 Open Source Matters, Inc. All rights reserved.
  * @license    http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License Version 2 or Later
  */
@@ -12,7 +13,6 @@
  * Check to ensure that the logical operators 'and' and 'or' are not used.
  * Use the && and || operators instead.
  *
- * @package   Joomla.CodingStandard
  * @since     1.0
  */
 class Joomla_Sniffs_Operators_ValidLogicalOperatorsSniff implements PHP_CodeSniffer_Sniff

@@ -2,6 +2,7 @@
 /**
  * Joomla! Coding Standard
  *
+ * @package    Joomla.CodingStandard
  * @copyright  Copyright (C) 2015 Open Source Matters, Inc. All rights reserved.
  * @license    http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License Version 2 or Later
  */
@@ -14,7 +15,6 @@ if (class_exists('PEAR_Sniffs_NamingConventions_ValidFunctionNameSniff', true) =
 /**
  * Extended ruleset for ensuring method and function names are correct.
  *
- * @package   Joomla.CodingStandard
  * @since     1.0
  */
 class Joomla_Sniffs_NamingConventions_ValidFunctionNameSniff extends PEAR_Sniffs_NamingConventions_ValidFunctionNameSniff

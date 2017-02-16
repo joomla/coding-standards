@@ -2,6 +2,7 @@
 /**
  * Joomla! Coding Standard
  *
+ * @package    Joomla.CodingStandard
  * @copyright  Copyright (C) 2015 Open Source Matters, Inc. All rights reserved.
  * @license    http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License Version 2 or Later
  */
@@ -12,7 +13,6 @@
  * Checks if the declaration of control structures is correct.
  * Curly brackets must be on a line by their own.
  *
- * @package   Joomla.CodingStandard
  * @since     1.0
  */
 class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements PHP_CodeSniffer_Sniff
