@@ -4,7 +4,7 @@
 
 Always use the full `<?php ... ?>` to delimit PHP code, not the `<? ... ?>` shorthand. This is the most portable way to include PHP code on differing operating systems and setups.
 
-For files that contain only PHP code, the closing tag (`?>`) should not be included. It is not required by PHP. Leaving this out prevents trailing white space from being accidentally injected into the output that can introduce errors in the Joomla session (see the PHP manual on [Instruction separation](http://php.net/basic-syntax.instruction-separation)).
+For files that contain only PHP code, the closing tag (`?>`) should not be included. It is not required by PHP. Leaving this out prevents trailing white space from being accidentally injected into the output that can introduce errors in the Joomla session (see the PHP manual on [Instruction separation](https://secure.php.net/basic-syntax.instruction-separation)).
 
 Files should always end with a blank new line.
 
@@ -16,7 +16,7 @@ Pursuant to PSR-2 [Keywords and True/False/Null][]
 > The PHP constants `true`, `false`, and `null` MUST be in lower case.
 
 [Keywords and True/False/Null]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md#25-keywords-and-truefalsenull
-[keywords]: http://php.net/manual/en/reserved.keywords.php
+[keywords]: https://secure.php.net/manual/en/reserved.keywords.php
 
 ### Including Code
 
@@ -228,7 +228,7 @@ For example, do not include feature submissions like:
 //$code = broken($fixme);
 ```
 
-More details on inline code comments can be found in the chapter on [Inline Code Comments](coding-standards/chapters/inline-comments.md).
+More details on inline code comments can be found in the chapter on [Inline Code Comments](inline-comments.md).
 
 ### Comment Docblocks
 
@@ -236,7 +236,7 @@ Documentation headers for PHP and Javascript code in files, classes, class prope
 
 These "DocBlocks" borrow from the PEAR standard but have some variations specific for Joomla and the Joomla Platform.
 
-More details on DocBlocks comments can be found in the chapter on [DocBlocks Comments](coding-standards/chapters/docblocks.md).
+More details on DocBlocks comments can be found in the chapter on [DocBlocks Comments](docblocks.md).
 
 
 ## Function Calls
@@ -259,7 +259,7 @@ $long   = bar('long');
 Function definitions start on a new line and the opening and closing braces are also placed on new lines. An empty line should precede lines specifying the return value.
 
 Function definitions must include a documentation comment in accordance with the Commenting section of this document.
-More details on DocBlocks Function comments can be found in the chapter on [DocBlocks Comments](coding-standards/chapters/docblocks.md).
+More details on DocBlocks Function comments can be found in the chapter on [DocBlocks Comments](docblocks.md).
 
 ```php
 /**
@@ -297,17 +297,17 @@ Class definitions start on a new line and the opening and closing braces are als
 
 Class definitions, properties and methods must each be provided with a DocBlock in accordance with the following sections.
 
-More details on DocBlocks Class comments can be found in the chapter on [DocBlocks Comments](coding-standards/chapters/docblocks.md).
+More details on DocBlocks Class comments can be found in the chapter on [DocBlocks Comments](docblocks.md).
 
 ### Class Property DocBlocks
 
-More details on Class Property DocBlocks can be found in the chapter on [DocBlocks Comments](coding-standards/chapters/docblocks.md).
+More details on Class Property DocBlocks can be found in the chapter on [DocBlocks Comments](docblocks.md).
 
 ### Class Method DocBlocks
 
 The DocBlock for class methods follows the same convention as for PHP functions.
 
-More details on DocBlocks Class Method comments can be found in the chapter on [DocBlocks Comments](coding-standards/chapters/docblocks.md).
+More details on DocBlocks Class Method comments can be found in the chapter on [DocBlocks Comments](docblocks.md).
 
 ### Class Definition Example
 ```php
@@ -404,7 +404,7 @@ Class variables should be set to null or some other appropriate default value.
 
 Exceptions should be used for error handling.
 
-The follow sections outline how to semantically use [SPL exceptions](http://php.net/manual/en/spl.exceptions.php).
+The follow sections outline how to semantically use [SPL exceptions](https://secure.php.net/manual/en/spl.exceptions.php).
 
 ### Logic Exceptions
 
