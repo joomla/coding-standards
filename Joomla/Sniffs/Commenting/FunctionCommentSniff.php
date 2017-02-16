@@ -2,6 +2,7 @@
 /**
  * Joomla! Coding Standard
  *
+ * @package    Joomla.CodingStandard
  * @copyright  Copyright (C) 2015 Open Source Matters, Inc. All rights reserved.
  * @license    http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License Version 2 or Later
  */
@@ -14,7 +15,6 @@ if (class_exists('PEAR_Sniffs_Commenting_FunctionCommentSniff', true) === false)
 /**
  * Extended ruleset for parsing and verifying the doc comments for functions.
  *
- * @package   Joomla.CodingStandard
  * @since     1.0
  */
 class Joomla_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commenting_FunctionCommentSniff

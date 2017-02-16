@@ -2,6 +2,7 @@
 /**
  * Joomla! Coding Standard
  *
+ * @package    Joomla.CodingStandard
  * @copyright  Copyright (C) 2015 Open Source Matters, Inc. All rights reserved.
  * @license    http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License Version 2 or Later
  */
@@ -9,7 +10,6 @@
 /**
  * Ensures that new classes are instantiated without brackets if they do not have any parameters.
  *
- * @package   Joomla.CodingStandard
  * @since     1.0
  */
 class Joomla_Tests_Classes_InstantiateNewClassesUnitTest extends AbstractSniffUnitTest
