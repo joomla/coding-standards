@@ -209,7 +209,7 @@ class Joomla_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Sniff
 	{
 		$tokens = $phpcsFile->getTokens();
 
-		if (get_class($this) === 'PEAR_Sniffs_Commenting_FileCommentSniff')
+		if (get_class($this) === 'Joomla_Sniffs_Commenting_FileCommentSniff')
 		{
 			$docBlock = 'file';
 		}
