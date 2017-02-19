@@ -56,6 +56,12 @@ class Joomla_Sniffs_WhiteSpace_MemberVarSpacingSniff extends Squiz_Sniffs_WhiteS
 					{
 						$phpcsFile->fixer->beginChangeset();
 
+						// Inline comments have the newline included in the content but docblock do not.
+						if ($tokens[$prev]['code'] === T_COMMENT)
+						{
+							$phpcsFile->fixer->replaceToken($prev, rtrim($tokens[$prev]['content']));
+						}
+
 						for ($i = ($prev + 1); $i <= $stackPtr; $i++)
 						{
 							if ($tokens[$i]['line'] === $tokens[$stackPtr]['line'])
