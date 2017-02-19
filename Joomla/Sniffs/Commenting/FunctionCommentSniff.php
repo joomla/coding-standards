@@ -192,14 +192,17 @@ class Joomla_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commenti
 				$matches = array();
 				preg_match('/([^$&.]+)(?:((?:\.\.\.)?(?:\$|&)[^\s]+)(?:(\s+)(.*))?)?/', $tokens[($tag + 2)]['content'], $matches);
 
-				$typeLen   = strlen($matches[1]);
-				$type      = trim($matches[1]);
-				$typeSpace = ($typeLen - strlen($type));
-				$typeLen   = strlen($type);
-
-				if ($typeLen > $maxType)
+				if (empty($matches) === false)
 				{
+				    $typeLen   = strlen($matches[1]);
+				    $type      = trim($matches[1]);
+				    $typeSpace = ($typeLen - strlen($type));
+				    $typeLen   = strlen($type);
+
+				    if ($typeLen > $maxType)
+				    {
 					$maxType = $typeLen;
+				    }
 				}
 
 				if (isset($matches[2]) === true)
@@ -272,8 +275,10 @@ class Joomla_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commenti
 		 * We want to use ... for all variable length arguments, 
 		 * so added this prefix to the variable name so comparisons are easier.
 		 */
-		foreach ($realParams as $pos => $param) {
-			if ($param['variable_length'] === true) {
+		foreach ($realParams as $pos => $param)
+		{
+			if ($param['variable_length'] === true)
+			{
 				$realParams[$pos]['name'] = '...'.$realParams[$pos]['name'];
 			}
 		}
