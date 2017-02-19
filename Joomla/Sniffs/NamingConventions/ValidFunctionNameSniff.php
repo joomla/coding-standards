@@ -45,7 +45,7 @@ class Joomla_Sniffs_NamingConventions_ValidFunctionNameSniff extends PEAR_Sniffs
 		$errorData = array($className . '::' . $methodName);
 
 		// Is this a magic method. i.e., is prefixed with "__" ?
-		if (preg_match('|^__|', $methodName) !== 0)
+		if (preg_match('|^__[^_]|', $methodName) !== 0)
 		{
 			$magicPart = strtolower(substr($methodName, 2));
 
