@@ -201,7 +201,7 @@ class Joomla_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commenti
 
 				    if ($typeLen > $maxType)
 				    {
-					$maxType = $typeLen;
+						$maxType = $typeLen;
 				    }
 				}
 
@@ -272,14 +272,14 @@ class Joomla_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commenti
 		$previousParam = null;
 
 		/*
-		 * We want to use ... for all variable length arguments, 
+		 * We want to use ... for all variable length arguments,
 		 * so added this prefix to the variable name so comparisons are easier.
 		 */
 		foreach ($realParams as $pos => $param)
 		{
 			if ($param['variable_length'] === true)
 			{
-				$realParams[$pos]['name'] = '...'.$realParams[$pos]['name'];
+				$realParams[$pos]['name'] = '...' . $realParams[$pos]['name'];
 			}
 		}
 
