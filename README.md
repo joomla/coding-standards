@@ -3,7 +3,7 @@ Joomla Coding Standards
 
 This repository includes the [Joomla](http://developer.joomla.org) coding standard definition for [PHP Codesniffer](http://pear.php.net/PHP_CodeSniffer) along with a few other helpful resources.  The PHP_CodeSniffer standard will never be 100% accurate, but should be viewed as a strong set of guidelines while writing software for Joomla.
 
-See Joomla coding standards documentation at [http://joomla.github.io/coding-standards/](http://joomla.github.io/coding-standards/)
+See Joomla coding standards documentation at [https://developer.joomla.org/coding-standards.html](https://developer.joomla.org/coding-standards.html)
 
 If you want to contribute and improve this documentation, you can find the source files in the manual section of the master branch [https://github.com/joomla/coding-standards/tree/master/manual](https://github.com/joomla/coding-standards/tree/master/manual)
 
