@@ -186,6 +186,7 @@ class Joomla_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commenti
 			$var       = '';
 			$varSpace  = 0;
 			$comment   = '';
+ 			$commentEnd = 0;
 
 			if ($tokens[($tag + 2)]['code'] === T_DOC_COMMENT_STRING)
 			{
@@ -234,7 +235,8 @@ class Joomla_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commenti
 						{
 							if ($tokens[$i]['code'] === T_DOC_COMMENT_STRING)
 							{
-								$comment .= ' ' . $tokens[$i]['content'];
+								$comment   .= ' ' . $tokens[$i]['content'];
+                                $commentEnd = $i;
 							}
 						}
 					}
@@ -261,6 +263,7 @@ class Joomla_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commenti
 				'type'        => $type,
 				'var'         => $var,
 				'comment'     => $comment,
+				'comment_end' => $commentEnd,
 				'type_space'  => $typeSpace,
 				'var_space'   => $varSpace,
 				'align_space' => $tokens[($tag + 1)]['content']
