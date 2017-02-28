@@ -186,20 +186,24 @@ class Joomla_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commenti
 			$var       = '';
 			$varSpace  = 0;
 			$comment   = '';
+			$commentEnd = 0;
 
 			if ($tokens[($tag + 2)]['code'] === T_DOC_COMMENT_STRING)
 			{
 				$matches = array();
-				preg_match('/([^$&]+)(?:((?:\$|&)[^\s]+)(?:(\s+)(.*))?)?/', $tokens[($tag + 2)]['content'], $matches);
+				preg_match('/([^$&.]+)(?:((?:\.\.\.)?(?:\$|&)[^\s]+)(?:(\s+)(.*))?)?/', $tokens[($tag + 2)]['content'], $matches);
 
-				$typeLen   = strlen($matches[1]);
-				$type      = trim($matches[1]);
-				$typeSpace = ($typeLen - strlen($type));
-				$typeLen   = strlen($type);
-
-				if ($typeLen > $maxType)
+				if (empty($matches) === false)
 				{
-					$maxType = $typeLen;
+				    $typeLen   = strlen($matches[1]);
+				    $type      = trim($matches[1]);
+				    $typeSpace = ($typeLen - strlen($type));
+				    $typeLen   = strlen($type);
+
+				    if ($typeLen > $maxType)
+				    {
+						$maxType = $typeLen;
+				    }
 				}
 
 				if (isset($matches[2]) === true)
@@ -231,7 +235,8 @@ class Joomla_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commenti
 						{
 							if ($tokens[$i]['code'] === T_DOC_COMMENT_STRING)
 							{
-								$comment .= ' ' . $tokens[$i]['content'];
+								$comment   .= ' ' . $tokens[$i]['content'];
+								$commentEnd = $i;
 							}
 						}
 					}
@@ -258,6 +263,7 @@ class Joomla_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commenti
 				'type'        => $type,
 				'var'         => $var,
 				'comment'     => $comment,
+				'comment_end' => $commentEnd,
 				'type_space'  => $typeSpace,
 				'var_space'   => $varSpace,
 				'align_space' => $tokens[($tag + 1)]['content']
@@ -267,6 +273,18 @@ class Joomla_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commenti
 		$realParams    = $phpcsFile->getMethodParameters($stackPtr);
 		$foundParams   = array();
 		$previousParam = null;
+
+		/*
+		 * We want to use ... for all variable length arguments,
+		 * so added this prefix to the variable name so comparisons are easier.
+		 */
+		foreach ($realParams as $pos => $param)
+		{
+			if ($param['variable_length'] === true)
+			{
+				$realParams[$pos]['name'] = '...' . $realParams[$pos]['name'];
+			}
+		}
 
 		foreach ($params as $pos => $param)
 		{
