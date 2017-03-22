@@ -2,7 +2,7 @@
 
 These guidelines have been assembled following an examination of emerging practices, ideas and existing styleguides, and include items from:
 
-1. [Google's html styleguide](http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml)
+1. [Google's html styleguide](https://google.github.io/styleguide/htmlcssguide.html)
 2. [JQuery's HTML Styleguide](http://contribute.jquery.org/style-guide/html/)
 3. [Nicolas Ghallager's "Principles of writing consistent, idiomatic HTML"](https://github.com/necolas/idiomatic-html)
 4. [Harry Robert's "My HTML/CSS coding style"](http://csswizardry.com/2012/04/my-html-css-coding-style/)
