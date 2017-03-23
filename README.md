@@ -1,4 +1,4 @@
-Joomla Coding Standards [![Build Status](https://travis-ci.org/joomla/coding-standards.png?branch=phpcs-2)](https://travis-ci.org/joomla/coding-standards)
+Joomla Coding Standards [![Build Status](https://travis-ci.org/joomla/coding-standards.svg?branch=master)](https://travis-ci.org/joomla/coding-standards)
 =======================
 
 This repository includes the [Joomla](http://developer.joomla.org) coding standard definition for [PHP Codesniffer](https://github.com/squizlabs/PHP_CodeSniffer) along with a few other helpful resources.  The PHP_CodeSniffer standard will never be 100% accurate, but should be viewed as a strong set of guidelines while writing software for Joomla.
