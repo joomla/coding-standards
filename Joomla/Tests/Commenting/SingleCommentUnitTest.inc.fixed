@@ -1,0 +1,95 @@
+<?php
+
+// Warnings
+$warnings = 0;
+
+// Errors
+$errors = 1;
+
+// Fixable Errors
+	// WrongStyle
+	$a = 1;
+
+	// Cool if...
+	if ($a)
+	{
+		echo true;
+	}
+
+
+	// NoSpace
+	if ($a)
+	{
+		echo true;
+	}
+
+
+	// LowerCaseStart
+	if ($a)
+	{
+		echo true;
+	}
+
+	/*
+	 * Lower CaseStart
+	 * for multi line
+	 * style comments.
+	 */
+	if ($a)
+	{
+		echo true;
+	}
+
+
+	// LowerCaseAfterSentenceEnd error check.
+	// This line must start with upper case letter.
+	if ($a)
+	{
+		echo true;
+	}
+
+	/*
+	 * LowerCaseAfterSentenceEnd error check.
+	 * For multi line
+	 * style comments.
+	 */
+	if ($a)
+	{
+		echo true;
+	}
+
+
+	// SameLine
+	$a = 2; // I'm not allowed here.
+
+
+	// BlankBefore
+	$a = 1;
+
+	// I must have a blank before me.
+	$a = 2;
+
+
+	// MultiLine
+	$a = 1;
+
+	// MultiLine check.
+	// There should only be
+	// two lines of // comments.
+	if ($a)
+	{
+		echo true;
+	}
+
+class Hello
+{
+	function hello()
+	{
+		/*
+		 * Lower CaseStart
+		 * for multi line
+		 * style comments.
+		 */
+		$out = 'Hello';
+	}
+}
