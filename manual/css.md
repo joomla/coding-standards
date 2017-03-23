@@ -65,11 +65,11 @@ Use dashes to create compound class names:
 /* Good - use dashes */
 .compound-class-name {…}
 
+/* Good - uses camelCase */
+.compoundClassName {…}
+
 /* Bad - uses underscores */
 .compound_class_name {…}
-
-/* Bad - uses camelCase */
-.compoundClassName {…}
 
 /* Bad - does not use seperators */
 .compoundclassname {…}
@@ -87,49 +87,6 @@ Rules should be indented one tab (equal to 4 spaces):
 
 /* Bad - all on one line */
 .example {color: #000; visibility: hidden;}
-```
-
-LESS/Scss should also be nested , with child selectors and rules indented again. Nested rules should also be spaced by one line:
-
-```css
-/* Good */
-.example {
-
-  > li {
-    float: none;
-
-	+ li {
-		margin-top: 2px;
-		margin-left: 0;
-	}
-
-  }
-
-}
-/* Bad - nested rules not indented */
-.example {
-
-	> li {
-	float: none;
-
-	+ li {
-	margin-top: 2px;
-	margin-left: 0;
-	}
-
-	}
-
-}
-/* Bad - nested rules not spaced */
-.example {
-  > li {
-    float: none;
-	+ li {
-		margin-top: 2px;
-		margin-left: 0;
-	}
-  }
-}
 ```
 
 ### Alignment
