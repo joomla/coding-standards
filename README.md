@@ -41,4 +41,4 @@ Alternatively if it isn't installed you can still reference it by path like:
 
 There is further information on how to set up IDE auto formatters here: 
 
-	https://github.com/joomla/coding-standards/tree/master/IDE
+	[https://github.com/joomla/coding-standards/tree/master/Joomla/IDE](https://github.com/joomla/coding-standards/tree/master/Joomla/IDE)
