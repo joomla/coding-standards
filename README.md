@@ -102,4 +102,4 @@ The last most common adjustment is removing PHP 5.3 specific rules which prevent
 
 There is further information on how to set up IDE auto formatters here: 
 
-	https://github.com/joomla/coding-standards/tree/master/IDE
+	https://github.com/joomla/coding-standards/tree/master/Joomla/IDE
