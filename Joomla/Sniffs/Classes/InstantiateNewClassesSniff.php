@@ -47,7 +47,6 @@ class Joomla_Sniffs_Classes_InstantiateNewClassesSniff implements PHP_CodeSniffe
 		$running = true;
 		$valid   = false;
 		$started = false;
-		$shortArraySyntax = true;
 
 		$cnt = $stackPtr + 1;
 
@@ -101,7 +100,7 @@ class Joomla_Sniffs_Classes_InstantiateNewClassesSniff implements PHP_CodeSniffe
 						break;
 
 					case T_OPEN_SHORT_ARRAY :
-						if ($shortArraySyntax === true)
+						if ($this->shortArraySyntax === true)
 						{
 							if ($started === true)
 							{
