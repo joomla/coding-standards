@@ -47,6 +47,7 @@ class Joomla_Sniffs_Classes_InstantiateNewClassesSniff implements PHP_CodeSniffe
 		$running = true;
 		$valid   = false;
 		$started = false;
+		$shortArraySyntax = true;
 
 		$cnt = $stackPtr + 1;
 
