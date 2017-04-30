@@ -34,6 +34,12 @@ composer global require squizlabs/php_codesniffer "~2.8"
 composer require joomla/coding-standards "~2.0"
 ```
 
+Once you have the coding standard files you can tell PHPCS where the standard folder is (i.e. install them in PHPCS)
+```sh
+phpcs --config-set installed_paths /path/to/joomla-coding-standards
+```
+note: the PHPCS config-set will always overwrite the previous values. use `--config-show` to check previous values before using `--config-set`
+
 ## Running
 
 You can use the installed Joomla standard like:
@@ -97,6 +103,12 @@ The last most common adjustment is removing PHP 5.3 specific rules which prevent
  </rule>
  
 ```
+## Using example rulesets that Selectively Applying Rule
+You have to tell you can tell PHPCS where the example ruleset folder is (i.e. install them in PHPCS)
+```sh
+phpcs --config-set installed_paths /path/to/joomla/coding-standards/Example-Rulesets
+```
+note: the PHPCS config-set will always overwrite the previous values. use `--config-show` to check previous values before using `--config-set`
 
 ## IDE autoformatters
 
