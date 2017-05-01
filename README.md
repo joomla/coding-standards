@@ -38,7 +38,9 @@ Once you have the coding standard files you can tell PHPCS where the standard fo
 ```sh
 phpcs --config-set installed_paths /path/to/joomla-coding-standards
 ```
-note: the PHPCS config-set will always overwrite the previous values. use `--config-show` to check previous values before using `--config-set`
+Note: the composer scripts will run when the standard is installed globally, but not when it's a dependancy. As such, you may want to run PHPCS config-set. When you run PHPCS config-set it will always overwrite the previous values. Use `--config-show` to check previous values before using `--config-set`
+So instead of overwriting the existing paths you should copy the existing paths revealed with `--config-show` and add each one seperated by a comma:
+`phpcs --config-set installed_paths [path_1],[path_2],[/path/to/joomla-coding-standards]`
 
 ## Running
 
@@ -108,7 +110,9 @@ You have to tell you can tell PHPCS where the example ruleset folder is (i.e. in
 ```sh
 phpcs --config-set installed_paths /path/to/joomla/coding-standards/Example-Rulesets
 ```
-note: the PHPCS config-set will always overwrite the previous values. use `--config-show` to check previous values before using `--config-set`
+Note: the composer scripts will run when the standard is installed globally, but not when it's a dependancy. As such, you may want to run PHPCS config-set. When you run PHPCS config-set it will always overwrite the previous values. Use `--config-show` to check previous values before using `--config-set`
+So instead of overwriting the existing paths you should copy the existing paths revealed with `--config-show` and add each one seperated by a comma:
+`phpcs --config-set installed_paths [path_1],[path_2],[/path/to/joomla-coding-standards],[/path/to/joomla/coding-standards/Example-Rulesets]`
 
 ## IDE autoformatters
 
