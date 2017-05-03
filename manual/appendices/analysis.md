@@ -36,4 +36,4 @@ Here are some other tools available to developers who are planning to submit sou
 
 ### PhpStorm Code Style Scheme
 
-https://docs.joomla.org/Joomla_CodeSniffer#PhpStorm
+See in the documentation https://docs.joomla.org/Joomla_CodeSniffer#PhpStorm
