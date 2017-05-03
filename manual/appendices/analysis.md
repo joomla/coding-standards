@@ -36,4 +36,4 @@ Here are some other tools available to developers who are planning to submit sou
 
 ### Set up the codesniffer
 
-See in the documentation https://docs.joomla.org/Joomla_CodeSniffer
+See in the documentation https://docs.joomla.org/Joomla_CodeSniffer#3._IDE_Integration
