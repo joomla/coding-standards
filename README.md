@@ -34,6 +34,14 @@ composer global require squizlabs/php_codesniffer "~2.8"
 composer require joomla/coding-standards "~2.0"
 ```
 
+Once you have the coding standard files you can tell PHPCS where the standard folder is (i.e. install them in PHPCS)
+```sh
+phpcs --config-set installed_paths /path/to/joomla-coding-standards
+```
+Note: the composer scripts will run when the standard is installed globally, but not when it's a dependancy. As such, you may want to run PHPCS config-set. When you run PHPCS config-set it will always overwrite the previous values. Use `--config-show` to check previous values before using `--config-set`
+So instead of overwriting the existing paths you should copy the existing paths revealed with `--config-show` and add each one seperated by a comma:
+`phpcs --config-set installed_paths [path_1],[path_2],[/path/to/joomla-coding-standards]`
+
 ## Running
 
 You can use the installed Joomla standard like:
@@ -97,6 +105,14 @@ The last most common adjustment is removing PHP 5.3 specific rules which prevent
  </rule>
  
 ```
+## Using example rulesets that Selectively Applying Rule
+You have to tell you can tell PHPCS where the example ruleset folder is (i.e. install them in PHPCS)
+```sh
+phpcs --config-set installed_paths /path/to/joomla/coding-standards/Example-Rulesets
+```
+Note: the composer scripts will run when the standard is installed globally, but not when it's a dependancy. As such, you may want to run PHPCS config-set. When you run PHPCS config-set it will always overwrite the previous values. Use `--config-show` to check previous values before using `--config-set`
+So instead of overwriting the existing paths you should copy the existing paths revealed with `--config-show` and add each one seperated by a comma:
+`phpcs --config-set installed_paths [path_1],[path_2],[/path/to/joomla-coding-standards],[/path/to/joomla/coding-standards/Example-Rulesets]`
 
 ## IDE autoformatters
 
