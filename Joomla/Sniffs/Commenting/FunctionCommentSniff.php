@@ -195,15 +195,15 @@ class Joomla_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commenti
 
 				if (empty($matches) === false)
 				{
-				    $typeLen   = strlen($matches[1]);
-				    $type      = trim($matches[1]);
-				    $typeSpace = ($typeLen - strlen($type));
-				    $typeLen   = strlen($type);
+					$typeLen   = strlen($matches[1]);
+					$type      = trim($matches[1]);
+					$typeSpace = ($typeLen - strlen($type));
+					$typeLen   = strlen($type);
 
-				    if ($typeLen > $maxType)
-				    {
+					if ($typeLen > $maxType)
+					{
 						$maxType = $typeLen;
-				    }
+					}
 				}
 
 				if (isset($matches[2]) === true)
