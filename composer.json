@@ -1,6 +1,6 @@
 {
     "name": "joomla/coding-standards",
-    "type": "library",
+    "type": "phpcodesniffer-standard",
     "description": "Joomla Coding Standards",
     "keywords": ["joomla", "coding standards", "phpcs", "php codesniffer"],
     "homepage": "https://github.com/joomla/coding-standards",
