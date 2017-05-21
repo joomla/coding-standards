@@ -34,4 +34,6 @@ ant phpcs
 
 Here are some other tools available to developers who are planning to submit source code to the project.
 
-### PhpStorm Code Style Scheme
+### Set up the codesniffer
+
+See in the documentation https://docs.joomla.org/Joomla_CodeSniffer#3._IDE_Integration
