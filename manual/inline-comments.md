@@ -37,7 +37,7 @@ Comments should be indented with tabs (like code, not like doc blocks).
 
 ### Content of comments
 
-Comments should use en-GB (See below).
+Comments should use en-GB
 
 Always have a space between // and the start of comment text.
 
@@ -47,7 +47,7 @@ New lines should always start with an upper case letter unless:
 
 Code that is included specifically to assure compatibility with other software (for example specific browsers or a specific version of the CMS or for backward compatibility reasons) should be clearly marked as such. If there is the intention to remove specific code at a future point, state that but do not use a deprecation tag or specify a release (this can be hard to predict).
 
-Check spelling and grammar on all comments (see below).
+Check spelling and grammar on all comments (see below and [https://developer.joomla.org/en-gb-user-interface-text-guidelines.html]).
 
 Only end a line with a period if it is a full sentence.
 
@@ -63,17 +63,15 @@ Remember that humor and sarcasm are difficult to translate.
 
 ### Acronyms
 
-Capitalise all letters of acronyms such as HTML, XML, SQL, GMT, and UTC. This is an exception to the general use of en-GB rules.
+Capitalise all letters of acronyms such as HTML, XML, SQL, GMT, and UTC.
 
 ### Common spelling and grammar errors for which to check.
 
 Joomla contributors include many non-native speakers of en-GB which makes it understandable that there are sometimes spelling and grammar errors. At the same time, some people reading comments also are non native speakers and may even use automated translation to understand comments. This makes it very important that comments should follow proper en-GB spelling and grammar rules. Unfortunately, these can be tricky.
 
-Wikipedia provides a good summary of [common differences between en-US and en-GB](http://en.wikipedia.org/wiki/American_and_British_English_spelling_differences). Note that there are some instances where en-GB common usage (but not actual rules) varies slightly from en-AU and using en-AU is considered acceptable.
-
 #### S vs Z
 
-en-GB most commonly uses `ise` where en-US would use `ize`, such as `normalise` instead of `normalize`. (Note that there are some exceptions to this rule and some differences between en-GB and en-AU in common usage.)
+en-GB most commonly uses `ise` where en-US would use `ize`, such as `normalise` instead of `normalize`. (Note that there are some exceptions to this rule.)
 
 Use of apostrophes is one of the trickier parts of English.
 
