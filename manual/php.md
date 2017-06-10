@@ -143,6 +143,11 @@ catch (RuntimeException $e)
 	throw new Exception($e->getMessage(), 500, $e);
 }
 ```
+## Logical operators
+
+Logical operators `&&`, `||`, should be used instead of `AND` and `OR`. The reason behind this, is that they are not interchangeable 1-for-1 because of operator precedence (see: http://php.net/manual/en/language.operators.precedence.php).
+Parentheses should be used in order to explicitly group parts of an expression, if necessary. This rule is also true for template files.
+
 
 
 ## Mixed language usage (e.g. at the layout files)
