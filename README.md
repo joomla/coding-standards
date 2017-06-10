@@ -34,6 +34,20 @@ composer global require squizlabs/php_codesniffer "~2.8"
 composer require joomla/coding-standards "~2.0"
 ```
 
+As stability of joomla/coding-standards 2.0.0 is currently alpha, make sure you allow usage of alpha software in Composer:
+
+```bash
+composer property-set minimum-stability "alpha"
+```
+
+If you want to install the coding-standards globally, edit your Composer global configuration by running:
+
+```bash
+composer global config-e
+```
+
+and add the following: `"minimum-stability": "alpha"`
+
 Once you have the coding standard files you can tell PHPCS where the standard folder is (i.e. install them in PHPCS)
 ```sh
 phpcs --config-set installed_paths /path/to/joomla-coding-standards
