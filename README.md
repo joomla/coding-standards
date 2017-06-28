@@ -1,7 +1,9 @@
 Joomla Coding Standards [![Build Status](https://travis-ci.org/joomla/coding-standards.svg?branch=master)](https://travis-ci.org/joomla/coding-standards)
 =======================
 
-This repository includes the [Joomla](http://developer.joomla.org) coding standard definition for [PHP Codesniffer](https://github.com/squizlabs/PHP_CodeSniffer) along with a few other helpful resources.  The PHP_CodeSniffer standard will never be 100% accurate, but should be viewed as a strong set of guidelines while writing software for Joomla.
+[![Latest Stable Version](https://poser.pugx.org/joomla/coding-standards/v/stable.svg)](https://packagist.org/packages/joomla/coding-standards) [![Latest Unstable Version](https://poser.pugx.org/joomla/coding-standards/v/unstable.svg)](https://packagist.org/packages/joomla/coding-standards) [![License](https://poser.pugx.org/joomla/coding-standards/license.svg)](https://packagist.org/packages/joomla/coding-standards)
+
+This repository includes the [Joomla](https://developer.joomla.org) coding standard definition for [PHP Codesniffer](https://github.com/squizlabs/PHP_CodeSniffer) along with a few other helpful resources.  The PHP_CodeSniffer standard will never be 100% accurate, but should be viewed as a strong set of guidelines while writing software for Joomla.
 
 See Joomla coding standards documentation at [https://developer.joomla.org/coding-standards.html](https://developer.joomla.org/coding-standards.html)
 
@@ -77,16 +79,16 @@ For information on [selectivly applying rules read details in the PHP CodeSniffe
 The most common adjustment is to exclude folders with 3rd party libraries, or where the code has yet to have coding standards applied.
 
 ```xml
-<!-- Exclude folders not containing production code -->
-	<exclude-pattern type="relative">build/*</exclude-pattern>
-	<exclude-pattern type="relative">tests/*</exclude-pattern>
+ <!-- Exclude folders not containing production code -->
+ <exclude-pattern type="relative">build/*</exclude-pattern>
+ <exclude-pattern type="relative">tests/*</exclude-pattern>
 
-	<!-- Exclude 3rd party libraries. -->
-	<exclude-pattern type="relative">libraries/*</exclude-pattern>
-	<exclude-pattern type="relative">vendor/*</exclude-pattern>
+ <!-- Exclude 3rd party libraries. -->
+ <exclude-pattern type="relative">libraries/*</exclude-pattern>
+ <exclude-pattern type="relative">vendor/*</exclude-pattern>
 ```
 
-Another common adjustment is to exclude the [camelCase format requirement](http://joomla.github.io/coding-standards/?coding-standards/chapters/php.md) for "Classes, Functions, Methods, Regular Variables and Class Properties" the essentially allows for B/C with snake_case variables which were only allowed in the context of interacting with the database.
+Another common adjustment is to exclude the [camelCase format requirement](https://developer.joomla.org/coding-standards/php-code.html) for "Classes, Functions, Methods, Regular Variables and Class Properties" the essentially allows for B/C with snake_case variables which were only allowed in the context of interacting with the database.
 
 ```xml
  <rule ref="Joomla">
@@ -97,7 +99,7 @@ Another common adjustment is to exclude the [camelCase format requirement](http:
  </rule>
 ```
 
-Old Protected method names were at one time prefixed with an underscore. These Protected method names with underscores are deprecated in Joomla projects but for B\C reasons are still in the projects. As such, excluding the MethodUnderscore sniff is a common ruleset adjustment
+Old Protected method names were at one time prefixed with an underscore. These Protected method names with underscores are deprecated in Joomla projects but for B/C reasons are still in the projects. As such, excluding the MethodUnderscore sniff is a common ruleset adjustment
 
 ```xml
  <rule ref="Joomla">
@@ -133,4 +135,4 @@ So instead of overwriting the existing paths you should copy the existing paths 
 There is further information on how to set up IDE auto formatters here: 
 
 [https://github.com/joomla/coding-standards/tree/master/Joomla/IDE](https://github.com/joomla/coding-standards/tree/master/Joomla/IDE)
-	
+
