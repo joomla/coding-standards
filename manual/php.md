@@ -290,6 +290,18 @@ function fooBar($param1, $param2,
 }
 ```
 
+## Closures / Anonymous functions
+Closures/Anonymous functions should have a space between the Closure's/Anonymous function's name and the opening parenthesis. Method signatures don't have the space.
+
+```php
+$fieldIds = array_map(
+	function ($f)
+	{
+		return $f->id;
+	},
+	$fields
+);
+```
 
 ## Class Definitions
 
