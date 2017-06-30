@@ -256,7 +256,7 @@ $long   = bar('long');
 
 ## Function Definitions
 
-Function definitions start on a new line and the opening and closing braces are also placed on new lines. An empty line should precede lines specifying the return value.
+Function definitions start on a new line with no spaces between the function name and the opening parenthesis. Additionally, the opening and closing braces are also placed on new lines. An empty line should precede lines specifying the return value.
 
 Function definitions must include a documentation comment in accordance with the Commenting section of this document.
 More details on DocBlocks Function comments can be found in the chapter on [DocBlocks Comments](docblocks.md).
