@@ -6,13 +6,16 @@
  * @copyright  Copyright (C) 2015 Open Source Matters, Inc. All rights reserved.
  * @license    http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License Version 2 or Later
  */
+namespace Joomla\Sniffs\Classes;
 
+use PHP_CodeSniffer\Sniffs\Sniff;
+use PHP_CodeSniffer\Files\File;
 /**
  * Ensures that new classes are instantiated without brackets if they do not have any parameters.
  *
  * @since     1.0
  */
-class Joomla_Sniffs_Classes_InstantiateNewClassesSniff implements PHP_CodeSniffer_Sniff
+class InstantiateNewClassesSniff implements Sniff
 {
 	/**
 	 * If true, short Array Syntax for php 5.4+ will be allow for Instantiating New Classes if they are found in the code.
@@ -35,12 +38,12 @@ class Joomla_Sniffs_Classes_InstantiateNewClassesSniff implements PHP_CodeSniffe
 	/**
 	 * Process the tokens that this sniff is listening for.
 	 *
-	 * @param   PHP_CodeSniffer_File  $phpcsFile  The file where the token was found.
-	 * @param   integer               $stackPtr   The position in the stack where the token was found.
+	 * @param   PHP_CodeSniffer\Files\File  $phpcsFile  The file where the token was found.
+	 * @param   integer                     $stackPtr   The position in the stack where the token was found.
 	 *
 	 * @return  void
 	 */
-	public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
+	public function process(File $phpcsFile, $stackPtr)
 	{
 		$tokens = $phpcsFile->getTokens();
 
