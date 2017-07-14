@@ -6,18 +6,18 @@
  * @copyright  Copyright (C) 2015 Open Source Matters, Inc. All rights reserved.
  * @license    http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License Version 2 or Later
  */
+namespace Joomla\Sniffs\Functions;
 
-if (class_exists('Squiz_Sniffs_NamingConventions_ValidVariableNameSniff', true) === false)
-{
-	throw new PHP_CodeSniffer_Exception('Class Squiz_Sniffs_NamingConventions_ValidVariableNameSniff not found');
-}
-
+use PHP_CodeSniffer\Sniffs\Sniff;
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Util\Common;
+use PHP_CodeSniffer\Standards\Squiz\Sniffs\NamingConventions\ValidVariableNameSniff as SquizValidvariableNameSniff;
 /**
  * Extended ruleset for checking the naming of variables and member variables.
  *
  * @since     1.0
  */
-class Joomla_Sniffs_NamingConventions_ValidVariableNameSniff extends Squiz_Sniffs_NamingConventions_ValidVariableNameSniff
+class ValidVariableNameSniff extends SquizValidVariableNameSniff
 {
 	/**
 	 * Processes class member variables.
@@ -25,12 +25,12 @@ class Joomla_Sniffs_NamingConventions_ValidVariableNameSniff extends Squiz_Sniff
 	 * Extends Squiz.NamingConventions.ValidVariableName.processMemberVar to remove the requirement for leading underscores on
 	 * private member vars.
 	 *
-	 * @param   PHP_CodeSniffer_File  $phpcsFile  The file being scanned.
+	 * @param   PHP_CodeSniffer\Files\File  $phpcsFile  The file being scanned.
 	 * @param   integer               $stackPtr   The position of the current token in the stack passed in $tokens.
 	 *
 	 * @return  void
 	 */
-	protected function processMemberVar(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
+	protected function processMemberVar(File $phpcsFile, $stackPtr)
 	{
 		$tokens = $phpcsFile->getTokens();
 
@@ -58,7 +58,7 @@ class Joomla_Sniffs_NamingConventions_ValidVariableNameSniff extends Squiz_Sniff
 			return;
 		}
 
-		if (PHP_CodeSniffer::isCamelCaps($varName, false, true, false) === false)
+		if (Common::isCamelCaps($varName, false, true, false) === false)
 		{
 			$error = 'Member variable "%s" is not in valid camel caps format';
 			$phpcsFile->addError($error, $stackPtr, 'MemberNotCamelCaps', $errorData);

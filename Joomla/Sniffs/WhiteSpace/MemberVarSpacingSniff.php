@@ -6,40 +6,40 @@
  * @copyright  Copyright (C) 2015 Open Source Matters, Inc. All rights reserved.
  * @license    http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License Version 2 or Later
  */
+namespace Joomla\Sniffs\WhiteSpace;
 
-if (false === class_exists('Squiz_Sniffs_WhiteSpace_MemberVarSpacingSniff', true))
-{
-	throw new PHP_CodeSniffer_Exception('Class Squiz_Sniffs_WhiteSpace_MemberVarSpacingSniff not found');
-}
-
+use PHP_CodeSniffer\Sniffs\Sniff;
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Util\Tokens;
+use PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\MemberVarSpacingSniff as SquizMemberVarSpacingSniff;
 /**
  * Verifies that class members are spaced correctly.
  *
  * @since     1.0
  */
-class Joomla_Sniffs_WhiteSpace_MemberVarSpacingSniff extends Squiz_Sniffs_WhiteSpace_MemberVarSpacingSniff
+class MemberVarSpacingSniff extends SquizMemberVarSpacingSniff
 {
 	/**
 	 * Processes the function tokens within the class.
 	 *
-	 * @param   PHP_CodeSniffer_File  $phpcsFile  The file where this token was found.
-	 * @param   int                   $stackPtr   The position where the token was found.
+	 * @param   PHP_CodeSniffer\Files\File  $phpcsFile  The file where this token was found.
+	 * @param   int                         $stackPtr   The position where the token was found.
 	 *
 	 * @return  void
 	 */
-	protected function processMemberVar(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
+	protected function processMemberVar(File $phpcsFile, $stackPtr)
 	{
 		$tokens   = $phpcsFile->getTokens();
-		$ignore   = PHP_CodeSniffer_Tokens::$methodPrefixes;
+		$ignore   = Tokens::$methodPrefixes;
 		$ignore[] = T_VAR;
 		$ignore[] = T_WHITESPACE;
 		$start    = $stackPtr;
 		$prev     = $phpcsFile->findPrevious($ignore, ($stackPtr - 1), null, true);
 
-		if (isset(PHP_CodeSniffer_Tokens::$commentTokens[$tokens[$prev]['code']]) === true)
+		if (isset(Tokens::$commentTokens[$tokens[$prev]['code']]) === true)
 		{
 			// Assume the comment belongs to the member var if it is on a line by itself.
-			$prevContent = $phpcsFile->findPrevious(PHP_CodeSniffer_Tokens::$emptyTokens, ($prev - 1), null, true);
+			$prevContent = $phpcsFile->findPrevious(Tokens::$emptyTokens, ($prev - 1), null, true);
 
 			if ($tokens[$prevContent]['line'] !== $tokens[$prev]['line'])
 			{
@@ -85,7 +85,7 @@ class Joomla_Sniffs_WhiteSpace_MemberVarSpacingSniff extends Squiz_Sniffs_WhiteS
 		if ($start === $stackPtr)
 		{
 			// No comment found.
-			$first = $phpcsFile->findFirstOnLine(PHP_CodeSniffer_Tokens::$emptyTokens, $start, true);
+			$first = $phpcsFile->findFirstOnLine(Tokens::$emptyTokens, $start, true);
 
 			if ($first === false)
 			{
@@ -98,11 +98,11 @@ class Joomla_Sniffs_WhiteSpace_MemberVarSpacingSniff extends Squiz_Sniffs_WhiteS
 		}
 		else
 		{
-			$first = $phpcsFile->findPrevious(PHP_CodeSniffer_Tokens::$emptyTokens, ($start - 1), null, true);
-			$first = $phpcsFile->findNext(PHP_CodeSniffer_Tokens::$commentTokens, ($first + 1));
+			$first = $phpcsFile->findPrevious(Tokens::$emptyTokens, ($start - 1), null, true);
+			$first = $phpcsFile->findNext(Tokens::$commentTokens, ($first + 1));
 		}
 
-		$prev       = $phpcsFile->findPrevious(PHP_CodeSniffer_Tokens::$emptyTokens, ($first - 1), null, true);
+		$prev       = $phpcsFile->findPrevious(Tokens::$emptyTokens, ($first - 1), null, true);
 		$foundLines = ($tokens[$first]['line'] - $tokens[$prev]['line'] - 1);
 
 		// No blank lines after class opener.

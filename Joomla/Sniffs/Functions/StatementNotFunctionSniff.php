@@ -6,7 +6,11 @@
  * @copyright  Copyright (C) 2015 Open Source Matters, Inc. All rights reserved.
  * @license    http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License Version 2 or Later
  */
+namespace Joomla\Sniffs\Functions;
 
+use PHP_CodeSniffer\Sniffs\Sniff;
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Util\Tokens;
 /**
  * Joomla_Sniffs_Functions_StatementNotFunctionSniff.
  *
@@ -14,7 +18,7 @@
  *
  * @since     1.0
  */
-class Joomla_Sniffs_Functions_StatementNotFunctionSniff implements PHP_CodeSniffer_Sniff
+class StatementNotFunctionSniff implements Sniff
 {
 	/**
 	 * Returns an array of tokens this test wants to listen for.
@@ -36,15 +40,15 @@ class Joomla_Sniffs_Functions_StatementNotFunctionSniff implements PHP_CodeSniff
 	/**
 	 * Processes this test, when one of its tokens is encountered.
 	 *
-	 * @param   PHP_CodeSniffer_File  $phpcsFile  The file being scanned.
-	 * @param   integer               $stackPtr   The position of the current token in the stack passed in $tokens.
+	 * @param   PHP_CodeSniffer\Files\File  $phpcsFile  The file being scanned.
+	 * @param   integer                     $stackPtr   The position of the current token in the stack passed in $tokens.
 	 *
 	 * @return  void
 	 */
-	public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
+	public function process(File $phpcsFile, $stackPtr)
 	{
 		$tokens    = $phpcsFile->getTokens();
-		$nextToken = $phpcsFile->findNext(PHP_CodeSniffer_Tokens::$emptyTokens, ($stackPtr + 1), null, true);
+		$nextToken = $phpcsFile->findNext(Tokens::$emptyTokens, ($stackPtr + 1), null, true);
 
 		if ($tokens[$nextToken]['code'] === T_OPEN_PARENTHESIS && $tokens[($stackPtr)]['code'] !== T_ECHO)
 		{

@@ -6,18 +6,18 @@
  * @copyright  Copyright (C) 2015 Open Source Matters, Inc. All rights reserved.
  * @license    http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License Version 2 or Later
  */
+namespace Joomla\Sniffs\Functions;
 
-if (class_exists('PEAR_Sniffs_NamingConventions_ValidFunctionNameSniff', true) === false)
-{
-	throw new PHP_CodeSniffer_Exception('Class PEAR_Sniffs_NamingConventions_ValidFunctionNameSniff not found');
-}
-
+use PHP_CodeSniffer\Sniffs\Sniff;
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Util\Common;
+use PHP_CodeSniffer\Standards\PEAR\Sniffs\NamingConventions\ValidFunctionNameSniff as PEARValidFunctionNameSniff;
 /**
  * Extended ruleset for ensuring method and function names are correct.
  *
  * @since     1.0
  */
-class Joomla_Sniffs_NamingConventions_ValidFunctionNameSniff extends PEAR_Sniffs_NamingConventions_ValidFunctionNameSniff
+class ValidFunctionNameSniff extends PEARValidFunctionNameSniff
 {
 	/**
 	 * Processes the tokens within the scope.
@@ -25,13 +25,13 @@ class Joomla_Sniffs_NamingConventions_ValidFunctionNameSniff extends PEAR_Sniffs
 	 * Extends PEAR.NamingConventions.ValidFunctionName.processTokenWithinScope to remove the requirement for leading underscores on
 	 * private method names.
 	 *
-	 * @param   PHP_CodeSniffer_File $phpcsFile  The file being processed.
-	 * @param   integer              $stackPtr   The position where this token was found.
-	 * @param   integer              $currScope  The position of the current scope.
+	 * @param   PHP_CodeSniffer\Files\File $phpcsFile  The file being processed.
+	 * @param   integer                    $stackPtr   The position where this token was found.
+	 * @param   integer                    $currScope  The position of the current scope.
 	 *
 	 * @return  void
 	 */
-	protected function processTokenWithinScope(PHP_CodeSniffer_File $phpcsFile, $stackPtr, $currScope)
+	protected function processTokenWithinScope(File $phpcsFile, $stackPtr, $currScope)
 	{
 		$methodName = $phpcsFile->getDeclarationName($stackPtr);
 
@@ -110,7 +110,7 @@ class Joomla_Sniffs_NamingConventions_ValidFunctionNameSniff extends PEAR_Sniffs
 			$testMethodName = substr($methodName, 1);
 		}
 
-		if (PHP_CodeSniffer::isCamelCaps($testMethodName, false, true, false) === false)
+		if (Common::isCamelCaps($testMethodName, false, true, false) === false)
 		{
 			if ($scopeSpecified === true)
 			{
