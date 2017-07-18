@@ -11,12 +11,13 @@ namespace Joomla\Sniffs\Commenting;
 use PHP_CodeSniffer\Sniffs\Sniff;
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Util\Tokens;
+use Joomla\Sniffs\Commenting\FileCommentSniff as JoomlaFileCommentSniff
 /**
  * Parses and verifies the doc comments for classes.
  *
  * @since     1.0
  */
-class ClassCommentSniff extends FileCommentSniff
+class ClassCommentSniff extends JoomlaFileCommentSniff
 {
 	/**
 	 * Tags in correct order and related info.
