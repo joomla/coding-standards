@@ -12,7 +12,7 @@ This manual compiles the collective wisdom of past and present contributors to t
 
 The Joomla Coding Standards borrows heavily from the PEAR coding standard for PHP files, augmenting and diverging where it is deemed sensible to do so.
 
-There are [tools available](appendices/analysis.md) to help your code conform to our standards.
+There are [tools available](appendices/analysis.html) to help your code conform to our standards.
 
 ## Contributing to this manual
 
