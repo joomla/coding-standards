@@ -19,7 +19,7 @@ use PHP_CodeSniffer\Util\Tokens;
  *
  * @since     1.0
  */
-class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements Sniff
+class ControlStructuresBracketsSniff implements Sniff
 {
 	/**
 	 * The number of spaces code should be indented.

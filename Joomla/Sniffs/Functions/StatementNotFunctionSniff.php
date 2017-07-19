@@ -59,7 +59,7 @@ class StatementNotFunctionSniff implements Sniff
 			if ($fix === true)
 			{
 				$end      = $phpcsFile->findEndOfStatement($nextToken);
-				$ignore   = PHP_CodeSniffer_Tokens::$emptyTokens;
+				$ignore   = Tokens::$emptyTokens;
 				$ignore[] = T_SEMICOLON;
 				$closer   = $phpcsFile->findPrevious($ignore, ($end - 1), null, true);
 
