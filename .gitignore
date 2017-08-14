@@ -2,3 +2,11 @@ vendor/
 composer.phar
 composer.lock
 phpunit.xml
+
+# IDE Related Files #
+.editorconfig
+.project
+.settings
+.DS_Store
+.idea
+.vscode

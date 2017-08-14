@@ -6,7 +6,11 @@
  * @copyright  Copyright (C) 2015 Open Source Matters, Inc. All rights reserved.
  * @license    http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License Version 2 or Later
  */
+namespace Joomla\Sniffs\ControlStructures;
 
+use PHP_CodeSniffer\Sniffs\Sniff;
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Util\Tokens;
 /**
  * Verifies that control statements conform to their coding standards.
  *
@@ -19,7 +23,7 @@
  *
  * @since   1.0
  */
-class Joomla_Sniffs_ControlStructures_ControlSignatureSniff implements PHP_CodeSniffer_Sniff
+class ControlSignatureSniff implements Sniff
 {
 	/**
 	 * The number of spaces code should be indented.
@@ -63,12 +67,12 @@ class Joomla_Sniffs_ControlStructures_ControlSignatureSniff implements PHP_CodeS
 	/**
 	 * Processes this test, when one of its tokens is encountered.
 	 *
-	 * @param   PHP_CodeSniffer_File  $phpcsFile  The file being scanned.
-	 * @param   int                   $stackPtr   The position of the current token in the stack passed in $tokens.
+	 * @param   PHP_CodeSniffer\Files\File  $phpcsFile  The file being scanned.
+	 * @param   int                         $stackPtr   The position of the current token in the stack passed in $tokens.
 	 *
 	 * @return  void
 	 */
-	public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
+	public function process(File $phpcsFile, $stackPtr)
 	{
 		$tokens = $phpcsFile->getTokens();
 
@@ -169,7 +173,7 @@ class Joomla_Sniffs_ControlStructures_ControlSignatureSniff implements PHP_CodeS
 			|| $tokens[$stackPtr]['code'] === T_CATCH
 		)
 		{
-			$closer = $phpcsFile->findPrevious(PHP_CodeSniffer_Tokens::$emptyTokens, ($stackPtr - 1), null, true);
+			$closer = $phpcsFile->findPrevious(Tokens::$emptyTokens, ($stackPtr - 1), null, true);
 
 			if ($closer === false || $tokens[$closer]['code'] !== T_CLOSE_CURLY_BRACKET)
 			{

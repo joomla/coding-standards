@@ -11,8 +11,6 @@ matrix:
   include:
     - php: 5.6
       env: RUN_PHPCS="yes" RUN_PHPUNIT="no"
-    - php: 5.3
-      dist: precise
     - php: 5.4
     - php: 5.5
     - php: 5.6
@@ -30,7 +28,7 @@ before_script:
 
 script:
   - if [[ $RUN_PHPUNIT == "yes" ]]; then ./vendor/bin/phpunit --filter Joomla vendor/squizlabs/php_codesniffer/tests/AllTests.php; fi
-  - if [[ $RUN_PHPCS == "yes" ]]; then ./vendor/bin/phpcs -sp --extensions=php --ignore=*/vendor/* --standard=Joomla */ .; fi
+  - if [[ $RUN_PHPCS == "yes" ]]; then ./vendor/bin/phpcs -sp --extensions=php --ignore=*/vendor/* --standard=Joomla .; fi
 
 notifications:
   email: false

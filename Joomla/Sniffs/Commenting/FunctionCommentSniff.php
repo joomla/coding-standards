@@ -6,18 +6,18 @@
  * @copyright  Copyright (C) 2015 Open Source Matters, Inc. All rights reserved.
  * @license    http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License Version 2 or Later
  */
+namespace Joomla\Sniffs\Commenting;
 
-if (class_exists('PEAR_Sniffs_Commenting_FunctionCommentSniff', true) === false)
-{
-	throw new PHP_CodeSniffer_Exception('Class PEAR_Sniffs_Commenting_FunctionCommentSniff not found');
-}
-
+use PHP_CodeSniffer\Sniffs\Sniff;
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Util\Common;
+use PHP_CodeSniffer\Standards\PEAR\Sniffs\Commenting\FunctionCommentSniff as PEARFunctionCommentSniff;
 /**
  * Extended ruleset for parsing and verifying the doc comments for functions.
  *
  * @since     1.0
  */
-class Joomla_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commenting_FunctionCommentSniff
+class FunctionCommentSniff extends PEARFunctionCommentSniff
 {
 	/**
 	 * Process the return comment of this function comment.
@@ -25,15 +25,15 @@ class Joomla_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commenti
 	 * Extends PEAR.Commenting.FunctionComment.processReturn to exclude @return tag requirements for constructors and destructors and
 	 * to enforce alignment of the doc blocks.
 	 *
-	 * @param   PHP_CodeSniffer_File  $phpcsFile     The file being scanned.
-	 * @param   integer               $stackPtr      The position of the current token in the stack passed in $tokens.
-	 * @param   integer               $commentStart  The position in the stack where the comment started.
+	 * @param   PHP_CodeSniffer\Files\File  $phpcsFile     The file being scanned.
+	 * @param   integer                     $stackPtr      The position of the current token in the stack passed in $tokens.
+	 * @param   integer                     $commentStart  The position in the stack where the comment started.
 	 *
 	 * @return  void
 	 *
 	 * @todo    Reinstate the check on the alignment of the tag
 	 */
-	protected function processReturn(PHP_CodeSniffer_File $phpcsFile, $stackPtr, $commentStart)
+	protected function processReturn(File $phpcsFile, $stackPtr, $commentStart)
 	{
 		$tokens = $phpcsFile->getTokens();
 
@@ -88,7 +88,7 @@ class Joomla_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commenti
 
 				foreach ($typeNames as $i => $typeName)
 				{
-					$suggestedName = PHP_CodeSniffer::suggestType($typeName);
+					$suggestedName = Common::suggestType($typeName);
 
 					if (in_array($suggestedName, $suggestedNames) === false)
 					{
@@ -157,16 +157,16 @@ class Joomla_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commenti
 	 *
 	 * Extends PEAR.Commenting.FunctionComment.processReturn to enforce correct alignment of the doc block.
 	 *
-	 * @param   PHP_CodeSniffer_File $phpcsFile     The file being scanned.
-	 * @param   integer              $stackPtr      The position of the current token in the stack passed in $tokens.
-	 * @param   integer              $commentStart  The position in the stack where the comment started.
+	 * @param   PHP_CodeSniffer\Files\File $phpcsFile     The file being scanned.
+	 * @param   integer                    $stackPtr      The position of the current token in the stack passed in $tokens.
+	 * @param   integer                    $commentStart  The position in the stack where the comment started.
 	 *
 	 * @return  void
 	 *
 	 * @todo    Reinstate the check that params come after the function's comment and has a blank line before them
 	 * @todo    Reinstate the check that there is a blank line after all params are declared
 	 */
-	protected function processParams(PHP_CodeSniffer_File $phpcsFile, $stackPtr, $commentStart)
+	protected function processParams(File $phpcsFile, $stackPtr, $commentStart)
 	{
 		$tokens = $phpcsFile->getTokens();
 

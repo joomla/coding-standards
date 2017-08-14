@@ -6,13 +6,15 @@
  * @copyright  Copyright (C) 2015 Open Source Matters, Inc. All rights reserved.
  * @license    http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License Version 2 or Later
  */
+namespace Joomla\Tests\Functions;
 
+use PHP_CodeSniffer\Tests\Standards\AbstractSniffUnitTest;
 /**
  * StatementNotFunctionUnitTest
  *
  * @since     1.0
  */
-class Joomla_Tests_Functions_StatementNotFunctionUnitTest extends AbstractSniffUnitTest
+class StatementNotFunctionUnitTest extends AbstractSniffUnitTest
 {
 	/**
 	 * Returns the lines where errors should occur.
