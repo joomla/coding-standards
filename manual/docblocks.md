@@ -68,7 +68,7 @@ Example of a Class file DocBlock header:
  */
 ```
 
-#### Class Property DocBlocks 
+#### Class Property DocBlocks
 The class property Docblock consists of the following required and optional elements in the following order.
 Short description (required, followed by a blank line)
 
@@ -103,6 +103,13 @@ Function definitions must include a documentation comment in accordance with the
 * @throws (required if method or function arguments throws a specific type of exception)
 * All other tags in alphabetical order.
 
+**Note:**
+Commonly a line after the tag @param consists of the following three parts in order of appearance:
+* variable type (There must be 3 spaces before variable type.)
+* variable name (There must be 2 spaces after the longest type.)
+* variable description (There must be 2 spaces after the longest variable name.)
+If there are more than one @param the type, names and description have to be aligned.
+
 Example of Method DocBlock:
 ```php
 	/**
@@ -124,9 +131,9 @@ Example of Method DocBlock:
 If a function definition goes over multiple lines, all lines must be indented with one tab and the closing brace must go on the same line as the last parameter.
 
 ```php
-function fooBar($param1, $param2, 
-    $param3, $param4) 
-{ 
-    // Body of method. 
+function fooBar($param1, $param2,
+    $param3, $param4)
+{
+    // Body of method.
 }
 ```
