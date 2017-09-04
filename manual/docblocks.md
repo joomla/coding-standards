@@ -108,6 +108,7 @@ Commonly a line after the tag @param consists of the following three parts in or
 * variable type (There must be 3 spaces before variable type.)
 * variable name (There must be 2 spaces after the longest type.)
 * variable description (There must be 2 spaces after the longest variable name.)
+
 If there are more than one @param the type, names and description have to be aligned.
 
 Example of Method DocBlock:
