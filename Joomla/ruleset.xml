@@ -166,6 +166,11 @@
 	<rule ref="Squiz.WhiteSpace.ControlStructureSpacing">
 		<exclude name="Squiz.WhiteSpace.ControlStructureSpacing.LineAfterClose" />
 	</rule>
+	<rule ref="Squiz.WhiteSpace.MemberVarSpacing">
+		<properties>
+			<property name="spacingBeforeFirst" value="0" />
+		</properties>
+	</rule>
 	<rule ref="Squiz.WhiteSpace.OperatorSpacing">
 		<properties>
 			<property name="ignoreNewlines" value="true" />
