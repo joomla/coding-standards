@@ -16,10 +16,11 @@ matrix:
     - php: 5.6
     - php: 7.0
     - php: 7.1
-    - php: hhvm
+    - php: 7.2
+    - php: nightly
   allow_failures:
-    - php: 7.1
-    - php: hhvm
+    - php: 7.2
+    - php: nightly
 
 before_script:
   - composer self-update
@@ -28,7 +29,7 @@ before_script:
 
 script:
   # list all files in the directory to hunt for bootstrap file
-  - ls -alR $(pear config-get php_dir)
+  - ls -alR ./vendor/bin/
   - if [[ $RUN_PHPUNIT == "yes" ]]; then ./vendor/bin/phpunit --bootstrap ./vendor/bin/phpcs/tests/bootstrap.php; fi
   - if [[ $RUN_PHPUNIT == "yes" ]]; then ./vendor/bin/phpunit --filter Joomla vendor/squizlabs/php_codesniffer/tests/AllTests.php; fi
   - if [[ $RUN_PHPCS == "yes" ]]; then ./vendor/bin/phpcs -sp --extensions=php --ignore=*/vendor/* --standard=Joomla .; fi
