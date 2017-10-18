@@ -28,7 +28,7 @@ before_script:
   - ./vendor/bin/phpcs --config-set installed_paths $(pwd)
 
 script:
-  - if [[ $RUN_PHPUNIT == "yes" ]]; then ./vendor/bin/phpunit --bootstrap /home/travis/build/photodude/coding-standards/vendor/squizlabs/php_codesniffer/tests/bootstrap.php --filter Joomla vendor/squizlabs/php_codesniffer/tests/AllTests.php; fi
+  - if [[ $RUN_PHPUNIT == "yes" ]]; then ./vendor/bin/phpunit --bootstrap $TRAVIS_BUILD_DIR/vendor/squizlabs/php_codesniffer/tests/bootstrap.php --filter Joomla vendor/squizlabs/php_codesniffer/tests/AllTests.php; fi
   - if [[ $RUN_PHPCS == "yes" ]]; then ./vendor/bin/phpcs -sp --extensions=php --ignore=*/vendor/* --standard=Joomla .; fi
 
 notifications:
