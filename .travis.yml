@@ -28,10 +28,7 @@ before_script:
   - ./vendor/bin/phpcs --config-set installed_paths $(pwd)
 
 script:
-  # list all files in the directory to hunt for bootstrap file
-  - ls -alR /home/travis/build/photodude/coding-standards/vendor/squizlabs/php_codesniffer
-  - if [[ $RUN_PHPUNIT == "yes" ]]; then ./vendor/bin/phpunit --bootstrap /home/travis/build/photodude/coding-standards/vendor/squizlabs/php_codesniffer/tests/bootstrap.php; fi
-  - if [[ $RUN_PHPUNIT == "yes" ]]; then ./vendor/bin/phpunit --filter Joomla vendor/squizlabs/php_codesniffer/tests/AllTests.php; fi
+  - if [[ $RUN_PHPUNIT == "yes" ]]; then ./vendor/bin/phpunit --bootstrap /home/travis/build/photodude/coding-standards/vendor/squizlabs/php_codesniffer/tests/bootstrap.php --filter Joomla vendor/squizlabs/php_codesniffer/tests/AllTests.php; fi
   - if [[ $RUN_PHPCS == "yes" ]]; then ./vendor/bin/phpcs -sp --extensions=php --ignore=*/vendor/* --standard=Joomla .; fi
 
 notifications:
