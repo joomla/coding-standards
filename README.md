@@ -24,7 +24,6 @@ Add `"joomla/coding-standards": "~2.0"` to the require-dev block in your compose
 ```json
 {
     "require-dev": {
-		"squizlabs/php_codesniffer": "~2.8",
 		"joomla/coding-standards": "~2.0"
 	}
 }
@@ -38,7 +37,15 @@ composer require joomla/coding-standards "~2.0"
 ```
 
 As stability of joomla/coding-standards 2.0.0 is currently alpha, make sure you allow usage of alpha software in Composer:
-
+In Composer json
+```json
+{
+    "require-dev": {
+		"joomla/coding-standards": "~2.0@alpha"
+	}
+}
+```
+or on the command line
 ```bash
 composer property-set minimum-stability "alpha"
 ```
