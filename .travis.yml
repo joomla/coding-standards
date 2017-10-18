@@ -29,8 +29,8 @@ before_script:
 
 script:
   # list all files in the directory to hunt for bootstrap file
-  - ls -alR ./vendor/bin/
-  - if [[ $RUN_PHPUNIT == "yes" ]]; then ./vendor/bin/phpunit --bootstrap ./vendor/bin/phpcs/tests/bootstrap.php; fi
+  - ls -alR ./vendor/bin/squizlabs/php_codesniffer/
+  - if [[ $RUN_PHPUNIT == "yes" ]]; then ./vendor/bin/phpunit --bootstrap ./vendor/bin/squizlabs/php_codesniffer/tests/bootstrap.php; fi
   - if [[ $RUN_PHPUNIT == "yes" ]]; then ./vendor/bin/phpunit --filter Joomla vendor/squizlabs/php_codesniffer/tests/AllTests.php; fi
   - if [[ $RUN_PHPCS == "yes" ]]; then ./vendor/bin/phpcs -sp --extensions=php --ignore=*/vendor/* --standard=Joomla .; fi
 
