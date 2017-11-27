@@ -104,19 +104,6 @@ Old Protected method names were at one time prefixed with an underscore. These P
  </rule>
 ```
 
-The last most common adjustment is removing PHP 5.3 specific rules which prevent short array syntax, and allowing short array syntax for method parameters.
-
-```xml
- <rule ref="Generic">
-  <exclude name="Generic.Arrays.DisallowShortArraySyntax"/>
- </rule>
- <rule ref="Joomla.Classes.InstantiateNewClasses">
-   <properties>
-     <property name="shortArraySyntax" value="true"/>
-   </properties>
- </rule>
- 
-```
 ## Using example rulesets that Selectively Applying Rule
 You have to tell you can tell PHPCS where the example ruleset folder is (i.e. install them in PHPCS)
 ```sh
