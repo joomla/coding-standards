@@ -26,9 +26,4 @@
         <exclude name="Generic.Arrays.DisallowShortArraySyntax"/>
     </rule>
 
-    <rule ref="Joomla.Classes.InstantiateNewClasses">
-        <properties>
-            <property name="shortArraySyntax" value="true"/>
-        </properties>
-    </rule>
 </ruleset>
