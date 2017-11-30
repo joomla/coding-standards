@@ -10,8 +10,7 @@
 /**
  * Extended ruleset that warns for the use of various deprecated Joomla functions and suggests alternatives.
  *
- * Discourages the use of deprecated functions that are kept in Joomla for
- * compatibility with older versions.
+ * Discourages the use of deprecated functions that are kept in Joomla for compatibility with older versions.
  *
  * @since     0.0
  */
@@ -77,8 +76,7 @@ class Joomla_Sniffs_Deprecated_DeprecatedFunctionsSniff extends Generic_Sniffs_P
 	 *  </properties>
 	 * </rule>
 	 *
-	 * Alternatively, the value can be passed for the sniff using it via
-	 * the command line or by setting a `<config>` value in a custom phpcs.xml ruleset.
+	 * Alternatively, the value can be passed for the sniff using it via the command line or by setting a `<config>` value in a custom phpcs.xml ruleset.
 	 * Note: the `_joomla_` in the command line property name!
 	 *
 	 * CL: `phpcs --runtime-set enable_deprecated_joomla_sniff 1`
@@ -96,8 +94,7 @@ class Joomla_Sniffs_Deprecated_DeprecatedFunctionsSniff extends Generic_Sniffs_P
 	 * Processes this test, when one of its tokens is encountered.
 	 *
 	 * @param   PHP_CodeSniffer_File $phpcsFile The file being scanned.
-	 * @param   int                  $stackPtr  The position of the current token in
-	 *                                        the stack passed in $tokens.
+	 * @param   int                  $stackPtr  The position of the current token in the stack passed in $tokens.
 	 *
 	 * @return void
 	 */
@@ -164,8 +161,7 @@ class Joomla_Sniffs_Deprecated_DeprecatedFunctionsSniff extends Generic_Sniffs_P
 	 * Generates the error or wanrning for this sniff.
 	 *
 	 * @param   PHP_CodeSniffer_File $phpcsFile The file being scanned.
-	 * @param   int                  $stackPtr  The position of the forbidden function
-	 *                                        in the token array.
+	 * @param   int                  $stackPtr  The position of the forbidden function in the token array.
 	 * @param   string               $function  The name of the forbidden function.
 	 * @param   string               $pattern   The pattern used for the match.
 	 *
