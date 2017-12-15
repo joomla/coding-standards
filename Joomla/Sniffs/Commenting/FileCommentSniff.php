@@ -43,9 +43,9 @@ class FileCommentSniff implements Sniff
 										'order_text'     => 'precedes @package',
 										),
 						'@package'    => array(
-										'required'       => true,
+										'required'       => false,
 										'allow_multiple' => false,
-										'order_text'     => 'must follows @category (if used)',
+										'order_text'     => 'must follow @category (if used)',
 										),
 						'@subpackage' => array(
 										'required'       => false,
@@ -80,7 +80,7 @@ class FileCommentSniff implements Sniff
 						'@since'      => array(
 										'required'       => false,
 										'allow_multiple' => false,
-										'order_text'     => 'must follows @see (if used), @link (if used) or @license',
+										'order_text'     => 'must follow @see (if used), @link (if used) or @license',
 										),
 						'@deprecated' => array(
 										'required'       => false,
