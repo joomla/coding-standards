@@ -16,7 +16,7 @@ Short description (optional unless the file contains more than two classes or fu
 
 * @version (optional and must be first)
 * @category (optional and rarely used)
-* @package (generally optional but required when files contain only procedural code)
+* @package (generally optional but required when files contain only procedural code. Always optional in namespaced code)
 * @subpackage (optional)
 * @author (optional but only permitted in non-Joomla source files, for example, included third-party libraries like Geshi)
 * @copyright (required)
