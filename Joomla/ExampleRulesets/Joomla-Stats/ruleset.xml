@@ -23,12 +23,6 @@
         <exclude name="Joomla.NamingConventions.ValidVariableName.MemberNotCamelCaps"/>
         <exclude name="Joomla.NamingConventions.ValidVariableName.NotCamelCaps"/>
         <exclude name="Joomla.NamingConventions.ValidFunctionName.ScopeNotCamelCaps"/>
-        <exclude name="Generic.Arrays.DisallowShortArraySyntax"/>
     </rule>
 
-    <rule ref="Joomla.Classes.InstantiateNewClasses">
-        <properties>
-            <property name="shortArraySyntax" value="true"/>
-        </properties>
-    </rule>
 </ruleset>

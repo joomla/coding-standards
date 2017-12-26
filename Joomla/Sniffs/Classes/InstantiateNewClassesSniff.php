@@ -18,14 +18,6 @@ use PHP_CodeSniffer\Files\File;
 class InstantiateNewClassesSniff implements Sniff
 {
 	/**
-	 * If true, short Array Syntax for php 5.4+ will be allow for Instantiating New Classes if they are found in the code.
-	 * this should be removed when all Joomla projects no longer need to support php 5.3
-	 *
-	 * @var boolean
-	 */
-	public $shortArraySyntax = false;
-
-	/**
 	 * Registers the token types that this sniff wishes to listen to.
 	 *
 	 * @return  array
@@ -103,13 +95,10 @@ class InstantiateNewClassesSniff implements Sniff
 						break;
 
 					case T_OPEN_SHORT_ARRAY :
-						if ($this->shortArraySyntax === true)
+						if ($started === true)
 						{
-							if ($started === true)
-							{
-								$valid   = true;
-								$running = false;
-							}
+							$valid   = true;
+							$running = false;
 						}
 						break;
 				}
