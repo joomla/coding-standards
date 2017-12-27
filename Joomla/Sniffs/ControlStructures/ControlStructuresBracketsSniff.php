@@ -59,6 +59,7 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 				$error = 'Possible parse error: %s missing opening or closing brace';
 				$phpcsFile->addWarning($error, $stackPtr, 'MissingBrace', $errorData);
 			}
+
 			return;
 		}
 
