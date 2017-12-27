@@ -143,67 +143,6 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 			}
 		}
 
-		if ($tokens[($openBrace - 1)]['code'] === T_WHITESPACE)
-		{
-			$prevContent = $tokens[($openBrace - 1)]['content'];
-
-			if ($prevContent === $phpcsFile->eolChar)
-			{
-				$spaces = 0;
-			}
-			else
-			{
-				$blankSpace = substr($prevContent, strpos($prevContent, $phpcsFile->eolChar));
-				$spaces = 0;
-
-				/**
-				 * A tab is only counted with strlen as 1 character but we want to count
-				 * the number of spaces so add 4 characters for a tab otherwise the strlen
-				 */
-				for ($i = 0; $length = strlen($blankSpace), $i < $length; $i++)
-				{
-					if ($blankSpace[$i] === "\t")
-					{
-						$spaces += $this->indent;
-					}
-					else
-					{
-						$spaces += strlen($blankSpace[$i]);
-					}
-				}
-			}
-
-			$expected = ($tokens[$stackPtr]['level'] * ($this->indent));
-
-			// We need to divide by 4 here since there is a space vs tab intent in the check vs token
-			$expected /= $this->indent;
-			$spaces   /= $this->indent;
-
-			if ($spaces !== $expected)
-			{
-				$error = 'Expected %s tabs before opening brace; %s found';
-				$data  = array(
-						  $expected,
-						  $spaces,
-						 );
-				$fix   = $phpcsFile->addFixableError($error, $openBrace, 'SpaceBeforeBrace', $data);
-
-				if ($fix === true)
-				{
-					$indent = str_repeat("\t", $expected);
-
-					if ($spaces === 0)
-					{
-						$phpcsFile->fixer->addContentBefore($openBrace, $indent);
-					}
-					else
-					{
-						$phpcsFile->fixer->replaceToken(($openBrace - 1), $indent);
-					}
-				}
-			}
-		}
-
 		// A single newline after opening brace (i.e. brace in on a line by itself), remove extra newlines.
 		if (isset($tokens[$stackPtr]['scope_opener']) === true)
 		{
