@@ -18,13 +18,6 @@
 class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements PHP_CodeSniffer_Sniff
 {
 	/**
-	 * The number of spaces code should be indented.
-	 *
-	 * @var integer
-	 */
-	public $indent = 4;
-
-	/**
 	 * Returns an array of tokens this test wants to listen for.
 	 *
 	 * @return array
