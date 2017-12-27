@@ -78,24 +78,14 @@
 		</properties>
 		<exclude name="PEAR.Functions.FunctionDeclaration.BraceOnNewLine" />
 		<exclude name="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket" />
-	</rule>
-	<rule ref="PEAR.Functions.FunctionCallSignature.Indent">
-		<properties>
-			<property name="indent" value="4"/>
-		</properties>
-		<message>Multi-line function call not indented correctly; expected %s spaces but found %s. Note: the autofixer will convert spaces to tabs</message>
+		<exclude name="PEAR.Functions.FunctionCallSignature.Indent" />
 	</rule>
 	<rule ref="PEAR.Functions.FunctionDeclaration">
 		<properties>
 			<property name="indent" value="4"/>
 		</properties>
 		<exclude name="PEAR.Functions.FunctionDeclaration.NewlineBeforeOpenBrace" />
-	</rule>
-	<rule ref="PEAR.Functions.FunctionDeclaration.Indent">
-		<properties>
-			<property name="indent" value="4"/>
-		</properties>
-		<message>Multi-line function declaration not indented correctly; expected %s spaces but found %s. Note: the autofixer will convert spaces to tabs</message>
+		<exclude name="PEAR.Functions.FunctionDeclaration.Indent" />
 	</rule>
 	<rule ref="PEAR.Functions.ValidDefaultValue" />
 	<rule ref="PEAR.NamingConventions.ValidClassName" />
@@ -158,9 +148,8 @@
 			<property name="ignoreNewlines" value="true" />
 		</properties>
 	</rule>
-	<rule ref="Squiz.WhiteSpace.ScopeClosingBrace" />
-	<rule ref="Squiz.WhiteSpace.ScopeClosingBrace.Indent">
-		   <message>Closing brace indented incorrectly; expected %s spaces, found %s. Note: the autofixer will convert spaces to tabs</message>
+	<rule ref="Squiz.WhiteSpace.ScopeClosingBrace">
+		<exclude name="Squiz.WhiteSpace.ScopeClosingBrace.Indent" />
 	</rule>
 	<rule ref="Squiz.WhiteSpace.CastSpacing" />
 	<rule ref="Squiz.WhiteSpace.ControlStructureSpacing">

@@ -18,14 +18,6 @@
 class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements PHP_CodeSniffer_Sniff
 {
 	/**
-	 * The number of spaces code should be indented.
-	 *
-	 * @var integer
-	 */
-	public $indent = 4;
-
-
-	/**
 	 * Returns an array of tokens this test wants to listen for.
 	 *
 	 * @return array
@@ -60,14 +52,9 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 		$tokens    = $phpcsFile->getTokens();
 		$errorData = array(strtolower($tokens[$stackPtr]['content']));
 
+		// If no scope opener return, other rules will address that issue
 		if (isset($tokens[$stackPtr]['scope_opener']) === false)
 		{
-			if ($tokens[$stackPtr]['code'] !== T_WHILE)
-			{
-				$error = 'Possible parse error: %s missing opening or closing brace';
-				$phpcsFile->addWarning($error, $stackPtr, 'MissingBrace', $errorData);
-			}
-
 			return;
 		}
 
@@ -140,67 +127,6 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 			if ($fix === true)
 			{
 				$phpcsFile->fixer->addNewline($openBrace);
-			}
-		}
-
-		if ($tokens[($openBrace - 1)]['code'] === T_WHITESPACE)
-		{
-			$prevContent = $tokens[($openBrace - 1)]['content'];
-
-			if ($prevContent === $phpcsFile->eolChar)
-			{
-				$spaces = 0;
-			}
-			else
-			{
-				$blankSpace = substr($prevContent, strpos($prevContent, $phpcsFile->eolChar));
-				$spaces = 0;
-
-				/**
-				 * A tab is only counted with strlen as 1 character but we want to count
-				 * the number of spaces so add 4 characters for a tab otherwise the strlen
-				 */
-				for ($i = 0; $length = strlen($blankSpace), $i < $length; $i++)
-				{
-					if ($blankSpace[$i] === "\t")
-					{
-						$spaces += $this->indent;
-					}
-					else
-					{
-						$spaces += strlen($blankSpace[$i]);
-					}
-				}
-			}
-
-			$expected = ($tokens[$stackPtr]['level'] * ($this->indent));
-
-			// We need to divide by 4 here since there is a space vs tab intent in the check vs token
-			$expected /= $this->indent;
-			$spaces   /= $this->indent;
-
-			if ($spaces !== $expected)
-			{
-				$error = 'Expected %s tabs before opening brace; %s found';
-				$data  = array(
-						  $expected,
-						  $spaces,
-						 );
-				$fix   = $phpcsFile->addFixableError($error, $openBrace, 'SpaceBeforeBrace', $data);
-
-				if ($fix === true)
-				{
-					$indent = str_repeat("\t", $expected);
-
-					if ($spaces === 0)
-					{
-						$phpcsFile->fixer->addContentBefore($openBrace, $indent);
-					}
-					else
-					{
-						$phpcsFile->fixer->replaceToken(($openBrace - 1), $indent);
-					}
-				}
 			}
 		}
 

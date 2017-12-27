@@ -28,12 +28,8 @@ class Joomla_Tests_ControlStructures_ControlStructuresBracketsUnitTest extends A
 				10  => 1,
 				16 => 1,
 				22 => 1,
-				26 => 1,
+				27 => 1,
 				33 => 1,
-				38 => 1,
-				44 => 1,
-				51 => 1,
-				57 => 1,
 			   );
 	}
 
@@ -47,6 +43,6 @@ class Joomla_Tests_ControlStructures_ControlStructuresBracketsUnitTest extends A
 	 */
 	public function getWarningList()
 	{
-		return array(6 => 1,);
+		return array();
 	}
 }
