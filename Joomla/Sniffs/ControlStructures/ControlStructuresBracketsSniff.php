@@ -24,7 +24,6 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 	 */
 	public $indent = 4;
 
-
 	/**
 	 * Returns an array of tokens this test wants to listen for.
 	 *
