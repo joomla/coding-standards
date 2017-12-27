@@ -56,20 +56,8 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 	 */
 	public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
 	{
-		$tokens    = $phpcsFile->getTokens();
-		$errorData = array(strtolower($tokens[$stackPtr]['content']));
-
-		if (isset($tokens[$stackPtr]['scope_opener']) === false)
-		{
-			if ($tokens[$stackPtr]['code'] !== T_WHILE)
-			{
-				$error = 'Possible parse error: %s missing opening or closing brace';
-				$phpcsFile->addWarning($error, $stackPtr, 'MissingBrace', $errorData);
-			}
-
-			return;
-		}
-
+		$tokens               = $phpcsFile->getTokens();
+		$errorData            = array(strtolower($tokens[$stackPtr]['content']));
 		$openBrace            = $tokens[$stackPtr]['scope_opener'];
 		$lastContent          = $phpcsFile->findPrevious(T_WHITESPACE, ($openBrace - 1), $stackPtr, true);
 		$controlStructureLine = $tokens[$lastContent]['line'];
