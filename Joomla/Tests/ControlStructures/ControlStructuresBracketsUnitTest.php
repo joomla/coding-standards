@@ -36,17 +36,4 @@ class Joomla_Tests_ControlStructures_ControlStructuresBracketsUnitTest extends A
 				57 => 1,
 			   );
 	}
-
-	/**
-	 * Returns the lines where warnings should occur.
-	 *
-	 * The key of the array should represent the line number and the value
-	 * should represent the number of warnings that should occur on that line.
-	 *
-	 * @return array<int, int>
-	 */
-	public function getWarningList()
-	{
-		return array(6 => 1,);
-	}
 }
