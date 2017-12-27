@@ -52,9 +52,13 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 		$tokens    = $phpcsFile->getTokens();
 		$errorData = array(strtolower($tokens[$stackPtr]['content']));
 
-		// If there is no scope opener skip this sniff
 		if (isset($tokens[$stackPtr]['scope_opener']) === false)
 		{
+			if ($tokens[$stackPtr]['code'] !== T_WHILE)
+			{
+				$error = 'Possible parse error: %s missing opening or closing brace';
+				$phpcsFile->addWarning($error, $stackPtr, 'MissingBrace', $errorData);
+			}
 			return;
 		}
 
