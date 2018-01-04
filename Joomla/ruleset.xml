@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 <ruleset name="Joomla">
 	<description>The Joomla coding standard.</description>
+	
+	<!-- Workaround for vscode ikappas.phpcs on PHPCS 2.9.1 -->
+	<arg value="q"/>
 
 	<!-- hard-code command line values into the standard to fix tabs vs spaces issue, etc -->
 	<arg name="tab-width" value="4"/>
