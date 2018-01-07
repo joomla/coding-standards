@@ -59,3 +59,25 @@ while ($a < $b)
 
 	echo 'muh';
 }
+
+// Closure indentation tests
+function muh()
+{
+	$buffer = preg_replace_callback(
+		$regex,
+		function ($match) use ($base, $protocols)
+		{
+			preg_match_all('#(?:[^\s]+)\s*(?:[\d\.]+[wx])?(?:\,\s*)?#i', $match[1], $matches);
+
+			foreach ($matches[0] as &$src)
+		{
+				$src = preg_replace('#^(?!/|' . $protocols . '|\#|\')(.+)#', $base . '$1', $src);
+			}
+
+			return ' srcset="' . implode($matches[0]) . '"';
+		},
+		$buffer
+	);
+
+	return $buffer
+}
