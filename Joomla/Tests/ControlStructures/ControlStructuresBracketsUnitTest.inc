@@ -63,21 +63,21 @@ while ($a < $b)
 // Closure indentation tests
 function foo()
 {
-	$buffer = preg_replace_callback(
-		$regex,
-		function ($match) use ($base, $protocols)
+	// Sort the array by value of subarray
+	usort(
+		$languages,
+		function($a, $b) use ($that)
 		{
-			preg_match_all('#(?:[^\s]+)\s*(?:[\d\.]+[wx])?(?:\,\s*)?#i', $match[1], $matches);
+			$ordering = $that->getState('list.ordering');
 
-			foreach ($matches[0] as &$src)
+			if (strtolower($that->getState('list.direction')) === 'asc')
 		{
-				$src = preg_replace('#^(?!/|' . $protocols . '|\#|\')(.+)#', $base . '$1', $src);
+				return StringHelper::strcmp($a->$ordering, $b->$ordering);
 			}
-
-			return ' srcset="' . implode($matches[0]) . '"';
-		},
-		$buffer
+			else
+		{
+				return StringHelper::strcmp($b->$ordering, $a->$ordering);
+			}
+		}
 	);
-
-	return $buffer
 }
