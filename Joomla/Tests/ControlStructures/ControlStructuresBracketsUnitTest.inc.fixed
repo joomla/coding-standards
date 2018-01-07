@@ -57,3 +57,25 @@ while ($a < $b)
 {
 	echo 'muh';
 }
+
+// Closure indentation tests
+function foo()
+{
+	// Sort the array by value of subarray
+	usort(
+		$languages,
+		function($a, $b) use ($that)
+		{
+			$ordering = $that->getState('list.ordering');
+
+			if (strtolower($that->getState('list.direction')) === 'asc')
+			{
+				return StringHelper::strcmp($a->$ordering, $b->$ordering);
+			}
+			else
+			{
+				return StringHelper::strcmp($b->$ordering, $a->$ordering);
+			}
+		}
+	);
+}
