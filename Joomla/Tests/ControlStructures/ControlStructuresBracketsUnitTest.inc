@@ -61,7 +61,7 @@ while ($a < $b)
 }
 
 // Closure indentation tests
-function muh()
+function foo()
 {
 	$buffer = preg_replace_callback(
 		$regex,
