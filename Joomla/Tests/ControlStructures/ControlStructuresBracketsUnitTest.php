@@ -36,6 +36,11 @@ class Joomla_Tests_ControlStructures_ControlStructuresBracketsUnitTest extends A
 				57 => 1,
 				74 => 1,
 				78 => 1,
+				106 => 1,
+				112 => 1,
+				120 => 1,
+				126 => 1,
+				135 => 1,
 			   );
 	}
 
