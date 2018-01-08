@@ -173,7 +173,16 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 				}
 			}
 
-			$expected = ($tokens[$stackPtr]['level'] * ($this->indent));
+			// Anonymous classes and functions set the indent at one plus their own indent level.
+			if ($phpcsFile->hasCondition($stackPtr, T_CLOSURE) === true
+				|| $phpcsFile->hasCondition($stackPtr, T_ANON_CLASS) === true)
+			{
+				$expected = ($tokens[$stackPtr]['level'] + 1) * $this->indent;
+			}
+			else
+			{
+				$expected = $tokens[$stackPtr]['level'] * $this->indent;
+			}
 
 			// We need to divide by 4 here since there is a space vs tab intent in the check vs token
 			$expected /= $this->indent;
