@@ -36,6 +36,13 @@ class ControlStructuresBracketsUnitTest extends AbstractSniffUnitTest
 				44 => 1,
 				51 => 1,
 				57 => 1,
+				74 => 1,
+				78 => 1,
+				106 => 1,
+				112 => 1,
+				120 => 1,
+				126 => 1,
+				135 => 1,
 			   );
 	}
 

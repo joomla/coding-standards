@@ -14,7 +14,8 @@ If you want to contribute and improve this documentation, you can find the sourc
 * PHP 5.3+
 * [PHP Codesniffer](https://github.com/squizlabs/PHP_CodeSniffer) 2.8+
 
-**Important note**: currently the latest PHPCS is the 3.x series. But the Joomla custom sniffs are not yet compatible with this version. PEAR and composer give you the option to install it by default but the Joomla custom sniffs will not work, so we remind you to always install the PHPCS 2.x series if you are using the Joomla custom sniffs. Also note that the Joomla Code Standard ruleset.xml is compatable with PHPCS 3.x if you exclude the Joomla custom sniffs.
+**Important note**: currently the latest PHPCS is the 3.x series. There is [a development branch](https://github.com/joomla/coding-standards/tree/3.x-dev) for the Joomla custom sniffs Which is compatible with the PHPCS 3.x series. Although PEAR and composer give you the option to install PHPCS 3.x by default the Joomla custom sniffs releases are currently only compatable with PHPCS 2.x and will not work, so we remind you to always install the PHPCS 2.x series if you are using the Joomla custom sniffs. 
+If you want to test the [Joomla Code Standard development branch for PHPCS 3.x](https://github.com/joomla/coding-standards/tree/3.x-dev), please manually install the 3.x branch.
 
 ## Installation via Composer
 
@@ -23,7 +24,6 @@ Add `"joomla/coding-standards": "~2.0"` to the require-dev block in your compose
 ```json
 {
     "require-dev": {
-		"squizlabs/php_codesniffer": "~2.8",
 		"joomla/coding-standards": "~2.0"
 	}
 }
@@ -37,7 +37,15 @@ composer require joomla/coding-standards "~2.0"
 ```
 
 As stability of joomla/coding-standards 2.0.0 is currently alpha, make sure you allow usage of alpha software in Composer:
-
+In Composer json
+```json
+{
+    "require-dev": {
+		"joomla/coding-standards": "~2.0@alpha"
+	}
+}
+```
+or on the command line
 ```bash
 composer property-set minimum-stability "alpha"
 ```
