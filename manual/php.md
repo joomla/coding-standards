@@ -47,6 +47,8 @@ For all control structures there is a space between the keyword and an opening p
 
 For all all control structures, such as `if`, `else`, `do`, `for`, `foreach`, `try`, `catch`, `switch` and `while`, both the keyword starts a newline and the opening and closing braces are each put on a new line.
 
+Exclamation mark `!` logical operator `not` used a condition should not have spaces before or after the exclamation mark as shown in the examples.
+
 ### An _if-else_ Example
 
 ```php
@@ -57,10 +59,13 @@ if ($test)
 
 // Comments can go here.
 // Note that "elseif" as one word is used.
-
 elseif ($test === false)
 {
 	echo 'Really false';
+}
+elseif (!$condition)
+{
+	echo 'Not Condition';
 }
 else
 {
