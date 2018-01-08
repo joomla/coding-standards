@@ -11,20 +11,17 @@ If you want to contribute and improve this documentation, you can find the sourc
 
 ## Requirements
 
-* PHP 5.3+
-* [PHP Codesniffer](https://github.com/squizlabs/PHP_CodeSniffer) 2.8+
-
-**Important note**: currently the latest PHPCS is the 3.x series. There is [a development branch](https://github.com/joomla/coding-standards/tree/3.x-dev) for the Joomla custom sniffs Which is compatible with the PHPCS 3.x series. Although PEAR and composer give you the option to install PHPCS 3.x by default the Joomla custom sniffs releases are currently only compatable with PHPCS 2.x and will not work, so we remind you to always install the PHPCS 2.x series if you are using the Joomla custom sniffs. 
-If you want to test the [Joomla Code Standard development branch for PHPCS 3.x](https://github.com/joomla/coding-standards/tree/3.x-dev), please manually install the 3.x branch.
+* PHP 5.4+
+* [PHP Codesniffer](https://github.com/squizlabs/PHP_CodeSniffer) 3.1.0+
 
 ## Installation via Composer
 
-Add `"joomla/coding-standards": "~2.0"` to the require-dev block in your composer.json and then run `composer install`.
+Add `"joomla/coding-standards": "~3.0"` to the require-dev block in your composer.json and then run `composer install`.
 
 ```json
 {
     "require-dev": {
-		"joomla/coding-standards": "~2.0"
+		"joomla/coding-standards": "~3.0"
 	}
 }
 ```
@@ -32,20 +29,11 @@ Add `"joomla/coding-standards": "~2.0"` to the require-dev block in your compose
 Alternatively, you can simply run the following from the command line:
 
 ```sh
-composer global require squizlabs/php_codesniffer "~2.8"
-composer require joomla/coding-standards "~2.0"
+composer require joomla/coding-standards "~3.0"
 ```
 
-As stability of joomla/coding-standards 2.0.0 is currently alpha, make sure you allow usage of alpha software in Composer:
-In Composer json
-```json
-{
-    "require-dev": {
-		"joomla/coding-standards": "~2.0@alpha"
-	}
-}
-```
-or on the command line
+As stability of joomla/coding-standards 3.0.0 is currently alpha, make sure you allow usage of alpha software in Composer:
+
 ```bash
 composer property-set minimum-stability "alpha"
 ```
@@ -116,19 +104,6 @@ Old Protected method names were at one time prefixed with an underscore. These P
  </rule>
 ```
 
-The last most common adjustment is removing PHP 5.3 specific rules which prevent short array syntax, and allowing short array syntax for method parameters.
-
-```xml
- <rule ref="Generic">
-  <exclude name="Generic.Arrays.DisallowShortArraySyntax"/>
- </rule>
- <rule ref="Joomla.Classes.InstantiateNewClasses">
-   <properties>
-     <property name="shortArraySyntax" value="true"/>
-   </properties>
- </rule>
- 
-```
 ## Using example rulesets that Selectively Applying Rule
 You have to tell you can tell PHPCS where the example ruleset folder is (i.e. install them in PHPCS)
 ```sh

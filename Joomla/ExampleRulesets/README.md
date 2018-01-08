@@ -40,16 +40,11 @@ Old Protected method names were at one time prefixed with an underscore. These P
  </rule>
 ```
 
-The last most common adjustment is removing PHP 5.3 specific rules which prevent short array syntax, and allowing short array syntax for method parameters.
-
-```xml
- <rule ref="Generic">
-  <exclude name="Generic.Arrays.DisallowShortArraySyntax"/>
- </rule>
- <rule ref="Joomla.Classes.InstantiateNewClasses">
-   <properties>
-     <property name="shortArraySyntax" value="true"/>
-   </properties>
- </rule>
- 
+## Using example rulesets that Selectively Applying Rule
+You have to tell you can tell PHPCS where the example ruleset folder is (i.e. install them in PHPCS)
+```sh
+phpcs --config-set installed_paths /path/to/joomla/coding-standards/Example-Rulesets
 ```
+Note: the composer scripts will run when the standard is installed globally, but not when it's a dependancy. As such, you may want to run PHPCS config-set. When you run PHPCS config-set it will always overwrite the previous values. Use `--config-show` to check previous values before using `--config-set`
+So instead of overwriting the existing paths you should copy the existing paths revealed with `--config-show` and add each one seperated by a comma:
+`phpcs --config-set installed_paths [path_1],[path_2],[/path/to/joomla-coding-standards],[/path/to/joomla/coding-standards/Example-Rulesets]`
