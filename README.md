@@ -16,7 +16,7 @@ If you want to contribute and improve this documentation, you can find the sourc
 
 ## Installation via Composer
 
-Add `"joomla/coding-standards": "~3.1"` to the require-dev block in your composer.json and then run `composer install`.
+Add `"joomla/coding-standards": "~3.0"` to the require-dev block in your composer.json and then run `composer install`.
 
 ```json
 {
