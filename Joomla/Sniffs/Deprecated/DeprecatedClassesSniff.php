@@ -1879,6 +1879,9 @@ class Joomla_Sniffs_Deprecated_DeprecatedClassesSniff extends Generic_Sniffs_PHP
 	 *
 	 * When not set (or set to 0) the deprecated sniff check will NOT be executed
 	 *
+	 * When setting to value to a Joomla! version number, only deprecated functions for that version will be reported
+	 * e.g. CL: `phpcs --runtime-set enable_deprecated_joomla_sniff 3.8.3` or Ruleset: `<config name="enable_deprecated_joomla_sniff" value="3.8.3"/>`
+	 *
 	 * @var string Joomla version.
 	 *
 	 * @since 0.0
@@ -1970,6 +1973,7 @@ class Joomla_Sniffs_Deprecated_DeprecatedClassesSniff extends Generic_Sniffs_PHP
 	 */
 	protected function addError($phpcsFile, $stackPtr, $class, $pattern=null)
 	{
+		$versionCheck = false;
 		$error = 'The use of class ' . $class . ' is ';
 
 		if ($pattern === null)
@@ -1981,6 +1985,13 @@ class Joomla_Sniffs_Deprecated_DeprecatedClassesSniff extends Generic_Sniffs_PHP
 
 		foreach ($this->forbiddenFunctions[$pattern] as $version => $forbidden)
 		{
+			// Do a version compare against the version to check against
+			if (version_compare($version, $this->enable_deprecated_sniff, '>') && !$forbidden)
+			{
+				$versionCheck = true;
+				break;
+			}
+
 			if ($version != 'alternative')
 			{
 				if ($forbidden === true)
@@ -1997,20 +2008,23 @@ class Joomla_Sniffs_Deprecated_DeprecatedClassesSniff extends Generic_Sniffs_PHP
 			}
 		}
 
-		$error = substr($error, 0, strlen($error) - 5);
+		if (!$versionCheck)
+		{
+			$error = substr($error, 0, strlen($error) - 5);
 
-		if ($this->forbiddenFunctions[$pattern]['alternative'] !== null)
-		{
-			$error .= '; Use ' . $this->forbiddenFunctions[$pattern]['alternative'] . ' instead.';
-		}
+			if ($this->forbiddenFunctions[$pattern]['alternative'] !== null)
+			{
+				$error .= '; Use ' . $this->forbiddenFunctions[$pattern]['alternative'] . ' instead.';
+			}
 
-		if ($this->error === true)
-		{
-			$phpcsFile->addError($error, $stackPtr);
-		}
-		else
-		{
-			$phpcsFile->addWarning($error, $stackPtr);
+			if ($this->error === true)
+			{
+				$phpcsFile->addError($error, $stackPtr);
+			}
+			else
+			{
+				$phpcsFile->addWarning($error, $stackPtr);
+			}
 		}
 	}
 
