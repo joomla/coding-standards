@@ -53,7 +53,7 @@ composer property-set minimum-stability "alpha"
 If you want to install the coding-standards globally, edit your Composer global configuration by running:
 
 ```bash
-composer global config-e
+composer global config -e
 ```
 
 and add the following: `"minimum-stability": "alpha"`
