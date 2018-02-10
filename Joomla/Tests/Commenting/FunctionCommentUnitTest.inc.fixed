@@ -197,4 +197,57 @@ class MyClass
 	{
 		return 2;
 	}
+
+	/**
+	 * Get the details list of keys for a table.
+	 *
+	 * @param   array  $keys  An array of objects that comprise the keys for the table.
+	 *
+	 * @return  array  The lookup array. array({key name} => array(object, ...))
+	 *
+	 * @since   1.0
+	 */
+	protected function getKeyLookup($keys)
+	{
+		// First pass, create a lookup of the keys.
+		$lookup = array();
+
+		return $lookup;
+	}
+
+	/**
+	 * Test function ArrayWithClosure
+	 *
+	 * @return array
+	 */
+	function returnArrayWithClosure()
+	{
+	    function ()
+		{
+		return;
+	    };
+
+	    return array();
+	}
+
+	/**
+	 * Test function ArrayWithAnonymousClass
+	 *
+	 * @return array
+	 */
+	function returnArrayWithAnonymousClass()
+	{
+	    new class
+		{
+		/**
+		 * @return void
+		 */
+		public function test()
+			{
+		    return;
+		}
+	    };
+
+	    return array();
+	}
 }
