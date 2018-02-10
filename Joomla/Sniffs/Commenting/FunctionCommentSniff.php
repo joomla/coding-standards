@@ -143,19 +143,20 @@ class Joomla_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commenti
 					{
 						$endToken = $tokens[$stackPtr]['scope_closer'];
 
-						for ($returnToken = $stackPtr; $returnToken < $endToken; $returnToken++) {
+						for ($returnToken = $stackPtr; $returnToken < $endToken; $returnToken++)
+						{
 							if ($tokens[$returnToken]['code'] === T_CLOSURE
-								|| $tokens[$returnToken]['code'] === T_ANON_CLASS
-								)
+							|| $tokens[$returnToken]['code'] === T_ANON_CLASS
+							)
 							{
 								$returnToken = $tokens[$returnToken]['scope_closer'];
 								continue;
 							}
 
 							if ($tokens[$returnToken]['code'] === T_RETURN
-								|| $tokens[$returnToken]['code'] === T_YIELD
-								|| $tokens[$returnToken]['code'] === T_YIELD_FROM
-								)
+							|| $tokens[$returnToken]['code'] === T_YIELD
+							|| $tokens[$returnToken]['code'] === T_YIELD_FROM
+							)
 							{
 								break;
 							}
@@ -183,17 +184,17 @@ class Joomla_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commenti
 						for ($returnToken = $stackPtr; $returnToken < $endToken; $returnToken++)
 						{
 							if ($tokens[$returnToken]['code'] === T_CLOSURE
-								|| $tokens[$returnToken]['code'] === T_ANON_CLASS
-								)
+							|| $tokens[$returnToken]['code'] === T_ANON_CLASS
+							)
 							{
 								$returnToken = $tokens[$returnToken]['scope_closer'];
 								continue;
 							}
 
 							if ($tokens[$returnToken]['code'] === T_RETURN
-								|| $tokens[$returnToken]['code'] === T_YIELD
-								|| $tokens[$returnToken]['code'] === T_YIELD_FROM
-								)
+							|| $tokens[$returnToken]['code'] === T_YIELD
+							|| $tokens[$returnToken]['code'] === T_YIELD_FROM
+							)
 							{
 								break;
 							}
