@@ -35,7 +35,7 @@ composer require joomla/coding-standards "~3.0"
 As stability of joomla/coding-standards 3.0.0 is currently alpha, make sure you allow usage of alpha software in Composer:
 
 ```bash
-composer property-set minimum-stability "alpha"
+composer config minimum-stability "alpha"
 ```
 
 If you want to install the coding-standards globally, edit your Composer global configuration by running:
