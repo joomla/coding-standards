@@ -42,6 +42,6 @@ TODO Any words of wisdom about PHP best practice, maybe even references for desi
     8. No Classes With More Than Two Instance Variables
     9. No Getters/Setters/Properties
 
-for more info: 
+For more info: 
  * https://www.slideshare.net/rdohms/your-code-sucks-lets-fix-it-15471808
  * https://www.slideshare.net/guilhermeblanco/object-calisthenics-applied-to-php
