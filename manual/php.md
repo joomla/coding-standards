@@ -522,10 +522,10 @@ $query->select($db->quoteName(array('user_id', 'profile_key', 'profile_value', '
 ```php
 $query  = $db->getQuery(true)
             ->select(array(
-                    $db->qn('profile_key'),
-                    $db->qn('profile_value'),
+                    $db->quoteName('profile_key'),
+                    $db->quoteName('profile_value'),
                     ))
-            ->from($db->qn('#__user_profiles'))
-            ->where($db->qn('user_id') . ' = ' . $db->q((int) $userId))
-            ->order($db->qn('ordering'));
+            ->from($db->quoteName('#__user_profiles'))
+            ->where($db->quoteName('user_id') . ' = ' . (int) $userId)
+            ->order($db->quoteName('ordering'));
 ```
