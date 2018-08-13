@@ -403,8 +403,8 @@ class JFooHelper
 
 ### Namespaces
 
-Namespaces are formatted according to this flow. First there is the file docblock followed by the namespace the file lives in. When requires we get the `defined` check and after that the
-imports using the `use` keyword. All namespace imports must be alphabetically ordered.
+Namespaces are formatted according to this flow. First there is the file docblock followed by the namespace the file lives in. When required, the namespace is followed by the `defined` check. Lastly, the
+imported classes using the `use` keyword. All namespace imports must be alphabetically ordered.
 
 ```php
 /**
