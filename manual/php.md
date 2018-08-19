@@ -228,7 +228,7 @@ For example, do not include feature submissions like:
 //$code = broken($fixme);
 ```
 
-More details on inline code comments can be found in the chapter on [Inline Code Comments](inline-comments.md).
+More details on inline code comments can be found in the chapter on [Inline Code Comments](/coding-standards/inline-code-comments.html).
 
 ### Comment Docblocks
 
@@ -236,7 +236,7 @@ Documentation headers for PHP and Javascript code in files, classes, class prope
 
 These "DocBlocks" borrow from the PEAR standard but have some variations specific for Joomla and the Joomla Platform.
 
-More details on DocBlocks comments can be found in the chapter on [DocBlocks Comments](docblocks.md).
+More details on DocBlocks comments can be found in the chapter on [DocBlocks Comments](/coding-standards/docblocks.html).
 
 
 ## Function Calls
@@ -259,7 +259,7 @@ $long   = bar('long');
 Function definitions start on a new line with no spaces between the function name and the opening parenthesis. Additionally, the opening and closing braces are also placed on new lines. An empty line should precede lines specifying the return value.
 
 Function definitions must include a documentation comment in accordance with the Commenting section of this document.
-More details on DocBlocks Function comments can be found in the chapter on [DocBlocks Comments](docblocks.md).
+More details on DocBlocks Function comments can be found in the chapter on [DocBlocks Comments](/coding-standards/docblocks.html).
 
 ```php
 /**
@@ -309,17 +309,17 @@ Class definitions start on a new line and the opening and closing braces are als
 
 Class definitions, properties and methods must each be provided with a DocBlock in accordance with the following sections.
 
-More details on DocBlocks Class comments can be found in the chapter on [DocBlocks Comments](docblocks.md).
+More details on DocBlocks Class comments can be found in the chapter on [DocBlocks Comments](/coding-standards/docblocks.html).
 
 ### Class Property DocBlocks
 
-More details on Class Property DocBlocks can be found in the chapter on [DocBlocks Comments](docblocks.md).
+More details on Class Property DocBlocks can be found in the chapter on [DocBlocks Comments](/coding-standards/docblocks.html).
 
 ### Class Method DocBlocks
 
 The DocBlock for class methods follows the same convention as for PHP functions.
 
-More details on DocBlocks Class Method comments can be found in the chapter on [DocBlocks Comments](docblocks.md).
+More details on DocBlocks Class Method comments can be found in the chapter on [DocBlocks Comments](/coding-standards/docblocks.html).
 
 ### Class Definition Example
 ```php
