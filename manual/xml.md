@@ -1,5 +1,3 @@
-## XML Files
-
 ### Attributes
 
 * Each attribute is on its own line.
@@ -9,14 +7,13 @@
 
 Elements should be closed with the closing tag on a new line.
 
-### Exception
+#### Exception
 
-When the element only has few attributes, then the whole element can stay on the same line.
-A max line length of 100 characters is recommended for good reading.
+When the element only has few attributes, then the whole element can stay on the same line. A max line length of 100 characters is recommended for good reading.
 
-#### Examples
+### Examples
 
-###### Element is **empty**:
+#### Element is **empty**:
 ```xml
 <field
 	name="abc"
@@ -26,7 +23,7 @@ A max line length of 100 characters is recommended for good reading.
 />
 ```
 
-###### Element is **not empty**:
+#### Element is **not empty**:
 ```xml
 <field
 	name="abc"
@@ -55,7 +52,9 @@ A max line length of 100 characters is recommended for good reading.
 	</option>
 </field>
 ```
-###### Element with only a few attributes
+
+#### Element with only a few attributes
+
 ```xml
-<fieldset name="params" label="Some label for the field set">
+<fieldset name="params" label="Some label for the field set" />
 ```
