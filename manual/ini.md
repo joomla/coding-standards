@@ -28,9 +28,10 @@ Some specific text editors only sort by "ASCII order" and should not be used.
 Some IDEs have specific plugins to sort the lines by "Standard Alphabetical Order".
 
 Examples:
-- PhpStorm [String Manipulation](https://plugins.jetbrains.com/plugin/2162-string-manipulation)
-- Eclipse [Sortit](https://github.com/channingwalton/eclipse-sortit/tree/master/com.teaminabox.eclipse.sortit)
 - Atom [Sort selected elements](https://github.com/BlueSilverCat/sort-selected-elements)
+- Eclipse [Sortit](https://github.com/channingwalton/eclipse-sortit/tree/master/com.teaminabox.eclipse.sortit)
+- NetBeans [Sort line tools](http://plugins.netbeans.org/plugin/45925/sort-line-tools)
+- PhpStorm [String Manipulation](https://plugins.jetbrains.com/plugin/2162-string-manipulation)
 
 It may be necessary to set the sorting to "Case Insensitive Sort" to obtain the correct results.
 
