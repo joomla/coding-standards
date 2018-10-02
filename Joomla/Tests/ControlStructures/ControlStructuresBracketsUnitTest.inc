@@ -185,7 +185,7 @@ $func = function ($match) use ($query, $args, &$i)
 			break;
 		case 'z':
 			if (true)
-			{
+				{
 				return $query->nullDate(true);
 			}
 			return $query->nullDate(false);
@@ -207,7 +207,7 @@ class Foo
 		$i    = 1;
 		$func = function ($match) use ($query, $args, &$i) {
 			if (isset($match[6]) && $match[6] === '%')
-			{
+		{
 				return '%';
 			}
 
