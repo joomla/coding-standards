@@ -214,3 +214,37 @@ class Foo
 		};
 	}
 }
+
+// Anonymous classes test
+$this->attachRule(
+	new class($this) implements RulesInterface
+	{
+		public function parse(&$segments, &$vars)
+		{
+			// Move forward based on view
+			switch ($segments)
+		{
+				case 'tracker':
+					usort(
+						$view,
+						function($a, $b) use ($vars)
+						{
+							$ordering = $vars->getState('list.ordering');
+
+							if (strtolower($vars->getState('list.direction')) === 'asc')
+								{
+								return StringHelper::strcmp($a->$ordering, $b->$ordering);
+							}
+							else
+							{
+								return StringHelper::strcmp($b->$ordering, $a->$ordering);
+							}
+						}
+					);
+					break;
+			}
+
+			return;
+		}
+	}
+);
