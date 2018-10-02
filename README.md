@@ -47,7 +47,7 @@ In Composer json
 ```
 or on the command line
 ```bash
-composer property-set minimum-stability "alpha"
+composer config minimum-stability "alpha"
 ```
 
 If you want to install the coding-standards globally, edit your Composer global configuration by running:
