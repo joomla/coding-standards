@@ -10,6 +10,7 @@ There are 2 types of comments:
 - Comments used to inform translators of some characteristics of the string(s) just below. These should not be preceded by a blank line.
 
 #### Strings
+- All language strings are in British English (en-GB). See [Joomla! en-GB User Interface Text Guidelines](https://developer.joomla.org/en-gb-user-interface-text-guidelines/introduction.html)
 - The lines commented should start with a semi-colon.
 - The strings should be alphabetically ordered using the "Standard Alphabetical Order" and not the "ASCII order". This mostly means here that the underscore is sorted BEFORE the letters.
 
