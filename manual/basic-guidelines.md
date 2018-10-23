@@ -4,7 +4,8 @@ This chapter outlines the basic guidelines covering files contributed to the Joo
 
 All files contributed to Joomla must be: 
 
-* Stored as ASCII text
+* Stored as ASCII text  
+  Exceptions: languages locales and some test files containing non-ASCII characters  
 * Use UTF-8 character encoding
 * Be Unix formatted following these rules. 
 	1. Lines must end only with a line feed (LF). 
