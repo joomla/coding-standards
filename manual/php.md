@@ -8,7 +8,7 @@ For files that contain only PHP code, the closing tag (`?>`) should not be inclu
 
 Files should always end with a blank new line.
 
-#### General
+#### General {#general}
 
 Pursuant to PSR-2 [Keywords and True/False/Null][]
 
