@@ -179,7 +179,7 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 			 * Take into account any nested parenthesis that don't contribute to the level (often required for
 			 * closures and anonymous classes
 			 */
-			if (array_key_exists('nested_parenthesis', $tokens[$stackPtr]))
+			if (array_key_exists('nested_parenthesis', $tokens[$stackPtr]) === true)
 			{
 				$nested = count($tokens[$stackPtr]['nested_parenthesis']);
 			}
