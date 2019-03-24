@@ -1,5 +1,3 @@
-## Inline Code Comments
-
 This chapter covers inline code commenting in more detail. Inline comments are all comments not included in doc blocs. The goal of in line commenting is to explain code in context. Such explanation may take many different forms.
 
 Comments that are written in a readable and narrative style, especially when explaining a complex process, are encouraged. In general they should be placed close to the code explained rather than before the entire block of code.
@@ -21,14 +19,14 @@ Always have a single blank line before a comment or block of comments unless the
 For example in the following case there is no new line before the first comment (because it follows a '{' line) but we do want a new line before the second comment:
 
 ```php
-  while (!$done)
-  {
-    // We don't want an infinite loop here.
-    $done = true;
-  }
+while (!$done)
+{
+	// We don't want an infinite loop here.
+	$done = true;
+}
   
-  //Now let's do something interesting.
-  $result = somethingInteresting();
+// Now let's do something interesting.
+$result = somethingInteresting();
 ```
 
 Comments should align with the code they refer to, using the same indenting as the line that follows the comment.
@@ -47,7 +45,7 @@ New lines should always start with an upper case letter unless:
 
 Code that is included specifically to assure compatibility with other software (for example specific browsers or a specific version of the CMS or for backward compatibility reasons) should be clearly marked as such. If there is the intention to remove specific code at a future point, state that but do not use a deprecation tag or specify a release (this can be hard to predict).
 
-Check spelling and grammar on all comments (see below and [https://developer.joomla.org/en-gb-user-interface-text-guidelines.html]).
+Check spelling and grammar on all comments (see below and [the en-GB guidelines](https://developer.joomla.org/en-gb-user-interface-text-guidelines.html)).
 
 Only end a line with a period if it is a full sentence.
 
@@ -105,6 +103,5 @@ It’s is a contraction of it is
 
 #### The correct Joomla spelling of some commonly used words.
 
--   dependant
--	deprecated
-
+- dependant
+- deprecated

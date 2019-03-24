@@ -1,29 +1,30 @@
-## CSS
 These guidelines have been assembled following an examination of emerging practices, ideas and existing styleguides, namely:
 
 1. [OOCSS Code Standards](https://github.com/stubbornella/oocss-code-standards)
 2. [Oneweb Style Guide](https://github.com/nternetinspired/OneWeb/blob/master/STYLEGUIDE.md)
 3. [Idiomatic CSS](https://github.com/necolas/idiomatic-css)
 
+### Commenting
 
-## Commenting
-
-### Major sections
+#### Major sections
 Major code sections should be named in caps and within a full comment block, eg:
+
 ```css
 /* ==========================================================================
    PRIMARY NAVIGATION
    ========================================================================== */
 ```
 
-### Sub sections
+#### Sub sections
 Subsections should be normally cased and within an open comment block.
+
 ```css
 /* Mobile navigation
    ========================================================================== */
 ```
 
-### Verbose comments
+#### Verbose comments
+
 ```css
 /**
  * Short description using Doxygen-style comment format
@@ -43,22 +44,24 @@ Subsections should be normally cased and within an open comment block.
  */
  ```
 
-### Basic comments
+#### Basic comments
+
 ```css
 /* Basic comment */
 ```
 
-### Uncompiled LESS/Scss comments
+#### Uncompiled LESS/Scss comments
+
 ```css
 // These are stripped on compile.
 ```
 
-## CSS selectors
-Only use classes for CSS selectors, *never IDs* as they introduce unwanted specificity to the cascade. Using an ID as a css selector is like firing the first nuke; you begin a specifity war that can only escalate, with terrible consequence.
+### CSS selectors
+Only use classes for CSS selectors, *never IDs* as they introduce unwanted specificity to the cascade. Using an ID as a CSS selector is like firing the first nuke; you begin a specifity war that can only escalate, with terrible consequence.
 
 To put it another way; Don't use a Sith Lord when just two Storm Troopers will suffice: [CSS Specificity Wars](http://www.stuffandnonsense.co.uk/archives/css_specificity_wars.html)
 
-### Class naming convention
+#### Class naming convention
 Use dashes to create compound class names:
 
 ```css
@@ -75,7 +78,7 @@ Use dashes to create compound class names:
 .compoundclassname {…}
 ```
 
-### Indentation
+#### Indentation
 Rules should be indented one tab (equal to 4 spaces):
 
 ```css
@@ -89,7 +92,7 @@ Rules should be indented one tab (equal to 4 spaces):
 .example {color: #000; visibility: hidden;}
 ```
 
-### Alignment
+#### Alignment
 The opening brace must be on the same line as the last selector and preceded by a space. The closing brace must be on its own line after the last property and be indented to the same level as the opening brace.
 
 ```css
@@ -109,7 +112,7 @@ The opening brace must be on the same line as the last selector and preceded by 
 }
 ```
 
-### Property Format
+#### Property Format
 Each property must be on its own line and indented one level. There should be no space before the colon and one space after. All properties must end with a semicolon.
 
 ```css
@@ -132,8 +135,9 @@ Each property must be on its own line and indented one level. There should be no
 }
 ```
 
-### HEX values
+#### HEX values
 HEX values must be declared in lowercase and shorthand:
+
 ```css
 /* Good */
 .example {
@@ -146,7 +150,7 @@ HEX values must be declared in lowercase and shorthand:
 }
 ```
 
-### Attribute selectors
+#### Attribute selectors
 Always use double quotes around attribute selectors.
 
 ```css
@@ -166,7 +170,7 @@ input[type='button'] {
 }
 ```
 
-### Zero value units
+#### Zero value units
 Zero values should not carry units.
 
 ```css

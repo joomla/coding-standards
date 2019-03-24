@@ -1,39 +1,36 @@
-## SCSS
 These guidelines have been assembled following an examination of emerging practices, ideas and existing styleguides, namely:
 
 1. [Code Guide](http://codeguide.co) (by @mdo)
 
+### Commenting
 
-## Commenting
-
-### Major sections
+#### Major sections
 Major code sections should be named in caps and within a full comment block, eg:
 
-```css
+```scss
 // Major comment
 //
 // Major comment description goes here
 // and continues here
 ```
 
-### Sub sections
+#### Sub sections
 Subsections should be normally cased and within an open comment block.
-```css
+```scss
 //
 // Sub section comment
 //
 ```
 
-### Basic comments
-```css
+#### Basic comments
+```scss
 // Basic comment
 ```
 
-
-## Class naming
+### Class naming
 Use dashes to create compound class names:
 
-```css
+```scss
 // Good - use dashes
 .compound-class-name {…}
 
@@ -50,7 +47,7 @@ Use dashes to create compound class names:
 ### Indentation
 Rules should be indented with 2 spaces:
 
-```css
+```scss
 // Good
 .example {
   color: #000;
@@ -66,7 +63,7 @@ Rules should be indented with 2 spaces:
 
 SCSS should also be nested, with child selectors and rules indented again. Nested rules should also be spaced by one line:
 
-```css
+```scss
 // Good
 .example {
 
@@ -101,7 +98,7 @@ SCSS should also be nested, with child selectors and rules indented again. Neste
 ### Alignment
 The opening brace must be on the same line as the last selector and preceded by a space. The closing brace must be on its own line after the last property and be indented to the same level as the opening brace.
 
-```css
+```scss
 // Good
 .example {
   color: #fff;
@@ -126,7 +123,7 @@ Related property declarations should be grouped together following the order:
 3. Typographic
 4. Visual
 
-```css
+```scss
 // Good
 .example {
   // Positioning
@@ -165,7 +162,7 @@ Within each group, you'll also need to order the properties. If any mistakes are
 ### Property Format
 Each property must be on its own line and indented one level. There should be no space before the colon and one space after. All properties must end with a semicolon.
 
-```css
+```scss
 // Good
 .example {
   background: black;
@@ -188,7 +185,7 @@ Each property must be on its own line and indented one level. There should be no
 ### HEX values
 HEX values must be declared in lowercase and shorthand:
 
-```css
+```scss
 // Good
 .example {
   color: #eee;
@@ -203,7 +200,7 @@ HEX values must be declared in lowercase and shorthand:
 ### Attribute selectors
 Always use double quotes around attribute selectors.
 
-```css
+```scss
 // Good
 input[type="button"] {
   ...
@@ -223,7 +220,7 @@ input[type='button'] {
 ### Zero value units
 Zero values should not carry units.
 
-```css
+```scss
 // Good
 .example {
   padding: 0;
@@ -238,7 +235,7 @@ Zero values should not carry units.
 ### Prefixing properties
 There is no need to prefix properties, as this will be automatically taken care of when compiling your code
 
-```css
+```scss
 // Good
 .example {
   transform: rotate(30px);
@@ -254,7 +251,7 @@ There is no need to prefix properties, as this will be automatically taken care 
 ### End of file
 The end of the SCSS file should always have a blank line
 
-```css
+```scss
 .example {
   padding: 0;
 }

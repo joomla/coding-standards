@@ -1,13 +1,10 @@
-## html
-
 These guidelines have been assembled following an examination of emerging practices, ideas and existing styleguides, and include items from:
 
-1. [Google's html styleguide](https://google.github.io/styleguide/htmlcssguide.html)
-2. [JQuery's HTML Styleguide](http://contribute.jquery.org/style-guide/html/)
+1. [Google's HTML styleguide](https://google.github.io/styleguide/htmlcssguide.html)
+2. [jQuery's HTML Styleguide](http://contribute.jquery.org/style-guide/html/)
 3. [Nicolas Ghallager's "Principles of writing consistent, idiomatic HTML"](https://github.com/necolas/idiomatic-html)
 4. [Harry Robert's "My HTML/CSS coding style"](http://csswizardry.com/2012/04/my-html-css-coding-style/)
 4. [The BBC's Media Standards and Guidelines](http://www.bbc.co.uk/guidelines/futuremedia/technical/semantic_markup.shtml)
-
 
 ### Doctype
 
@@ -26,19 +23,17 @@ Always define which language the page is written in.
 ```
 
 ### Encoding
-Always define the character encoding. The encoding should be defined as early as possible.
-Make sure your editor uses UTF-8 as character encoding, without a byte order mark (UTF-8, no BOM).
-Do not specify the encoding of style sheets as these assume UTF-8.
+
+Always define the character encoding. The encoding should be defined as early as possible. Make sure your editor uses UTF-8 as character encoding, without a byte order mark (UTF-8, no BOM). Do not specify the encoding of style sheets as these assume UTF-8.
 
 ```html
 <meta charset="utf-8">
 ```
 
-[More on encodings and when and how to specify them can be found in Handling character encodings in HTML and CSS](http://www.w3.org/International/tutorials/tutorial-char-enc/)
-
+More on encodings and when and how to specify them can be found in [Handling character encodings in HTML and CSS](http://www.w3.org/International/tutorials/tutorial-char-enc/)
 
 ### Capitalisation
-All html should be lowercase; element names, attributes, attribute values (unless text/CDATA), CSS selectors, properties, and property values (with the exception of strings). Additionally, there is no need to use CDATA to escape inline JavaScript, formerly a requirement to meet XML strictness in XHTML.
+All HTML should be lowercase; element names, attributes, attribute values (unless text/CDATA), CSS selectors, properties, and property values (with the exception of strings). Additionally, there is no need to use CDATA to escape inline JavaScript, formerly a requirement to meet XML strictness in XHTML.
 
 ```html
 <!-- Good -->
@@ -76,10 +71,12 @@ This prevents mixed content issues and results in minor file size savings.
 
 ### Elements and Attributes
 
-Always include html, head, and body tags.
+Always include `<html>`, `<head>`, and `<body>` tags.
 
 ### Type attributes
+
 Do not use type or attributes for style sheets (unless not using CSS) and scripts (unless not using JavaScript).
+
 ```html
 <!-- Good -->
 <link rel="stylesheet" href="//joomla.org/css/main.css">
@@ -89,6 +86,7 @@ Do not use type or attributes for style sheets (unless not using CSS) and script
 ```
 
 ### Language attributes
+
 Do not use language attributes on script tags.
 ```html
 <!-- Good -->
@@ -98,21 +96,24 @@ Do not use language attributes on script tags.
 <script href="//code.jquery.com/jquery-latest.js" language="javascript">
 ```
 
-
 ### Attributes
 
 Attribute values should be quoted using double ("") quotes. Optional attributes should be omitted.
+
 ```html
 <!-- Good -->
 <script src="//code.jquery.com/jquery-latest.js"></script>
+
 <!-- Bad -->
 <script src='//code.jquery.com/jquery-latest.js'></script>
 ```
 
 Use attribute/value pairs for boolean attributes
+
 ```html
 <!-- Good -->
 <input type="checkbox" value="on" checked="checked">
+
 <!-- Bad -->
 <input type="checkbox" value="on" checked>
 ```
@@ -127,6 +128,7 @@ HTML attributes should be listed in an order that reflects the fact that class n
 ```html
 <!-- Good -->
 <a class="[some-value]" id="[some-value]" data-name="[some-value]" href="[some-value]">Text</a>
+
 <!-- Bad -->
 <a href="[some-value]" class="[some-value]" id="[some-value]" data-name="[some-value]">Text</a>
 ```
@@ -143,33 +145,38 @@ Elements with multiple attributes can have attributes arranged across multiple l
 ```
 
 ### Elements
+
 Optional closing tags may not be omitted.
+
 ```html
 <!-- Good -->
 <p>The quick brown fox jumps over the lazy dog.</p>
+
 <!-- Bad -->
 <p>The quick brown fox jumps over the lazy dog.
 ```
 
 Self-closing (void) elements should not be closed. Trailing forward slashes and spaces should be omitted.
+
 ```html
 <!-- Good -->
 <img src="//images/logo.png" alt="">
+
 <!-- Bad -->
 <img src="//images/logo.png" alt="" />
 ```
 
-
 ### Formatting
+
 Use a new line for every block, list, or table element, and indent every such child element.
 
 ```html
 <!-- Good -->
 <div>
-	<ul>
-	  <li>Home</li>
-	  <li>Blog</li>
-	</ul>
+    <ul>
+        <li>Home</li>
+        <li>Blog</li>
+    </ul>
 </div>
 
 <!-- Bad -->
@@ -205,17 +212,17 @@ Tip: configure your editor to "show invisibles". This will allow you to eliminat
             <th scope="col">Taxes</th>
         </tr>
     <tbody>
-    <tr>
-        <td>$ 5.00</td>
-        <td>$ 4.50</td>
-    </tr>
+        <tr>
+            <td>$ 5.00</td>
+            <td>$ 4.50</td>
+        </tr>
+    </tbody>
 </table>
 ```
 
 ### Indentation
-Don't indent inside html, body, script, or style. Indent inside head and all other elements.
-Indent by four spaces at a time. Don’t use tabs or mix tabs and spaces for indentation.
 
+Don't indent inside `<html>`, `<body>`, `<script>`, or `<style>`. Indent inside `<head>` and all other elements. Indent by four spaces at a time. Don’t use tabs or mix tabs and spaces for indentation.
 
 ```html
 <!-- Good -->
@@ -248,6 +255,7 @@ Indent by four spaces at a time. Don’t use tabs or mix tabs and spaces for ind
 ```
 
 ### Trailing Whitespace
+
 Remove trailing white spaces. Trailing white spaces are unnecessary and can complicate diffs.
 
 ```html
@@ -258,11 +266,12 @@ Remove trailing white spaces. Trailing white spaces are unnecessary and can comp
 <p>No, thank you. </p>
 ```
 
-
 ### Entity References
+
 Do not use entity references. There is no need to use entity references like &mdash;, &rdquo;, or &#x263a;, assuming the same encoding (UTF-8) is used for files and editors as well as among teams.
 
 The only exceptions apply to characters with special meaning in HTML (like < and &) as well as control or “invisible” characters (like no-break spaces).
+
 ```html
 <!-- Good -->
 <p>The currency symbol for the Euro is “€”.</p>
@@ -273,7 +282,8 @@ The only exceptions apply to characters with special meaning in HTML (like < and
 
 ### Inline CSS
 
-Inline CSS must be avoided. When altering states using JavaScript, use CSS to define your states, and only use onobtrusive JavaScript to alter class names whenever possible.
+Inline CSS must be avoided. When altering states using JavaScript, use CSS to define your states, and only use unobtrusive JavaScript to alter class names whenever possible.
+
 ```html
 <!-- Good -->
 <a class="is-link-disabled" href="//index.php">Home</a>
@@ -285,13 +295,15 @@ Inline CSS must be avoided. When altering states using JavaScript, use CSS to de
 @todo more meaningful example.
 
 ### Style Attributes
+
 You should not use border, align, valign, or clear attributes. Avoid use of style attributes, except where using syndicated content or internal syndicating systems.
 
-
 ### Semantics
-Use HTML according to its purpose. For example, use heading elements for headings, p elements for paragraphs, a elements for anchors, etc.
+
+Use HTML according to its purpose. For example, use heading elements for headings, `<p>` elements for paragraphs, `<a>` elements for anchors, etc.
 
 Using HTML according to its purpose is important for accessibility, reuse, and code efficiency reasons.
+
 ```html
 <!-- Good -->
 <a href="subscriptions/">View subscriptions</a>
@@ -300,19 +312,20 @@ Using HTML according to its purpose is important for accessibility, reuse, and c
 <div onclick="goToSubscriptions();">View subscriptions</div>
 ```
 
-
-
 ### Markup
 
 #### Image Tags
-Image elements (<img>) must have an alt attribute. Height and width attributes are optional and may be omitted.
 
+Image elements (`<img>`) must have an alt attribute. Height and width attributes are optional and may be omitted.
 
 @todo add examples from here http://www.bbc.co.uk/guidelines/futuremedia/technical/semantic_markup.shtml
 
 ### Comments
+
 @todo: comment styles in JS, CSS, HTML
+
 For more complex blocks of HTML, it may be useful to add a comment to the closing tag:
+
 ```html
 <div class="parent">
 
@@ -322,20 +335,16 @@ For more complex blocks of HTML, it may be useful to add a comment to the closin
 </div><!-- /parent -->
 ```
 
-
-
 ### Mark todos
 Highlight todos by using the keyword TODO, eg:
 
 ```html
 <!-- TODO: add active item class -->
 <ul>
-  <li>Home</li>
-  <li>Blog</li>
+    <li>Home</li>
+    <li>Blog</li>
 </ul>
 ```
-
-
 
 ### Adding line breaks
 
@@ -345,9 +354,9 @@ Always use `<br />` instead of `<br>` and `<br/>` eg:
 This text contains<br />a line break.
 ```
 
-
-
 ### Markup validation tools
+
 @todo: list various testing tools:
+
 * http://validator.w3.org/nu/
 * http://csslint.net/
