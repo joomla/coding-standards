@@ -10,7 +10,6 @@
 	<!-- Include all sniffs in an external standard directory -->
 
 	<!-- Include some additional sniffs from the Generic standard -->
-	<rule ref="Generic.Arrays.DisallowShortArraySyntax" />
 	<rule ref="Generic.ControlStructures.InlineControlStructure" />
 	<rule ref="Generic.Files.EndFileNewline" />
 
