@@ -173,7 +173,7 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 				}
 			}
 
-			$nested = 0;
+			$baseLevel = $tokens[$stackPtr]['level'];
 
 			/**
 			 * Take into account any nested parenthesis that don't contribute to the level (often required for
@@ -181,10 +181,24 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 			 */
 			if (array_key_exists('nested_parenthesis', $tokens[$stackPtr]) === true)
 			{
-				$nested = count($tokens[$stackPtr]['nested_parenthesis']);
+				$nestedStructures = $tokens[$stackPtr]['nested_parenthesis'];
+				$nestedStructuresStart = array_keys($nestedStructures);
+				$lastNestedStructureStart = $nestedStructuresStart[count($nestedStructuresStart) - 1];
+				$nestedCount = count($nestedStructures);
+
+				// Crude way of checking for a chained method which requires an extra indent. We navigate to the open
+				// parenthesis of the nested structure. The element -1 before that is the function name. Before that we
+				// check for an operator (->) and a whitespace before it (which makes it a chained method on a new line)
+				// TODO: Is there a better way to check for a chained method? This feels very dirty!
+				if ($tokens[$lastNestedStructureStart - 2]['type'] === 'T_OBJECT_OPERATOR' && $tokens[$lastNestedStructureStart - 3]['type'] === 'T_WHITESPACE')
+				{
+					$nestedCount += 1;
+				}
+
+				$baseLevel += $nestedCount;
 			}
 
-			$expected = ($tokens[$stackPtr]['level'] + $nested) * $this->indent;
+			$expected = $baseLevel * $this->indent;
 
 			// We need to divide by 4 here since there is a space vs tab intent in the check vs token
 			$expected /= $this->indent;
