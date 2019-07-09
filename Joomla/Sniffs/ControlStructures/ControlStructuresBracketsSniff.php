@@ -186,17 +186,21 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 
 				foreach ($nestedStructures as $start => $end)
 				{
-					// Crude way of checking for a chained method which requires an extra indent. We navigate to the open
-					// parenthesis of the nested structure. The element before that is the function name. Before that we
-					// check for an operator (->) and a whitespace before it (which makes it a chained method on a new line)
-					// TODO: Is there a better way to check for a chained method? This feels very dirty!
+					/**
+					 * Crude way of checking for a chained method which requires an extra indent. We navigate to the open
+					 * parenthesis of the nested structure. The element before that is the function name. Before that we
+					 * check for an operator (->) and a whitespace before it (which makes it a chained method on a new line)
+					 * TODO: Is there a better way to check for a chained method? This feels very dirty!
+					 */
 					if ($tokens[$start - 2]['type'] === 'T_OBJECT_OPERATOR' && $tokens[$start - 3]['type'] === 'T_WHITESPACE')
 					{
-						// If we have an anonymous function/class on the same line as our chained method then we
-						// balance out so only increase the count by 1. Else by 2.
+						/**
+						 * If we have an anonymous function/class on the same line as our chained method then we
+						 * balance out so only increase the count by 1. Else by 2.
+						 */
 						if ($tokens[$start + 1]['type'] === 'T_CLOSURE' || $tokens[$start + 1]['type'] === 'T_ANON_CLASS')
 						{
-							$nestedCount += 1;
+							$nestedCount++;
 						}
 						else
 						{
@@ -205,7 +209,7 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 					}
 					else
 					{
-						$nestedCount +=1;
+						$nestedCount++;
 					}
 				}
 
