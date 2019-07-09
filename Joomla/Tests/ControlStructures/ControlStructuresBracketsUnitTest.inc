@@ -270,3 +270,39 @@ class Application
 			);
 	}
 }
+
+class Application
+{
+	public function doThings($container)
+	{
+		$container->share(
+			'MyClass',
+			function (Container $container) {
+				doThing();
+
+				if ($thing)
+		{
+					bar();
+				}
+				else {
+					something();
+
+					if (somethingelse())
+		{
+						bar();
+					}
+
+					anotherFunction()
+						->withNested(function() {
+							if ($foo){
+								bar();
+							}
+						});
+
+					return foo();
+				}
+			},
+			true
+		);
+	}
+}

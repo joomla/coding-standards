@@ -182,17 +182,31 @@ class Joomla_Sniffs_ControlStructures_ControlStructuresBracketsSniff implements 
 			if (array_key_exists('nested_parenthesis', $tokens[$stackPtr]) === true)
 			{
 				$nestedStructures = $tokens[$stackPtr]['nested_parenthesis'];
-				$nestedStructuresStart = array_keys($nestedStructures);
-				$lastNestedStructureStart = $nestedStructuresStart[count($nestedStructuresStart) - 1];
-				$nestedCount = count($nestedStructures);
+				$nestedCount = 0;
 
-				// Crude way of checking for a chained method which requires an extra indent. We navigate to the open
-				// parenthesis of the nested structure. The element -1 before that is the function name. Before that we
-				// check for an operator (->) and a whitespace before it (which makes it a chained method on a new line)
-				// TODO: Is there a better way to check for a chained method? This feels very dirty!
-				if ($tokens[$lastNestedStructureStart - 2]['type'] === 'T_OBJECT_OPERATOR' && $tokens[$lastNestedStructureStart - 3]['type'] === 'T_WHITESPACE')
+				foreach ($nestedStructures as $start => $end)
 				{
-					$nestedCount += 1;
+					// Crude way of checking for a chained method which requires an extra indent. We navigate to the open
+					// parenthesis of the nested structure. The element before that is the function name. Before that we
+					// check for an operator (->) and a whitespace before it (which makes it a chained method on a new line)
+					// TODO: Is there a better way to check for a chained method? This feels very dirty!
+					if ($tokens[$start - 2]['type'] === 'T_OBJECT_OPERATOR' && $tokens[$start - 3]['type'] === 'T_WHITESPACE')
+					{
+						// If we have an anonymous function/class on the same line as our chained method then we
+						// balance out so only increase the count by 1. Else by 2.
+						if ($tokens[$start + 1]['type'] === 'T_CLOSURE' || $tokens[$start + 1]['type'] === 'T_ANON_CLASS')
+						{
+							$nestedCount += 1;
+						}
+						else
+						{
+							$nestedCount += 2;
+						}
+					}
+					else
+					{
+						$nestedCount +=1;
+					}
 				}
 
 				$baseLevel += $nestedCount;
