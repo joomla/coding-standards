@@ -248,3 +248,61 @@ $this->attachRule(
 		}
 	}
 );
+
+class Application
+{
+	public function doThings($container)
+	{
+		$container->alias(MyClass::class, 'MyClass')
+			->share(
+				'MyClass',
+				function (Container $container) {
+					doThing();
+
+					if ($thing)
+						{
+						bar();
+					}
+
+					return foo();
+				},
+				true
+			);
+	}
+}
+
+class Application
+{
+	public function doThings($container)
+	{
+		$container->share(
+			'MyClass',
+			function (Container $container) {
+				doThing();
+
+				if ($thing)
+		{
+					bar();
+				}
+				else {
+					something();
+
+					if (somethingelse())
+		{
+						bar();
+					}
+
+					anotherFunction()
+						->withNested(function() {
+							if ($foo){
+								bar();
+							}
+						});
+
+					return foo();
+				}
+			},
+			true
+		);
+	}
+}
