@@ -1,5 +1,3 @@
-## DocBlocks
-
 Documentation headers for PHP code in: files, classes, class properties, methods and functions, called the docblocks, follow a convention similar to JavaDoc or phpDOC.
 
 These "DocBlocks" borrow from the PEAR standard but have some variations specific for Joomla and the Joomla projects.
@@ -18,7 +16,7 @@ Short description (optional unless the file contains more than two classes or fu
 * @category (optional and rarely used)
 * @package (generally optional but required when files contain only procedural code. Always optional in namespaced code)
 * @subpackage (optional)
-* @author (optional but only permitted in non-Joomla source files, for example, included third-party libraries like Geshi)
+* @author (optional but only permitted in non-Joomla source files)
 * @copyright (required)
 * @license (required and must be compatible with the Joomla license)
 * @link (optional)
@@ -39,8 +37,7 @@ Example of a DocBlock Header:
 ```
 
 ### Class Definitions
-Class definitions start on a new line and the opening and closing braces are also placed on new lines. Class methods must follow the guidelines for Function Definitions. Properties and methods must follow OOP standards and be declared appropriately (using public, protected, private and static as applicable).
-Class definitions, properties and methods must each be provided with a DocBlock in accordance with the following sections.
+Class definitions start on a new line and the opening and closing braces are also placed on new lines. Class methods must follow the guidelines for Function Definitions. Properties and methods must follow OOP standards and be declared appropriately (using public, protected, private and static as applicable). Class definitions, properties and methods must each be provided with a DocBlock in accordance with the following sections.
 
 #### Class DocBlock Headers
 The class Docblock consists of the following required and optional elements in the fol-lowing order.
@@ -49,7 +46,7 @@ Short description (required, unless the file contains more than two classes or f
 * @category (optional and rarely used)
 * @package (optional)
 * @subpackage (optional)
-* @author (optional but only permitted in non-Joomla source files, for example, included third-party libraries like Geshi)
+* @author (optional but only permitted in non-Joomla source files)
 * @copyright (optional unless different from the file Docblock)
 * @license (optional unless different from the file Docblock)
 * @link (optional)
@@ -87,8 +84,6 @@ Example of Class property DocBlock:
 	 */
 	protected static $userId = 0;
 ```
-
-
 
 #### Class Method DocBlocks and Functions DocBlocks
 Function definitions start on a new line and the opening and closing braces are also placed on new lines. An empty line should precede lines specifying the return value.
