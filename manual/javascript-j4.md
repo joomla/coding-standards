@@ -17,4 +17,4 @@ to our custom element alerts)
 4. We always enable javascript strict mode as we aren't using javascript modules at the moment
 
 We also use ESLint to enforce these rules. If you are familiar with javascript from other projects you've worked on you
-can find our eslint rules at (in the following location on GitHub)[https://github.com/joomla/joomla-cms/blob/4.0-dev/.eslintrc]
+can find our eslint rules at [in the following location on GitHub](https://github.com/joomla/joomla-cms/blob/4.0-dev/.eslintrc)
