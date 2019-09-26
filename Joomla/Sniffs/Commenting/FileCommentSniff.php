@@ -265,7 +265,7 @@ class Joomla_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Sniff
 		{
 			if (isset($tagTokens[$tag]) === false)
 			{
-				// We don't use package tags in namespaced code
+				// We don't use package tags in namespaced code.
 				if ($tag === '@package' || $tag === '@subpackage')
 				{
 					// Check for a namespace token, if certain other tokens are found we can move on. This keeps us from searching the whole file.
