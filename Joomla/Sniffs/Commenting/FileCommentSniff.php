@@ -263,14 +263,16 @@ class Joomla_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Sniff
 
 		foreach ($this->tags as $tag => $tagData)
 		{
-			// We don't use package tags in namespaced code
+			// We don't use package tags in namespaced classes.
 			if ($tag === '@package' || $tag === '@subpackage')
 			{
-				// Check for a namespace token, if certain other tokens are found we can move on. This keeps us from searching the whole file.
-				$namespaced = $phpcsFile->findNext(array(T_NAMESPACE, T_CLASS, T_INTERFACE, T_TRAIT), 0);
+				// Check for namespaced classes.
+				$namespaced = $phpcsFile->findNext(array(T_NAMESPACE), 0);
+				$classes    = array(T_CLASS, T_INTERFACE, T_TRAIT);
+				$class      = $phpcsFile->findNext($classes, 0);
 
-				// If we found a namespace token we skip the error, otherwise we let the error happen
-				if ($tokens[$namespaced]['code'] === T_NAMESPACE)
+				// If we found a namespaced class trigger the error.
+				if ($tokens[$namespaced]['code'] === T_NAMESPACE && in_array($tokens[$class]['code'], $classes, true))
 				{
 					if (isset($tagTokens[$tag]) === true)
 					{
