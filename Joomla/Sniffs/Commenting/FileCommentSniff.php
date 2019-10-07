@@ -278,9 +278,9 @@ class Joomla_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Sniff
 					{
 						$error = '%s tag found in namespaced %s comment';
 						$data  = array(
-								$tag,
-								$docBlock,
-							);
+							$tag,
+							$docBlock,
+						);
 						$phpcsFile->addError($error, $commentEnd, ucfirst(substr($tag, 1)) . 'TagInNamespace', $data);
 					}
 
