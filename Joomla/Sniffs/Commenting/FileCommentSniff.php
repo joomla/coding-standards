@@ -266,8 +266,8 @@ class Joomla_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Sniff
 			// We don't use package tags in namespaced classes.
 			if ($tag === '@package' || $tag === '@subpackage')
 			{
-				// Check for namespaced classes.
-				$namespaced = $phpcsFile->findNext(array(T_NAMESPACE), 0);
+				//Check for a namespace token, if certain other tokens are found we can move on. This keeps us from searching the whole file.
+				$namespaced = $phpcsFile->findNext(array(T_NAMESPACE, T_CLASS, T_INTERFACE, T_TRAIT), 0);
 				$classes    = array(T_CLASS, T_INTERFACE, T_TRAIT);
 				$class      = $phpcsFile->findNext($classes, 0);
 
