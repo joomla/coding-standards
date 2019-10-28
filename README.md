@@ -14,7 +14,7 @@ If you want to contribute and improve this documentation, you can find the sourc
 * PHP 5.3+
 * [PHP Codesniffer](https://github.com/squizlabs/PHP_CodeSniffer) 2.8+
 
-**Important note**: currently the latest PHPCS is the 3.x series. There is [a development branch](https://github.com/joomla/coding-standards/tree/3.x-dev) for the Joomla custom sniffs Which is compatible with the PHPCS 3.x series. Although PEAR and composer give you the option to install PHPCS 3.x by default the Joomla custom sniffs releases are currently only compatable with PHPCS 2.x and will not work, so we remind you to always install the PHPCS 2.x series if you are using the Joomla custom sniffs. 
+**Important note**: currently the latest PHPCS is the 3.x series. There is [a development branch](https://github.com/joomla/coding-standards/tree/3.x-dev) for the Joomla custom sniffs Which is compatible with the PHPCS 3.x series. Although PEAR and composer give you the option to install PHPCS 3.x by default the Joomla custom sniffs releases are currently only compatible with PHPCS 2.x and will not work, so we remind you to always install the PHPCS 2.x series if you are using the Joomla custom sniffs. 
 If you want to test the [Joomla Code Standard development branch for PHPCS 3.x](https://github.com/joomla/coding-standards/tree/3.x-dev), please manually install the 3.x branch.
 
 ## Installation via Composer
@@ -62,8 +62,8 @@ Once you have the coding standard files you can tell PHPCS where the standard fo
 ```sh
 phpcs --config-set installed_paths /path/to/joomla-coding-standards
 ```
-Note: the composer scripts will run when the standard is installed globally, but not when it's a dependancy. As such, you may want to run PHPCS config-set. When you run PHPCS config-set it will always overwrite the previous values. Use `--config-show` to check previous values before using `--config-set`
-So instead of overwriting the existing paths you should copy the existing paths revealed with `--config-show` and add each one seperated by a comma:
+Note: the composer scripts will run when the standard is installed globally, but not when it's a dependency. As such, you may want to run PHPCS config-set. When you run PHPCS config-set it will always overwrite the previous values. Use `--config-show` to check previous values before using `--config-set`
+So instead of overwriting the existing paths you should copy the existing paths revealed with `--config-show` and add each one separated by a comma:
 `phpcs --config-set installed_paths [path_1],[path_2],[/path/to/joomla-coding-standards]`
 
 ## Running
@@ -80,7 +80,7 @@ Alternatively if it isn't installed you can still reference it by path like:
 
 For consuming packages there are some items that will typically result in creating their own project ruleset.xml, rather than just directly using the Joomla ruleset.xml. A project ruleset.xml allows the coding standard to be selectively applied for excluding 3rd party libraries, for consideration of backwards compatibility in existing projects, or for adjustments necessary for projects that do not need PHP 5.3 compatibility (which will be removed in a future version of the Joomla Coding Standard in connection of the end of PHP 5.3 support in all active Joomla Projects).
 
-For information on [selectivly applying rules read details in the PHP CodeSniffer wiki](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Annotated-ruleset.xml#selectively-applying-rules)
+For information on [selectively applying rules read details in the PHP CodeSniffer wiki](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Annotated-ruleset.xml#selectively-applying-rules)
 
 #### Common Rule Set Adjustments
 
@@ -134,8 +134,8 @@ You have to tell you can tell PHPCS where the example ruleset folder is (i.e. in
 ```sh
 phpcs --config-set installed_paths /path/to/joomla/coding-standards/Example-Rulesets
 ```
-Note: the composer scripts will run when the standard is installed globally, but not when it's a dependancy. As such, you may want to run PHPCS config-set. When you run PHPCS config-set it will always overwrite the previous values. Use `--config-show` to check previous values before using `--config-set`
-So instead of overwriting the existing paths you should copy the existing paths revealed with `--config-show` and add each one seperated by a comma:
+Note: the composer scripts will run when the standard is installed globally, but not when it's a dependency. As such, you may want to run PHPCS config-set. When you run PHPCS config-set it will always overwrite the previous values. Use `--config-show` to check previous values before using `--config-set`
+So instead of overwriting the existing paths you should copy the existing paths revealed with `--config-show` and add each one separated by a comma:
 `phpcs --config-set installed_paths [path_1],[path_2],[/path/to/joomla-coding-standards],[/path/to/joomla/coding-standards/Example-Rulesets]`
 
 ## IDE autoformatters
