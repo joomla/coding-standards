@@ -419,13 +419,13 @@ class FileCommentSniff implements Sniff
 			{
 				$nameBits = explode('_', $newContent);
 				$firstBit = array_shift($nameBits);
-				$newName  = strtoupper($firstBit{0}) . substr($firstBit, 1) . '_';
+				$newName  = strtoupper($firstBit[0]) . substr($firstBit, 1) . '_';
 
 				foreach ($nameBits as $bit)
 				{
 					if ($bit !== '')
 					{
-						$newName .= strtoupper($bit{0}) . substr($bit, 1) . '_';
+						$newName .= strtoupper($bit[0]) . substr($bit, 1) . '_';
 					}
 				}
 
