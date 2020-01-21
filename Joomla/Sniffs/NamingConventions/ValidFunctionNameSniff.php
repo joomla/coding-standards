@@ -84,7 +84,7 @@ class ValidFunctionNameSniff extends PEARValidFunctionNameSniff
 		}
 
 		// Joomla change: Methods must not have an underscore on the front.
-		if ($scopeSpecified === true && $methodName{0} === '_')
+		if ($scopeSpecified === true && $methodName[0] === '_')
 		{
 			$error = '%s method name "%s" must not be prefixed with an underscore';
 			$data  = array(
@@ -105,7 +105,7 @@ class ValidFunctionNameSniff extends PEARValidFunctionNameSniff
 		 */
 		$testMethodName = $methodName;
 
-		if ($scopeSpecified === false && $methodName{0} === '_')
+		if ($scopeSpecified === false && $methodName[0] === '_')
 		{
 			$testMethodName = substr($methodName, 1);
 		}
