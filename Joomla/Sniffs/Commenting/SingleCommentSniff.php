@@ -39,7 +39,7 @@ class Joomla_Sniffs_Commenting_SingleCommentSniff implements PHP_CodeSniffer_Sni
 		$comment    = trim($tokens[$stackPtr]['content']);
 
 		// Hash comments are not allowed.
-		if ($tokens[$stackPtr]['content']{0} === '#')
+		if ($tokens[$stackPtr]['content'][0] === '#')
 		{
 			$phpcsFile->recordMetric($stackPtr, 'Inline comment style', '# ...');
 
@@ -54,21 +54,21 @@ class Joomla_Sniffs_Commenting_SingleCommentSniff implements PHP_CodeSniffer_Sni
 				$phpcsFile->fixer->replaceToken($stackPtr, $newComment);
 			}
 		}
-		elseif ($tokens[$stackPtr]['content']{0} === '/' && $tokens[$stackPtr]['content']{1} === '/')
+		elseif ($tokens[$stackPtr]['content'][0] === '/' && $tokens[$stackPtr]['content'][1] === '/')
 		{
 			$phpcsFile->recordMetric($stackPtr, 'Inline comment style', '// ...');
 			$singleLine = true;
 		}
-		elseif ($tokens[$stackPtr]['content']{0} === '/' && $tokens[$stackPtr]['content']{1} === '*')
+		elseif ($tokens[$stackPtr]['content'][0] === '/' && $tokens[$stackPtr]['content'][1] === '*')
 		{
 			$phpcsFile->recordMetric($stackPtr, 'Inline comment style', '/* ... */');
 		}
 
 		// Always have a space between // and the start of the comment text.
 		// The exception to this is if the preceding line consists of a single open bracket.
-		if ($tokens[$stackPtr]['content']{0} === '/' && $tokens[$stackPtr]['content']{1} === '/' && isset($tokens[$stackPtr]['content']{2})
-			&& $tokens[$stackPtr]['content']{2} !== ' ' && isset($tokens[($stackPtr - 1)]['content']{0})
-			&& $tokens[($stackPtr - 1)]['content']{0} !== '}'
+		if ($tokens[$stackPtr]['content'][0] === '/' && $tokens[$stackPtr]['content'][1] === '/' && isset($tokens[$stackPtr]['content'][2])
+			&& $tokens[$stackPtr]['content'][2] !== ' ' && isset($tokens[($stackPtr - 1)]['content'][0])
+			&& $tokens[($stackPtr - 1)]['content'][0] !== '}'
 		)
 		{
 			$error = 'Missing space between the // and the start of the comment text.';
@@ -88,9 +88,9 @@ class Joomla_Sniffs_Commenting_SingleCommentSniff implements PHP_CodeSniffer_Sni
 		 * the line is a continuation of a complete sentence,
 		 * the term is code and is case sensitive.(@todo)
 		 */
-		if (($singleLine === true && isset($tokens[$stackPtr]['content']{3}) && $tokens[$stackPtr]['content']{2} === ' '
-			&& $tokens[$stackPtr]['content']{3} !== strtoupper($tokens[$stackPtr]['content']{3})) || (isset($comment{2}) && $comment{0} === '*'
-			&& $comment{1} === ' ' && $comment{2} !== strtoupper($comment{2}))
+		if (($singleLine === true && isset($tokens[$stackPtr]['content'][3]) && $tokens[$stackPtr]['content'][2] === ' '
+			&& $tokens[$stackPtr]['content'][3] !== strtoupper($tokens[$stackPtr]['content'][3])) || (isset($comment[2]) && $comment[0] === '*'
+			&& $comment[1] === ' ' && $comment[2] !== strtoupper($comment[2]))
 		)
 		{
 			$error = 'Comment must start with a capital letter; found "%s"';
@@ -98,13 +98,13 @@ class Joomla_Sniffs_Commenting_SingleCommentSniff implements PHP_CodeSniffer_Sni
 
 			if ($singleLine === true)
 			{
-				$data       = array($comment{3});
+				$data       = array($comment[3]);
 				$newComment = ltrim($tokens[$stackPtr]['content'], '\// ');
 				$newComment = '// ' . ucfirst($newComment);
 			}
 			else
 			{
-				$data       = array($comment{2});
+				$data       = array($comment[2]);
 				$padding    = (strlen($tokens[$stackPtr]['content']) - strlen($comment));
 				$padding    = str_repeat("\t", $padding - 2);
 				$newComment = ltrim($comment, '* ');
@@ -116,7 +116,7 @@ class Joomla_Sniffs_Commenting_SingleCommentSniff implements PHP_CodeSniffer_Sni
 			{
 				$test = trim($tokens[$previous]['content']);
 
-				if ('.' === $test{(strlen($test) - 1)})
+				if ('.' === $test[(strlen($test) - 1)])
 				{
 					$fix = $phpcsFile->addFixableError($error, $stackPtr, 'LowerCaseAfterSentenceEnd', $data);
 
