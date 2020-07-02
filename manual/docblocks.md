@@ -4,7 +4,7 @@ These "DocBlocks" borrow from the PEAR standard but have some variations specifi
 
 Whereas normal code indenting uses real tabs, all whitespace in a Docblock uses real spaces. This provides better readability in source code browsers. The minimum whitespace between any text elements, such as tags, variable types, variable names and tag descriptions, is two real spaces. Variable types and tag descriptions should be aligned according to the longest Docblock tag and type-plus-variable respectively.
 
-Code contributed to the Joomla project that will become the copyright of the project is not allowed to include @author tags. You should update the contribution log in CREDITS.php. Joomla's philosophy is that the code is written "all together" and there is no notion of any one person "owning" any section of code. The @author tags are permitted in third-party libraries that are included in the core libraries.
+Code contributed to the Joomla project that will become the copyright of the project is not allowed to include @author tags. Joomla's philosophy is that the code is written "all together" and there is no notion of any one person "owning" any section of code. The @author tags are permitted in third-party libraries that are included in the core libraries.
 
 Files included from third party sources must leave DocBlocks intact. Layout files use the same DocBlocks as other PHP files.
 
