@@ -124,7 +124,7 @@ Example of Method DocBlock:
 	public function setHttpMethodSuffix($method, $suffix)
 ```
 
-If a function definition goes over multiple lines, all lines must be indented with one tab and the closing brace must go on the same line as the last parameter.
+If a function definition goes over multiple lines, all lines must be indented with one tab and the closing bracket must go on the same line as the last parameter.
 
 ```php
 function fooBar($param1, $param2,
