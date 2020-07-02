@@ -40,7 +40,7 @@ Example of a DocBlock Header:
 Class definitions start on a new line and the opening and closing braces are also placed on new lines. Class methods must follow the guidelines for Function Definitions. Properties and methods must follow OOP standards and be declared appropriately (using public, protected, private and static as applicable). Class definitions, properties and methods must each be provided with a DocBlock in accordance with the following sections.
 
 #### Class DocBlock Headers
-The class Docblock consists of the following required and optional elements in the fol-lowing order.
+The class Docblock consists of the following required and optional elements in the following order.
 Short description (required, unless the file contains more than two classes or functions), followed by a blank line). Long description (optional, followed by a blank line).
 
 * @category (optional and rarely used)
