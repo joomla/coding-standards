@@ -20,6 +20,31 @@ if (class_exists('PEAR_Sniffs_NamingConventions_ValidFunctionNameSniff', true) =
 class Joomla_Sniffs_NamingConventions_ValidFunctionNameSniff extends PEAR_Sniffs_NamingConventions_ValidFunctionNameSniff
 {
 	/**
+	 * A list of all PHP magic methods.
+	 *
+	 * @var array
+	 */
+	protected $magicMethods = array(
+		'construct'   => true,
+		'destruct'    => true,
+		'call'        => true,
+		'callstatic'  => true,
+		'get'         => true,
+		'set'         => true,
+		'isset'       => true,
+		'unset'       => true,
+		'sleep'       => true,
+		'wakeup'      => true,
+		'serialize'   => true,
+		'unserialize' => true,
+		'tostring'    => true,
+		'invoke'      => true,
+		'set_state'   => true,
+		'clone'       => true,
+		'debuginfo'   => true,
+	);
+
+	/**
 	 * Processes the tokens within the scope.
 	 *
 	 * Extends PEAR.NamingConventions.ValidFunctionName.processTokenWithinScope to remove the requirement for leading underscores on
