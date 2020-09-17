@@ -24,7 +24,7 @@ class Joomla_Sniffs_NamingConventions_ValidFunctionNameSniff extends PEAR_Sniffs
 	 *
 	 * @var array
 	 */
-	protected $magicMethods = [
+	protected $magicMethods = array(
 		'construct'   => true,
 		'destruct'    => true,
 		'call'        => true,
@@ -42,7 +42,7 @@ class Joomla_Sniffs_NamingConventions_ValidFunctionNameSniff extends PEAR_Sniffs
 		'set_state'   => true,
 		'clone'       => true,
 		'debuginfo'   => true,
-	];
+	);
 
 	/**
 	 * Processes the tokens within the scope.
