@@ -4,7 +4,7 @@ These guidelines have been assembled following an examination of emerging practi
 2. [jQuery's HTML Styleguide](http://contribute.jquery.org/style-guide/html/)
 3. [Nicolas Ghallager's "Principles of writing consistent, idiomatic HTML"](https://github.com/necolas/idiomatic-html)
 4. [Harry Robert's "My HTML/CSS coding style"](http://csswizardry.com/2012/04/my-html-css-coding-style/)
-4. [The BBC's Media Standards and Guidelines](http://www.bbc.co.uk/guidelines/futuremedia/technical/semantic_markup.shtml)
+4. The BBC's Media Standards and Guidelines
 
 ### Doctype
 
