@@ -12,4 +12,4 @@ We have four modifications to the defaults:
 
 4. We always enable JavaScript strict mode as we aren't using JavaScript modules at this time
 
-We also use ESLint to enforce these rules. If you are familiar with JavaScript from other projects you've worked on you can find our ESLint rules [on GitHub](https://github.com/joomla/joomla-cms/blob/4.0-dev/.eslintrc)
+We also use ESLint to enforce these rules. If you are familiar with JavaScript from other projects you've worked on you can find our ESLint rules [on GitHub](https://github.com/joomla/joomla-cms/blob/4.0-dev/build/.eslintrc)
