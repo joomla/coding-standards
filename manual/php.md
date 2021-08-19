@@ -200,15 +200,16 @@ echo JRoute::_(
 
 ### Arrays
 
-Assignments (the `=>` operator) in arrays may be aligned with spaces. When splitting array definitions onto several lines, the last value should also have a trailing comma. This is valid PHP syntax and helps to keep code diffs minimal.
+Assignments (the `=>` operator) in arrays may be aligned with spaces. When splitting array definitions onto several lines, the last value should also have a trailing comma. This is valid PHP syntax and helps to keep code diffs minimal. Joomla 3 prefers `array()` to be backward compatibleto 5.3.10 (Short array syntax was introduced in PHP 5.4) and Joomla 4.0.0 onwards should use the `[]` Short array syntax by default.
 
 For example:
 
 ```php
-$options = array(
+$options = [
 	'foo'  => 'foo',
 	'spam' => 'spam',
-);
+];
+
 ```
 
 ### Code Commenting
