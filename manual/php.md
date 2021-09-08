@@ -39,6 +39,10 @@ As of Joomla version 1.6 and for all versions of the Joomla Platform, adhering t
 
 Global variables should not be used. Use static class properties or constants instead of globals, following OOP and factory patterns.
 
+### Error Surpression
+
+The use of the `@` for Error Surpression should be avoided and limited to use when no other approach or workaround is available. 
+
 ### Control Structures (General Code)
 
 For all control structures there is a space between the keyword and an opening parenthesis, then no space either after the opening parenthesis or before the closing bracket. This is done to distinguish control keywords from function names. All control structures must contain their logic within braces.
