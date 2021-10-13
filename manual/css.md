@@ -98,17 +98,17 @@ The opening brace must be on the same line as the last selector and preceded by 
 ```css
 /* Good */
 .example {
-    color: #fff;
+  color: #fff;
 }
 
 /* Bad - closing brace is in the wrong place */
 .example {
-    color: #fff;
-    }
+  color: #fff;
+  }
 
 /* Bad - opening brace missing space */
 .example{
-    color: #fff;
+  color: #fff;
 }
 ```
 
@@ -118,20 +118,20 @@ Each property must be on its own line and indented one level. There should be no
 ```css
 /* Good */
 .example {
-    background: black;
-    color: #fff;
+  background: black;
+  color: #fff;
 }
 
 /* Bad - missing spaces after colons */
 .example {
-    background:black;
-    color:#fff;
+  background:black;
+  color:#fff;
 }
 
 /* Bad - missing last semicolon */
 .example {
-    background: black;
-    color: #fff
+  background: black;
+  color: #fff
 }
 ```
 
@@ -141,12 +141,12 @@ HEX values must be declared in lowercase and shorthand:
 ```css
 /* Good */
 .example {
-    color: #eee;
+  color: #eee;
 }
 
 /* Bad */
 .example {
-    color: #EEEEEE;
+  color: #EEEEEE;
 }
 ```
 
@@ -156,17 +156,17 @@ Always use double quotes around attribute selectors.
 ```css
 /* Good */
 input[type="button"] {
-    ...
+  ...
 }
 
 /* Bad - missing quotes */
 input[type=button] {
-    ...
+  ...
 }
 
 /* Bad - using single quote */
 input[type='button'] {
-    ...
+  ...
 }
 ```
 
@@ -176,11 +176,11 @@ Zero values should not carry units.
 ```css
 /* Good */
 .example {
-   padding: 0;
+  padding: 0;
 }
 
 /* Bad - uses units */
 .example {
-   padding: 0px;
+  padding: 0px;
 }
 ```
