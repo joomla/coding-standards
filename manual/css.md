@@ -79,13 +79,13 @@ Use dashes to create compound class names:
 ```
 
 #### Indentation
-Rules should be indented one tab (equal to 4 spaces):
+Rules should be indented two spaces:
 
 ```css
 /* Good */
 .example {
-	color: #000;
-	visibility: hidden;
+  color: #000;
+  visibility: hidden;
 }
 
 /* Bad - all on one line */
