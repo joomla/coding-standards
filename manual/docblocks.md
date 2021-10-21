@@ -79,7 +79,7 @@ Example of Class property DocBlock:
 	/**
 	 * The generated user ID
 	 *
-	 * @var    integer
+	 * @var    int
 	 * @since  3.1
 	 */
 	protected static $userId = 0;
