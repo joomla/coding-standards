@@ -114,7 +114,7 @@ Example of Method DocBlock:
 	 * @param   string  $method  The HTTP method for which to set the class suffix.
 	 * @param   string  $suffix  The class suffix to use when fetching the controller name for a given request.
 	 *
-	 * @return  JApplicationWebRouter  This object for method chaining.
+	 * @return  ApplicationWebRouter  This object for method chaining.
 	 *
 	 * @since   12.2
 	 *
