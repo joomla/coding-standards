@@ -509,7 +509,7 @@ Field values checked in a query should always be enclosed in the `quote()` metho
 
 ```php
 // Get the database connector.
-$db = JFactory::getDbo();
+$db = Factory::getDbo();
 
 // Get the query from the database connector.
 $query = $db->getQuery(true);
