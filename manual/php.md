@@ -1,3 +1,10 @@
+> **Note**
+>
+> The Joomla! CMS switched in Version 4.2.0 from its own coding standard to the PSR-12 (and later to PER Coding Style) coding standard.
+> This document applies to Joomla! < 4.2.0 and parts of it still applies to 4.2.0 and later.
+> 
+> This document will be updated to reflect the PSR-12 coding standard soon.
+ 
 ### Language Constructs
 
 #### PHP Code Tags
