@@ -1,3 +1,5 @@
+The Joomla project has migrated all its code to use PSR-12 codestyle instead of a custom version. If you are using this codestyle, you should also migrate to PSR-12. This codestyle will not get any further maintenance and is therefore archived since March 2024.
+
 Joomla Coding Standards [![Build Status](https://travis-ci.org/joomla/coding-standards.svg?branch=master)](https://travis-ci.org/joomla/coding-standards)
 =======================
 
