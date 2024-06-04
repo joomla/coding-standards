@@ -1,3 +1,9 @@
+**Since Joomla version 4.2, Joomla uses the PSR-12 coding standard.**
+
+**THIS HERE IS NO LONGER NEEDED**
+
+---
+
 Joomla Coding Standards [![Build Status](https://travis-ci.org/joomla/coding-standards.svg?branch=master)](https://travis-ci.org/joomla/coding-standards)
 =======================
 
