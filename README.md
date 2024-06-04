@@ -1,6 +1,8 @@
 **Since Joomla version 4.2, Joomla uses the PSR-12 coding standard.**
 
-**THIS HERE IS NO LONGER NEEDED**
+**We will update this soon to reflect this change**
+
+**All not php coding standards are still valid**
 
 ---
 
