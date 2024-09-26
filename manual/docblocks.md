@@ -4,7 +4,7 @@ These "DocBlocks" borrow from the PEAR standard but have some variations specifi
 
 Whereas normal code indenting uses real tabs, all whitespace in a Docblock uses real spaces. This provides better readability in source code browsers. The minimum whitespace between any text elements, such as tags, variable types, variable names and tag descriptions, is two real spaces. Variable types and tag descriptions should be aligned according to the longest Docblock tag and type-plus-variable respectively.
 
-Code contributed to the Joomla project that will become the copyright of the project is not allowed to include @author tags. Joomla's philosophy is that the code is written "all together" and there is no notion of any one person "owning" any section of code. The @author tags are permitted in third-party libraries that are included in the core libraries.
+Code contributed to the Joomla project that will become the copyright of the project is not allowed to include \@author tags. Joomla's philosophy is that the code is written "all together" and there is no notion of any one person "owning" any section of code. The \@author tags are permitted in third-party libraries that are included in the core libraries.
 
 Files included from third party sources must leave DocBlocks intact. Layout files use the same DocBlocks as other PHP files.
 
@@ -12,17 +12,17 @@ Files included from third party sources must leave DocBlocks intact. Layout file
 The file header DocBlock consists of the following required and optional elements in the following order:
 Short description (optional unless the file contains more than two classes or functions), followed by a blank line). Long description (optional, followed by a blank line).
 
-* @version (optional and must be first)
-* @category (optional and rarely used)
-* @package (generally optional but required when files contain only procedural code. Always optional in namespaced code)
-* @subpackage (optional)
-* @author (optional but only permitted in non-Joomla source files)
-* @copyright (required)
-* @license (required and must be compatible with the Joomla license)
-* @link (optional)
-* @see (optional)
-* @since (generally optional but required when files contain only procedural code)
-* @deprecated (optional)
+* \@version (optional and must be first)
+* \@category (optional and rarely used)
+* \@package (generally optional but required when files contain only procedural code. Always optional in namespaced code)
+* \@subpackage (optional)
+* \@author (optional but only permitted in non-Joomla source files)
+* \@copyright (required)
+* \@license (required and must be compatible with the Joomla license)
+* \@link (optional)
+* \@see (optional)
+* \@since (generally optional but required when files contain only procedural code)
+* \@deprecated (optional)
 
 Example of a DocBlock Header:
 
@@ -43,16 +43,16 @@ Class definitions start on a new line and the opening and closing braces are als
 The class Docblock consists of the following required and optional elements in the following order.
 Short description (required, unless the file contains more than two classes or functions), followed by a blank line). Long description (optional, followed by a blank line).
 
-* @category (optional and rarely used)
-* @package (optional)
-* @subpackage (optional)
-* @author (optional but only permitted in non-Joomla source files)
-* @copyright (optional unless different from the file Docblock)
-* @license (optional unless different from the file Docblock)
-* @link (optional)
-* @see (optional)
-* @since (required, being the version of the software the class was introduced)
-* @deprecated (optional)
+* \@category (optional and rarely used)
+* \@package (optional)
+* \@subpackage (optional)
+* \@author (optional but only permitted in non-Joomla source files)
+* \@copyright (optional unless different from the file Docblock)
+* \@license (optional unless different from the file Docblock)
+* \@link (optional)
+* \@see (optional)
+* \@since (required, being the version of the software the class was introduced)
+* \@deprecated (optional)
 
 Example of a Class file DocBlock header:
 ```php
@@ -69,9 +69,9 @@ Example of a Class file DocBlock header:
 The class property Docblock consists of the following required and optional elements in the following order.
 Short description (required, followed by a blank line)
 
-* @var (required, followed by the property type)
-* @since (required)
-* @deprecated (optional)
+* \@var (required, followed by the property type)
+* \@since (required)
+* \@deprecated (optional)
 
 Example of Class property DocBlock:
 
@@ -92,19 +92,19 @@ Function definitions must include a documentation comment in accordance with the
 
 * Short description (required, followed by a blank line)
 * Long description (optional, followed by a blank line)
-* @param (required if there are method or function arguments, the last @param tag is followed by a blank line)
-* @return (required, followed by a blank line)
-* @since (required, followed by a blank line if there are additional tags)
-* @throws (required if method or function arguments throws a specific type of exception)
+* \@param (required if there are method or function arguments, the last @param tag is followed by a blank line)
+* \@return (required, followed by a blank line)
+* \@since (required, followed by a blank line if there are additional tags)
+* \@throws (required if method or function arguments throws a specific type of exception)
 * All other tags in alphabetical order.
 
 **Note:**
-Commonly a line after the tag @param consists of the following three parts in order of appearance:
+Commonly a line after the tag \@param consists of the following three parts in order of appearance:
 * variable type (There must be 3 spaces before variable type.)
 * variable name (There must be 2 spaces after the longest type.)
 * variable description (There must be 2 spaces after the longest variable name.)
 
-If there are more than one @param the type, names and description have to be aligned.
+If there are more than one \@param the type, names and description have to be aligned.
 
 Example of Method DocBlock:
 ```php
